@@ -3,24 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Source Capital | Investment Consultant | Dubai</title>
+  <title>Source Capital | Fundraising Education & Support | Dubai</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
-    
     .hero-bg { 
       background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
                   url('hero.jpg') center/cover no-repeat fixed;
       background-position: center 30%;
     }
-    
     .nav-scrolled { background-color: rgba(0, 0, 0, 0.95); }
-    
-    .logo-img { 
-      height: 100px; 
-      width: auto; 
-      max-width: 700px;
+    .logo-img { height: 62px; width: auto; max-width: 320px; }
+
+    /* Popup Modal */
+    #checklist-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #18181b;
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 90%;
+      border: 1px solid #3f3f46;
     }
   </style>
 </head>
@@ -34,10 +47,8 @@
       </a>
 
       <div class="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="#about" class="hover:text-emerald-400 transition">About</a>
-        <a href="#services" class="hover:text-emerald-400 transition">Services</a>
-        <a href="#success" class="hover:text-emerald-400 transition">Success Stories</a>
-        <a href="#insights" class="hover:text-emerald-400 transition">Insights</a>
+        <a href="#products" class="hover:text-emerald-400 transition">Products</a>
+        <a href="#consulting" class="hover:text-emerald-400 transition">Consulting</a>
         <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
       </div>
       <a href="https://cal.com/edward-janes/30min" target="_blank" 
@@ -55,77 +66,67 @@
       </h1>
       <p class="text-2xl text-gray-300 mb-10">Helping ambitious founders raise Pre-Seed & Seed capital in the UAE and globally.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://cal.com/edward-janes/30min" target="_blank" 
-           class="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-semibold transition">Get Funded →</a>
-        <a href="#about" class="border border-white/50 hover:bg-white/10 px-10 py-5 rounded-2xl text-lg font-semibold transition">Learn More</a>
+        <button onclick="showChecklistModal()" 
+                class="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-semibold transition">
+          Download Free Raise Checklist →
+        </button>
+        <a href="#products" class="border border-white/50 hover:bg-white/10 px-10 py-5 rounded-2xl text-lg font-semibold transition">Browse Products</a>
       </div>
-      <p class="mt-12 text-sm text-gray-400">Dubai, UAE • Working Globally</p>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-24 bg-zinc-950">
+  <!-- Products -->
+  <section id="products" class="py-24 bg-zinc-950">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <h2 class="text-5xl font-bold text-center mb-6">Digital Tools & Education Products</h2>
+      <p class="text-xl text-gray-400 text-center mb-16">Instant access • Lifetime updates • Practical tools for raising capital</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-zinc-900 p-8 rounded-3xl text-center">
+          <h3 class="text-2xl font-semibold mb-3">Free Raise Checklist</h3>
+          <p class="text-gray-400 mb-6">Quick self-assessment to know if you're truly ready to raise.</p>
+          <button onclick="showChecklistModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 py-4 rounded-2xl font-semibold">Download Now</button>
+        </div>
+        <div class="bg-zinc-900 p-8 rounded-3xl text-center">
+          <h3 class="text-2xl font-semibold mb-3">Raise Launchpad</h3>
+          <p class="text-gray-400 mb-6">Complete digital course + playbook for the full fundraising process.</p>
+          <button onclick="showChecklistModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 py-4 rounded-2xl font-semibold">Get Access</button>
+        </div>
+        <div class="bg-zinc-900 p-8 rounded-3xl text-center">
+          <h3 class="text-2xl font-semibold mb-3">Investor Outreach Templates</h3>
+          <p class="text-gray-400 mb-6">Proven email sequences and pitch scripts.</p>
+          <button onclick="showChecklistModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 py-4 rounded-2xl font-semibold">Get Templates</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consulting -->
+  <section id="consulting" class="py-24">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-8">Proven Consulting Support</h2>
+      <div class="flex flex-col sm:flex-row gap-16 justify-center items-center">
         <div>
-          <h2 class="text-5xl font-bold mb-8">Source Capital</h2>
-          <p class="text-xl text-gray-300 leading-relaxed mb-6">
-            We are a Dubai-based investment consultancy helping high-potential startups secure Pre-Seed and Seed funding.
-          </p>
-          <p class="text-lg text-gray-400">
-            With deep networks across the UAE, UK, and global markets, we provide strategic fundraising support, investor introductions, and pitch optimization.
-          </p>
-          <div class="mt-10 flex items-center gap-8">
-            <div>
-              <div class="text-4xl font-bold text-emerald-400">50+</div>
-              <div class="text-sm text-gray-400">Founders Funded</div>
-            </div>
-            <div>
-              <div class="text-4xl font-bold text-emerald-400">$45M+</div>
-              <div class="text-sm text-gray-400">Capital Raised</div>
-            </div>
-          </div>
+          <div class="text-6xl font-bold text-emerald-400">50+</div>
+          <div class="text-gray-400">Founders Funded</div>
         </div>
-        <div class="relative">
-          <img src="profile.PNG" alt="Edward Janes" class="rounded-3xl shadow-2xl w-full object-cover">
+        <div>
+          <div class="text-6xl font-bold text-emerald-400">$45M+</div>
+          <div class="text-gray-400">Capital Raised</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services, Contact, Footer (same structure) -->
-  <section id="services" class="py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16">How We Help Founders</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-zinc-900 p-10 rounded-3xl hover:bg-zinc-800 transition">
-          <i class="fa-solid fa-magnifying-glass-dollar text-4xl text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-4">Investor Matching</h3>
-          <p class="text-gray-400">Curated introductions to active angels and VCs in the Middle East and globally.</p>
-        </div>
-        <div class="bg-zinc-900 p-10 rounded-3xl hover:bg-zinc-800 transition">
-          <i class="fa-solid fa-file-contract text-4xl text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-4">Pitch Deck & Strategy</h3>
-          <p class="text-gray-400">Professional deck refinement, valuation support, and fundraising strategy.</p>
-        </div>
-        <div class="bg-zinc-900 p-10 rounded-3xl hover:bg-zinc-800 transition">
-          <i class="fa-solid fa-handshake text-4xl text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-4">Full Fundraising Campaign</h3>
-          <p class="text-gray-400">End-to-end execution from warm intros to deal closing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Contact -->
   <section id="contact" class="py-24 bg-zinc-950">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-6">Ready to Raise Capital?</h2>
-      <p class="text-2xl text-gray-400 mb-12">Let's discuss your startup and explore the best funding path.</p>
-      
-      <a href="https://cal.com/edward-janes/30min" target="_blank" 
-         class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white text-xl px-12 py-6 rounded-3xl font-semibold transition mb-8">
-        Book a 30-Min Strategy Call
-      </a>
+      <p class="text-2xl text-gray-400 mb-12">Start with our free resources or book a strategy call.</p>
+      <button onclick="showChecklistModal()" 
+              class="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-6 rounded-3xl font-semibold text-lg transition mb-4">
+        Download Free Raise Checklist
+      </button>
     </div>
   </section>
 
@@ -133,7 +134,7 @@
   <footer class="bg-black border-t border-white/10 py-12">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
       <div>© 2026 Source Capital. All rights reserved.</div>
-      <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm justify-center">
+      <div class="flex gap-x-8 text-sm">
         <a href="terms.html" class="hover:text-emerald-400">Terms</a>
         <a href="privacy.html" class="hover:text-emerald-400">Privacy</a>
       </div>
@@ -141,12 +142,125 @@
     </div>
   </footer>
 
+  <!-- CHECKLIST POPUP -->
+  <div id="checklist-modal">
+    <div class="modal-content">
+      <div class="newsletter-form-container">
+        <form class="newsletter-form" action="https://app.loops.so/api/newsletter-form/cmn78et4k1pr10izg4si3mbut" method="POST">
+          <h3 class="text-2xl font-bold text-center mb-6 text-white">Get Your Free Raise Checklist</h3>
+          <input class="newsletter-form-input" placeholder="you@example.com" required type="email" name="newsletter-form-input">
+          <button type="submit" class="newsletter-form-button">Download Now</button>
+          <button type="button" class="newsletter-loading-button" style="display:none;">Please wait...</button>
+        </form>
+
+        <div class="newsletter-success" style="display:none; text-align:center; padding-top:20px;">
+          <p class="text-emerald-400 font-medium">✅ Thanks! Check your inbox for the checklist.</p>
+        </div>
+        <div class="newsletter-error" style="display:none; text-align:center; padding-top:20px;">
+          <p class="text-red-400">Oops! Something went wrong. Please try again.</p>
+        </div>
+
+        <button onclick="closeChecklistModal()" class="mt-6 text-gray-400 hover:text-white text-sm mx-auto block">
+          ← Close
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Modal functions
+    function showChecklistModal() {
+      document.getElementById('checklist-modal').style.display = 'flex';
+    }
+    function closeChecklistModal() {
+      document.getElementById('checklist-modal').style.display = 'none';
+    }
+
+    // Close when clicking outside
+    document.getElementById('checklist-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeChecklistModal();
+    });
+
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
       if (window.scrollY > 50) nav.classList.add('nav-scrolled');
       else nav.classList.remove('nav-scrolled');
     });
+  </script>
+
+  <!-- === YOUR LOOPS FORM SCRIPT (FULL) === -->
+  <script>
+    function submitHandler(event) {
+      event.preventDefault();
+      var container = event.target.parentNode;
+      var form = container.querySelector(".newsletter-form");
+      var formInput = container.querySelector(".newsletter-form-input");
+      var success = container.querySelector(".newsletter-success");
+      var errorContainer = container.querySelector(".newsletter-error");
+      var errorMessage = container.querySelector(".newsletter-error-message");
+      var backButton = container.querySelector(".newsletter-back-button");
+      var submitButton = container.querySelector(".newsletter-form-button");
+      var loadingButton = container.querySelector(".newsletter-loading-button");
+
+      const rateLimit = () => {
+        errorContainer.style.display = "flex";
+        errorMessage.innerText = "Too many signups, please try again in a little while";
+        submitButton.style.display = "none";
+        formInput.style.display = "none";
+        if (backButton) backButton.style.display = "block";
+      };
+
+      var time = new Date();
+      var timestamp = time.valueOf();
+      var previousTimestamp = localStorage.getItem("loops-form-timestamp");
+      if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
+        rateLimit();
+        return;
+      }
+      localStorage.setItem("loops-form-timestamp", timestamp);
+
+      submitButton.style.display = "none";
+      loadingButton.style.display = "flex";
+
+      var formBody = "userGroup=Angel%20List%20&mailingLists=&email=" + encodeURIComponent(formInput.value);
+
+      fetch(event.target.action, {
+        method: "POST",
+        body: formBody,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      })
+      .then(res => [res.ok, res.json(), res])
+      .then(([ok, dataPromise, res]) => {
+        if (ok) {
+          success.style.display = "flex";
+          form.reset();
+        } else {
+          dataPromise.then(data => {
+            errorContainer.style.display = "flex";
+            errorMessage.innerText = data.message || res.statusText;
+          });
+        }
+      })
+      .catch(error => {
+        errorContainer.style.display = "flex";
+        errorMessage.innerText = error.message || "Something went wrong";
+      })
+      .finally(() => {
+        loadingButton.style.display = "none";
+        formInput.style.display = "none";
+      });
+    }
+
+    // Attach handlers
+    var formContainers = document.getElementsByClassName("newsletter-form-container");
+    for (var i = 0; i < formContainers.length; i++) {
+      var container = formContainers[i];
+      if (!container.classList.contains('newsletter-handlers-added')) {
+        container.querySelector(".newsletter-form").addEventListener("submit", submitHandler);
+        container.classList.add('newsletter-handlers-added');
+      }
+    }
   </script>
 </body>
 </html>

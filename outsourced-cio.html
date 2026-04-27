@@ -7,116 +7,118 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
+        }
+        .nav-scrolled { background-color: rgba(0, 0, 0, 0.95); }
+        .logo-img { height: 45px; width: auto; }
         .card-hover:hover { transform: translateY(-8px); transition: all 0.3s ease; }
         .phase-card { transition: all 0.4s ease; }
         .phase-card:hover { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-black text-white">
 
-    <!-- HEADER -->
-    <header class="bg-white border-b sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex justify-between items-center py-5">
-                <div class="flex items-center gap-3">
-                    <span class="text-3xl font-bold text-emerald-600">SOURCE</span>
-                    <span class="text-3xl font-light text-slate-900">CAPITAL</span>
-                </div>
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="https://sourcecapital.co.uk/" class="hover:text-emerald-600">Home</a>
-                    <a href="#" class="text-emerald-600 font-semibold">Assisted Raise</a>
-                    <a href="https://sourcecapital.co.uk/investment-raise-resources/" class="hover:text-emerald-600">Resources</a>
-                    <a href="#" class="hover:text-emerald-600">About</a>
-                </nav>
-                <a href="#get-started" 
-                   class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl text-sm font-semibold">
-                    Book Strategy Call
-                </a>
+    <!-- NAVBAR (from your main site) -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="https://sourcecapital.co.uk/" class="flex items-center">
+                <img src="logo.png" alt="Source Capital" class="logo-img">
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#products" class="hover:text-emerald-400 transition">Products</a>
+                <a href="#" class="text-emerald-400 font-semibold">Assisted Raise</a>
+                <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
             </div>
+            <a href="https://cal.com/edward-janes/30min" target="_blank"
+               class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-emerald-400 hover:text-white transition">
+                Book a Call
+            </a>
         </div>
-    </header>
+    </nav>
 
     <!-- HERO -->
-    <section class="hero-bg text-white py-28">
-        <div class="max-w-6xl mx-auto px-6 text-center">
+    <section class="hero-bg h-screen flex items-center pt-20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
             <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
                 Full-Service Assisted Investment Raise<br>
-                <span class="text-emerald-400">End-to-End Fundraising Execution</span>
+                <span class="text-emerald-400">We Execute Your Entire Fundraising Campaign</span>
             </h1>
             <p class="text-2xl text-gray-300 max-w-4xl mx-auto mb-10">
-                We become your outsourced fundraising team. Investor targeting, professional materials, multi-channel outreach, pitch coaching, and meeting management — all handled for you.
+                Investor targeting, professional materials, multi-channel outreach, pitch coaching, and meeting management — all done for you.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#get-started" 
-                   class="bg-emerald-500 hover:bg-emerald-600 text-white px-12 py-6 rounded-2xl text-2xl font-semibold inline-flex items-center gap-3 shadow-lg">
-                    Book Your Free Strategy Call <i class="fas fa-arrow-right"></i>
+                   class="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-semibold transition">
+                    Book Your Free Strategy Call
                 </a>
             </div>
         </div>
     </section>
 
     <!-- WHAT YOU GET -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-zinc-950">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-6">Everything You Need to Run a Professional Raise</h2>
-            <p class="text-center text-xl text-gray-600 max-w-3xl mx-auto mb-16">
-                We don’t just advise — we execute. Here’s exactly what’s included in the programme.
+            <h2 class="text-5xl font-bold text-center mb-6">Everything Included in the Programme</h2>
+            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
+                We don’t just advise — we become your outsourced fundraising team and execute end-to-end.
             </p>
 
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                <div class="bg-zinc-900 p-10 rounded-3xl card-hover">
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold">01</div>
+                        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl font-bold">01</div>
                         <h3 class="text-3xl font-semibold">Setup & Preparation</h3>
                     </div>
                     <ul class="space-y-5 text-lg">
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Full outreach infrastructure (domains, LinkedIn, inbox warm-up)</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Comprehensive internal business profile</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Master + Hot List of 20–30 priority investors with research</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Outreach infrastructure & warm-up</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Full business profile & story development</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Master + Hot List (20–30 priority investors) with deep research</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Personalised messaging library</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Raise materials review & red-flag fixes</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Raise materials review & optimisation</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Professional data room build</li>
                     </ul>
                 </div>
 
-                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                <div class="bg-zinc-900 p-10 rounded-3xl card-hover">
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold">02</div>
-                        <h3 class="text-3xl font-semibold">Professional Asset Creation</h3>
+                        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl font-bold">02</div>
+                        <h3 class="text-3xl font-semibold">Professional Assets</h3>
                     </div>
                     <ul class="space-y-5 text-lg">
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Dynamic investor-ready financial model</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Pitch decks (teaser + full + one-pager)</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Teaser + Full Pitch Deck + One-Pager</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Comprehensive business plan</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Pitch narrative & proof points</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Pitch narrative & proof-point scripting</li>
                     </ul>
                 </div>
 
-                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                <div class="bg-zinc-900 p-10 rounded-3xl card-hover">
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold">03</div>
+                        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl font-bold">03</div>
                         <h3 class="text-3xl font-semibold">Outreach & Engagement</h3>
                     </div>
                     <ul class="space-y-5 text-lg">
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Multi-channel campaigns (email + LinkedIn)</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Multi-channel campaigns (Email + LinkedIn)</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Warm introductions via our network</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Response handling & investor qualification</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Rapid response handling & qualification</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Calendar & meeting management</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Weekly pipeline reporting</li>
                     </ul>
                 </div>
 
-                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                <div class="bg-zinc-900 p-10 rounded-3xl card-hover">
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold">04</div>
+                        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl font-bold">04</div>
                         <h3 class="text-3xl font-semibold">Pitch Coaching & Close Support</h3>
                     </div>
                     <ul class="space-y-5 text-lg">
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Pitch scripting & narrative refinement</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Rehearsals, role-plays & call reviews</li>
                         <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Pre-briefs and post-meeting debriefs</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Next-step choreography</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-1"></i> Next-step choreography to close</li>
                     </ul>
                 </div>
             </div>
@@ -124,111 +126,60 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="py-24 bg-gray-100">
+    <section class="py-24 bg-zinc-900">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">How The Programme Works</h2>
+            <h2 class="text-5xl font-bold text-center mb-16">How The Programme Works</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="phase-card bg-white p-10 rounded-3xl text-center">
-                    <div class="text-emerald-600 font-bold text-6xl mb-6">01</div>
+                <div class="phase-card bg-black p-10 rounded-3xl text-center border border-white/10">
+                    <div class="text-emerald-400 font-bold text-6xl mb-6">01</div>
                     <h3 class="text-2xl font-semibold mb-4">Setup & Foundation</h3>
-                    <p class="text-gray-600">Infrastructure, investor lists, research, assets and materials ready for launch.</p>
+                    <p class="text-gray-400">Infrastructure, investor lists, research, materials and data room ready for launch.</p>
                 </div>
-                <div class="phase-card bg-white p-10 rounded-3xl text-center">
-                    <div class="text-emerald-600 font-bold text-6xl mb-6">02</div>
+                <div class="phase-card bg-black p-10 rounded-3xl text-center border border-white/10">
+                    <div class="text-emerald-400 font-bold text-6xl mb-6">02</div>
                     <h3 class="text-2xl font-semibold mb-4">Active Outreach</h3>
-                    <p class="text-gray-600">Targeted campaigns, warm intros, response handling and meeting booking.</p>
+                    <p class="text-gray-400">Targeted campaigns, warm intros, response handling and qualified meetings booked.</p>
                 </div>
-                <div class="phase-card bg-white p-10 rounded-3xl text-center">
-                    <div class="text-emerald-600 font-bold text-6xl mb-6">03</div>
+                <div class="phase-card bg-black p-10 rounded-3xl text-center border border-white/10">
+                    <div class="text-emerald-400 font-bold text-6xl mb-6">03</div>
                     <h3 class="text-2xl font-semibold mb-4">Pitch & Close</h3>
-                    <p class="text-gray-600">Rehearsals, live meeting support and follow-through to signed term sheets.</p>
+                    <p class="text-gray-400">Rehearsals, live meeting support, debriefs and follow-through to signed documents.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- LEAD CAPTURE -->
-    <section id="get-started" class="py-24 bg-gray-900 text-white">
-        <div class="max-w-2xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Let’s Get Your Raise Moving</h2>
-                <p class="text-xl text-gray-400">Book a complimentary 30-minute strategy call. We’ll review your materials and build a custom plan for you.</p>
-            </div>
-
-            <form id="lead-form" class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm mb-2">First Name</label>
-                        <input type="text" required class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-400">
-                    </div>
-                    <div>
-                        <label class="block text-sm mb-2">Last Name</label>
-                        <input type="text" required class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-400">
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <label class="block text-sm mb-2">Company Name</label>
-                    <input type="text" required class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-400">
-                </div>
-                <div class="mt-6">
-                    <label class="block text-sm mb-2">Email Address</label>
-                    <input type="email" required class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-400">
-                </div>
-                <div class="mt-6">
-                    <label class="block text-sm mb-2">Raise Amount & Stage (optional)</label>
-                    <input type="text" placeholder="e.g. $2.5M Seed round" class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-400">
-                </div>
-                <button type="submit"
-                        class="mt-10 w-full bg-emerald-500 hover:bg-emerald-600 py-7 rounded-2xl text-2xl font-semibold transition">
-                    Book Strategy Call – It’s Free
-                </button>
-                <p class="text-center text-xs text-gray-400 mt-8">We reply fast. Your information is safe with us.</p>
-            </form>
+    <section id="get-started" class="py-24 bg-black border-t border-white/10">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6">Ready to Raise Capital?</h2>
+            <p class="text-2xl text-gray-400 mb-12">Book a complimentary 30-minute strategy call. We’ll review your current materials and show you exactly how we can accelerate your raise.</p>
+            
+            <a href="https://cal.com/edward-janes/30min" target="_blank"
+               class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white px-12 py-6 rounded-3xl font-semibold text-xl transition">
+                Book Strategy Call – It’s Free
+            </a>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 text-gray-400 py-16">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-10">
-                <div>
-                    <span class="text-3xl font-bold text-white">SOURCE</span>
-                    <span class="text-3xl font-light text-emerald-400">CAPITAL</span>
-                    <p class="mt-4 text-sm">Dubai, UAE • Working Globally</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Services</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white">Assisted Investment Raise</a></li>
-                        <li><a href="#" class="hover:text-white">Pitch Deck Optimisation</a></li>
-                        <li><a href="#" class="hover:text-white">Investor Introductions</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Company</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="https://sourcecapital.co.uk/" class="hover:text-white">Home</a></li>
-                        <li><a href="#" class="hover:text-white">About</a></li>
-                        <li><a href="https://sourcecapital.co.uk/investment-raise-resources/" class="hover:text-white">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Contact</h4>
-                    <p class="text-sm">Edward Janes</p>
-                    <p class="text-sm">Founder & Investment Consultant</p>
-                    <a href="mailto:edward@sourcecapital.co.uk" class="text-emerald-400 hover:underline text-sm">edward@sourcecapital.co.uk</a>
-                </div>
+    <!-- FOOTER (from your main site) -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>© 2026 Source Capital. All rights reserved.</div>
+            <div class="flex gap-x-8 text-sm">
+                <a href="terms.html" class="hover:text-emerald-400">Terms</a>
+                <a href="privacy.html" class="hover:text-emerald-400">Privacy</a>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs">
-                © 2026 Source Capital. All rights reserved. | Dubai, United Arab Emirates
-            </div>
+            <div class="text-sm text-gray-500">Dubai, UAE</div>
         </div>
     </footer>
 
     <script>
-        document.getElementById('lead-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert("Thank you! Our team will contact you within 24 hours to schedule your strategy call.");
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+            else nav.classList.remove('nav-scrolled');
         });
     </script>
 </body>

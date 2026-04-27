@@ -9,8 +9,9 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+                        url('hero.jpg') center/cover no-repeat fixed;
+            background-position: center 30%;
         }
         .nav-scrolled { background-color: rgba(0, 0, 0, 0.95); }
         .logo-img { height: 45px; width: auto; }
@@ -21,7 +22,7 @@
 </head>
 <body class="bg-black text-white">
 
-    <!-- NAVBAR (from your main site) -->
+    <!-- NAVBAR -->
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <a href="https://sourcecapital.co.uk/" class="flex items-center">
@@ -39,7 +40,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO - Same as main site -->
     <section class="hero-bg h-screen flex items-center pt-20">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
@@ -162,7 +163,7 @@
         </div>
     </section>
 
-    <!-- FOOTER (from your main site) -->
+    <!-- FOOTER -->
     <footer class="bg-black border-t border-white/10 py-12">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div>© 2026 Source Capital. All rights reserved.</div>

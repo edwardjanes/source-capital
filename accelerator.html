@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raise Accelerator | Source Capital • Dubai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { 
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                  url('hero.jpg') center/cover no-repeat fixed;
+    }
+    .nav-scrolled { background-color: rgba(0, 0, 0, 0.95); }
+    .logo-img { height: 58px; width: auto; max-width: 280px; }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="#" class="flex items-center">
+        <img src="logo.png" alt="Source Capital" class="logo-img">
+      </a>
+      <div class="flex items-center gap-4">
+        <button onclick="showChecklistModal()" class="hidden md:block text-sm font-medium hover:text-emerald-400">Free Checklist</button>
+        <a href="#book" class="bg-emerald-500 hover:bg-emerald-600 px-6 py-3 rounded-2xl font-semibold transition">Book Free Audit Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg h-screen flex items-center">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <div class="inline-block bg-white/10 text-emerald-400 text-sm font-medium px-6 py-2 rounded-full mb-6">
+        10 Qualified Investor Meetings in 90 Days — or We Keep Working Free
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
+        Book 10 qualified investor meetings<br>in 90 days or we keep working for free
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
+        For first-time founders raising £250k–£1M. A 60-day done-with-you fundraising sprint that gets you investor-ready and in front of the right people.
+      </p>
+      <a href="#book" class="inline-block bg-white text-black px-10 py-5 rounded-2xl text-xl font-semibold hover:bg-emerald-400 transition">
+        Book Your Free 20-Min Raise Audit Call →
+      </a>
+      <p class="mt-6 text-sm text-gray-400">No obligation • No hard sell</p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="py-24 bg-zinc-950">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">If you're a first-time founder raising right now, this probably feels familiar...</h2>
+      <div class="space-y-8 text-lg text-gray-300">
+        <p>You built something real. Then the raise began… and everything slowed down.</p>
+        <p>Emails ignored. Meetings that went nowhere. Uncertainty about your deck, valuation, and who to talk to.</p>
+        <p>You’re losing months while other founders move faster — not because they’re better, but because they have a better <strong>process</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-6">The Raise Accelerator</h2>
+      <p class="text-2xl text-gray-400 mb-16">A 60-day done-with-you fundraising sprint for first-time founders</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-emerald-400 text-xl font-semibold mb-4">The RAISE Method</h3>
+          <p class="text-gray-400">Readiness • Assets • Investor List • Structured Outreach • Engagement</p>
+        </div>
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-emerald-400 text-xl font-semibold mb-4">Hands-on Support</h3>
+          <p class="text-gray-400">Live sessions, templates, investor lists, pitch practice, and weekly accountability.</p>
+        </div>
+        <div class="bg-zinc-900 p-10 rounded-3xl border border-emerald-500">
+          <h3 class="text-emerald-400 text-xl font-semibold mb-4">10-Meeting Guarantee</h3>
+          <p class="text-gray-400 font-medium">10 qualified investor meetings in 90 days — or we keep working with you for free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="book" class="py-24 bg-emerald-600 text-center">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-6">Ready to get real traction?</h2>
+      <p class="text-xl mb-10">Book your free 20-minute Raise Audit Call. We’ll review your current raise and show you exactly what’s possible.</p>
+      <a href="https://cal.com/edward-janes/30min" target="_blank" 
+         class="inline-block bg-black text-white px-12 py-6 rounded-3xl text-xl font-semibold hover:bg-zinc-800 transition">
+        Book Your Free Raise Audit Call
+      </a>
+      <p class="mt-6 text-sm opacity-90">20 minutes • No obligation • Honest feedback</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-white/10 py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-500">
+      © 2026 Source Capital • Dubai, UAE<br>
+      <a href="terms.html" class="hover:text-white">Terms</a> • 
+      <a href="privacy.html" class="hover:text-white">Privacy</a>
+    </div>
+  </footer>
+
+  <!-- Popup (keep your existing checklist popup) -->
+  <!-- ... include your checklist modal here if you want ... -->
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+      else nav.classList.remove('nav-scrolled');
+    });
+  </script>
+</body>
+</html>

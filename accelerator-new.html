@@ -199,7 +199,7 @@
       </div>
     </div>
 
- <!-- YOU WILL RECEIVE ARTEFACT -->
+<!-- YOU WILL RECEIVE ARTEFACT -->
 <section class="py-24 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
     
@@ -236,9 +236,9 @@
         </button>
       </div>
 
-      <!-- Right: Description -->
+      <!-- Right: Description (Top Aligned) -->
       <div class="md:col-span-7">
-        <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[460px] flex items-center">
+        <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[460px] flex items-start">
           <div class="w-full text-left">
             <h3 id="receive-title" class="text-3xl font-semibold mb-8" style="color: #98FF98;">6x Masterclass Calls</h3>
             <p id="receive-text" class="text-gray-300 text-[17px] leading-relaxed"></p>
@@ -287,7 +287,7 @@
     document.getElementById('receive-text').innerHTML = descriptions[n];
   }
 
-  // Start with 6x Masterclass Calls
+  // Default to 6x Masterclass Calls on load
   window.onload = () => switchReceiveItem(0);
 </script>
     

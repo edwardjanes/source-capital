@@ -17,28 +17,25 @@
         <span class="text-5xl">✅</span>
       </div>
       <h1 class="text-5xl font-bold mb-6">Thank You!</h1>
-      <p class="text-2xl text-gray-300">We've received your details and added you to the Raise Accelerator list.</p>
+      <p class="text-2xl text-gray-300">We've received your details.</p>
     </div>
 
     <div class="bg-zinc-900 rounded-3xl p-10 md:p-16">
       <h2 class="text-3xl font-semibold mb-8">Next Step: Book Your Free Raise Audit Call</h2>
-      <p class="text-gray-400 mb-10">Choose a time that works for you below. Our team will review your information before the call.</p>
+      <p class="text-gray-400 mb-10">Your information has been pre-filled below.</p>
 
-      <!-- Cal.com Inline Embed -->
+      <!-- Cal.com Embed -->
       <div style="width:100%;height:700px;overflow:scroll" id="my-cal-inline-raise-accelerator-audit-call"></div>
     </div>
-
-    <p class="mt-12 text-gray-500">If you have any questions, email us at hello@sourcecapital.co.uk</p>
   </div>
 
-  <!-- Cal.com Embed Script -->
+  <!-- Cal.com Embed Script with Pre-fill -->
   <script type="text/javascript">
     (function (C, A, L) { 
       let p = function (a, ar) { a.q.push(ar); }; 
       let d = C.document; 
       C.Cal = C.Cal || function () { 
-        let cal = C.Cal; 
-        let ar = arguments; 
+        let cal = C.Cal; let ar = arguments; 
         if (!cal.loaded) { 
           cal.ns = {}; cal.q = cal.q || []; 
           d.head.appendChild(d.createElement("script")).src = A; 
@@ -50,8 +47,7 @@
           api.q = api.q || []; 
           if(typeof namespace === "string"){ 
             cal.ns[namespace] = cal.ns[namespace] || api; 
-            p(cal.ns[namespace], ar); 
-            p(cal, ["initNamespace", namespace]); 
+            p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); 
           } else p(cal, ar); 
           return; 
         } 
@@ -61,13 +57,25 @@
 
     Cal("init", "raise-accelerator-audit-call", {origin:"https://app.cal.com"});
 
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = (params.get('firstName') || '') + ' ' + (params.get('lastName') || '');
+    const email = params.get('email') || '';
+    const notes = params.get('business') ? `Business: ${params.get('business')}` : '';
+
     Cal.ns["raise-accelerator-audit-call"]("inline", {
       elementOrSelector: "#my-cal-inline-raise-accelerator-audit-call",
-      config: { "layout":"month_view", "useSlotsViewOnSmallScreen":"true" },
+      config: { 
+        "layout":"month_view",
+        "useSlotsViewOnSmallScreen":"true",
+        "name": name.trim(),
+        "email": email,
+        "notes": notes
+      },
       calLink: "edward-janes/raise-accelerator-audit-call",
     });
 
-    Cal.ns["raise-accelerator-audit-call"]("ui", { "hideEventTypeDetails": false, "layout":"month_view" });
+    Cal.ns["raise-accelerator-audit-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
 
 </body>

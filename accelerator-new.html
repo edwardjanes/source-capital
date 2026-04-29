@@ -237,31 +237,7 @@
   </div>
 </section>
 
-<script>
-  function switchRaiseStep(n) {
-    document.querySelectorAll('.raise-btn').forEach(btn => {
-      btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
-      btn.classList.add('border-emerald-500/30');
-    });
 
-    const activeBtn = document.querySelectorAll('.raise-btn')[n];
-    activeBtn.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10');
-
-    const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
-    const descriptions = [
-      "We start by diagnosing where your raise is really breaking down. That means looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market. You leave this stage knowing exactly what is helping your raise — and what is undermining it.",
-      "Next, we help you build the materials investors expect to see. That includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed. Not generic templates. Not vague advice. The actual assets you need to enter the market credibly.",
-      "Then we build your investor target list. Not a random database. Not a broad list of names. A strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
-      "Once the foundations are in place, we help you launch a clear and disciplined outreach process. Messaging. Cadence. Follow-up. Pipeline structure. Investor tracking. Instead of starting and stopping every few days, you run your raise like a process.",
-      "Finally, we help you handle the conversations that follow. Investor meetings. Tough questions. Objections. Follow-ups. Momentum between conversations. Because getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
-    ];
-
-    document.getElementById('step-title').textContent = titles[n];
-    document.getElementById('step-description').innerHTML = descriptions[n].replace(/\n/g, '<br><br>');
-  }
-
-  window.onload = () => switchRaiseStep(0);
-</script>
 
   <!-- RAISE PROCESS SECTION -->
 <section class="py-24 bg-zinc-950">
@@ -287,8 +263,8 @@
     <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
     <p class="text-center text-gray-400 mb-12">Everything inside the Raise Accelerator is built around this 5-step process</p>
 
-    <!-- Bigger Buttons with Step Number on Top -->
-    <div class="flex justify-center gap-6 md:gap-8 mb-12" id="raise-buttons">
+    <!-- Buttons Row -->
+    <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
       <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
         <span class="text-5xl font-bold">R</span>
@@ -311,11 +287,11 @@
       </button>
     </div>
 
-    <!-- Description Area -->
-    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[240px] flex items-center">
-      <div class="w-full">
-        <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
-        <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
+    <!-- Improved Description Area -->
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 max-w-4xl mx-auto">
+      <div class="text-left">
+        <h3 id="step-title" class="text-3xl font-semibold mb-8 text-emerald-400">Readiness</h3>
+        <p id="step-description" class="text-gray-300 text-[17px] leading-relaxed"></p>
       </div>
     </div>
 
@@ -334,22 +310,22 @@
 
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [
-      "We start by diagnosing where your raise is really breaking down.\n\nThat means looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market.\n\nYou leave this stage knowing exactly what is helping your raise — and what is undermining it.",
+      "We start by diagnosing where your raise is really breaking down.<br><br>That means looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market.<br><br>You leave this stage knowing exactly what is helping your raise — and what is undermining it.",
       
-      "Next, we help you build the materials investors expect to see.\n\nThat includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed.\n\nNot generic templates. Not vague advice.\n\nThe actual assets you need to enter the market credibly.",
+      "Next, we help you build the materials investors expect to see.<br><br>That includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed.<br><br>Not generic templates.<br>Not vague advice.<br><br>The actual assets you need to enter the market credibly.",
       
-      "Then we build your investor target list.\n\nNot a random database. Not a broad list of names.\n\nA strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
+      "Then we build your investor target list.<br><br>Not a random database.<br>Not a broad list of names.<br><br>A strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
       
-      "Once the foundations are in place, we help you launch a clear and disciplined outreach process.\n\nMessaging. Cadence. Follow-up. Pipeline structure. Investor tracking.\n\nInstead of starting and stopping every few days, you run your raise like a process.",
+      "Once the foundations are in place, we help you launch a clear and disciplined outreach process.<br><br>Messaging.<br>Cadence.<br>Follow-up.<br>Pipeline structure.<br>Investor tracking.<br><br>Instead of starting and stopping every few days, you run your raise like a process.",
       
-      "Finally, we help you handle the conversations that follow.\n\nInvestor meetings. Tough questions. Objections. Follow-ups. Momentum between conversations.\n\nBecause getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
+      "Finally, we help you handle the conversations that follow.<br><br>Investor meetings.<br>Tough questions.<br>Objections.<br>Follow-ups.<br>Momentum between conversations.<br><br>Because getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
     ];
 
     document.getElementById('step-title').textContent = titles[n];
-    document.getElementById('step-description').innerHTML = descriptions[n].replace(/\n/g, '<br><br>');
+    document.getElementById('step-description').innerHTML = descriptions[n];
   }
 
-  // Initialize with Step 1 (R) active
+  // Initialize with Step 1 active
   window.onload = () => switchRaiseStep(0);
 </script>
   

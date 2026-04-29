@@ -200,48 +200,50 @@
     </div>
 
    <!-- YOU WILL RECEIVE ARTEFACT -->
-<section class="py-24 bg-black">
+<section class="py-24 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
     
     <h2 class="text-4xl font-bold text-center mb-4">You Will Receive</h2>
     <p class="text-center text-gray-400 mb-16">Everything you need for a successful raise — delivered through hands-on support</p>
 
-    <div class="grid md:grid-cols-12 gap-10">
+    <div class="grid md:grid-cols-12 gap-10 items-start">
       
-      <!-- Left: Clickable List -->
+      <!-- Left: List of Items -->
       <div class="md:col-span-5 space-y-3" id="receive-buttons">
-        <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500/20 transition-all" data-item="0">
-          <span class="font-semibold">6x Masterclass Calls</span>
+        <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-[#98FF98] bg-[#98FF98]/10 hover:bg-[#98FF98] hover:text-black transition-all" data-item="0">
+          6x Masterclass Calls
         </button>
-        <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="1">
-          <span class="font-semibold">AI Automations</span>
+        <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="1">
+          AI Automations
         </button>
-        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="2">
-          <span class="font-semibold">4x Investor Insight Calls</span>
+        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="2">
+          4x Investor Insight Calls
         </button>
-        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="3">
-          <span class="font-semibold">Investor Pitch Day</span>
+        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="3">
+          Investor Pitch Day
         </button>
-        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="4">
-          <span class="font-semibold">Recordings of Every Call</span>
+        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="4">
+          Recordings of Every Call
         </button>
-        <button onclick="switchReceiveItem(5)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="5">
-          <span class="font-semibold">1-2-1 Support via Slack</span>
+        <button onclick="switchReceiveItem(5)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="5">
+          1-2-1 Support via Slack
         </button>
-        <button onclick="switchReceiveItem(6)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="6">
-          <span class="font-semibold">Cohort Support Group</span>
+        <button onclick="switchReceiveItem(6)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="6">
+          Cohort Support Group
         </button>
-        <button onclick="switchReceiveItem(7)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="7">
-          <span class="font-semibold">Raise Launchpad Platform</span>
+        <button onclick="switchReceiveItem(7)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="7">
+          Raise Launchpad Platform
         </button>
       </div>
 
       <!-- Right: Dynamic Description -->
       <div class="md:col-span-7">
         <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[420px] flex items-center">
-          <div class="w-full">
-            <h3 id="receive-title" class="text-3xl font-semibold mb-6 text-emerald-400"></h3>
-            <p id="receive-text" class="text-gray-300 text-lg leading-relaxed"></p>
+          <div class="w-full text-left">
+            <h3 id="receive-title" class="text-3xl font-semibold mb-6" style="color: #98FF98;">6x Masterclass Calls</h3>
+            <p id="receive-text" class="text-gray-300 text-lg leading-relaxed">
+              Live, high-impact sessions covering strategy, positioning, assets, and execution.
+            </p>
           </div>
         </div>
       </div>
@@ -252,15 +254,13 @@
 
 <script>
   function switchReceiveItem(n) {
-    // Reset all buttons
     document.querySelectorAll('.receive-btn').forEach(btn => {
-      btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
-      btn.classList.add('border-emerald-500/30');
+      btn.classList.remove('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
+      btn.classList.add('border-[#98FF98]/40');
     });
 
-    // Activate selected
     const activeBtn = document.querySelectorAll('.receive-btn')[n];
-    activeBtn.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10');
+    activeBtn.classList.add('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
 
     const titles = [
       "6x Masterclass Calls",
@@ -285,13 +285,14 @@
     ];
 
     document.getElementById('receive-title').textContent = titles[n];
+    document.getElementById('receive-title').style.color = '#98FF98';
     document.getElementById('receive-text').textContent = descriptions[n];
   }
 
-  // Initialize with first item
+  // Initialize with 6x Masterclass Calls
   window.onload = () => switchReceiveItem(0);
 </script>
-
+    
   </div>
 </section>
 

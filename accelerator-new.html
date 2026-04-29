@@ -235,32 +235,32 @@
     <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
     <p class="text-center text-gray-400 mb-12">Everything inside the Raise Accelerator is built around this 5-step process</p>
 
-    <!-- Buttons Row -->
-    <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
-      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">
+    <!-- Bigger Buttons with Step Number on Top -->
+    <div class="flex justify-center gap-6 md:gap-8 mb-12" id="raise-buttons">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
         <span class="text-5xl font-bold">R</span>
-        <span class="text-xs font-medium mt-1 tracking-widest">STEP 1</span>
       </button>
-      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">
+      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 2</span>
         <span class="text-5xl font-bold">A</span>
-        <span class="text-xs font-medium mt-1 tracking-widest">STEP 2</span>
       </button>
-      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">
+      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 3</span>
         <span class="text-5xl font-bold">I</span>
-        <span class="text-xs font-medium mt-1 tracking-widest">STEP 3</span>
       </button>
-      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">
+      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 4</span>
         <span class="text-5xl font-bold">S</span>
-        <span class="text-xs font-medium mt-1 tracking-widest">STEP 4</span>
       </button>
-      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">
+      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 5</span>
         <span class="text-5xl font-bold">E</span>
-        <span class="text-xs font-medium mt-1 tracking-widest">STEP 5</span>
       </button>
     </div>
 
     <!-- Description Area -->
-    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[200px] flex items-center">
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[240px] flex items-center">
       <div class="w-full">
         <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
         <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
@@ -282,15 +282,19 @@
 
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [
-      "We start by diagnosing where your raise is really breaking down — positioning, valuation, traction, investor readiness, and likely weaknesses before they get exposed in the market.",
-      "Next, we help you build the materials investors expect to see: pitch deck, financial model, founder narrative, and the way your opportunity is framed.",
-      "We build a strategic shortlist of relevant investors matched to your stage, sector, geography, and raise profile — so you stop guessing who to approach.",
-      "Pre-written email sequences, cadence, pipeline structure, and investor tracking. You run your raise like a disciplined process instead of randomly.",
-      "Prepare for live investor meetings, handle tough questions and objections, manage follow-ups, and keep momentum alive."
+      "We start by diagnosing where your raise is really breaking down.\n\nThat means looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market.\n\nYou leave this stage knowing exactly what is helping your raise — and what is undermining it.",
+      
+      "Next, we help you build the materials investors expect to see.\n\nThat includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed.\n\nNot generic templates. Not vague advice.\n\nThe actual assets you need to enter the market credibly.",
+      
+      "Then we build your investor target list.\n\nNot a random database. Not a broad list of names.\n\nA strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
+      
+      "Once the foundations are in place, we help you launch a clear and disciplined outreach process.\n\nMessaging. Cadence. Follow-up. Pipeline structure. Investor tracking.\n\nInstead of starting and stopping every few days, you run your raise like a process.",
+      
+      "Finally, we help you handle the conversations that follow.\n\nInvestor meetings. Tough questions. Objections. Follow-ups. Momentum between conversations.\n\nBecause getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
     ];
 
     document.getElementById('step-title').textContent = titles[n];
-    document.getElementById('step-description').textContent = descriptions[n];
+    document.getElementById('step-description').innerHTML = descriptions[n].replace(/\n/g, '<br><br>');
   }
 
   // Initialize with Step 1 (R) active

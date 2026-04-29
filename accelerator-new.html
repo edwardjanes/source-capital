@@ -210,28 +210,28 @@
   </div>
 </section>
   
-<!-- RAISE INTERACTIVE ARTEFACT - FULL WIDTH -->
-<section class="py-24 bg-zinc-950 border-t border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-6">
+<!-- RAISE INTERACTIVE ARTEFACT -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
     
     <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
     <p class="text-center text-gray-400 mb-12">Everything inside the Raise Accelerator is built around this 5-step process</p>
 
     <!-- Buttons Row -->
-    <div class="flex justify-center gap-3 md:gap-6 mb-12" id="raise-buttons">
-      <button onclick="switchRaiseStep(0)" class="raise-btn active flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="0">R</button>
-      <button onclick="switchRaiseStep(1)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="1">A</button>
-      <button onclick="switchRaiseStep(2)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="2">I</button>
-      <button onclick="switchRaiseStep(3)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="3">S</button>
-      <button onclick="switchRaiseStep(4)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="4">E</button>
+    <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">R</button>
+      <button onclick="switchRaiseStep(1)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">A</button>
+      <button onclick="switchRaiseStep(2)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">I</button>
+      <button onclick="switchRaiseStep(3)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">S</button>
+      <button onclick="switchRaiseStep(4)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">E</button>
     </div>
 
     <!-- Description Area -->
-    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto">
-      <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
-      <p id="step-description" class="text-gray-300 text-lg leading-relaxed">
-        We start by diagnosing where your raise is really breaking down — positioning, valuation, traction, investor readiness, and likely weaknesses before they get exposed in the market.
-      </p>
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[180px] flex items-center">
+      <div class="w-full">
+        <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
+        <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
+      </div>
     </div>
 
   </div>
@@ -239,12 +239,15 @@
 
 <script>
   function switchRaiseStep(n) {
-    // Remove active from all buttons
-    document.querySelectorAll('.raise-btn').forEach(btn => btn.classList.remove('active', 'border-emerald-500', 'bg-zinc-800'));
-    
-    // Activate clicked button
+    // Reset all buttons
+    document.querySelectorAll('.raise-btn').forEach(btn => {
+      btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
+      btn.classList.add('border-emerald-500/30');
+    });
+
+    // Activate selected button
     const activeBtn = document.querySelectorAll('.raise-btn')[n];
-    activeBtn.classList.add('active', 'border-emerald-500', 'bg-zinc-800');
+    activeBtn.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10');
 
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [
@@ -252,19 +255,16 @@
       "Next, we help you build the materials investors expect to see: pitch deck, financial model, founder narrative, and the way your opportunity is framed.",
       "We build a strategic shortlist of relevant investors matched to your stage, sector, geography, and raise profile — so you stop guessing who to approach.",
       "Pre-written email sequences, cadence, pipeline structure, and investor tracking. You run your raise like a disciplined process instead of randomly.",
-      "Prepare for live investor meetings, handle tough questions and objections, manage follow-ups, and keep momentum moving until you close."
+      "Prepare for live investor meetings, handle tough questions and objections, manage follow-ups, and keep momentum alive."
     ];
 
     document.getElementById('step-title').textContent = titles[n];
     document.getElementById('step-description').textContent = descriptions[n];
   }
 
-  // Initialize with R highlighted
-  window.onload = () => {
-    switchRaiseStep(0);
-  };
+  // Initialize with R active
+  window.onload = () => switchRaiseStep(0);
 </script>
-
   
   <!-- WHAT'S INCLUDED (Full) -->
   <section id="products" class="py-24 bg-zinc-950">

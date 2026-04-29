@@ -210,59 +210,60 @@
   </div>
 </section>
   
- <!-- RAISE INTERACTIVE ARTEFACT -->
-<section class="py-24 bg-zinc-950">
-  <div class="max-w-6xl mx-auto px-6">
+<!-- RAISE INTERACTIVE ARTEFACT - FULL WIDTH -->
+<section class="py-24 bg-zinc-950 border-t border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6">
+    
     <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
-    <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
-      Everything inside the Raise Accelerator is built around this 5-step process
-    </p>
+    <p class="text-center text-gray-400 mb-12">Everything inside the Raise Accelerator is built around this 5-step process</p>
 
-    <div class="grid md:grid-cols-5 gap-6">
-      
-      <!-- R -->
-      <div class="bg-zinc-900 rounded-3xl p-8 hover:border-emerald-500 border border-transparent transition-all group">
-        <div class="text-emerald-400 text-6xl font-bold mb-4">R</div>
-        <h3 class="text-2xl font-semibold mb-3">Readiness</h3>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">Audit, deck, numbers, story</p>
-        <p class="text-gray-300 text-sm">We start by diagnosing where your raise is really breaking down — positioning, valuation, traction, and likely weaknesses.</p>
-      </div>
-
-      <!-- A -->
-      <div class="bg-zinc-900 rounded-3xl p-8 hover:border-emerald-500 border border-transparent transition-all group">
-        <div class="text-emerald-400 text-6xl font-bold mb-4">A</div>
-        <h3 class="text-2xl font-semibold mb-3">Assets</h3>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">Audit, deck, numbers, story</p>
-        <p class="text-gray-300 text-sm">Build the actual materials investors expect: pitch deck, financial model, and compelling founder narrative.</p>
-      </div>
-
-      <!-- I -->
-      <div class="bg-zinc-900 rounded-3xl p-8 hover:border-emerald-500 border border-transparent transition-all group">
-        <div class="text-emerald-400 text-6xl font-bold mb-4">I</div>
-        <h3 class="text-2xl font-semibold mb-3">Investor List</h3>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">Audit, deck, numbers, story</p>
-        <p class="text-gray-300 text-sm">A strategic, targeted shortlist of 30–50 relevant investors matched to your stage, sector, and raise profile.</p>
-      </div>
-
-      <!-- S -->
-      <div class="bg-zinc-900 rounded-3xl p-8 hover:border-emerald-500 border border-transparent transition-all group">
-        <div class="text-emerald-400 text-6xl font-bold mb-4">S</div>
-        <h3 class="text-2xl font-semibold mb-3">Structured Outreach</h3>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">Audit, deck, numbers, story</p>
-        <p class="text-gray-300 text-sm">Pre-written email sequences, cadence, pipeline tracking, and disciplined execution.</p>
-      </div>
-
-      <!-- E -->
-      <div class="bg-zinc-900 rounded-3xl p-8 hover:border-emerald-500 border border-transparent transition-all group">
-        <div class="text-emerald-400 text-6xl font-bold mb-4">E</div>
-        <h3 class="text-2xl font-semibold mb-3">Engagement</h3>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">Audit, deck, numbers, story</p>
-        <p class="text-gray-300 text-sm">Prepare for meetings, handle objections, follow-ups, and keep momentum alive until you close.</p>
-      </div>
-
+    <!-- Buttons Row -->
+    <div class="flex justify-center gap-3 md:gap-6 mb-12" id="raise-buttons">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="0">R</button>
+      <button onclick="switchRaiseStep(1)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="1">A</button>
+      <button onclick="switchRaiseStep(2)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="2">I</button>
+      <button onclick="switchRaiseStep(3)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="3">S</button>
+      <button onclick="switchRaiseStep(4)" class="raise-btn flex-1 md:flex-none max-w-[80px] py-6 text-4xl font-bold rounded-2xl transition-all" data-step="4">E</button>
     </div>
+
+    <!-- Description Area -->
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto">
+      <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
+      <p id="step-description" class="text-gray-300 text-lg leading-relaxed">
+        We start by diagnosing where your raise is really breaking down — positioning, valuation, traction, investor readiness, and likely weaknesses before they get exposed in the market.
+      </p>
+    </div>
+
   </div>
 </section>
+
+<script>
+  function switchRaiseStep(n) {
+    // Remove active from all buttons
+    document.querySelectorAll('.raise-btn').forEach(btn => btn.classList.remove('active', 'border-emerald-500', 'bg-zinc-800'));
+    
+    // Activate clicked button
+    const activeBtn = document.querySelectorAll('.raise-btn')[n];
+    activeBtn.classList.add('active', 'border-emerald-500', 'bg-zinc-800');
+
+    const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
+    const descriptions = [
+      "We start by diagnosing where your raise is really breaking down — positioning, valuation, traction, investor readiness, and likely weaknesses before they get exposed in the market.",
+      "Next, we help you build the materials investors expect to see: pitch deck, financial model, founder narrative, and the way your opportunity is framed.",
+      "We build a strategic shortlist of relevant investors matched to your stage, sector, geography, and raise profile — so you stop guessing who to approach.",
+      "Pre-written email sequences, cadence, pipeline structure, and investor tracking. You run your raise like a disciplined process instead of randomly.",
+      "Prepare for live investor meetings, handle tough questions and objections, manage follow-ups, and keep momentum moving until you close."
+    ];
+
+    document.getElementById('step-title').textContent = titles[n];
+    document.getElementById('step-description').textContent = descriptions[n];
+  }
+
+  // Initialize with R highlighted
+  window.onload = () => {
+    switchRaiseStep(0);
+  };
+</script>
 
   
   <!-- WHAT'S INCLUDED (Full) -->

@@ -214,29 +214,20 @@
           6x Masterclass Calls
         </button>
         <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="1">
-          AI Automations
-        </button>
-        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="2">
           4x Investor Insight Calls
         </button>
-        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="3">
+        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="2">
           Investor Pitch Day
         </button>
-        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="4">
-          Recordings of Every Call
-        </button>
-        <button onclick="switchReceiveItem(5)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="5">
+        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="3">
           1-2-1 Support via Slack
         </button>
-        <button onclick="switchReceiveItem(6)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="6">
-          Cohort Support Group
-        </button>
-        <button onclick="switchReceiveItem(7)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="7">
+        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="4">
           Raise Launchpad Platform
         </button>
       </div>
 
-      <!-- Right: Description (Top Aligned) -->
+      <!-- Right: Description -->
       <div class="md:col-span-7">
         <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[460px] flex items-start">
           <div class="w-full text-left">
@@ -262,23 +253,17 @@
 
     const titles = [
       "6x Masterclass Calls",
-      "AI Automations",
       "4x Investor Insight Calls",
       "Investor Pitch Day",
-      "Recordings of Every Call",
       "1-2-1 Support via Slack",
-      "Cohort Support Group",
       "Raise Launchpad Platform"
     ];
 
     const descriptions = [
       "Six live, high-impact sessions built around the moments that make or break a raise. Each call covers a specific stage of the fundraising journey — from sharpening your strategy and nailing your positioning to building investor-ready assets and executing with confidence. No theory for the sake of it. Every session is designed to move you forward.",
-      "Powerful AI tools to accelerate your fundraising assets and processes.",
       "Four deep-dive sessions with investors who tell you what they actually think — not what founders want to hear. You'll get real perspectives on what makes them say yes, what kills deals before they start, and how your pitch, deck, and story land from the other side of the table. The kind of feedback most founders never get until it's too late.",
       "A dedicated event where you pitch live to a room of investors and walk away with direct, unfiltered feedback on your performance. Not a rehearsal. Not a mock run. A real opportunity to sharpen your pitch under pressure, understand exactly how investors are reading you, and leave knowing precisely what to fix.",
-      "Every session is recorded and available to you from day one. Revisit a framework before a key investor meeting, catch anything you missed in the moment, or work through the material at your own pace. The value doesn't end when the call does.",
       "Direct access to guidance when you actually need it — not at the next scheduled session, not via a support ticket. Bring your live questions, your tricky investor conversations, your deck feedback requests. Real support, in real time, from someone who's been in the room.",
-      "A private community of founders raising at the same time as you. Share wins, work through challenges, and stay accountable alongside people who understand exactly what you're going through. Fundraising is a long game — having the right people around you changes how you play it.",
       "Your central hub for everything you need to run a professional raise. Investor-ready templates, financial trackers, pitch assets, resource libraries — all in one place, built for founders who want to move fast without starting from scratch. The foundation every raise needs, ready to go from day one."
     ];
 
@@ -287,7 +272,7 @@
     document.getElementById('receive-text').innerHTML = descriptions[n];
   }
 
-  // Default to 6x Masterclass Calls on load
+  // Default to 6x Masterclass Calls
   window.onload = () => switchReceiveItem(0);
 </script>
     

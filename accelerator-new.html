@@ -313,14 +313,14 @@
       </div>
     </div>
   
-<!-- RAISE INTERACTIVE ARTEFACT -->
+<!-- RAISE INTERACTIVE ARTEFACT - FULL VERSION -->
 <section class="py-24 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
     
     <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
     <p class="text-center text-gray-400 mb-12">Everything inside the Raise Accelerator is built around this 5-step process</p>
 
-    <!-- Buttons Row -->
+    <!-- Buttons -->
     <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
       <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98] bg-[#98FF98]/10 hover:bg-[#98FF98] hover:text-black transition-all" data-step="0">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
@@ -345,13 +345,20 @@
     </div>
 
     <!-- Description Area -->
-    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[240px] flex items-center">
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[260px] flex items-center">
       <div class="w-full text-left">
         <h3 id="step-title" class="text-3xl font-semibold mb-8" style="color: #98FF98;">Readiness</h3>
         <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
       </div>
     </div>
 
+    <!-- Closing CTA -->
+    <div class="text-center mt-16">
+      <p class="text-xl text-gray-400 mb-6">Ready to run your raise like it's supposed to be run?</p>
+      <a href="#book" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-xl font-semibold hover:bg-emerald-400 transition">
+        Book Your Free Raise Audit Call
+      </a>
+    </div>
   </div>
 </section>
 
@@ -367,14 +374,17 @@
 
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [
-      "We start by diagnosing where your raise is really breaking down.<br><br>That means looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market.<br><br>You leave this stage knowing exactly what is helping your raise — and what is undermining it.",
-      "Next, we help you build the materials investors expect to see.<br><br>That includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed.<br><br>Not generic templates. Not vague advice.<br><br>The actual assets you need to enter the market credibly.",
-      "Then we build your investor target list.<br><br>Not a random database. Not a broad list of names.<br><br>A strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
-      "Once the foundations are in place, we help you launch a clear and disciplined outreach process.<br><br>Messaging. Cadence. Follow-up. Pipeline structure. Investor tracking.<br><br>Instead of starting and stopping every few days, you run your raise like a process.",
-      "Finally, we help you handle the conversations that follow.<br><br>Investor meetings. Tough questions. Objections. Follow-ups. Momentum between conversations.<br><br>Because getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
+      "Before you approach a single investor, you need to know what's working against you.<br><br>Most founders start raising before they're ready. Not because they're naive — because no one has told them what \"ready\" actually looks like.<br><br>The Readiness stage is a diagnostic. We look at your positioning, valuation logic, traction story, and investor-facing materials and identify exactly where your raise is likely to break down — before it does.<br><br>You leave this stage with a clear picture of what's helping your raise and what's quietly undermining it.<br><br>No guesswork. No learning by rejection.",
+      
+      "Investors form an opinion in the first three minutes. Your materials need to hold up.<br><br>A compelling opportunity, badly packaged, gets passed on every day.<br><br>The Assets stage is where we build the materials investors actually expect to see — your pitch deck, financial model, founder narrative, and the framing of your opportunity.<br><br>Not generic templates you can download anywhere. Not vague feedback on what to improve. The actual assets you need to enter the market credibly and give investors a reason to take the next step.",
+      
+      "Approaching the wrong investors doesn't just waste time. It damages your raise.<br><br>A long list of investors is not a strategy. It's a way to feel busy while making no real progress.<br><br>The Investor List stage is where we build a targeted shortlist matched to your stage, sector, geography, and raise profile. Every name on the list has a reason to be there.<br><br>You stop guessing who to approach and start targeting people who are genuinely likely to invest.",
+      
+      "Running a raise without a process is how founders burn out and miss closes.<br><br>Most founders treat outreach like a series of one-off tasks — send a message, wait, follow up, forget, start again.<br><br>The Structured Outreach stage puts a real process in place. Messaging, cadence, follow-up sequences, pipeline structure, and investor tracking — so you're running your raise the way a serious operator runs a sales process.<br><br>Consistent. Disciplined. Trackable.",
+      
+      "Getting the meeting is only the beginning. What happens next determines whether you close.<br><br>Investor interest fades fast. A meeting without the right follow-through is just a conversation.<br><br>The Engagement stage is where we help you handle what comes after the first yes — investor meetings, tough questions, objections, follow-ups, and the momentum between conversations.<br><br>Knowing what to say, when to say it, and how to keep a deal alive is what separates founders who close from founders who nearly close."
     ];
 
-    document.getElementById('step-title').style.color = '#98FF98';
     document.getElementById('step-title').textContent = titles[n];
     document.getElementById('step-description').innerHTML = descriptions[n];
   }

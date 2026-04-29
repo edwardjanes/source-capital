@@ -197,42 +197,98 @@
       </div>
     </div>
 
-    <!-- RAISE ARTEFACT -->
-    <div class="max-w-6xl mx-auto">
-      <p class="text-center text-gray-400 mb-10 text-lg">The 5-step RAISE process:</p>
+   <!-- YOU WILL RECEIVE ARTEFACT -->
+<section class="py-24 bg-black">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-4xl font-bold text-center mb-4">You Will Receive</h2>
+    <p class="text-center text-gray-400 mb-16">Everything you need for a successful raise — delivered through hands-on support</p>
 
-      <!-- Buttons -->
-      <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
-        <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">
-          <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
-          <span class="text-5xl font-bold">R</span>
+    <div class="grid md:grid-cols-12 gap-10">
+      
+      <!-- Left: Clickable List -->
+      <div class="md:col-span-5 space-y-3" id="receive-buttons">
+        <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500/20 transition-all" data-item="0">
+          <span class="font-semibold">6x Masterclass Calls</span>
         </button>
-        <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">
-          <span class="text-xs font-medium tracking-widest mb-1">STEP 2</span>
-          <span class="text-5xl font-bold">A</span>
+        <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="1">
+          <span class="font-semibold">AI Automations</span>
         </button>
-        <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">
-          <span class="text-xs font-medium tracking-widest mb-1">STEP 3</span>
-          <span class="text-5xl font-bold">I</span>
+        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="2">
+          <span class="font-semibold">4x Investor Insight Calls</span>
         </button>
-        <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">
-          <span class="text-xs font-medium tracking-widest mb-1">STEP 4</span>
-          <span class="text-5xl font-bold">S</span>
+        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="3">
+          <span class="font-semibold">Investor Pitch Day</span>
         </button>
-        <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">
-          <span class="text-xs font-medium tracking-widest mb-1">STEP 5</span>
-          <span class="text-5xl font-bold">E</span>
+        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="4">
+          <span class="font-semibold">Recordings of Every Call</span>
+        </button>
+        <button onclick="switchReceiveItem(5)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="5">
+          <span class="font-semibold">1-2-1 Support via Slack</span>
+        </button>
+        <button onclick="switchReceiveItem(6)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="6">
+          <span class="font-semibold">Cohort Support Group</span>
+        </button>
+        <button onclick="switchReceiveItem(7)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 transition-all" data-item="7">
+          <span class="font-semibold">Raise Launchpad Platform</span>
         </button>
       </div>
 
-      <!-- Description -->
-      <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[240px] flex items-center">
-        <div class="w-full">
-          <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
-          <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
+      <!-- Right: Dynamic Description -->
+      <div class="md:col-span-7">
+        <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[420px] flex items-center">
+          <div class="w-full">
+            <h3 id="receive-title" class="text-3xl font-semibold mb-6 text-emerald-400"></h3>
+            <p id="receive-text" class="text-gray-300 text-lg leading-relaxed"></p>
+          </div>
         </div>
       </div>
+
     </div>
+  </div>
+</section>
+
+<script>
+  function switchReceiveItem(n) {
+    // Reset all buttons
+    document.querySelectorAll('.receive-btn').forEach(btn => {
+      btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
+      btn.classList.add('border-emerald-500/30');
+    });
+
+    // Activate selected
+    const activeBtn = document.querySelectorAll('.receive-btn')[n];
+    activeBtn.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10');
+
+    const titles = [
+      "6x Masterclass Calls",
+      "AI Automations",
+      "4x Investor Insight Calls",
+      "Investor Pitch Day",
+      "Recordings of Every Call",
+      "1-2-1 Support via Slack",
+      "Cohort Support Group",
+      "Raise Launchpad Platform"
+    ];
+
+    const descriptions = [
+      "Live, high-impact sessions covering strategy, positioning, assets, and execution.",
+      "Powerful AI tools to accelerate your fundraising assets and processes.",
+      "Deep-dive sessions with real investor perspectives and direct feedback.",
+      "A dedicated event to pitch live in front of investors and receive immediate feedback.",
+      "Access to recordings of every call so you can revisit them anytime.",
+      "Direct access to guidance when you need it through private Slack support.",
+      "A private community of founders raising alongside you for accountability and shared intelligence.",
+      "Your central hub for assets, templates, trackers, and all resources."
+    ];
+
+    document.getElementById('receive-title').textContent = titles[n];
+    document.getElementById('receive-text').textContent = descriptions[n];
+  }
+
+  // Initialize with first item
+  window.onload = () => switchReceiveItem(0);
+</script>
 
   </div>
 </section>

@@ -327,29 +327,29 @@
         <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
         <span class="text-5xl font-bold">R</span>
       </button>
-      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">
+      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-white transition-all" data-step="1">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 2</span>
         <span class="text-5xl font-bold">A</span>
       </button>
-      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">
+      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-white transition-all" data-step="2">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 3</span>
         <span class="text-5xl font-bold">I</span>
       </button>
-      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">
+      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-white transition-all" data-step="3">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 4</span>
         <span class="text-5xl font-bold">S</span>
       </button>
-      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">
+      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-white transition-all" data-step="4">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 5</span>
         <span class="text-5xl font-bold">E</span>
       </button>
     </div>
 
-    <!-- Improved Description Area -->
-    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 max-w-4xl mx-auto">
-      <div class="text-left">
+    <!-- Description Area -->
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[240px] flex items-center">
+      <div class="w-full text-left">
         <h3 id="step-title" class="text-3xl font-semibold mb-8 text-emerald-400">Readiness</h3>
-        <p id="step-description" class="text-gray-300 text-[17px] leading-relaxed"></p>
+        <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
       </div>
     </div>
 
@@ -369,21 +369,16 @@
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [
       "We start by diagnosing where your raise is really breaking down.<br><br>That means looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market.<br><br>You leave this stage knowing exactly what is helping your raise — and what is undermining it.",
-      
-      "Next, we help you build the materials investors expect to see.<br><br>That includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed.<br><br>Not generic templates.<br>Not vague advice.<br><br>The actual assets you need to enter the market credibly.",
-      
-      "Then we build your investor target list.<br><br>Not a random database.<br>Not a broad list of names.<br><br>A strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
-      
-      "Once the foundations are in place, we help you launch a clear and disciplined outreach process.<br><br>Messaging.<br>Cadence.<br>Follow-up.<br>Pipeline structure.<br>Investor tracking.<br><br>Instead of starting and stopping every few days, you run your raise like a process.",
-      
-      "Finally, we help you handle the conversations that follow.<br><br>Investor meetings.<br>Tough questions.<br>Objections.<br>Follow-ups.<br>Momentum between conversations.<br><br>Because getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
+      "Next, we help you build the materials investors expect to see.<br><br>That includes your pitch deck, your financial model, your founder narrative, and the way your opportunity is framed.<br><br>Not generic templates. Not vague advice.<br><br>The actual assets you need to enter the market credibly.",
+      "Then we build your investor target list.<br><br>Not a random database. Not a broad list of names.<br><br>A strategic shortlist of investors matched to your stage, sector, geography, and raise profile, so you stop guessing who to approach and start targeting people who make sense.",
+      "Once the foundations are in place, we help you launch a clear and disciplined outreach process.<br><br>Messaging. Cadence. Follow-up. Pipeline structure. Investor tracking.<br><br>Instead of starting and stopping every few days, you run your raise like a process.",
+      "Finally, we help you handle the conversations that follow.<br><br>Investor meetings. Tough questions. Objections. Follow-ups. Momentum between conversations.<br><br>Because getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
     ];
 
     document.getElementById('step-title').textContent = titles[n];
     document.getElementById('step-description').innerHTML = descriptions[n];
   }
 
-  // Initialize with Step 1 active
   window.onload = () => switchRaiseStep(0);
 </script>
   

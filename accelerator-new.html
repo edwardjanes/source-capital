@@ -461,26 +461,24 @@
   </script>
 
     
-<!-- Raise Audit Call Popup -->
+<!-- Raise Audit Call Popup Form -->
 <div id="raise-audit-modal" class="hidden fixed inset-0 bg-black/90 z-[10000] flex items-center justify-center">
   <div class="bg-zinc-900 rounded-3xl p-10 max-w-lg w-full mx-4">
     <h3 class="text-3xl font-bold text-center mb-8">Book Your Free Raise Audit Call</h3>
-    <p class="text-center text-gray-400 mb-8">20 minutes • No obligation • Honest feedback</p>
+    <p class="text-center text-gray-400 mb-8">20 minutes • No obligation</p>
     
     <form id="raise-audit-form" class="space-y-6">
-      <input type="text" id="first-name" placeholder="First Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
-      <input type="text" id="last-name" placeholder="Last Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
-      <input type="email" id="email" placeholder="Email Address" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
-      <input type="text" id="business-name" placeholder="Business / Startup Name" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
+      <input type="text" id="first-name" placeholder="First Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white">
+      <input type="text" id="last-name" placeholder="Last Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white">
+      <input type="email" id="email" placeholder="Email Address" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white">
+      <input type="text" id="business-name" placeholder="Business / Startup Name" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white">
       
       <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 py-5 rounded-2xl font-semibold text-lg transition">
-        Book My Free 20-Min Call
+        Submit & Book Call
       </button>
     </form>
 
-    <button onclick="closeRaiseAuditModal()" class="mt-6 text-gray-400 hover:text-white block mx-auto text-sm">
-      Close
-    </button>
+    <button onclick="closeRaiseAuditModal()" class="mt-6 text-gray-400 hover:text-white block mx-auto">Close</button>
   </div>
 </div>
 
@@ -495,15 +493,16 @@
     document.getElementById('raise-audit-modal').classList.remove('flex');
   }
 
-  // Form submission
+  // Form Submission + Redirect to Thank You Page
   document.getElementById('raise-audit-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value;
-    const business = document.getElementById('business-name').value;
 
+    const firstName = document.getElementById('first-name').value.trim();
+    const lastName = document.getElementById('last-name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const business = document.getElementById('business-name').value.trim();
+
+    // Submit to Loops.so
     const formBody = `userGroup=Raise Accelerator&firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&businessName=${encodeURIComponent(business)}`;
 
     fetch('https://app.loops.so/api/newsletter-form/cmn78et4k1pr10izg4si3mbut', {
@@ -512,8 +511,14 @@
       headers: { "Content-Type": "application/x-www-form-urlencoded" }
     })
     .then(() => {
-      alert("✅ Thank you! We'll contact you shortly to schedule your Raise Audit Call.");
-      closeRaiseAuditModal();
+      // Redirect to thank you page with parameters
+      const params = new URLSearchParams({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        business: business
+      });
+      window.location.href = `accelerator-thank-you.html?${params.toString()}`;
     })
     .catch(() => {
       alert("Something went wrong. Please try again or email us directly.");

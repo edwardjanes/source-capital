@@ -243,11 +243,13 @@
 
 <script>
   function switchReceiveItem(n) {
+    // Reset all buttons
     document.querySelectorAll('.receive-btn').forEach(btn => {
       btn.classList.remove('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
       btn.classList.add('border-[#98FF98]/40');
     });
 
+    // Activate selected
     const activeBtn = document.querySelectorAll('.receive-btn')[n];
     activeBtn.classList.add('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
 
@@ -272,8 +274,10 @@
     document.getElementById('receive-text').innerHTML = descriptions[n];
   }
 
-  // Default to 6x Masterclass Calls
-  window.onload = () => switchReceiveItem(0);
+  // Force default state
+  document.addEventListener('DOMContentLoaded', () => {
+    switchReceiveItem(0);
+  });
 </script>
     
   </div>

@@ -91,20 +91,6 @@
   </div>
 </section>
 
-<!-- PROBLEM -->
-  <section class="py-24 bg-zinc-950">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12">If you’re trying to raise for the first time, this probably feels familiar.</h2>
-      <div class="prose prose-invert text-lg leading-relaxed space-y-6">
-        <p>You had an idea. A real one. Something you believed in enough to build.</p>
-        <p>So you got to work. You put in the hours. You made progress. You got the business to a point where it felt real.</p>
-        <p>Then came the raise. And suddenly, everything slowed down.</p>
-        <p>You sent emails and heard nothing back. You got a meeting but went nowhere. You built a pitch deck but you were never fully sure whether it was saying the right things. You looked at investor lists and realised you had no idea who was actually relevant.</p>
-        <p>You started second guessing everything - your valuation, your outreach, your story, your timing. You’ve been at this for months and you’re still where you started.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- GOING IT ALONE -->
   <section class="py-24 bg-black">
     <div class="max-w-4xl mx-auto px-6">
@@ -124,6 +110,82 @@
       <p class="text-2xl text-gray-300">A 60-day done-with-you fundraising sprint for first-time founders who need structure, support, and real investor traction.</p>
     </div>
   </section>
+
+  
+  <!-- RAISE INTERACTIVE ARTEFACT -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
+    <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+      Everything inside the Raise Accelerator is built around this 5-step process
+    </p>
+
+    <div id="raise-interactive" class="grid md:grid-cols-5 gap-6">
+      <!-- R -->
+      <div onclick="toggleRaiseStep(0)" class="group bg-zinc-900 hover:bg-zinc-800 border border-transparent hover:border-emerald-500 rounded-3xl p-8 cursor-pointer transition-all duration-300">
+        <div class="text-emerald-400 text-5xl font-bold mb-4">R</div>
+        <h3 class="text-2xl font-semibold mb-3">Readiness</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Audit, deck, numbers, story</p>
+        <div id="step-content-0" class="hidden mt-6 text-sm text-gray-300">
+          We diagnose where your raise is really breaking down — positioning, valuation, traction, and weaknesses.
+        </div>
+      </div>
+
+      <!-- A -->
+      <div onclick="toggleRaiseStep(1)" class="group bg-zinc-900 hover:bg-zinc-800 border border-transparent hover:border-emerald-500 rounded-3xl p-8 cursor-pointer transition-all duration-300">
+        <div class="text-emerald-400 text-5xl font-bold mb-4">A</div>
+        <h3 class="text-2xl font-semibold mb-3">Assets</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Audit, deck, numbers, story</p>
+        <div id="step-content-1" class="hidden mt-6 text-sm text-gray-300">
+          Build professional pitch deck, financial model, and founder narrative that investors expect to see.
+        </div>
+      </div>
+
+      <!-- I -->
+      <div onclick="toggleRaiseStep(2)" class="group bg-zinc-900 hover:bg-zinc-800 border border-transparent hover:border-emerald-500 rounded-3xl p-8 cursor-pointer transition-all duration-300">
+        <div class="text-emerald-400 text-5xl font-bold mb-4">I</div>
+        <h3 class="text-2xl font-semibold mb-3">Investor List</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Audit, deck, numbers, story</p>
+        <div id="step-content-2" class="hidden mt-6 text-sm text-gray-300">
+          A targeted shortlist of 30–50 relevant investors matched to your stage, sector, and raise profile.
+        </div>
+      </div>
+
+      <!-- S -->
+      <div onclick="toggleRaiseStep(3)" class="group bg-zinc-900 hover:bg-zinc-800 border border-transparent hover:border-emerald-500 rounded-3xl p-8 cursor-pointer transition-all duration-300">
+        <div class="text-emerald-400 text-5xl font-bold mb-4">S</div>
+        <h3 class="text-2xl font-semibold mb-3">Structured Outreach</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Audit, deck, numbers, story</p>
+        <div id="step-content-3" class="hidden mt-6 text-sm text-gray-300">
+          Pre-written sequences, cadence, pipeline tracking, and consistent execution.
+        </div>
+      </div>
+
+      <!-- E -->
+      <div onclick="toggleRaiseStep(4)" class="group bg-zinc-900 hover:bg-zinc-800 border border-transparent hover:border-emerald-500 rounded-3xl p-8 cursor-pointer transition-all duration-300">
+        <div class="text-emerald-400 text-5xl font-bold mb-4">E</div>
+        <h3 class="text-2xl font-semibold mb-3">Engagement</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Audit, deck, numbers, story</p>
+        <div id="step-content-4" class="hidden mt-6 text-sm text-gray-300">
+          Prepare for meetings, handle objections, follow-ups, and keep momentum alive.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleRaiseStep(n) {
+    const content = document.getElementById(`step-content-${n}`);
+    const allContents = document.querySelectorAll('[id^="step-content-"]');
+    
+    allContents.forEach(el => {
+      if (el !== content) el.classList.add('hidden');
+    });
+    
+    content.classList.toggle('hidden');
+  }
+</script>
 
   <!-- WHAT'S INCLUDED (Full) -->
   <section id="products" class="py-24 bg-zinc-950">

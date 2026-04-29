@@ -323,23 +323,23 @@
 
     <!-- Buttons Row -->
     <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
-      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98] bg-[#98FF98]/10 hover:bg-[#98FF98] hover:text-black transition-all" data-step="0">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
         <span class="text-5xl font-bold">R</span>
       </button>
-      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500 hover:text-black transition-all" data-step="1">
+      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 transition-all" data-step="1">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 2</span>
         <span class="text-5xl font-bold">A</span>
       </button>
-      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500 hover:text-black transition-all" data-step="2">
+      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 transition-all" data-step="2">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 3</span>
         <span class="text-5xl font-bold">I</span>
       </button>
-      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500 hover:text-black transition-all" data-step="3">
+      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 transition-all" data-step="3">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 4</span>
         <span class="text-5xl font-bold">S</span>
       </button>
-      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500 hover:text-black transition-all" data-step="4">
+      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 transition-all" data-step="4">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 5</span>
         <span class="text-5xl font-bold">E</span>
       </button>
@@ -348,7 +348,7 @@
     <!-- Description Area -->
     <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[240px] flex items-center">
       <div class="w-full text-left">
-        <h3 id="step-title" class="text-3xl font-semibold mb-8 text-emerald-400">Readiness</h3>
+        <h3 id="step-title" class="text-3xl font-semibold mb-8" style="color: #98FF98;">Readiness</h3>
         <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
       </div>
     </div>
@@ -359,12 +359,12 @@
 <script>
   function switchRaiseStep(n) {
     document.querySelectorAll('.raise-btn').forEach(btn => {
-      btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
-      btn.classList.add('border-emerald-500/30');
+      btn.classList.remove('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
+      btn.classList.add('border-[#98FF98]/40');
     });
 
     const activeBtn = document.querySelectorAll('.raise-btn')[n];
-    activeBtn.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10');
+    activeBtn.classList.add('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
 
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [
@@ -375,6 +375,7 @@
       "Finally, we help you handle the conversations that follow.<br><br>Investor meetings. Tough questions. Objections. Follow-ups. Momentum between conversations.<br><br>Because getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive."
     ];
 
+    document.getElementById('step-title').style.color = '#98FF98';
     document.getElementById('step-title').textContent = titles[n];
     document.getElementById('step-description').innerHTML = descriptions[n];
   }

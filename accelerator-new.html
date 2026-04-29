@@ -199,7 +199,7 @@
       </div>
     </div>
 
-   <!-- YOU WILL RECEIVE ARTEFACT -->
+ <!-- YOU WILL RECEIVE ARTEFACT -->
 <section class="py-24 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
     
@@ -208,7 +208,7 @@
 
     <div class="grid md:grid-cols-12 gap-10 items-start">
       
-      <!-- Left: List of Items -->
+      <!-- Left: List -->
       <div class="md:col-span-5 space-y-3" id="receive-buttons">
         <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-[#98FF98] bg-[#98FF98]/10 hover:bg-[#98FF98] hover:text-black transition-all" data-item="0">
           6x Masterclass Calls
@@ -236,14 +236,12 @@
         </button>
       </div>
 
-      <!-- Right: Dynamic Description -->
+      <!-- Right: Description -->
       <div class="md:col-span-7">
-        <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[420px] flex items-center">
+        <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[460px] flex items-center">
           <div class="w-full text-left">
-            <h3 id="receive-title" class="text-3xl font-semibold mb-6" style="color: #98FF98;">6x Masterclass Calls</h3>
-            <p id="receive-text" class="text-gray-300 text-lg leading-relaxed">
-              Live, high-impact sessions covering strategy, positioning, assets, and execution.
-            </p>
+            <h3 id="receive-title" class="text-3xl font-semibold mb-8" style="color: #98FF98;">6x Masterclass Calls</h3>
+            <p id="receive-text" class="text-gray-300 text-[17px] leading-relaxed"></p>
           </div>
         </div>
       </div>
@@ -274,22 +272,22 @@
     ];
 
     const descriptions = [
-      "Live, high-impact sessions covering strategy, positioning, assets, and execution.",
+      "Six live, high-impact sessions built around the moments that make or break a raise. Each call covers a specific stage of the fundraising journey — from sharpening your strategy and nailing your positioning to building investor-ready assets and executing with confidence. No theory for the sake of it. Every session is designed to move you forward.",
       "Powerful AI tools to accelerate your fundraising assets and processes.",
-      "Deep-dive sessions with real investor perspectives and direct feedback.",
-      "A dedicated event to pitch live in front of investors and receive immediate feedback.",
-      "Access to recordings of every call so you can revisit them anytime.",
-      "Direct access to guidance when you need it through private Slack support.",
-      "A private community of founders raising alongside you for accountability and shared intelligence.",
-      "Your central hub for assets, templates, trackers, and all resources."
+      "Four deep-dive sessions with investors who tell you what they actually think — not what founders want to hear. You'll get real perspectives on what makes them say yes, what kills deals before they start, and how your pitch, deck, and story land from the other side of the table. The kind of feedback most founders never get until it's too late.",
+      "A dedicated event where you pitch live to a room of investors and walk away with direct, unfiltered feedback on your performance. Not a rehearsal. Not a mock run. A real opportunity to sharpen your pitch under pressure, understand exactly how investors are reading you, and leave knowing precisely what to fix.",
+      "Every session is recorded and available to you from day one. Revisit a framework before a key investor meeting, catch anything you missed in the moment, or work through the material at your own pace. The value doesn't end when the call does.",
+      "Direct access to guidance when you actually need it — not at the next scheduled session, not via a support ticket. Bring your live questions, your tricky investor conversations, your deck feedback requests. Real support, in real time, from someone who's been in the room.",
+      "A private community of founders raising at the same time as you. Share wins, work through challenges, and stay accountable alongside people who understand exactly what you're going through. Fundraising is a long game — having the right people around you changes how you play it.",
+      "Your central hub for everything you need to run a professional raise. Investor-ready templates, financial trackers, pitch assets, resource libraries — all in one place, built for founders who want to move fast without starting from scratch. The foundation every raise needs, ready to go from day one."
     ];
 
     document.getElementById('receive-title').textContent = titles[n];
     document.getElementById('receive-title').style.color = '#98FF98';
-    document.getElementById('receive-text').textContent = descriptions[n];
+    document.getElementById('receive-text').innerHTML = descriptions[n];
   }
 
-  // Initialize with 6x Masterclass Calls
+  // Start with 6x Masterclass Calls
   window.onload = () => switchReceiveItem(0);
 </script>
     

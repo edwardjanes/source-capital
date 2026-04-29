@@ -217,17 +217,17 @@
     <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
     <p class="text-center text-gray-400 mb-12">Everything inside the Raise Accelerator is built around this 5-step process</p>
 
-    <!-- Buttons Row -->
-    <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
-      <button onclick="switchRaiseStep(0)" class="raise-btn active w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">R</button>
-      <button onclick="switchRaiseStep(1)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">A</button>
-      <button onclick="switchRaiseStep(2)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">I</button>
-      <button onclick="switchRaiseStep(3)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">S</button>
-      <button onclick="switchRaiseStep(4)" class="raise-btn w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-4xl font-bold rounded-2xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">E</button>
+    <!-- Bigger Buttons Row -->
+    <div class="flex justify-center gap-4 md:gap-8 mb-12" id="raise-buttons">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl font-bold rounded-3xl border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black transition-all" data-step="0">R</button>
+      <button onclick="switchRaiseStep(1)" class="raise-btn w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl font-bold rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="1">A</button>
+      <button onclick="switchRaiseStep(2)" class="raise-btn w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl font-bold rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="2">I</button>
+      <button onclick="switchRaiseStep(3)" class="raise-btn w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl font-bold rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="3">S</button>
+      <button onclick="switchRaiseStep(4)" class="raise-btn w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-5xl font-bold rounded-3xl border-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all" data-step="4">E</button>
     </div>
 
     <!-- Description Area -->
-    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[180px] flex items-center">
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[200px] flex items-center">
       <div class="w-full">
         <h3 id="step-title" class="text-3xl font-semibold mb-6 text-emerald-400">Readiness</h3>
         <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
@@ -239,13 +239,11 @@
 
 <script>
   function switchRaiseStep(n) {
-    // Reset all buttons
     document.querySelectorAll('.raise-btn').forEach(btn => {
       btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
       btn.classList.add('border-emerald-500/30');
     });
 
-    // Activate selected button
     const activeBtn = document.querySelectorAll('.raise-btn')[n];
     activeBtn.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10');
 

@@ -45,9 +45,11 @@
       <p class="text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
         For first-time founders raising $250k to $1M, we help you become investor-ready, target the right investors, and run a structured raise that leads to real conversations — without needing a warm network or wasting months figuring it out alone.
       </p>
-      <a href="#book" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-emerald-400 transition">
-        Book your free Raise Audit Call
-      </a>
+     <!-- CTA Button -->
+<button onclick="showRaiseAuditModal()" 
+        class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-emerald-400 transition">
+  Book your free Raise Audit Call
+</button>
       <p class="mt-6 text-gray-400">20 minutes. No obligation. Might change everything.</p>
     </div>
   </section>
@@ -457,5 +459,67 @@
       else nav.classList.remove('bg-black/95');
     });
   </script>
+
+    
+<!-- Raise Audit Call Popup -->
+<div id="raise-audit-modal" class="hidden fixed inset-0 bg-black/90 z-[10000] flex items-center justify-center">
+  <div class="bg-zinc-900 rounded-3xl p-10 max-w-lg w-full mx-4">
+    <h3 class="text-3xl font-bold text-center mb-8">Book Your Free Raise Audit Call</h3>
+    <p class="text-center text-gray-400 mb-8">20 minutes • No obligation • Honest feedback</p>
+    
+    <form id="raise-audit-form" class="space-y-6">
+      <input type="text" id="first-name" placeholder="First Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
+      <input type="text" id="last-name" placeholder="Last Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
+      <input type="email" id="email" placeholder="Email Address" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
+      <input type="text" id="business-name" placeholder="Business / Startup Name" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500">
+      
+      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 py-5 rounded-2xl font-semibold text-lg transition">
+        Book My Free 20-Min Call
+      </button>
+    </form>
+
+    <button onclick="closeRaiseAuditModal()" class="mt-6 text-gray-400 hover:text-white block mx-auto text-sm">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
+  function showRaiseAuditModal() {
+    document.getElementById('raise-audit-modal').classList.remove('hidden');
+    document.getElementById('raise-audit-modal').classList.add('flex');
+  }
+
+  function closeRaiseAuditModal() {
+    document.getElementById('raise-audit-modal').classList.add('hidden');
+    document.getElementById('raise-audit-modal').classList.remove('flex');
+  }
+
+  // Form submission
+  document.getElementById('raise-audit-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+    const business = document.getElementById('business-name').value;
+
+    const formBody = `userGroup=Raise Accelerator&firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&businessName=${encodeURIComponent(business)}`;
+
+    fetch('https://app.loops.so/api/newsletter-form/cmn78et4k1pr10izg4si3mbut', {
+      method: "POST",
+      body: formBody,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" }
+    })
+    .then(() => {
+      alert("✅ Thank you! We'll contact you shortly to schedule your Raise Audit Call.");
+      closeRaiseAuditModal();
+    })
+    .catch(() => {
+      alert("Something went wrong. Please try again or email us directly.");
+    });
+  });
+</script>
+    
 </body>
 </html>

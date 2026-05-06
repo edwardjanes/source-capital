@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raise Accelerator • Source Capital</title>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21Z8XMXK0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z21Z8XMXK0');
+  </script>
+
+  <!-- PostHog -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init be qs fs gs ns capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_q6hE8Fni4V98wXx7VN9R9dLn3aALDasyymp3WeVbEetB', {
+      api_host: 'https://us.i.posthog.com',
+      person_profiles: 'identified_only'
+    });
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { 
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('hero.jpg') center/cover fixed; 
+    }
+    .logo-img { height: 45px; width: auto; max-width: 700px; }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+ <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <a href="#" class="flex items-center">
+      <img src="logo.png" alt="Source Capital" 
+           class="logo-img" 
+           style="height: 45px; max-height: 700px; width: auto;">
+    </a>
+    <div class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="#products" class="hover:text-emerald-400 transition">Products</a>
+      <a href="#consulting" class="hover:text-emerald-400 transition">Consulting</a>
+      <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+    </div>
+    <button onclick="showRaiseAuditModal()"
+       class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-emerald-400 hover:text-white transition">
+      Book a Call
+    </button>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="relative h-screen flex items-center overflow-hidden"
+         style="background-image: url('dubai skyline.jpg');
+                background-size: cover;
+                background-position: center center;">
+  
+  <!-- Much Lighter Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black/70"></div>
+  
+  <!-- Subtle side vignette -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    
+    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 text-white">
+      Book 10 qualified investor meetings in 90 days or we keep working for free
+    </h1>
+    
+    <p class="text-2xl text-gray-200 max-w-4xl mx-auto mb-12">
+      The done-with-you fundraising sprint for first-time founders raising £250k–£1M. 
+      No warm network required. No months wasted. Just a structured 60-day process that puts you in front of the right investors.
+    </p>
+    
+    <!-- CTA Button -->
+    <button onclick="showRaiseAuditModal()" 
+            class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#98FF98] hover:text-black transition">
+      Get My Free Raise Audit — 20 Minutes
+    </button>
+    
+    <p class="mt-6 text-gray-300">20 minutes. No obligation. Might change everything.</p>
+  </div>
+</section>
+
+  <!-- PROBLEM SECTION -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <!-- Full Width Headline -->
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight text-center mb-16">
+      If you’re trying to raise for the first time, this probably feels familiar.
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      
+      <!-- Left: Text -->
+      <div>
+        <div class="prose prose-invert text-lg leading-relaxed space-y-6 text-gray-300">
+          <p>You had an idea. A real one. Something you believed in enough to build.</p>
+          <p>So you got to work. You put in the hours. You made progress. You got the business to a point where it felt real.</p>
+          <p>Then came the raise. And suddenly, everything slowed down.</p>
+          <p>You sent emails and heard nothing back. You got a meeting but went nowhere. You built a pitch deck but you were never fully sure whether it was saying the right things. You looked at investor lists and realised you had no idea who was actually relevant.</p>
+          <p>You started second guessing everything — your valuation, your outreach, your story, your timing.</p>
+          <p class="font-medium">You’ve been at this for months and you’re still where you started.</p>
+        </div>
+      </div>
+
+      <!-- Right: Your Image -->
+      <div class="relative">
+        <img src="frustrated-founder-crop.jpg" 
+             alt="Frustrated founder" 
+             class="rounded-3xl shadow-2xl w-full">
+        
+        <div class="absolute -bottom-6 -left-6 bg-zinc-900 border border-white/20 rounded-2xl p-6 max-w-[260px]">
+          <p class="italic text-sm">"I felt completely stuck. Emails ignored, meetings going nowhere..."</p>
+          <p class="text-xs text-gray-400 mt-4">- First-time Founder</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ <!-- GOING IT ALONE SECTION -->
+<section class="py-24 bg-black">
+  <div class="max-w-5xl mx-auto px-6">
+    
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+      Going it alone costs more than most founders realise
+    </h2>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-invert text-lg leading-relaxed mb-16">
+        <p>It is not just the months you lose.</p>
+        <p class="font-medium">It is what those months take with them.</p>
+      </div>
+
+      <div class="space-y-16">
+        
+        <!-- Point 1 -->
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-emerald-400 font-bold">1</div>
+          </div>
+          <div class="md:col-span-11">
+            <h3 class="text-2xl font-semibold mb-4">You waste time on investors who were never going to say yes</h3>
+            <p class="text-gray-400">
+              There are thousands of investors. Most are not a fit for your stage, sector, geography, cheque size, or raise profile. Without a targeted list built around your specific business, you can spend weeks chasing conversations that were never live opportunities to begin with.
+            </p>
+          </div>
+        </div>
+
+        <!-- Point 2 -->
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-emerald-400 font-bold">2</div>
+          </div>
+          <div class="md:col-span-11">
+            <h3 class="text-2xl font-semibold mb-4">Rejection without feedback drains confidence</h3>
+            <p class="text-gray-400">
+              Getting ignored is frustrating. Getting a meeting, preparing for it properly, and still hearing nothing afterwards is worse.<br><br>
+              Because now you are not just wondering whether the investor was wrong. You are wondering whether you were.<br><br>
+              That uncertainty chips away at the one thing founders need most in a raise: conviction.
+            </p>
+          </div>
+        </div>
+
+        <!-- Point 3 -->
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-emerald-400 font-bold">3</div>
+          </div>
+          <div class="md:col-span-11">
+            <h3 class="text-2xl font-semibold mb-4">While you’re figuring it out, other founders are moving</h3>
+            <p class="text-gray-400">
+              Not always because their business is better. Often because their process is.<br><br>
+              They know who to target. They know how to position their traction. They know how to answer objections. They know how to keep momentum moving.<br><br>
+              The founders who raise faster are not always smarter, more credible, or more connected.<br>
+              <span class="font-medium">They are usually just better prepared.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION SECTION -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-5xl mx-auto px-6">
+    
+    <!-- Main Solution Text -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold leading-tight mb-6">
+        That is exactly why we built the Raise Accelerator
+      </h2>
+     <p class="text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
+  A 60-day done-with-you fundraising sprint for first-time founders who need structure, support, and real investor traction.
+</p>
+
+<p class="text-xl font-medium mb-8">You've done the hard part. You've built something worth backing. But raising investment is a different skill entirely — and nobody gave you the manual.</p>
+
+<p class="text-xl font-medium mb-8">That's exactly why we built this.</p>
+
+<p class="text-xl font-medium mb-8">Not a course. Not a content library you'll bookmark and forget. Not another pile of theory to implement alone at 11pm when your motivation is running dry.</p>
+
+<p class="text-xl font-medium mb-8">The Raise Accelerator is hands-on. Done with you. Built around your raise, your deck, your investor targets — and your 60-day window to get it moving.</p>
+
+<p class="text-xl font-medium">In eight weeks, you go from unclear and investor-unready to confident, prepared, and sitting in front of the right people.</p>
+    
+    </div>
+
+
+<!-- YOU WILL RECEIVE ARTEFACT -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-4xl font-bold text-center mb-4">You Will Receive</h2>
+    <p class="text-center text-gray-400 mb-16">Everything you need for a successful raise — delivered through hands-on support</p>
+
+    <div class="grid md:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left: List -->
+      <div class="md:col-span-5 space-y-3" id="receive-buttons">
+        <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-[#98FF98] bg-[#98FF98]/10 hover:bg-[#98FF98] hover:text-black transition-all" data-item="0">
+          6x Masterclass Calls
+        </button>
+        <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="1">
+          4x Investor Insight Calls
+        </button>
+        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="2">
+          Investor Pitch Day
+        </button>
+        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="3">
+          1-2-1 Support via Slack
+        </button>
+        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98]/10 hover:text-black transition-all" data-item="4">
+          Raise Launchpad Platform
+        </button>
+      </div>
+
+      <!-- Right: Description -->
+      <div class="md:col-span-7">
+        <div id="receive-description" class="bg-zinc-900 rounded-3xl p-10 md:p-14 min-h-[460px] flex items-start">
+          <div class="w-full text-left">
+            <h3 id="receive-title" class="text-3xl font-semibold mb-8" style="color: #98FF98;">6x Masterclass Calls</h3>
+            <p id="receive-text" class="text-gray-300 text-[17px] leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function switchReceiveItem(n) {
+    // Reset all buttons
+    document.querySelectorAll('.receive-btn').forEach(btn => {
+      btn.classList.remove('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
+      btn.classList.add('border-[#98FF98]/40');
+    });
+
+    // Activate selected
+    const activeBtn = document.querySelectorAll('.receive-btn')[n];
+    activeBtn.classList.add('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
+
+    const titles = [
+      "6x Masterclass Calls",
+      "4x Investor Insight Calls",
+      "Investor Pitch Day",
+      "1-2-1 Support via Slack",
+      "Raise Launchpad Platform"
+    ];
+
+    const descriptions = [
+      "Six live, high-impact sessions built around the moments that make or break a raise. Each call covers a specific stage of the fundraising journey — from sharpening your strategy and nailing your positioning to building investor-ready assets and executing with confidence. No theory for the sake of it. Every session is designed to move you forward.",
+      "Four deep-dive sessions with investors who tell you what they actually think — not what founders want to hear. You'll get real perspectives on what makes them say yes, what kills deals before they start, and how your pitch, deck, and story land from the other side of the table. The kind of feedback most founders never get until it's too late.",
+      "A dedicated event where you pitch live to a room of investors and walk away with direct, unfiltered feedback on your performance. Not a rehearsal. Not a mock run. A real opportunity to sharpen your pitch under pressure, understand exactly how investors are reading you, and leave knowing precisely what to fix.",
+      "Direct access to guidance when you actually need it — not at the next scheduled session, not via a support ticket. Bring your live questions, your tricky investor conversations, your deck feedback requests. Real support, in real time, from someone who's been in the room.",
+      "Your central hub for everything you need to run a professional raise. Investor-ready templates, financial trackers, pitch assets, resource libraries — all in one place, built for founders who want to move fast without starting from scratch. The foundation every raise needs, ready to go from day one."
+    ];
+
+    document.getElementById('receive-title').textContent = titles[n];
+    document.getElementById('receive-title').style.color = '#98FF98';
+    document.getElementById('receive-text').innerHTML = descriptions[n];
+  }
+
+  // Force default state
+  document.addEventListener('DOMContentLoaded', () => {
+    switchReceiveItem(0);
+  });
+</script>
+    
+  </div>
+</section>
+
+
+
+  <!-- RAISE PROCESS SECTION -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <!-- Introductory Text -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-8">
+       Most founders don't have a funding problem. They have a process problem.
+      </h2>
+      <div class="prose prose-invert text-lg leading-relaxed text-gray-300">
+        <p>Most founders don't fail to raise because their idea isn't good enough. They fail because they approach investors at the wrong stage, with the wrong materials, in the wrong order.</p>
+        <p>Raising capital isn't a talent — it's a process. Get the sequence right, and the outcome takes care of itself.</p>
+        <p class="font-semibold text-emerald-400 mt-8">That’s why we developed the RAISE process</p>
+        <p>Everything inside the Raise Accelerator is built around one outcome: helping you become investor-ready and get in front of the right people quickly.</p>
+      </div>
+    </div>
+  
+<!-- RAISE INTERACTIVE ARTEFACT - FULL VERSION -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-4xl font-bold text-center mb-4">The RAISE Method</h2>
+    <p class="text-center text-gray-400 mb-12">The RAISE framework is how we take founders from scattered and stalling to structured and closing — in five stages built around what actually moves investors.</p>
+
+    <!-- Buttons -->
+    <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98] bg-[#98FF98]/10 hover:bg-[#98FF98] hover:text-black transition-all" data-step="0">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
+        <span class="text-5xl font-bold">R</span>
+      </button>
+      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98] hover:text-black transition-all" data-step="1">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 2</span>
+        <span class="text-5xl font-bold">A</span>
+      </button>
+      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98] hover:text-black transition-all" data-step="2">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 3</span>
+        <span class="text-5xl font-bold">I</span>
+      </button>
+      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98] hover:text-black transition-all" data-step="3">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 4</span>
+        <span class="text-5xl font-bold">S</span>
+      </button>
+      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#98FF98]/40 hover:border-[#98FF98] hover:bg-[#98FF98] hover:text-black transition-all" data-step="4">
+        <span class="text-xs font-medium tracking-widest mb-1">STEP 5</span>
+        <span class="text-5xl font-bold">E</span>
+      </button>
+    </div>
+
+    <!-- Description Area -->
+    <div id="raise-description" class="bg-zinc-900 rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto min-h-[260px] flex items-center">
+      <div class="w-full text-left">
+        <h3 id="step-title" class="text-3xl font-semibold mb-8" style="color: #98FF98;">Readiness</h3>
+        <p id="step-description" class="text-gray-300 text-lg leading-relaxed"></p>
+      </div>
+    </div>
+
+    <!-- Closing CTA -->
+    <div class="text-center mt-16">
+      <p class="text-xl text-gray-400 mb-6">Ready to run your raise like it's supposed to be run?</p>
+      <!-- CTA Button -->
+<button onclick="showRaiseAuditModal()" 
+        class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-emerald-400 transition">
+  Book your free Raise Audit Call
+</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  function switchRaiseStep(n) {
+    document.querySelectorAll('.raise-btn').forEach(btn => {
+      btn.classList.remove('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
+      btn.classList.add('border-[#98FF98]/40');
+    });
+
+    const activeBtn = document.querySelectorAll('.raise-btn')[n];
+    activeBtn.classList.add('active', 'border-[#98FF98]', 'bg-[#98FF98]/10');
+
+    const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
+    const descriptions = [
+      "Before you approach a single investor, you need to know what's working against you.<br><br>Most founders start raising before they're ready. Not because they're naive — because no one has told them what \"ready\" actually looks like.<br><br>The Readiness stage is a diagnostic. We look at your positioning, valuation logic, traction story, and investor-facing materials and identify exactly where your raise is likely to break down — before it does.<br><br>You leave this stage with a clear picture of what's helping your raise and what's quietly undermining it.<br><br>No guesswork. No learning by rejection.",
+      
+      "Investors form an opinion in the first three minutes. Your materials need to hold up.<br><br>A compelling opportunity, badly packaged, gets passed on every day.<br><br>The Assets stage is where we build the materials investors actually expect to see — your pitch deck, financial model, founder narrative, and the framing of your opportunity.<br><br>Not generic templates you can download anywhere. Not vague feedback on what to improve. The actual assets you need to enter the market credibly and give investors a reason to take the next step.",
+      
+      "Approaching the wrong investors doesn't just waste time. It damages your raise.<br><br>A long list of investors is not a strategy. It's a way to feel busy while making no real progress.<br><br>The Investor List stage is where we build a targeted shortlist matched to your stage, sector, geography, and raise profile. Every name on the list has a reason to be there.<br><br>You stop guessing who to approach and start targeting people who are genuinely likely to invest.",
+      
+      "Running a raise without a process is how founders burn out and miss closes.<br><br>Most founders treat outreach like a series of one-off tasks — send a message, wait, follow up, forget, start again.<br><br>The Structured Outreach stage puts a real process in place. Messaging, cadence, follow-up sequences, pipeline structure, and investor tracking — so you're running your raise the way a serious operator runs a sales process.<br><br>Consistent. Disciplined. Trackable.",
+      
+      "Getting the meeting is only the beginning. What happens next determines whether you close.<br><br>Investor interest fades fast. A meeting without the right follow-through is just a conversation.<br><br>The Engagement stage is where we help you handle what comes after the first yes — investor meetings, tough questions, objections, follow-ups, and the momentum between conversations.<br><br>Knowing what to say, when to say it, and how to keep a deal alive is what separates founders who close from founders who nearly close."
+    ];
+
+    document.getElementById('step-title').textContent = titles[n];
+    document.getElementById('step-description').innerHTML = descriptions[n];
+  }
+
+  window.onload = () => switchRaiseStep(0);
+</script>
+  
+  <!-- WHAT'S INCLUDED (Full) -->
+  <section id="products" class="py-24 bg-zinc-950">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">What’s Included in the Raise Accelerator</h2>
+      <div class="space-y-12">
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-8">CORE PROGRAM</h3>
+          <ul class="space-y-8 text-gray-300">
+            <li><strong>01 60-Day Capital Raise Accelerator</strong><br>Structured sprint with 6x Masterclass Calls, 4x Investor Insight Calls, Investor Pitch Day, weekly roadmap, Slack + cohort support.</li>
+            <li><strong>02 Investor-Ready Valuation Report</strong></li>
+            <li><strong>03 Hollywood Power Positioning System</strong></li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-8">ACCELERATORS</h3>
+          <ul class="space-y-8 text-gray-300">
+            <li><strong>04 Strategic Investor Shortlist</strong></li>
+            <li><strong>05 Outreach Execution Engine</strong></li>
+            <li><strong>06 Raise Reset Audit</strong></li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-8">EFFORT REDUCERS</h3>
+          <ul class="space-y-8 text-gray-300">
+            <li><strong>07 Perfect Pitch Deck Build</strong></li>
+            <li><strong>08 Fast-Track Financial Model Session</strong></li>
+            <li><strong>09 Raise Traction Generator</strong></li>
+            <li><strong>10 Founder Narrative Session</strong></li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-8">RISK REDUCERS</h3>
+          <ul class="space-y-8 text-gray-300">
+            <li><strong>11 Raise Mistakes & How to Avoid Them</strong></li>
+            <li><strong>12 Investor Objection Playbook</strong></li>
+            <li><strong>13 The Warm Intro Generator</strong></li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-900 p-10 rounded-3xl">
+          <h3 class="text-2xl font-semibold mb-8">SUPPORT SYSTEMS</h3>
+          <ul class="space-y-8 text-gray-300">
+            <li><strong>14 The Raise Circle Community</strong></li>
+            <li><strong>15 Fortnightly Raise Advisory Session</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- 10-MEETING GUARANTEE SECTION -->
+<section class="py-24 bg-[#0A1428]">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-[#0F1B33] rounded-3xl p-12 md:p-20 text-center border border-white/10">
+      
+      <h2 class="text-4xl md:text-5xl font-bold text-[#F4D03F] leading-tight mb-10">
+        The 10-Meeting Guarantee
+      </h2>
+      
+      <p class="text-3xl md:text-4xl font-medium text-white leading-tight mb-12">
+        10 qualified investor meetings in 90 days —<br>
+        or we keep working with you for free until you do
+      </p>
+
+      <div class="max-w-2xl mx-auto text-lg text-gray-300 space-y-8">
+        <p>A qualified investor meeting means a live conversation with an investor who fits your raise profile and has agreed to meet based on your opportunity.</p>
+        
+        <p class="italic">"This is not a vague promise. And it is not built on vanity metrics."</p>
+        
+        <p>
+          If you complete the programme, follow the system, attend the sessions, and execute the agreed outreach, and you do not have 10 qualified investor meetings booked by day 90, we continue supporting you at no additional cost until you do.
+        </p>
+        
+        <p class="font-semibold text-white">That is how strongly we stand behind the process.</p>
+        
+        <p class="text-2xl font-bold text-white mt-10">
+          The risk sits entirely with us.<br>
+          <span class="text-emerald-400">You have nothing to lose and a funded company to gain.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing CTA -->
+    <div class="text-center mt-16">
+      <p class="text-xl text-gray-400 mb-6">Ready to run your raise like it's supposed to be run?</p>
+      <!-- CTA Button -->
+<button onclick="showRaiseAuditModal()" 
+        class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-emerald-400 transition">
+  Book your free Raise Audit Call
+</button>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-white/10 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>© 2026 Source Capital. All rights reserved.</div>
+      <div class="flex gap-x-8 text-sm">
+        <a href="terms.html" class="hover:text-emerald-400">Terms</a>
+        <a href="privacy.html" class="hover:text-emerald-400">Privacy</a>
+      </div>
+      <div class="text-sm text-gray-500">Dubai, UAE</div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('bg-black/95');
+      else nav.classList.remove('bg-black/95');
+    });
+  </script>
+
+    
+<!-- ═══════════════════════════════════════════════════════════
+     MULTI-STEP QUALIFYING FUNNEL MODAL
+═══════════════════════════════════════════════════════════ -->
+<div id="raise-audit-modal" class="hidden fixed inset-0 bg-black/90 z-[10000] items-center justify-center p-4" style="overflow-y:auto;">
+  <div class="bg-zinc-900 rounded-3xl p-8 md:p-10 max-w-lg w-full mx-auto my-8 relative" id="modal-inner">
+
+    <!-- Close -->
+    <button onclick="closeRaiseAuditModal()" class="absolute top-5 right-6 text-gray-500 hover:text-white text-3xl leading-none">&times;</button>
+
+    <!-- Progress (hidden on contact step and result steps) -->
+    <div id="modal-progress" class="hidden mb-8">
+      <div class="flex justify-between text-xs text-gray-500 mb-2">
+        <span id="progress-label">Question 1 of 5</span>
+      </div>
+      <div class="w-full bg-zinc-800 rounded-full h-1">
+        <div id="progress-bar" class="bg-[#98FF98] h-1 rounded-full transition-all duration-500" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- ── STEP 0: Contact details ── -->
+    <div id="step-contact" class="funnel-step">
+      <h3 class="text-2xl md:text-3xl font-bold text-center mb-2">Let's start with the basics</h3>
+      <p class="text-center text-gray-400 mb-8 text-sm">20 minutes • No obligation • No spam</p>
+      <div class="space-y-4">
+        <input type="text" id="fn" placeholder="First Name" class="w-full bg-zinc-800 border border-zinc-700 focus:border-[#98FF98] outline-none rounded-2xl px-5 py-4 text-white placeholder-gray-500 transition">
+        <input type="text" id="ln" placeholder="Last Name" class="w-full bg-zinc-800 border border-zinc-700 focus:border-[#98FF98] outline-none rounded-2xl px-5 py-4 text-white placeholder-gray-500 transition">
+        <input type="email" id="em" placeholder="Email Address" class="w-full bg-zinc-800 border border-zinc-700 focus:border-[#98FF98] outline-none rounded-2xl px-5 py-4 text-white placeholder-gray-500 transition">
+      </div>
+      <p id="contact-error" class="text-red-400 text-sm mt-3 hidden">Please fill in all fields with a valid email.</p>
+      <button onclick="submitContact()" class="mt-6 w-full bg-white text-black hover:bg-[#98FF98] py-5 rounded-2xl font-semibold text-lg transition">
+        Continue &rarr;
+      </button>
+    </div>
+
+    <!-- ── STEPS 1-5: Questions (generated by JS) ── -->
+    <div id="step-questions" class="funnel-step hidden">
+      <h3 id="q-text" class="text-xl md:text-2xl font-bold mb-8 leading-snug"></h3>
+      <div id="q-options" class="space-y-3"></div>
+      <p id="q-error" class="text-red-400 text-sm mt-3 hidden">Please select an answer to continue.</p>
+      <div class="flex items-center justify-between mt-8">
+        <button onclick="prevQuestion()" id="q-back" class="text-gray-400 hover:text-white text-sm transition">&larr; Back</button>
+        <button onclick="nextQuestion()" class="bg-white text-black hover:bg-[#98FF98] px-10 py-4 rounded-2xl font-semibold transition">
+          Next &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- ── RESULT: QUALIFIED ── -->
+    <div id="step-qualified" class="funnel-step hidden text-center">
+      <div class="text-5xl mb-4">🎯</div>
+      <h3 class="text-2xl md:text-3xl font-bold mb-4" style="color:#98FF98;">You look like a great fit.</h3>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Based on your answers, the Raise Accelerator is built for founders exactly like you.<br><br>
+        Book your free 20-minute Raise Audit now — we'll review where you are, where the gaps are, and exactly what you need to do to get investor-ready.
+      </p>
+      <p class="text-sm text-gray-500 mb-8">No pitch. No hard sell. Just an honest look at your raise.</p>
+      <a id="booking-link" href="https://cal.com/edward-janes/30min" target="_blank"
+         class="block w-full bg-[#98FF98] text-black hover:bg-white py-5 rounded-2xl font-bold text-lg transition mb-4">
+        Book My Free Raise Audit &rarr;
+      </a>
+      <button onclick="closeRaiseAuditModal()" class="text-gray-500 hover:text-white text-sm">No thanks, I'll figure it out myself</button>
+    </div>
+
+    <!-- ── RESULT: NOT QUALIFIED → LAUNCHPAD ── -->
+    <div id="step-launchpad" class="funnel-step hidden">
+      <div class="text-center mb-6">
+        <div class="text-4xl mb-3">🚀</div>
+        <h3 class="text-2xl md:text-3xl font-bold mb-3">The Raise Launchpad is your next step</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          The Accelerator is designed for founders who are close to market-ready — and based on your answers, you'd get more out of building that foundation first.
+        </p>
+      </div>
+
+      <div class="bg-zinc-800 rounded-2xl p-6 mb-6 border border-zinc-700">
+        <h4 class="font-semibold text-[#98FF98] mb-4">The Raise Launchpad gives you:</h4>
+        <ul class="space-y-3 text-sm text-gray-300">
+          <li class="flex items-start gap-3"><span class="text-[#98FF98] mt-0.5">✓</span><span>The complete fundraising playbook — strategy, positioning, outreach, and close</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#98FF98] mt-0.5">✓</span><span>Investor-ready templates for your deck, financial model, and outreach</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#98FF98] mt-0.5">✓</span><span>The RAISE framework broken down into step-by-step actions</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#98FF98] mt-0.5">✓</span><span>Access to the Raise Circle community of founders going through the same journey</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#98FF98] mt-0.5">✓</span><span>Everything you need to get genuinely investor-ready — at your own pace</span></li>
+        </ul>
+      </div>
+
+      <p class="text-center text-gray-400 text-sm mb-5">
+        When you're ready to go further, the Accelerator will be there. But the Launchpad is the right place to start.
+      </p>
+
+      <a href="https://cal.com/edward-janes/30min" target="_blank"
+         class="block w-full bg-[#98FF98] text-black hover:bg-white py-5 rounded-2xl font-bold text-lg transition text-center mb-3">
+        Tell Me More About the Launchpad &rarr;
+      </a>
+      <button onclick="closeRaiseAuditModal()" class="block w-full text-gray-500 hover:text-white text-sm py-2 transition">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ─── Data ───────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    q: "When are you looking to start your fundraise?",
+    options: [
+      { text: "I'm actively raising right now",    score: 3 },
+      { text: "Within the next 3 months",          score: 3 },
+      { text: "In 3–6 months",                     score: 2 },
+      { text: "Just exploring for now",            score: 1 }
+    ]
+  },
+  {
+    q: "How much are you looking to raise?",
+    options: [
+      { text: "Under £100k",   score: 0 },
+      { text: "£100k–£250k",   score: 1 },
+      { text: "£250k–£1M",     score: 3 },
+      { text: "Over £1M",      score: 2 }
+    ]
+  },
+  {
+    q: "What stage is your business at?",
+    options: [
+      { text: "Generating revenue",           score: 3 },
+      { text: "Launched but pre-revenue",     score: 2 },
+      { text: "Pre-launch / MVP stage",       score: 1 },
+      { text: "Idea or concept stage",        score: 0 }
+    ]
+  },
+  {
+    q: "Have you raised investment before?",
+    options: [
+      { text: "No — this is my first raise",              score: 3 },
+      { text: "Raised a small amount informally",         score: 2 },
+      { text: "Yes, I've completed a raise before",       score: 2 },
+      { text: "Not sure if I need external investment",   score: 0 }
+    ]
+  },
+  {
+    q: "What's your biggest challenge right now?",
+    options: [
+      { text: "I don't know which investors to approach",         score: 3 },
+      { text: "My pitch and materials aren't investor-ready",     score: 3 },
+      { text: "I've been trying but getting no responses",        score: 3 },
+      { text: "I don't know where to start",                      score: 2 }
+    ]
+  }
+];
+
+const QUALIFY_THRESHOLD = 9; // out of 15
+
+// ── REPLACE THIS with your Google Apps Script Web App URL after deploying ──
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxGztOLhiCVCb1UR0OTqW4rfb792w0sHuMkdju0wPHtD4y0AP7hWz6fsTBC5NOMdFNn/exec';
+
+const LOOPS_API_KEY   = 'e93b0df1e0a3f327abdcebbcbfdef379';
+const LOOPS_API_BASE  = 'https://app.loops.so/api/v1';
+
+// ─── State ──────────────────────────────────────────────
+let currentQ = 0;
+let answers  = new Array(QUESTIONS.length).fill(null);
+let userData = {};
+
+// ─── Analytics helpers ───────────────────────────────────
+function track(event, props) {
+  props = props || {};
+  props.product = 'Raise Accelerator';
+  if (window.posthog) posthog.capture(event, props);
+  if (window.gtag)    gtag('event', event, props);
+}
+
+// ─── Modal open / close ─────────────────────────────────
+function showRaiseAuditModal() {
+  resetFunnel();
+  const modal = document.getElementById('raise-audit-modal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  track('funnel_opened');
+}
+
+function closeRaiseAuditModal() {
+  const modal = document.getElementById('raise-audit-modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
+
+document.getElementById('raise-audit-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeRaiseAuditModal();
+});
+
+// ─── Reset ───────────────────────────────────────────────
+function resetFunnel() {
+  currentQ = 0;
+  answers.fill(null);
+  userData = {};
+  showStep('step-contact');
+  document.getElementById('modal-progress').classList.add('hidden');
+  ['fn','ln','em'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('contact-error').classList.add('hidden');
+}
+
+// ─── Step helpers ────────────────────────────────────────
+function showStep(id) {
+  document.querySelectorAll('.funnel-step').forEach(el => el.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+// ─── Contact step ────────────────────────────────────────
+// Creates the contact in Loops immediately so partial completions are captured
+function submitContact() {
+  const fn = document.getElementById('fn').value.trim();
+  const ln = document.getElementById('ln').value.trim();
+  const em = document.getElementById('em').value.trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+
+  if (!fn || !ln || !em || !emailOk) {
+    document.getElementById('contact-error').classList.remove('hidden');
+    return;
+  }
+  document.getElementById('contact-error').classList.add('hidden');
+  userData = { firstName: fn, lastName: ln, email: em };
+
+  // Identify in PostHog so all subsequent events are tied to this person
+  if (window.posthog) posthog.identify(em, { firstName: fn, lastName: ln, email: em });
+  track('funnel_contact_submitted');
+
+  // Create contact in Loops immediately (captures partial completions)
+  fetch(`${LOOPS_API_BASE}/contacts/create`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${LOOPS_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: em,
+      firstName: fn,
+      lastName: ln,
+      userGroup: 'Raise Accelerator Funnel',
+      source: 'Raise Accelerator Landing Page'
+    })
+  }).catch(() => {});
+
+  currentQ = 0;
+  document.getElementById('modal-progress').classList.remove('hidden');
+  showStep('step-questions');
+  renderQuestion();
+}
+
+// ─── Question rendering ──────────────────────────────────
+function renderQuestion() {
+  const q = QUESTIONS[currentQ];
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-error').classList.add('hidden');
+
+  const pct = Math.round((currentQ / QUESTIONS.length) * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `Question ${currentQ + 1} of ${QUESTIONS.length}`;
+  document.getElementById('q-back').style.visibility = currentQ === 0 ? 'hidden' : 'visible';
+
+  const container = document.getElementById('q-options');
+  container.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const selected = answers[currentQ] === i;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `w-full text-left px-5 py-4 rounded-2xl border-2 transition-all text-sm font-medium
+      ${selected
+        ? 'border-[#98FF98] bg-[#98FF98]/10 text-white'
+        : 'border-zinc-700 bg-zinc-800 text-gray-300 hover:border-[#98FF98]/50 hover:text-white'}`;
+    btn.textContent = opt.text;
+    btn.onclick = () => selectOption(i);
+    container.appendChild(btn);
+  });
+
+  document.getElementById('modal-inner').scrollTop = 0;
+}
+
+function selectOption(i) {
+  answers[currentQ] = i;
+  renderQuestion();
+  track('funnel_answer_selected', {
+    question_number: currentQ + 1,
+    question_text:   QUESTIONS[currentQ].q,
+    answer_text:     QUESTIONS[currentQ].options[i].text,
+    answer_score:    QUESTIONS[currentQ].options[i].score
+  });
+}
+
+// ─── Navigation ──────────────────────────────────────────
+function nextQuestion() {
+  if (answers[currentQ] === null) {
+    document.getElementById('q-error').classList.remove('hidden');
+    return;
+  }
+  document.getElementById('q-error').classList.add('hidden');
+
+  if (currentQ < QUESTIONS.length - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    evaluateScore();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  } else {
+    document.getElementById('modal-progress').classList.add('hidden');
+    showStep('step-contact');
+  }
+}
+
+// ─── Scoring, data capture & routing ────────────────────
+function evaluateScore() {
+  let score = 0;
+  answers.forEach((answerIdx, qIdx) => {
+    if (answerIdx !== null) score += QUESTIONS[qIdx].options[answerIdx].score;
+  });
+
+  document.getElementById('progress-bar').style.width = '100%';
+
+  const qualified = score >= QUALIFY_THRESHOLD;
+  const answerTexts = answers.map((idx, qIdx) =>
+    idx !== null ? QUESTIONS[qIdx].options[idx].text : ''
+  );
+
+  // 1. Google Sheets — full record
+  if (SHEETS_ENDPOINT !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+    fetch(SHEETS_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
+        firstName:  userData.firstName,
+        lastName:   userData.lastName,
+        email:      userData.email,
+        q1: answerTexts[0],
+        q2: answerTexts[1],
+        q3: answerTexts[2],
+        q4: answerTexts[3],
+        q5: answerTexts[4],
+        score:     score,
+        qualified: qualified
+      })
+    }).catch(() => {});
+  }
+
+  // 2. Loops.so — update contact with full qualifying data + outcome
+  fetch(`${LOOPS_API_BASE}/contacts/update`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${LOOPS_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email:            userData.email,
+      userGroup:        qualified ? 'Raise Accelerator - Qualified' : 'Raise Accelerator - Launchpad',
+      raiseTimeline:    answerTexts[0],
+      raiseAmount:      answerTexts[1],
+      businessStage:    answerTexts[2],
+      previousRaise:    answerTexts[3],
+      biggestChallenge: answerTexts[4],
+      qualifyScore:     score,
+      qualifyOutcome:   qualified ? 'Qualified' : 'Not Qualified'
+    })
+  }).catch(() => {});
+
+  track('funnel_completed', {
+    score:    score,
+    outcome:  qualified ? 'Qualified' : 'Not Qualified',
+    q1: answerTexts[0], q2: answerTexts[1], q3: answerTexts[2],
+    q4: answerTexts[3], q5: answerTexts[4]
+  });
+
+  setTimeout(() => {
+    document.getElementById('modal-progress').classList.add('hidden');
+    if (qualified) {
+      const link = document.getElementById('booking-link');
+      const params = new URLSearchParams({ name: `${userData.firstName} ${userData.lastName}`, email: userData.email });
+      link.href = `accelerator-booking.html?${params.toString()}`;
+      link.addEventListener('click', () => track('booking_page_clicked', { score }), { once: true });
+      showStep('step-qualified');
+    } else {
+      track('launchpad_upsell_shown', { score });
+      showStep('step-launchpad');
+    }
+  }, 400);
+}
+</script>
+    
+</body>
+</html>

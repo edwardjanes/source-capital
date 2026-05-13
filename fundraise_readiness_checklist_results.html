@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Fundraise Readiness Score – Source Capital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .score-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .score-circle.ready {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+      border: 3px solid #10b981;
+    }
+
+    .score-circle.progress {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+      border: 3px solid #3b82f6;
+    }
+
+    .score-circle.not-ready {
+      background: linear-gradient(135deg, rgba(251, 146, 60, 0.2), rgba(251, 146, 60, 0.1));
+      border: 3px solid #fb923c;
+    }
+
+    .score-number {
+      font-size: 4rem;
+      line-height: 1;
+      color: #10b981;
+    }
+
+    .score-label {
+      font-size: 0.875rem;
+      text-gray-400;
+      margin-top: 0.75rem;
+    }
+
+    .section-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: #27272a;
+      overflow: hidden;
+    }
+
+    .section-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: #10b981;
+      transition: width 0.6s ease-out;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .status-badge.ready {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid #10b981;
+    }
+
+    .status-badge.progress {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+      border: 1px solid #3b82f6;
+    }
+
+    .status-badge.not-ready {
+      background: rgba(251, 146, 60, 0.15);
+      color: #fb923c;
+      border: 1px solid #fb923c;
+    }
+
+    .section-card {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .section-title-card {
+      font-weight: 600;
+      color: white;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-score {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .action-box {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 4px solid #10b981;
+    }
+
+    .action-title {
+      font-weight: 600;
+      color: #10b981;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+      background: #10b981;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-40 bg-black border-b border-zinc-900">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="fundraise_readiness_landing_page.html" class="text-sm font-semibold tracking-widest uppercase">
+      Source <span class="text-emerald-400">Capital</span>
+    </a>
+    <a href="https://cal.com/edward-janes/30min" target="_blank" class="text-sm font-medium px-6 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg transition">
+      Book a call →
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<section class="pt-32 pb-24 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- HEADER -->
+    <div class="mb-16">
+      <p class="text-emerald-400 text-sm font-semibold tracking-widest uppercase mb-4">Your Results</p>
+      <h1 class="text-5xl md:text-6xl font-bold mb-2" id="greetingText">Your Fundraise Readiness Score</h1>
+    </div>
+
+    <!-- SCORE CARD -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-12 mb-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- SCORE CIRCLE -->
+        <div class="flex justify-center md:justify-start">
+          <div class="score-circle ready" id="scoreCircle">
+            <div class="score-number" id="scoreNumber">0</div>
+            <div class="score-label">out of 100</div>
+          </div>
+        </div>
+
+        <!-- STATUS INFO -->
+        <div>
+          <div class="mb-6">
+            <p class="text-gray-400 text-sm mb-3">YOUR READINESS STATUS</p>
+            <div id="statusBadge" class="status-badge ready">Ready</div>
+          </div>
+
+          <div class="space-y-4">
+            <p class="text-lg text-gray-300 leading-relaxed" id="statusDescription">
+              Based on your score, here's what it means for your fundraising readiness.
+            </p>
+            <div>
+              <p class="text-sm text-gray-500 mb-2">Next Step:</p>
+              <p class="text-emerald-400 font-semibold" id="nextStep">Book a consultation</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION BREAKDOWN -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold mb-8">Readiness by Category</h2>
+      <div class="space-y-4" id="sectionsContainer">
+        <!-- Sections will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- ACTION ITEMS -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold mb-8">Your Action Plan</h2>
+      <div class="space-y-4" id="actionContainer">
+        <!-- Action items will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-12 text-center">
+      <h3 class="text-2xl font-bold mb-4">Ready to move forward?</h3>
+      <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+        Book a 30-minute Raise Audit Call to get a personalized roadmap for each area where you're behind, and a clear timeline to investor readiness.
+      </p>
+      <a href="https://cal.com/edward-janes/30min" target="_blank" class="cta-button">
+        Book Your Raise Audit Call →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-zinc-900 py-12 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
+    <div>© 2026 Source Capital. All rights reserved.</div>
+    <div class="flex gap-x-8">
+      <a href="#" class="hover:text-emerald-400">Privacy</a>
+      <a href="#" class="hover:text-emerald-400">Terms</a>
+    </div>
+    <div>Dubai, UAE</div>
+  </div>
+</footer>
+
+<script>
+  const statusInfo = {
+    ready: {
+      className: 'ready',
+      label: '80-100%: Ready to Raise',
+      description: 'You\'re well-prepared for investor conversations. Focus on refining your pitch and beginning outreach.',
+      nextStep: 'Start reaching out to your target investor list this week'
+    },
+    progress: {
+      className: 'progress',
+      label: '50-79%: In Progress',
+      description: 'You\'re on the right track but have gaps that could cost you investor meetings. Prioritize your lowest-scoring categories.',
+      nextStep: 'Fix your 2-3 weakest areas before major outreach'
+    },
+    not_ready: {
+      className: 'not-ready',
+      label: 'Below 50%: Not Yet Ready',
+      description: 'You have significant work ahead. Use this checklist as a roadmap to get investor-ready before raising.',
+      nextStep: 'Build traction and strengthen your fundamentals first'
+    }
+  };
+
+  const sectionInsights = {
+    'Founder & Team': {
+      ready: 'Strong team. Investors are confident in your execution.',
+      progress: 'Good team foundation, but missing some key credentials or clarity.',
+      not_ready: 'Strengthen your team with domain expertise or hire a strong technical co-founder.'
+    },
+    'Problem & Market': {
+      ready: 'Problem and market are well-defined. Investors see the opportunity.',
+      progress: 'Market is large but problem validation needs work.',
+      not_ready: 'Validate your problem with real customers and quantify your market opportunity.'
+    },
+    'Product & Traction': {
+      ready: 'Live product with real traction. Your strongest asset.',
+      progress: 'Product is live but traction metrics need improvement.',
+      not_ready: 'Get your MVP live and into customer hands as soon as possible.'
+    },
+    'Business Model': {
+      ready: 'Clear, scalable business model. Investors will see the path to revenue.',
+      progress: 'Model is defined but needs validation with real pricing data.',
+      not_ready: 'Define your revenue model and validate pricing with early customers.'
+    },
+    'Financials': {
+      ready: 'Professional financial model. Investors will trust your projections.',
+      progress: 'Financials exist but assumptions need to be more grounded in data.',
+      not_ready: 'Build a 3-year financial model with realistic assumptions.'
+    },
+    'Fundraising Readiness': {
+      ready: 'Ready to pitch. Deck, list, and strategy are solid.',
+      progress: 'Most pieces in place but some materials need refinement.',
+      not_ready: 'Prepare your pitch deck, investor list, and outreach strategy.'
+    },
+    'Legal & Structure': {
+      ready: 'Clean legal structure. No blockers to fundraising.',
+      progress: 'Mostly clean but a few items need attention.',
+      not_ready: 'Get your cap table, IP, and agreements in order.'
+    }
+  };
+
+  function getStatusForScore(percentage) {
+    if (percentage >= 80) return 'ready';
+    if (percentage >= 50) return 'progress';
+    return 'not_ready';
+  }
+
+  function loadResults() {
+    const resultsData = localStorage.getItem('checklistResults');
+
+    if (!resultsData) {
+      document.querySelector('section').innerHTML = '<div class="text-center py-32"><p class="text-gray-400">No results found. <a href="fundraise_readiness_checklist.html" class="text-emerald-400 hover:underline">Take the checklist</a></p></div>';
+      return;
+    }
+
+    let results;
+    try {
+      results = JSON.parse(resultsData);
+    } catch (e) {
+      console.error('Error parsing results:', e);
+      return;
+    }
+
+    const firstName = results.firstName || 'Founder';
+    const resultSections = results.sections || [];
+    const overallPercentage = results.overallPercentage || 0;
+
+    console.log('Loaded results:', { firstName, resultSections, overallPercentage });
+
+    // Update greeting
+    document.getElementById('greetingText').textContent = `Great work, ${firstName}!`;
+
+    // Update score
+    document.getElementById('scoreNumber').textContent = overallPercentage;
+    const status = getStatusForScore(overallPercentage);
+    document.getElementById('scoreCircle').className = `score-circle ${statusInfo[status].className}`;
+    document.getElementById('statusBadge').textContent = statusInfo[status].label;
+    document.getElementById('statusBadge').className = `status-badge ${statusInfo[status].className}`;
+    document.getElementById('statusDescription').textContent = statusInfo[status].description;
+    document.getElementById('nextStep').textContent = statusInfo[status].nextStep;
+
+    // Render sections
+    if (resultSections && resultSections.length > 0) {
+      const sectionsHTML = resultSections.map(section => {
+        const sectionStatus = getStatusForScore(section.percentage);
+        const insight = sectionInsights[section.name] ? sectionInsights[section.name][sectionStatus] : 'Keep working on this area.';
+
+        return `
+          <div class="section-card">
+            <div class="section-title-card">
+              <div>
+                <div style="font-size: 0.875rem; color: #9ca3af; margin-bottom: 0.25rem;">${section.name}</div>
+                <div style="color: #d1d5db;">${section.completed} of ${section.total} completed</div>
+              </div>
+              <div class="section-score">${section.percentage}%</div>
+            </div>
+            <div class="section-bar">
+              <div class="section-bar-fill" style="width: ${section.percentage}%"></div>
+            </div>
+            <p style="color: #9ca3af; font-size: 0.875rem; margin-top: 1rem;">${insight}</p>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('sectionsContainer').innerHTML = sectionsHTML;
+
+      // Render action items (lowest 3 categories)
+      const sortedByScore = [...resultSections].sort((a, b) => a.percentage - b.percentage);
+      const actionHTML = sortedByScore.slice(0, 3).map(section => {
+        return `
+          <div class="action-box">
+            <div class="action-title">${section.name}</div>
+            <p style="color: #d1d5db; margin-bottom: 1rem;">Complete ${section.total - section.completed} remaining items in this category to strengthen your position.</p>
+            <p style="color: #9ca3af; font-size: 0.875rem;">Current: ${section.completed}/${section.total} items</p>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('actionContainer').innerHTML = actionHTML;
+    } else {
+      console.warn('No sections data found in results');
+      document.getElementById('sectionsContainer').innerHTML = '<p style="color: #9ca3af;">No section data available</p>';
+      document.getElementById('actionContainer').innerHTML = '<p style="color: #9ca3af;">No action items available</p>';
+    }
+  }
+
+  // Load results on page load
+  document.addEventListener('DOMContentLoaded', loadResults);
+</script>
+
+</body>
+</html>

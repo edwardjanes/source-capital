@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Fundraise Readiness Score – Source Capital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .score-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .score-circle.investor-ready {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+      border: 2px solid #10b981;
+    }
+
+    .score-circle.getting-there {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+      border: 2px solid #3b82f6;
+    }
+
+    .score-circle.needs-work {
+      background: linear-gradient(135deg, rgba(251, 146, 60, 0.2), rgba(251, 146, 60, 0.1));
+      border: 2px solid #fb923c;
+    }
+
+    .score-number {
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+
+    .score-label {
+      font-size: 0.875rem;
+      text-gray-400;
+      margin-top: 0.5rem;
+    }
+
+    .dimension-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: #27272a;
+      overflow: hidden;
+    }
+
+    .dimension-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: #10b981;
+      transition: width 0.6s ease-out;
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .tier-badge.investor-ready {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid #10b981;
+    }
+
+    .tier-badge.getting-there {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+      border: 1px solid #3b82f6;
+    }
+
+    .tier-badge.needs-work {
+      background: rgba(251, 146, 60, 0.15);
+      color: #fb923c;
+      border: 1px solid #fb923c;
+    }
+
+    .insight-box {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .insight-title {
+      font-weight: 600;
+      color: #10b981;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-40 bg-black border-b border-zinc-900">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="fundraise_readiness_landing_page.html" class="text-sm font-semibold tracking-widest uppercase">
+      Source <span class="text-emerald-400">Capital</span>
+    </a>
+    <a href="https://cal.com/edward-janes/30min" target="_blank" class="text-sm font-medium px-6 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg transition">
+      Book a call →
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<section class="pt-32 pb-24 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- HEADER -->
+    <div class="mb-16">
+      <p class="text-emerald-400 text-sm font-semibold tracking-widest uppercase mb-4">Your Results</p>
+      <h1 class="text-5xl md:text-6xl font-bold mb-2" id="greetingText">Your Fundraise Readiness Score</h1>
+    </div>
+
+    <!-- SCORE CARD -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-12 mb-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- SCORE CIRCLE -->
+        <div class="flex justify-center md:justify-start">
+          <div class="score-circle investor-ready" id="scoreCircle">
+            <div class="score-number" id="scoreNumber">0</div>
+            <div class="score-label">out of 100</div>
+          </div>
+        </div>
+
+        <!-- TIER INFO -->
+        <div>
+          <div class="mb-6">
+            <p class="text-gray-400 text-sm mb-3">YOUR TIER STATUS</p>
+            <div id="tierBadge" class="tier-badge investor-ready">Loading...</div>
+          </div>
+
+          <div class="space-y-4">
+            <p class="text-lg text-gray-300 leading-relaxed" id="tierDescription">
+              Based on your score, here's what it means for your fundraising readiness.
+            </p>
+            <div>
+              <p class="text-sm text-gray-500 mb-2">Next Step:</p>
+              <p class="text-emerald-400 font-semibold" id="nextStep">Book a consultation with our team</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DIMENSIONS BREAKDOWN -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold mb-8">Your Strengths & Weaknesses</h2>
+      <div class="space-y-6" id="dimensionsContainer">
+        <!-- Dimensions will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- INSIGHTS -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold mb-8">Personalized Insights</h2>
+      <div class="space-y-6" id="insightsContainer">
+        <!-- Insights will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-12 text-center">
+      <h3 class="text-2xl font-bold mb-4">Ready to improve your fundraising prospects?</h3>
+      <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+        Our Raise Audit Call will give you a clear roadmap of exactly what to fix first and how to position yourself for investor success.
+      </p>
+      <a href="https://cal.com/edward-janes/30min" target="_blank" class="inline-flex items-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition">
+        Book Your Raise Audit Call →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-zinc-900 py-12 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
+    <div>© 2026 Source Capital. All rights reserved.</div>
+    <div class="flex gap-x-8">
+      <a href="#" class="hover:text-emerald-400">Privacy</a>
+      <a href="#" class="hover:text-emerald-400">Terms</a>
+    </div>
+    <div>Dubai, UAE</div>
+  </div>
+</footer>
+
+<script>
+  // Dimension metadata
+  const dimensionMetadata = {
+    traction: {
+      name: 'Market Traction',
+      color: '#10b981',
+      insights: {
+        high: 'Strong market traction is your biggest asset. Investors invest in momentum—keep it up.',
+        medium: 'You have some traction, but it needs to be stronger to stand out to investors. Focus on scaling faster.',
+        low: 'Without market traction, investors will pass. Build proof-of-concept with real customers first.'
+      }
+    },
+    deck_quality: {
+      name: 'Pitch Deck Quality',
+      color: '#10b981',
+      insights: {
+        high: 'Your deck tells a compelling story. Investors will pay attention.',
+        medium: 'Your deck communicates the idea but misses impact. Refine the narrative and design.',
+        low: 'Your deck needs a complete overhaul. Story, design, and data all matter.'
+      }
+    },
+    investor_fit: {
+      name: 'Investor Fit',
+      color: '#10b981',
+      insights: {
+        high: 'You\'re targeting the right investors for your stage. This is a major advantage.',
+        medium: 'You understand your investor landscape but need to narrow your focus.',
+        low: 'You\'re reaching out to the wrong investors. Refocus on those who back companies at your stage.'
+      }
+    },
+    narrative: {
+      name: 'Narrative Clarity',
+      color: '#10b981',
+      insights: {
+        high: 'Your story is clear and compelling. Investors will remember you.',
+        medium: 'You have a story but it could be sharper. Work on the "why now" and market opportunity.',
+        low: 'Your narrative is unclear. Define your problem, solution, and market opportunity better.'
+      }
+    },
+    financials: {
+      name: 'Financial Readiness',
+      color: '#10b981',
+      insights: {
+        high: 'Your financial projections and unit economics are investor-ready.',
+        medium: 'Your financials need work. Focus on realistic projections and clear unit economics.',
+        low: 'You don\'t have a financial model. Build one—investors will ask.'
+      }
+    }
+  };
+
+  // Tier information
+  const tierInfo = {
+    'Investor ready': {
+      className: 'investor-ready',
+      description: 'You\'re in great shape to approach investors. Your combination of traction, storytelling, and investor fit puts you ahead of most founders. Now it\'s about execution and timing.',
+      nextStep: 'Start outreach to investors on your target list immediately'
+    },
+    'Getting there': {
+      className: 'getting-there',
+      description: 'You\'re on the right track, but there are still gaps that will make investors hesitant. Focus on your weakest areas first—they\'re your biggest blockers.',
+      nextStep: 'Fix your top 2-3 weakest dimensions before approaching investors'
+    },
+    'Needs work': {
+      className: 'needs-work',
+      description: 'You\'re not quite ready yet. Most investors will pass at this stage. Use this as a roadmap to get investor-ready, then come back.',
+      nextStep: 'Build traction and refine your narrative before starting outreach'
+    }
+  };
+
+  function getLevelLabel(score) {
+    if (score >= 75) return 'high';
+    if (score >= 50) return 'medium';
+    return 'low';
+  }
+
+  function loadResults() {
+    const scoreData = localStorage.getItem('fundraiseScore');
+
+    if (!scoreData) {
+      document.querySelector('main').innerHTML = '<div class="text-center py-32"><p class="text-gray-400">No quiz data found. <a href="fundraise_readiness_landing_page.html" class="text-emerald-400 hover:underline">Take the quiz</a></p></div>';
+      return;
+    }
+
+    const data = JSON.parse(scoreData);
+    const { total, tier, dimensions, firstName } = data;
+
+    // Update greeting
+    if (firstName) {
+      document.getElementById('greetingText').textContent = `Great work, ${firstName}!`;
+    }
+
+    // Update score circle
+    document.getElementById('scoreNumber').textContent = total;
+    document.getElementById('scoreCircle').className = `score-circle ${tierInfo[tier].className}`;
+
+    // Update tier badge
+    const tierBadge = document.getElementById('tierBadge');
+    tierBadge.textContent = tier;
+    tierBadge.className = `tier-badge ${tierInfo[tier].className}`;
+
+    // Update tier description
+    document.getElementById('tierDescription').textContent = tierInfo[tier].description;
+    document.getElementById('nextStep').textContent = tierInfo[tier].nextStep;
+
+    // Render dimensions
+    const dimensionsContainer = document.getElementById('dimensionsContainer');
+    dimensionsContainer.innerHTML = '';
+
+    const dimensionOrder = ['traction', 'deck_quality', 'investor_fit', 'narrative', 'financials'];
+
+    dimensionOrder.forEach(key => {
+      const dim = dimensions.find(d => d.id === key);
+      if (dim) {
+        const metadata = dimensionMetadata[key];
+        const percentage = dim.score;
+
+        const levelLabel = getLevelLabel(percentage);
+        const insightText = metadata.insights[levelLabel];
+
+        const html = `
+          <div class="insight-box">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-semibold mb-2">${metadata.name}</h3>
+                <p class="text-gray-400 text-sm mb-4">${insightText}</p>
+              </div>
+              <div class="text-right">
+                <div class="text-2xl font-bold text-emerald-400">${percentage}</div>
+                <div class="text-xs text-gray-500">/ 100</div>
+              </div>
+            </div>
+            <div class="dimension-bar">
+              <div class="dimension-bar-fill" style="width: ${percentage}%"></div>
+            </div>
+          </div>
+        `;
+
+        dimensionsContainer.innerHTML += html;
+      }
+    });
+
+    // Render insights for lowest scores
+    const insightsContainer = document.getElementById('insightsContainer');
+    insightsContainer.innerHTML = '';
+
+    // Get top 2 areas needing improvement
+    const sorted = [...dimensions].sort((a, b) => a.score - b.score);
+    const topTwo = sorted.slice(0, 2);
+
+    const insightHTML = topTwo.map(dim => {
+      const metadata = dimensionMetadata[dim.id];
+      const levelLabel = getLevelLabel(dim.score);
+      const insightText = metadata.insights[levelLabel];
+
+      return `
+        <div class="insight-box">
+          <div class="insight-title">${metadata.name}</div>
+          <p class="text-gray-300">${insightText}</p>
+        </div>
+      `;
+    }).join('');
+
+    insightsContainer.innerHTML = insightHTML;
+  }
+
+  // Load results on page load
+  document.addEventListener('DOMContentLoaded', loadResults);
+</script>
+
+</body>
+</html>

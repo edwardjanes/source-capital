@@ -1,4 +1,5 @@
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@400;600&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
@@ -57,6 +58,59 @@
   .rv-nav-btn:disabled{opacity:.25;cursor:default}
   .rv-footer{text-align:center;margin-top:28px;border-top:1px solid #1a1a1a;padding-top:20px;font-size:12px;color:#555;display:flex;align-items:center;justify-content:center;gap:8px}
   .rv-footer span{color:#00FF84;font-weight:600}
+  @media (max-width:768px){
+    .rv{padding:24px 16px 32px}
+    .rv-logo{margin-bottom:20px}
+    .rv-logo img{height:40px}
+    .rv-header{margin-bottom:24px}
+    .rv-title{font-size:20px}
+    .rv-eyebrow{font-size:10px}
+    .rv-sub{font-size:12px}
+    .phases{gap:4px;margin-bottom:20px}
+    .phase-header{padding:10px 12px}
+    .phase-icon{width:24px;height:24px;font-size:10px}
+    .phase-name{font-size:11px}
+    .phase-weeks{font-size:9px}
+    .phase-tick{font-size:8px}
+    .rv-card{padding:14px 16px}
+    .rv-card-title{font-size:13px}
+    .rv-card-body{font-size:12px}
+    .rv-nav{gap:6px}
+    .rv-nav-btn{padding:6px 12px;font-size:11px}
+    .rv-footer{font-size:11px;margin-top:20px}
+  }
+  @media (max-width:480px){
+    .rv{padding:16px 12px 24px}
+    .rv-logo{margin-bottom:16px}
+    .rv-logo img{height:32px}
+    .rv-header{margin-bottom:16px}
+    .rv-title{font-size:18px;line-height:1.1}
+    .rv-eyebrow{font-size:9px}
+    .rv-sub{font-size:11px}
+    .phases{flex-direction:column;gap:2px;margin-bottom:16px}
+    .phase{flex:1!important}
+    .phase.open{flex:1!important}
+    .phase-header{padding:8px 10px}
+    .phase-icon{width:22px;height:22px;font-size:9px}
+    .phase-name{font-size:10px}
+    .phase-weeks{font-size:8px}
+    .phase-body{max-height:800px}
+    .stage-btn{padding:6px 4px;gap:8px}
+    .s-dot{width:20px;height:20px;font-size:9px}
+    .s-name{font-size:11px}
+    .s-week{font-size:9px}
+    .rv-detail{min-height:auto;margin-bottom:16px}
+    .rv-card{padding:12px 14px}
+    .rv-card-meta{gap:8px;margin-bottom:8px}
+    .rv-card-num{width:20px;height:20px;font-size:10px}
+    .rv-card-title{font-size:12px;margin-bottom:6px}
+    .rv-card-body{font-size:11px;line-height:1.6}
+    .rv-card-week{font-size:9px}
+    .rv-card-phase{font-size:9px;padding:2px 6px}
+    .rv-nav{flex-direction:column;gap:4px}
+    .rv-nav-btn{width:100%;padding:8px 12px;font-size:10px}
+    .rv-footer{font-size:10px;margin-top:16px;padding-top:16px;flex-direction:column;gap:6px}
+  }
 </style>
 
 <div class="rv">

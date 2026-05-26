@@ -1,0 +1,251 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@400;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#000!important}
+  .rv{background:#000;padding:40px 32px 48px;font-family:'Montserrat',sans-serif;min-height:100vh}
+  .rv-logo{display:flex;justify-content:center;margin-bottom:32px}
+  .rv-header{text-align:center;margin-bottom:40px}
+  .rv-eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#00FF84;text-transform:uppercase;margin-bottom:10px}
+  .rv-title{font-family:'Inter',sans-serif;font-size:26px;font-weight:900;letter-spacing:.03em;text-transform:uppercase;color:#E8E8E8;line-height:1.15}
+  .rv-title span{color:#00FF84}
+  .rv-sub{font-size:13px;color:#A0A0A0;margin-top:8px}
+  .phases{display:flex;gap:6px;margin-bottom:32px}
+  .phase{flex:1;border-radius:10px;overflow:hidden;border:1px solid #1e1e1e;transition:flex 0.5s cubic-bezier(.4,0,.2,1),border-color 0.3s;cursor:pointer;background:#0D0D0D;min-width:0}
+  .phase.open{flex:3;border-color:#00FF84}
+  .phase-header{padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .phase-icon{width:28px;height:28px;border-radius:50%;border:2px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#555;flex-shrink:0;transition:all 0.3s}
+  .phase.open .phase-icon{border-color:#00FF84;background:#00FF84;color:#000}
+  .phase.complete .phase-icon{border-color:#00FF84;background:#00FF84;color:#000}
+  .phase-header-text{overflow:hidden}
+  .phase-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;transition:color 0.3s}
+  .phase.open .phase-name{color:#E8E8E8}
+  .phase.complete .phase-name{color:#00FF84}
+  .phase-weeks{font-size:10px;color:#444;letter-spacing:.04em;white-space:nowrap;margin-top:2px;transition:color 0.3s}
+  .phase.open .phase-weeks,.phase.complete .phase-weeks{color:#00FF84}
+  .phase-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(.4,0,.2,1)}
+  .phase.open .phase-body{max-height:600px}
+  .phase-track-wrap{padding:0 16px 4px}
+  .phase-track{height:3px;background:#1a1a1a;border-radius:2px;position:relative;margin-bottom:8px}
+  .phase-track-fill{position:absolute;left:0;top:0;height:100%;background:#00FF84;border-radius:2px;transition:width 0.35s ease;width:0%}
+  .phase-tick-row{display:flex;justify-content:space-between;padding:0 2px;margin-bottom:12px}
+  .phase-tick{font-family:'Inter',sans-serif;font-size:9px;color:#444;letter-spacing:.04em;font-weight:600;transition:color 0.2s}
+  .phase-tick.lit{color:#00FF84}
+  .stage-list{padding:0 10px 14px}
+  .stage-btn{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;padding:8px 6px;cursor:pointer;border-radius:8px;transition:background 0.2s;text-align:left}
+  .stage-btn:hover{background:#111}
+  .stage-btn.active{background:#0a150e}
+  .s-dot{width:24px;height:24px;border-radius:50%;border:2px solid #2a2a2a;background:#0D0D0D;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:#555;flex-shrink:0;transition:all 0.2s}
+  .stage-btn.active .s-dot,.stage-btn.done .s-dot{border-color:#00FF84;background:#00FF84;color:#000}
+  .s-text{overflow:hidden}
+  .s-name{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:#777;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color 0.2s}
+  .stage-btn.active .s-name{color:#E8E8E8}
+  .s-week{font-size:10px;color:#444;margin-top:1px;transition:color 0.2s}
+  .stage-btn.active .s-week{color:#00FF84}
+  .rv-detail{min-height:130px;margin-bottom:20px}
+  .rv-card{background:#0D0D0D;border:1px solid #1e1e1e;border-left:3px solid #00FF84;border-radius:10px;padding:20px 22px;animation:fadeIn .2s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+  .rv-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .rv-card-num{width:26px;height:26px;border-radius:50%;background:#00FF84;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#000;flex-shrink:0}
+  .rv-card-week{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#00FF84}
+  .rv-card-phase{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-left:auto;background:#1a1a1a;padding:3px 8px;border-radius:4px}
+  .rv-card-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#E8E8E8;margin-bottom:8px}
+  .rv-card-body{font-size:13px;color:#A0A0A0;line-height:1.7}
+  .rv-nav{display:flex;gap:10px;justify-content:flex-end}
+  .rv-nav-btn{background:none;border:1px solid #2a2a2a;color:#A0A0A0;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:7px 16px;border-radius:6px;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+  .rv-nav-btn:hover{border-color:#00FF84;color:#00FF84}
+  .rv-nav-btn:disabled{opacity:.25;cursor:default}
+  .rv-footer{text-align:center;margin-top:28px;border-top:1px solid #1a1a1a;padding-top:20px;font-size:12px;color:#555;display:flex;align-items:center;justify-content:center;gap:8px}
+  .rv-footer span{color:#00FF84;font-weight:600}
+</style>
+
+<div class="rv">
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Raise Velocity 12-week process across three phases: setup, outreach, pitching</h2>
+
+  <div class="rv-logo">
+    <svg width="200" height="36" viewBox="0 0 200 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- SOURCE in #00FF84 -->
+      <text font-family="Inter, sans-serif" font-weight="900" font-size="22" letter-spacing="3" fill="#00FF84" x="0" y="26">SOURCE</text>
+      <!-- CAPITAL in #E8E8E8 -->
+      <text font-family="Inter, sans-serif" font-weight="900" font-size="22" letter-spacing="3" fill="#E8E8E8" x="110" y="26">CAPITAL</text>
+    </svg>
+  </div>
+
+  <div class="rv-header">
+    <div class="rv-eyebrow">Done-for-you raise service</div>
+    <div class="rv-title">The <span>Raise Velocity</span> Process</div>
+    <div class="rv-sub">Select a phase — then click any stage to see what happens.</div>
+  </div>
+
+  <div class="phases" id="phases"></div>
+  <div class="rv-detail" id="detail"><div style="display:flex;align-items:center;justify-content:center;height:130px;font-size:13px;color:#333">Select a stage above to get started</div></div>
+  <div class="rv-nav">
+    <button class="rv-nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>← Prev</button>
+    <button class="rv-nav-btn" id="btn-next" onclick="navigate(1)" disabled>Next →</button>
+  </div>
+  <div class="rv-footer">
+    <i class="ti ti-eye" aria-hidden="true" style="font-size:15px;color:#00FF84"></i>
+    Progress tracked live in the <span>Investor Relations Management</span> tool — fortnightly update calls throughout.
+  </div>
+</div>
+
+<script>
+const data = [
+  {
+    id:'setup', name:'Setup', weeks:'Weeks 1–3', icon:'S', ticks:['Start','W1','W2','W3'],
+    stages:[
+      {num:1,label:'Intake',week:'Day 1–2',title:'Onboarding intake form',body:'We capture everything we need before your first call — business model, raise target, existing traction, cap table, and investor preferences. No back-and-forth. You arrive to your first call ready to move.',tick:0},
+      {num:2,label:'Deep-dive',week:'Day 3–4',title:'Deep-dive onboarding call',body:'Your dedicated Source Capital team gets across your business in detail. We ask the questions investors will ask — so nothing catches us off guard when we\'re in front of them on your behalf.',tick:0},
+      {num:3,label:'Strategy',week:'Week 1',title:'Raise strategy & asset plan',body:'We build your itemised asset list and full raise strategy — investor target profiles, deal positioning, valuation narrative, and the precise sequence of deliverables we\'ll produce for you.',tick:1},
+      {num:4,label:'Approval',week:'Week 1',title:'Strategy approval call',body:'We walk you through the full strategy and asset plan. You sign off — or we refine. Nothing moves forward without your explicit approval. This is your raise. We just execute it.',tick:1},
+      {num:5,label:'Build',week:'Weeks 1–3',title:'Full raise infrastructure build',body:'We build everything: pitch deck, financial model, data room, CRM setup, investor outreach sequences, and raise software configuration. You focus on running your business. We build your raise from the ground up.',tick:2},
+      {num:6,label:'Launch prep',week:'Week 3',title:'Client approval call',body:'Before a single outreach message goes out, you review and approve all assets. Deck, data room, messaging — everything gets your sign-off. You remain in full control throughout.',tick:3},
+    ]
+  },
+  {
+    id:'outreach', name:'Outreach', weeks:'Weeks 3–7', icon:'O', ticks:['W3','W4','W5','W6','W7'],
+    stages:[
+      {num:7,label:'Outreach',week:'Weeks 3–7',title:'Investor outreach campaign',body:'We run structured outreach to your targeted investor list — sequenced, tracked, and managed by us. Responses are triaged, meetings are booked, and warm leads are moved to the pitching pipeline. You\'re updated fortnightly as standard, with live visibility via the IRM tool at any point.',tick:4},
+    ]
+  },
+  {
+    id:'pitching', name:'Pitching', weeks:'Weeks 8–11', icon:'P', ticks:['W8','W9','W10','W11','Close'],
+    stages:[
+      {num:8,label:'Pitching',week:'Weeks 8–11',title:'Pitching window',body:'Active investor meetings, pitch support, follow-up management, and term sheet negotiation support. This is the sharp end — and we\'re in the room with you. The average pitching window runs 3 weeks, typically from week 8 to 11.',tick:4},
+    ]
+  }
+];
+
+let activePhase = null;
+let activeStageGlobal = null;
+const allStages = data.flatMap(p => p.stages.map(s => ({...s, phaseId: p.id})));
+
+function checkPhaseComplete(p) {
+  const allNums = allStages.map(x => x.num);
+  const activeIdx = allNums.indexOf(activeStageGlobal);
+  const lastInPhase = p.stages[p.stages.length - 1];
+  const lastIdx = allNums.indexOf(lastInPhase.num);
+  return activeIdx > lastIdx;
+}
+
+function openPhase(phaseId) {
+  activePhase = phaseId;
+  data.forEach(p => {
+    const el = document.getElementById('ph-' + p.id);
+    el.classList.toggle('open', p.id === phaseId);
+  });
+  const ph = data.find(p => p.id === phaseId);
+  if (ph && ph.stages.length === 1 && activeStageGlobal !== ph.stages[0].num) {
+    selectStage(ph.stages[0].num, phaseId);
+  }
+}
+
+function selectStage(num, phaseId) {
+  activeStageGlobal = num;
+  data.forEach(p => {
+    const el = document.getElementById('ph-' + p.id);
+    p.stages.forEach(s => {
+      const btn = document.getElementById('sb-' + s.num);
+      if (!btn) return;
+      btn.classList.toggle('active', s.num === num);
+      const dot = btn.querySelector('.s-dot');
+      const allNums = allStages.map(x => x.num);
+      const numIdx = allNums.indexOf(num);
+      const sIdx = allNums.indexOf(s.num);
+      dot.classList.toggle('done', sIdx < numIdx && s.num !== num);
+    });
+    const complete = checkPhaseComplete(p);
+    el.classList.toggle('complete', complete && p.id !== activePhase);
+    updateTrack(p);
+    const icon = el.querySelector('.phase-icon');
+    if (complete && p.id !== activePhase) {
+      icon.innerHTML = '✓';
+    } else {
+      icon.innerHTML = p.icon;
+    }
+  });
+
+  const stage = allStages.find(s => s.num === num);
+  document.getElementById('detail').innerHTML = `<div class="rv-card">
+    <div class="rv-card-meta">
+      <div class="rv-card-num">${stage.num}</div>
+      <div class="rv-card-week">${stage.week}</div>
+      <div class="rv-card-phase">${data.find(p => p.id === stage.phaseId).name}</div>
+    </div>
+    <div class="rv-card-title">${stage.title}</div>
+    <div class="rv-card-body">${stage.body}</div>
+  </div>`;
+
+  document.getElementById('btn-prev').disabled = num <= 1;
+  document.getElementById('btn-next').disabled = num >= allStages.length;
+}
+
+function updateTrack(p) {
+  const fill = document.getElementById('tf-' + p.id);
+  if (!fill) return;
+  const activeInPhase = p.stages.find(s => s.num === activeStageGlobal);
+  const ticks = document.querySelectorAll('.tick-' + p.id);
+  ticks.forEach(t => t.classList.remove('lit'));
+  if (activeInPhase) {
+    const pct = (activeInPhase.tick / (p.ticks.length - 1) * 100).toFixed(1);
+    fill.style.width = pct + '%';
+    const litTick = document.getElementById('tk-' + p.id + '-' + activeInPhase.tick);
+    if (litTick) litTick.classList.add('lit');
+  } else {
+    const allNums = allStages.map(x => x.num);
+    const activeIdx = allNums.indexOf(activeStageGlobal);
+    const lastInPhase = p.stages[p.stages.length - 1];
+    const lastIdx = allNums.indexOf(lastInPhase.num);
+    if (activeIdx > lastIdx) {
+      fill.style.width = '100%';
+      const lastTick = document.getElementById('tk-' + p.id + '-' + (p.ticks.length - 1));
+      if (lastTick) lastTick.classList.add('lit');
+    } else {
+      fill.style.width = '0%';
+    }
+  }
+}
+
+function navigate(dir) {
+  if (!activeStageGlobal) return;
+  const idx = allStages.findIndex(s => s.num === activeStageGlobal);
+  const next = allStages[idx + dir];
+  if (next) {
+    openPhase(next.phaseId);
+    selectStage(next.num, next.phaseId);
+  }
+}
+
+const phasesEl = document.getElementById('phases');
+data.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'phase';
+  div.id = 'ph-' + p.id;
+  div.innerHTML = `<div class="phase-header" onclick="openPhase('${p.id}')">
+    <div class="phase-icon">${p.icon}</div>
+    <div class="phase-header-text">
+      <div class="phase-name">${p.name}</div>
+      <div class="phase-weeks">${p.weeks}</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-track-wrap">
+      <div class="phase-track"><div class="phase-track-fill" id="tf-${p.id}" style="width:0%"></div></div>
+      <div class="phase-tick-row">${p.ticks.map((t,i) => `<span class="phase-tick tick-${p.id}" id="tk-${p.id}-${i}">${t}</span>`).join('')}</div>
+    </div>
+    <div class="stage-list">${p.stages.map(s => `
+      <button class="stage-btn" id="sb-${s.num}" onclick="openPhase('${p.id}');selectStage(${s.num},'${p.id}')">
+        <div class="s-dot">${s.num}</div>
+        <div class="s-text">
+          <div class="s-name">${s.title}</div>
+          <div class="s-week">${s.week}</div>
+        </div>
+      </button>`).join('')}
+    </div>
+  </div>`;
+  phasesEl.appendChild(div);
+});
+
+openPhase('setup');
+selectStage(1, 'setup');
+</script>

@@ -4,7 +4,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@400;600&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:#000!important}
-  .rv{background:#000;padding:40px 32px 48px;font-family:'Montserrat',sans-serif;min-height:100vh}
+  .rv{background:#000;padding:40px 32px 60px;font-family:'Montserrat',sans-serif;min-height:100vh}
   .rv-logo{display:flex;justify-content:center;margin-bottom:32px}
   .rv-header{text-align:center;margin-bottom:40px}
   .rv-eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#00FF84;text-transform:uppercase;margin-bottom:10px}
@@ -12,8 +12,8 @@
   .rv-title span{color:#00FF84}
   .rv-sub{font-size:13px;color:#A0A0A0;margin-top:8px}
   .phases{display:flex;gap:6px;margin-bottom:32px}
-  .phase{flex:1;border-radius:10px;overflow:hidden;border:1px solid #1e1e1e;transition:flex 0.5s cubic-bezier(.4,0,.2,1),border-color 0.3s;cursor:pointer;background:#0D0D0D;min-width:0}
-  .phase.open{flex:3;border-color:#00FF84}
+  .phase{flex:1;border-radius:12px;overflow:hidden;border:1.5px solid #1e1e1e;transition:flex 0.5s cubic-bezier(.4,0,.2,1),border-color 0.3s,box-shadow 0.3s;cursor:pointer;background:#0D0D0D;min-width:0;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+  .phase.open{flex:3;border-color:#00FF84;box-shadow:0 6px 20px rgba(0,255,132,0.12)}
   .phase-header{padding:14px 16px;display:flex;align-items:center;gap:10px}
   .phase-icon{width:28px;height:28px;border-radius:50%;border:2px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#555;flex-shrink:0;transition:all 0.3s}
   .phase.open .phase-icon{border-color:#00FF84;background:#00FF84;color:#000}
@@ -43,20 +43,29 @@
   .stage-btn.active .s-name{color:#E8E8E8}
   .s-week{font-size:10px;color:#444;margin-top:1px;transition:color 0.2s}
   .stage-btn.active .s-week{color:#00FF84}
-  .rv-detail{min-height:130px;margin-bottom:20px}
-  .rv-card{background:#0D0D0D;border:1px solid #1e1e1e;border-left:3px solid #00FF84;border-radius:10px;padding:20px 22px;animation:fadeIn .2s ease}
+  .rv-detail{min-height:130px;margin-bottom:32px}
+  .rv-card{background:#0D0D0D;border:1px solid #1e1e1e;border-left:4px solid #00FF84;border-radius:12px;padding:24px 26px;animation:fadeIn .2s ease;box-shadow:0 4px 16px rgba(0,0,0,0.4)}
   @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
   .rv-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px}
   .rv-card-num{width:26px;height:26px;border-radius:50%;background:#00FF84;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#000;flex-shrink:0}
   .rv-card-week{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#00FF84}
   .rv-card-phase{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-left:auto;background:#1a1a1a;padding:3px 8px;border-radius:4px}
   .rv-card-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#E8E8E8;margin-bottom:8px}
-  .rv-card-body{font-size:13px;color:#A0A0A0;line-height:1.7}
-  .rv-nav{display:flex;gap:10px;justify-content:flex-end}
-  .rv-nav-btn{background:none;border:1px solid #2a2a2a;color:#A0A0A0;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:7px 16px;border-radius:6px;cursor:pointer;transition:all .2s;letter-spacing:.04em}
-  .rv-nav-btn:hover{border-color:#00FF84;color:#00FF84}
+  .rv-card-body{font-size:13px;color:#A0A0A0;line-height:1.7;margin-bottom:16px}
+  .rv-card-deliverables{margin-top:16px;padding-top:16px;border-top:1px solid #1e1e1e}
+  .rv-card-deliverables-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00FF84;margin-bottom:10px}
+  .rv-card-deliverables-list{font-size:12px;color:#A0A0A0;line-height:1.8}
+  .rv-card-deliverables-list li{margin-left:16px;margin-bottom:4px}
+  .rv-nav{display:flex;gap:12px;justify-content:flex-end;align-items:center}
+  .rv-nav-btn{background:#0D0D0D;border:1.5px solid #2a2a2a;color:#A0A0A0;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:11px 24px;border-radius:10px;cursor:pointer;transition:all .25s;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+  .rv-nav-btn:hover:not(:disabled){border-color:#00FF84;color:#00FF84;background:#0a150e;box-shadow:0 4px 12px rgba(0,255,132,0.15)}
   .rv-nav-btn:disabled{opacity:.25;cursor:default}
-  .rv-footer{text-align:center;margin-top:28px;border-top:1px solid #1a1a1a;padding-top:20px;font-size:12px;color:#555;display:flex;align-items:center;justify-content:center;gap:8px}
+  .rv-hero{background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('hero.jpg') center/cover no-repeat fixed;background-position:center 30%;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;margin:-40px -32px 48px -32px;padding:40px 32px}
+  .rv-hero-content{max-width:900px}
+  .rv-hero-eyebrow{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00FF84;margin-bottom:12px}
+  .rv-hero-headline{font-family:'Inter',sans-serif;font-size:32px;font-weight:900;letter-spacing:.02em;color:#E8E8E8;margin-bottom:12px;line-height:1.2}
+  .rv-hero-subline{font-size:15px;color:#A0A0A0;margin-bottom:28px;line-height:1.6}
+  .rv-footer{text-align:center;margin-top:40px;border-top:1px solid #1a1a1a;padding-top:28px;font-size:12px;color:#555;display:flex;align-items:center;justify-content:center;gap:8px}
   .rv-footer span{color:#00FF84;font-weight:600}
   @media (max-width:768px){
     .rv{padding:24px 16px 32px}
@@ -66,6 +75,9 @@
     .rv-title{font-size:20px}
     .rv-eyebrow{font-size:10px}
     .rv-sub{font-size:12px}
+    .rv-hero{min-height:70vh;padding:24px 16px;margin:-24px -16px 32px -16px}
+    .rv-hero-headline{font-size:24px}
+    .rv-hero-subline{font-size:13px;margin-bottom:20px}
     .phases{gap:4px;margin-bottom:20px}
     .phase-header{padding:10px 12px}
     .phase-icon{width:24px;height:24px;font-size:10px}
@@ -75,8 +87,8 @@
     .rv-card{padding:14px 16px}
     .rv-card-title{font-size:13px}
     .rv-card-body{font-size:12px}
-    .rv-nav{gap:6px}
-    .rv-nav-btn{padding:6px 12px;font-size:11px}
+    .rv-nav{gap:8px}
+    .rv-nav-btn{padding:9px 18px;font-size:12px;border-radius:8px}
     .rv-footer{font-size:11px;margin-top:20px}
   }
   @media (max-width:480px){
@@ -87,6 +99,10 @@
     .rv-title{font-size:18px;line-height:1.1}
     .rv-eyebrow{font-size:9px}
     .rv-sub{font-size:11px}
+    .rv-hero{min-height:60vh;padding:20px 12px;margin:-16px -12px 24px -12px}
+    .rv-hero-eyebrow{font-size:10px;margin-bottom:8px}
+    .rv-hero-headline{font-size:20px;margin-bottom:10px}
+    .rv-hero-subline{font-size:12px;margin-bottom:16px}
     .phases{flex-direction:column;gap:2px;margin-bottom:16px}
     .phase{flex:1!important}
     .phase.open{flex:1!important}
@@ -107,11 +123,19 @@
     .rv-card-body{font-size:11px;line-height:1.6}
     .rv-card-week{font-size:9px}
     .rv-card-phase{font-size:9px;padding:2px 6px}
-    .rv-nav{flex-direction:column;gap:4px}
-    .rv-nav-btn{width:100%;padding:8px 12px;font-size:10px}
+    .rv-nav{flex-direction:column;gap:6px}
+    .rv-nav-btn{width:100%;padding:10px 14px;font-size:11px;border-radius:8px}
     .rv-footer{font-size:10px;margin-top:16px;padding-top:16px;flex-direction:column;gap:6px}
   }
 </style>
+
+<div class="rv-hero">
+  <div class="rv-hero-content">
+    <div class="rv-hero-eyebrow">12-week structured process</div>
+    <div class="rv-hero-headline">From strategy to capital raised</div>
+    <div class="rv-hero-subline">A proven, sequenced framework spanning Setup, Outreach, and Pitching. Click through below to see what each stage involves.</div>
+  </div>
+</div>
 
 <div class="rv">
   <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Raise Velocity 12-week process across three phases: setup, outreach, pitching</h2>
@@ -143,24 +167,24 @@ const data = [
   {
     id:'setup', name:'Setup', weeks:'Weeks 1–3', icon:'S', ticks:['Start','W1','W2','W3'],
     stages:[
-      {num:1,label:'Intake',week:'Day 1–2',title:'Onboarding intake form',body:'We capture everything we need before your first call — business model, raise target, existing traction, cap table, and investor preferences. No back-and-forth. You arrive to your first call ready to move.',tick:0},
-      {num:2,label:'Deep-dive',week:'Day 3–4',title:'Deep-dive onboarding call',body:'Your dedicated Source Capital team gets across your business in detail. We ask the questions investors will ask — so nothing catches us off guard when we\'re in front of them on your behalf.',tick:0},
-      {num:3,label:'Strategy',week:'Week 1',title:'Raise strategy & asset plan',body:'We build your itemised asset list and full raise strategy — investor target profiles, deal positioning, valuation narrative, and the precise sequence of deliverables we\'ll produce for you.',tick:1},
-      {num:4,label:'Approval',week:'Week 1',title:'Strategy approval call',body:'We walk you through the full strategy and asset plan. You sign off — or we refine. Nothing moves forward without your explicit approval. This is your raise. We just execute it.',tick:1},
-      {num:5,label:'Build',week:'Weeks 1–3',title:'Full raise infrastructure build',body:'We build everything: pitch deck, financial model, data room, CRM setup, investor outreach sequences, and raise software configuration. You focus on running your business. We build your raise from the ground up.',tick:2},
-      {num:6,label:'Launch prep',week:'Week 3',title:'Client approval call',body:'Before a single outreach message goes out, you review and approve all assets. Deck, data room, messaging — everything gets your sign-off. You remain in full control throughout.',tick:3},
+      {num:1,label:'Intake',week:'Day 1–2',title:'Onboarding intake form',body:'We capture everything we need before your first call — business model, raise target, existing traction, cap table, and investor preferences. No back-and-forth. You arrive to your first call ready to move.',deliverables:['Business profile documented','Investor preferences captured','Cap table reviewed','Use of funds clarified'],tick:0},
+      {num:2,label:'Deep-dive',week:'Day 3–4',title:'Deep-dive onboarding call',body:'Your dedicated Source Capital team gets across your business in detail. We ask the questions investors will ask — so nothing catches us off guard when we\'re in front of them on your behalf.',deliverables:['Deep-dive call completed','Key narratives identified','Q&A framework built','Competitive positioning clarity'],tick:0},
+      {num:3,label:'Strategy',week:'Week 1',title:'Raise strategy & asset plan',body:'We build your itemised asset list and full raise strategy — investor target profiles, deal positioning, valuation narrative, and the precise sequence of deliverables we\'ll produce for you.',deliverables:['Master investor list (broad)','Hot list (20–30 priority targets)','Investor research profiles','Messaging strategy document'],tick:1},
+      {num:4,label:'Approval',week:'Week 1',title:'Strategy approval call',body:'We walk you through the full strategy and asset plan. You sign off — or we refine. Nothing moves forward without your explicit approval. This is your raise. We just execute it.',deliverables:['Strategy review deck','Timeline approval','Investor targeting rationale','Outreach sequence approval'],tick:1},
+      {num:5,label:'Build',week:'Weeks 1–3',title:'Full raise infrastructure build',body:'We build everything: pitch deck, financial model, data room, CRM setup, investor outreach sequences, and raise software configuration. You focus on running your business. We build your raise from the ground up.',deliverables:['Outreach infrastructure live and warmed','Multiple pitch deck versions (full, teaser, 1-pager)','Dynamic financial model','Data room structure with access controls','Messaging library (email, LinkedIn, objection handling)','CRM configured and ready'],tick:2},
+      {num:6,label:'Launch prep',week:'Week 3',title:'Client approval call',body:'Before a single outreach message goes out, you review and approve all assets. Deck, data room, messaging — everything gets your sign-off. You remain in full control throughout.',deliverables:['All materials reviewed and approved','Deck messaging aligned','Data room access tested','Outreach sequences confirmed','Team is launch-ready'],tick:3},
     ]
   },
   {
     id:'outreach', name:'Outreach', weeks:'Weeks 3–7', icon:'O', ticks:['W3','W4','W5','W6','W7'],
     stages:[
-      {num:7,label:'Outreach',week:'Weeks 3–7',title:'Investor outreach campaign',body:'We run structured outreach to your targeted investor list — sequenced, tracked, and managed by us. Responses are triaged, meetings are booked, and warm leads are moved to the pitching pipeline. You\'re updated fortnightly as standard, with live visibility via the IRM tool at any point.',tick:4},
+      {num:7,label:'Outreach',week:'Weeks 3–7',title:'Investor outreach campaign',body:'We run structured outreach to your targeted investor list — sequenced, tracked, and managed by us. Responses are triaged, meetings are booked, and warm leads are moved to the pitching pipeline. You\'re updated fortnightly as standard, with live visibility via the IRM tool at any point.',deliverables:['Outreach cadence and schedule','Personalized investor outreach execution','Response tracking and triage','Warm meeting requests booked','Pipeline status reports (fortnightly)','IRM tool access and live tracking','Lead scoring and qualification'],tick:4},
     ]
   },
   {
     id:'pitching', name:'Pitching', weeks:'Weeks 8–11', icon:'P', ticks:['W8','W9','W10','W11','Close'],
     stages:[
-      {num:8,label:'Pitching',week:'Weeks 8–11',title:'Pitching window',body:'Active investor meetings, pitch support, follow-up management, and term sheet negotiation support. This is the sharp end — and we\'re in the room with you. The average pitching window runs 3 weeks, typically from week 8 to 11.',tick:4},
+      {num:8,label:'Pitching',week:'Weeks 8–11',title:'Pitching window',body:'Active investor meetings, pitch support, follow-up management, and term sheet negotiation support. This is the sharp end — and we\'re in the room with you. The average pitching window runs 3 weeks, typically from week 8 to 11.',deliverables:['Meeting prep materials and agenda','Pitch deck rehearsal coaching','Investor Q&A framework','Follow-up email templates','Objection handling guidance','Term sheet review support','Close coordination and negotiation support'],tick:4},
     ]
   }
 ];
@@ -215,6 +239,7 @@ function selectStage(num, phaseId) {
   });
 
   const stage = allStages.find(s => s.num === num);
+  const delivHTML = stage.deliverables ? `<div class="rv-card-deliverables"><div class="rv-card-deliverables-label">Deliverables</div><ul class="rv-card-deliverables-list">${stage.deliverables.map(d => `<li>${d}</li>`).join('')}</ul></div>` : '';
   document.getElementById('detail').innerHTML = `<div class="rv-card">
     <div class="rv-card-meta">
       <div class="rv-card-num">${stage.num}</div>
@@ -223,6 +248,7 @@ function selectStage(num, phaseId) {
     </div>
     <div class="rv-card-title">${stage.title}</div>
     <div class="rv-card-body">${stage.body}</div>
+    ${delivHTML}
   </div>`;
 
   document.getElementById('btn-prev').disabled = num <= 1;

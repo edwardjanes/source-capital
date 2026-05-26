@@ -1,0 +1,130 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0}
+.header{text-align:center;margin-bottom:2rem}
+.header-label{font-size:11px;font-weight:500;letter-spacing:.12em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:.4rem}
+.header-title{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.header-title span{color:#c0392b}
+.pain-prize{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem}
+.pp-card{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem}
+.pp-label{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+.pp-text{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.stages-row{display:flex;gap:0;margin-bottom:1.5rem;position:relative}
+.stage-btn{flex:1;padding:0;border:none;background:none;cursor:pointer;position:relative}
+.stage-inner{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);padding:1rem .75rem;text-align:center;transition:background .15s,border-color .15s;position:relative;z-index:1;height:100%}
+.stage-btn:not(:last-child) .stage-inner::after{content:'';position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:10px solid var(--color-background-secondary);z-index:2}
+.stage-btn:not(:last-child) .stage-inner::before{content:'';position:absolute;right:-11px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:11px solid var(--color-border-tertiary);z-index:1}
+.stage-btn:first-child .stage-inner{border-radius:var(--border-radius-md) 0 0 var(--border-radius-md)}
+.stage-btn:last-child .stage-inner{border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.stage-letter{font-size:28px;font-weight:500;color:#c0392b;line-height:1;margin-bottom:.25rem}
+.stage-name{font-size:12px;font-weight:500;color:var(--color-text-primary);text-transform:uppercase;letter-spacing:.08em}
+.stage-btn.active .stage-inner{background:var(--color-background-primary);border-color:var(--color-border-primary)}
+.stage-btn.active .stage-inner::after{border-left-color:var(--color-background-primary)}
+.stage-btn.active .stage-inner::before{border-left-color:var(--color-border-primary)}
+.detail{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;min-height:200px;transition:opacity .2s}
+.detail-letter{font-size:36px;font-weight:500;color:#c0392b;line-height:1;margin-bottom:.25rem}
+.detail-title{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem}
+.detail-body{font-size:14px;color:var(--color-text-secondary);line-height:1.75}
+.detail-body p{margin-bottom:.75rem}
+.detail-body p:last-child{margin-bottom:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.25rem}
+.tag{font-size:12px;padding:4px 12px;border-radius:var(--border-radius-md);background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+.hint{font-size:12px;color:var(--color-text-tertiary);text-align:center;margin-bottom:.75rem}
+</style>
+<h2 class="sr-only">The R.A.I.S.E. framework — an interactive guide to Source Capital's five-stage fundraising process.</h2>
+<div class="wrap">
+  <div class="header">
+    <div class="header-label">Source Capital</div>
+    <div class="header-title"><span>R.A.I.S.E.</span> Framework</div>
+  </div>
+  <div class="pain-prize">
+    <div class="pp-card">
+      <div class="pp-label">The pain</div>
+      <div class="pp-text">Unclear positioning, limited investor access, inconsistent outreach, weak pitches and stalled investment momentum.</div>
+    </div>
+    <div class="pp-card">
+      <div class="pp-label">The prize</div>
+      <div class="pp-text">Raise capital with confidence and control on your terms — through a repeatable, investor-ready process.</div>
+    </div>
+  </div>
+  <div class="hint">Select a stage to explore</div>
+  <div class="stages-row" id="stages"></div>
+  <div class="detail" id="detail">
+    <div class="detail-letter" id="d-letter"></div>
+    <div class="detail-title" id="d-title"></div>
+    <div class="detail-body" id="d-body"></div>
+    <div class="tags" id="d-tags"></div>
+  </div>
+</div>
+<script>
+const stages=[
+  {
+    letter:'R',
+    name:'Readiness',
+    title:'Diagnose before you launch',
+    body:`<p>We start by diagnosing exactly where your raise is breaking down — before it breaks down in front of investors.</p><p>That means examining your current positioning, valuation logic, traction, investor readiness, and likely weaknesses. Nothing is glossed over.</p><p>You leave this stage knowing precisely what is helping your raise and what is quietly undermining it.</p>`,
+    tags:['Positioning audit','Valuation logic','Traction review','Investor readiness score','Weakness identification']
+  },
+  {
+    letter:'A',
+    name:'Assets',
+    title:'Build what investors expect',
+    body:`<p>Next, we help you build the materials investors expect to see — done properly, not templated.</p><p>That includes your pitch deck, financial model, founder narrative, and the way your opportunity is framed for the right audience.</p><p>Not generic advice. The actual assets you need to enter the market credibly.</p>`,
+    tags:['Pitch deck','Financial model','Founder narrative','Opportunity framing','Data room']
+  },
+  {
+    letter:'I',
+    name:'Investors',
+    title:'Target the right people',
+    body:`<p>Then we build your investor target list — not a broad database of names, but a strategic shortlist.</p><p>Every investor is matched to your stage, sector, geography, and raise profile. You stop guessing who to approach and start targeting people who actually make sense for your deal.</p>`,
+    tags:['Stage matching','Sector alignment','Geographic fit','Raise profile fit','Strategic shortlist']
+  },
+  {
+    letter:'S',
+    name:'Structured outreach',
+    title:'Run your raise like a process',
+    body:`<p>Once the foundations are in place, we help you launch a clear, disciplined outreach process.</p><p>Messaging. Cadence. Follow-up. Pipeline structure. Investor tracking.</p><p>Instead of starting and stopping every few days, you run your raise with the consistency of a proper sales process.</p>`,
+    tags:['Outreach messaging','Cadence planning','Follow-up system','Pipeline structure','Investor tracking']
+  },
+  {
+    letter:'E',
+    name:'Engagement',
+    title:'Convert conversations into commitments',
+    body:`<p>Finally, we help you handle everything that happens after the first message lands.</p><p>Investor meetings. Tough questions. Objections. Follow-ups. Maintaining momentum between conversations.</p><p>Getting the meeting is only one part of the raise. Knowing how to handle what comes next is what keeps the process alive and moving toward a close.</p>`,
+    tags:['Meeting preparation','Objection handling','Follow-up strategy','Momentum management','Commitment conversion']
+  }
+];
+
+const stagesEl=document.getElementById('stages');
+const dLetter=document.getElementById('d-letter');
+const dTitle=document.getElementById('d-title');
+const dBody=document.getElementById('d-body');
+const dTags=document.getElementById('d-tags');
+const detail=document.getElementById('detail');
+
+let active=0;
+
+function render(i){
+  const s=stages[i];
+  dLetter.textContent=s.letter;
+  dTitle.textContent=s.title;
+  dBody.innerHTML=s.body;
+  dTags.innerHTML=s.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.querySelectorAll('.stage-btn').forEach((b,j)=>{
+    b.classList.toggle('active',j===i);
+  });
+  active=i;
+}
+
+stages.forEach((s,i)=>{
+  const btn=document.createElement('button');
+  btn.className='stage-btn'+(i===0?' active':'');
+  btn.innerHTML=`<div class="stage-inner"><div class="stage-letter">${s.letter}</div><div class="stage-name">${s.name}</div></div>`;
+  btn.addEventListener('click',()=>render(i));
+  stagesEl.appendChild(btn);
+});
+
+render(0);
+</script>

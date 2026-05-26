@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Free Raise Audit • Source Capital</title>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21Z8XMXK0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z21Z8XMXK0');
+  </script>
+
+  <!-- PostHog -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init be qs fs gs ns capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_q6hE8Fni4V98wXx7VN9R9dLn3aALDasyymp3WeVbEetB', {
+      api_host: 'https://us.i.posthog.com',
+      person_profiles: 'identified_only'
+    });
+
+    // Re-identify from URL params and track booking page view
+    const _p = new URLSearchParams(window.location.search);
+    const _email = _p.get('email');
+    const _name  = _p.get('name');
+    if (_email) posthog.identify(_email, { name: _name, email: _email });
+    posthog.capture('booking_page_viewed', { product: 'Raise Accelerator' });
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .logo-img { height: 45px; width: auto; max-width: 700px; }
+
+    /* Cal.com embed overrides */
+    #cal-booking-embed {
+      width: 100%;
+      min-height: 700px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    #cal-booking-embed iframe {
+      border-radius: 24px;
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-black/95 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="accelerator-landing.html" class="flex items-center">
+        <img src="logo.png" alt="Source Capital" class="logo-img" style="height:45px;width:auto;">
+      </a>
+      <a href="accelerator-landing.html" class="text-sm text-gray-400 hover:text-white transition">
+        &larr; Back
+      </a>
+    </div>
+  </nav>
+
+  <!-- Page content -->
+  <main class="pt-28 pb-24">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 bg-[#98FF98]/10 border border-[#98FF98]/30 text-[#98FF98] text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#98FF98] animate-pulse"></span>
+          Free · 20 Minutes · No Obligation
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          Book Your Free Raise Audit
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Pick a time that works for you. We'll review your raise, identify the gaps, and give you a clear picture of what needs to happen next.
+        </p>
+      </div>
+
+      <!-- Two-column layout: trust signals + calendar -->
+      <div class="grid md:grid-cols-12 gap-10 items-start">
+
+        <!-- Left: What to expect -->
+        <div class="md:col-span-4 space-y-6">
+
+          <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
+            <h3 class="font-semibold mb-4 text-white">What we'll cover</h3>
+            <ul class="space-y-4 text-sm text-gray-300">
+              <li class="flex items-start gap-3">
+                <span class="text-[#98FF98] mt-0.5 font-bold">01</span>
+                <span>A quick review of where you are in your raise right now</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-[#98FF98] mt-0.5 font-bold">02</span>
+                <span>The specific gaps or risks that could slow you down</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-[#98FF98] mt-0.5 font-bold">03</span>
+                <span>Exactly what you need to do to become investor-ready</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-[#98FF98] mt-0.5 font-bold">04</span>
+                <span>Whether the Raise Accelerator is the right next step for you</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
+            <h3 class="font-semibold mb-4 text-white">The guarantee</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              10 qualified investor meetings in 90 days — or we keep working with you for free until you have them.
+            </p>
+          </div>
+
+          <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center text-[#98FF98]">
+                <i class="fas fa-user text-sm"></i>
+              </div>
+              <div>
+                <p class="font-medium text-sm">Edward Janes</p>
+                <p class="text-xs text-gray-500">Source Capital</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              Fundraising strategist helping first-time founders raise £250k–£1M without warm networks or wasted months.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right: Calendar embed -->
+        <div class="md:col-span-8">
+          <div class="bg-zinc-900 rounded-3xl p-2 border border-zinc-800">
+            <div id="cal-booking-embed"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-white/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+      <div>© 2026 Source Capital. All rights reserved.</div>
+      <div class="flex gap-6">
+        <a href="terms.html" class="hover:text-emerald-400">Terms</a>
+        <a href="privacy.html" class="hover:text-emerald-400">Privacy</a>
+      </div>
+      <div>Dubai, UAE</div>
+    </div>
+  </footer>
+
+  <!-- Cal.com embed script -->
+  <script type="text/javascript">
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal; let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {}; cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1]; api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar); p(cal, ["-init", namespace, L]);
+          } else { p(cal, ar); }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", { origin: "https://cal.com" });
+
+    Cal("inline", {
+      elementOrSelector: "#cal-booking-embed",
+      calLink: "edward-janes/30min",
+      layout: "month_view"
+    });
+
+    Cal("ui", {
+      theme: "dark",
+      styles: {
+        branding: { brandColor: "#98FF98" }
+      },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+
+    // Pre-fill name/email if passed via URL params
+    const params = new URLSearchParams(window.location.search);
+    const name  = params.get('name');
+    const email = params.get('email');
+    if (name || email) {
+      Cal("preload", {
+        calLink: "edward-janes/30min",
+        ...(name  && { name }),
+        ...(email && { email })
+      });
+    }
+  </script>
+
+</body>
+</html>

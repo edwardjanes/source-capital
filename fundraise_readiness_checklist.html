@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundraise Readiness Checklist – Source Capital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .checkbox-input {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #10b981;
+    }
+
+    .question-item {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: all 0.2s;
+    }
+
+    .question-item:hover {
+      border-color: #52525b;
+      background: #1f1f23;
+    }
+
+    .question-item input:checked ~ .question-label {
+      color: #10b981;
+      text-decoration: line-through;
+    }
+
+    .question-label {
+      cursor: pointer;
+      flex: 1;
+      transition: color 0.2s;
+    }
+
+    .section-header {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #27272a;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-emerald-400;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-count {
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+
+    .progress-container {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      sticky: top;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #27272a;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #10b981;
+      transition: width 0.3s ease;
+    }
+
+    .progress-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #10b981;
+      text-align: center;
+    }
+
+    .section-progress {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .section-progress-item {
+      background: #0f0f0f;
+      border: 1px solid #3f3f46;
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-center;
+      font-size: 0.875rem;
+    }
+
+    .section-progress-name {
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-progress-score {
+      color: #10b981;
+      font-weight: 700;
+    }
+
+    .cta-button {
+      background: #10b981;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+      font-size: 1rem;
+    }
+
+    .cta-button:hover {
+      background: #059669;
+    }
+
+    .cta-button:disabled {
+      background: #6b7280;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+<div style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+
+  <!-- PROGRESS SECTION (STICKY) -->
+  <div class="progress-container">
+    <div style="font-size: 0.875rem; color: #9ca3af; margin-bottom: 0.5rem;">OVERALL READINESS</div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="mainProgressBar" style="width: 0%"></div>
+    </div>
+    <div class="progress-text" id="progressText">0%</div>
+    <div class="section-progress" id="sectionProgress"></div>
+  </div>
+
+  <!-- QUIZ FORM -->
+  <form id="checklistForm" onsubmit="handleSubmit(event)">
+    <div id="sectionsContainer"></div>
+
+    <!-- SUBMIT BUTTON -->
+    <div style="margin-top: 3rem; margin-bottom: 2rem;">
+      <button type="submit" class="cta-button" id="submitBtn">
+        Complete Checklist & See Results
+      </button>
+    </div>
+  </form>
+
+</div>
+
+<!-- GATE FORM (hidden, shown after checklist) -->
+<div id="gateModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 50; align-items: center; justify-content: center;">
+  <div style="background: #0f0f0f; border: 1px solid #3f3f46; border-radius: 12px; padding: 2rem; max-width: 420px; width: 90%;">
+    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Get Your Detailed Report</h2>
+    <p style="color: #9ca3af; text-align: center; margin-bottom: 1.5rem;">Share your details to unlock your personalized fundraising roadmap.</p>
+
+    <form id="gateForm" onsubmit="submitGate(event)">
+      <input type="email" placeholder="your@email.com" id="emailInput" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; background: #18181b; border: 1px solid #3f3f46; border-radius: 6px; color: white;" />
+      <input type="text" placeholder="First name" id="firstNameInput" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; background: #18181b; border: 1px solid #3f3f46; border-radius: 6px; color: white;" />
+      <button type="submit" class="cta-button">Unlock My Report</button>
+    </form>
+
+    <div id="gateSuccess" style="display: none; text-align: center; color: #10b981; margin-top: 1rem;">
+      ✅ Check your email for your detailed report!
+    </div>
+  </div>
+</div>
+
+<script>
+  const sections = [
+    {
+      id: 'founder_team',
+      title: 'Founder & Team',
+      questions: [
+        'Founding team has relevant domain expertise or track record',
+        'Clear roles and responsibilities defined across the team',
+        'At least one technical co-founder or senior technical hire in place',
+        'Advisors or board members with investor-relevant credibility',
+        'Team has capacity to execute through the raise process'
+      ]
+    },
+    {
+      id: 'problem_market',
+      title: 'Problem & Market',
+      questions: [
+        'Problem is clearly defined and validated with real customer pain',
+        'Target market is identifiable and large enough to justify investment',
+        'TAM, SAM, and SOM are calculated with credible sources',
+        'Market timing rationale is articulated (why now?)',
+        'Competitive landscape is mapped and differentiation is clear'
+      ]
+    },
+    {
+      id: 'product_traction',
+      title: 'Product & Traction',
+      questions: [
+        'MVP or product is live and being used by real customers',
+        'Key metrics (DAU/MAU, retention, NPS) are being tracked',
+        'Revenue or meaningful LOIs / pilot agreements are in place',
+        'Product roadmap is defined for the next 12–18 months',
+        'Unit economics are understood (CAC, LTV, payback period)'
+      ]
+    },
+    {
+      id: 'business_model',
+      title: 'Business Model',
+      questions: [
+        'Revenue model is clear and scalable',
+        'Pricing strategy is validated with paying customers',
+        'Path to profitability or sustainable growth is defined',
+        'Key revenue assumptions are documented and defensible',
+        'Business model has been stress-tested for downside scenarios'
+      ]
+    },
+    {
+      id: 'financials',
+      title: 'Financials',
+      questions: [
+        'Three-year financial model (P&L, cash flow) is built and investor-ready',
+        'Current burn rate and runway are known',
+        'Use of funds is clearly defined for the round being raised',
+        'Historical financials (if applicable) are clean and auditable',
+        'Key financial assumptions are documented and grounded in data'
+      ]
+    },
+    {
+      id: 'fundraising_readiness',
+      title: 'Fundraising Readiness',
+      questions: [
+        'Target raise amount and valuation are defined and justified',
+        'Round structure is clear (equity, SAFE, convertible note, etc.)',
+        'Pitch deck is investor-ready (problem, solution, traction, team, ask)',
+        'One-pager / executive summary is prepared for warm outreach',
+        'Data room is set up with supporting documents ready to share',
+        'Target investor list is built (stage, sector, geography match)',
+        'Warm introduction strategy is in place',
+        'Founder has practised the pitch and Q&A under pressure'
+      ]
+    },
+    {
+      id: 'legal_structure',
+      title: 'Legal & Structure',
+      questions: [
+        'Company is incorporated in an investor-friendly jurisdiction',
+        'Cap table is clean, up to date, and free of complications',
+        'IP is owned by the company (not founders personally)',
+        'No outstanding legal disputes or material liabilities',
+        'Shareholder agreements and founder vesting are in place'
+      ]
+    }
+  ];
+
+  function renderChecklist() {
+    const container = document.getElementById('sectionsContainer');
+    container.innerHTML = '';
+
+    sections.forEach(section => {
+      const sectionHTML = `
+        <div class="section-header">
+          <div class="section-title">${section.title}</div>
+          <div class="section-count">${section.questions.length} items</div>
+        </div>
+        <div style="space-y: 1rem;" id="section-${section.id}">
+          ${section.questions.map((q, idx) => `
+            <div class="question-item">
+              <input type="checkbox" class="checkbox-input" id="${section.id}-${idx}" onchange="updateProgress()" />
+              <label class="question-label" for="${section.id}-${idx}">${q}</label>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      container.innerHTML += sectionHTML;
+    });
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const allCheckboxes = document.querySelectorAll('.checkbox-input');
+    const checked = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+    const total = allCheckboxes.length;
+    const percentage = Math.round((checked / total) * 100);
+
+    // Update main progress
+    document.getElementById('mainProgressBar').style.width = percentage + '%';
+    document.getElementById('progressText').textContent = percentage + '%';
+
+    // Update section progress
+    const sectionProgressHTML = sections.map(section => {
+      const sectionCheckboxes = document.querySelectorAll(`#section-${section.id} .checkbox-input`);
+      const sectionChecked = Array.from(sectionCheckboxes).filter(cb => cb.checked).length;
+      const sectionTotal = sectionCheckboxes.length;
+      const sectionPercentage = Math.round((sectionChecked / sectionTotal) * 100);
+
+      return `
+        <div class="section-progress-item">
+          <div class="section-progress-name">${section.title}</div>
+          <div class="section-progress-score">${sectionPercentage}%</div>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('sectionProgress').innerHTML = sectionProgressHTML;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // Calculate results
+    const results = {
+      sections: sections.map(section => {
+        const sectionCheckboxes = document.querySelectorAll(`#section-${section.id} .checkbox-input`);
+        const sectionChecked = Array.from(sectionCheckboxes).filter(cb => cb.checked).length;
+        const sectionTotal = sectionCheckboxes.length;
+        return {
+          id: section.id,
+          name: section.title,
+          completed: sectionChecked,
+          total: sectionTotal,
+          percentage: Math.round((sectionChecked / sectionTotal) * 100)
+        };
+      }),
+      totalCompleted: Array.from(document.querySelectorAll('.checkbox-input')).filter(cb => cb.checked).length,
+      totalQuestions: document.querySelectorAll('.checkbox-input').length
+    };
+
+    const overallPercentage = Math.round((results.totalCompleted / results.totalQuestions) * 100);
+    results.overallPercentage = overallPercentage;
+
+    // Store in localStorage temporarily
+    localStorage.setItem('checklistResults', JSON.stringify(results));
+
+    // Show gate modal
+    document.getElementById('gateModal').style.display = 'flex';
+  }
+
+  function submitGate(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('emailInput').value;
+    const firstName = document.getElementById('firstNameInput').value || 'Founder';
+
+    // Get results from localStorage
+    const results = JSON.parse(localStorage.getItem('checklistResults'));
+
+    // Prepare data for Loops
+    const formBody = new URLSearchParams({
+      email: email,
+      firstName: firstName
+    }).toString();
+
+    // Send to Loops
+    fetch('https://app.loops.so/api/newsletter-form/cmn78et4k1pr10izg4si3mbut', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody
+    })
+    .then(res => res.ok ? Promise.resolve() : Promise.reject())
+    .then(() => {
+      // Save complete data with user info
+      results.email = email;
+      results.firstName = firstName;
+      localStorage.setItem('checklistResults', JSON.stringify(results));
+
+      // Show success and redirect
+      document.getElementById('gateForm').style.display = 'none';
+      document.getElementById('gateSuccess').style.display = 'block';
+
+      setTimeout(() => {
+        window.location.href = 'fundraise_readiness_checklist_results.html';
+      }, 2000);
+    })
+    .catch(() => {
+      alert('Error submitting form. Please try again.');
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', renderChecklist);
+</script>
+
+</body>
+</html>

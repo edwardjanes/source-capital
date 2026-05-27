@@ -60,7 +60,9 @@
   .rv-nav-btn{background:#0D0D0D;border:1.5px solid #2a2a2a;color:#A0A0A0;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:11px 24px;border-radius:10px;cursor:pointer;transition:all .25s;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
   .rv-nav-btn:hover:not(:disabled){border-color:#00FF84;color:#00FF84;background:#0a150e;box-shadow:0 4px 12px rgba(0,255,132,0.15)}
   .rv-nav-btn:disabled{opacity:.25;cursor:default}
-  .rv-hero{background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('hero.jpg') center/cover no-repeat fixed;background-position:center 30%;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;margin:-40px -32px 48px -32px;padding:40px 32px}
+  .rv-hero{background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('hero.jpg') center/cover no-repeat fixed;background-position:center 30%;height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;margin:0 -32px 48px -32px;padding:40px 32px;position:relative}
+  .rv-hero-logo{position:absolute;top:20px;left:50%;transform:translateX(-50%);z-index:10}
+  .rv-hero-logo img{height:48px;width:auto}
   .rv-hero-content{max-width:900px}
   .rv-hero-eyebrow{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00FF84;margin-bottom:12px}
   .rv-hero-headline{font-family:'Inter',sans-serif;font-size:32px;font-weight:900;letter-spacing:.02em;color:#E8E8E8;margin-bottom:12px;line-height:1.2}
@@ -69,13 +71,12 @@
   .rv-footer span{color:#00FF84;font-weight:600}
   @media (max-width:768px){
     .rv{padding:24px 16px 32px}
-    .rv-logo{margin-bottom:20px}
-    .rv-logo img{height:40px}
     .rv-header{margin-bottom:24px}
     .rv-title{font-size:20px}
     .rv-eyebrow{font-size:10px}
     .rv-sub{font-size:12px}
-    .rv-hero{min-height:70vh;padding:24px 16px;margin:-24px -16px 32px -16px}
+    .rv-hero{height:380px;padding:24px 16px;margin:0 -16px 32px -16px}
+    .rv-hero-logo img{height:40px}
     .rv-hero-headline{font-size:24px}
     .rv-hero-subline{font-size:13px;margin-bottom:20px}
     .phases{gap:4px;margin-bottom:20px}
@@ -93,13 +94,12 @@
   }
   @media (max-width:480px){
     .rv{padding:16px 12px 24px}
-    .rv-logo{margin-bottom:16px}
-    .rv-logo img{height:32px}
     .rv-header{margin-bottom:16px}
     .rv-title{font-size:18px;line-height:1.1}
     .rv-eyebrow{font-size:9px}
     .rv-sub{font-size:11px}
-    .rv-hero{min-height:60vh;padding:20px 12px;margin:-16px -12px 24px -12px}
+    .rv-hero{height:340px;padding:20px 12px;margin:0 -12px 24px -12px}
+    .rv-hero-logo img{height:32px}
     .rv-hero-eyebrow{font-size:10px;margin-bottom:8px}
     .rv-hero-headline{font-size:20px;margin-bottom:10px}
     .rv-hero-subline{font-size:12px;margin-bottom:16px}
@@ -130,6 +130,9 @@
 </style>
 
 <div class="rv-hero">
+  <div class="rv-hero-logo">
+    <img src="Source Capital Core Story/source-capital-logo.png" alt="Source Capital">
+  </div>
   <div class="rv-hero-content">
     <div class="rv-hero-eyebrow">12-week structured process</div>
     <div class="rv-hero-headline">From strategy to capital raised</div>
@@ -139,10 +142,6 @@
 
 <div class="rv">
   <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Raise Velocity 12-week process across three phases: setup, outreach, pitching</h2>
-
-  <div class="rv-logo">
-    <img src="Source Capital Core Story/source-capital-logo.png" alt="Source Capital" style="height:52px;width:auto">
-  </div>
 
   <div class="rv-header">
     <div class="rv-eyebrow">Done-for-you raise service</div>

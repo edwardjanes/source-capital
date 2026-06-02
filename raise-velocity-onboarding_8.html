@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raise Velocity — Client Onboarding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --green: #00FF84;
+    --green-dim: #00c46a;
+    --green-bg: rgba(0,255,132,0.06);
+    --green-border: rgba(0,255,132,0.25);
+    --white: #ffffff;
+    --gray-100: #f4f4f2;
+    --gray-200: #e8e8e4;
+    --gray-400: #9a9a94;
+    --gray-600: #5a5a54;
+    --gray-800: #1e1e1a;
+    --surface: #111110;
+    --surface-2: #1a1a18;
+    --surface-3: #222220;
+    --border: rgba(255,255,255,0.07);
+    --border-strong: rgba(255,255,255,0.12);
+    --text-primary: #f0f0ec;
+    --text-secondary: #8a8a84;
+    --text-hint: #5a5a54;
+    --radius: 6px;
+    --radius-lg: 10px;
+    --font-display: 'Inter', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  .header-inner {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+  .logo span { color: var(--green); }
+
+  .header-badge {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* ── LAYOUT ── */
+  .shell {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 2rem 4rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--green);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green);
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .progress-wrap::-webkit-scrollbar { display: none; }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    min-width: 70px;
+  }
+  .step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 56%;
+    width: 88%;
+    height: 1px;
+    background: var(--border-strong);
+    z-index: 0;
+    transition: background 0.3s;
+  }
+  .step-item.done::after { background: var(--green-dim); }
+
+  .step-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--font-display);
+    color: var(--text-secondary);
+    z-index: 1;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .step-item.active .step-dot {
+    border-color: var(--green);
+    background: var(--green);
+    color: var(--black);
+  }
+  .step-item.done .step-dot {
+    border-color: var(--green-dim);
+    background: var(--green-dim);
+    color: var(--black);
+  }
+
+  .step-label {
+    font-size: 10px;
+    color: var(--text-hint);
+    margin-top: 5px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .step-item.active .step-label { color: var(--green); }
+  .step-item.done .step-label { color: var(--green-dim); }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeUp 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-head {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .section-head p {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* ── GROUP LABELS ── */
+  .group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 2rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-1 { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* ── FIELDS ── */
+  .field { display: flex; flex-direction: column; gap: 6px; }
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+  }
+  .req { color: #e24b4a; margin-left: 2px; }
+
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  input[type=url],
+  input[type=date],
+  select,
+  textarea {
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 10px 14px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--green-dim);
+    background: var(--surface-3);
+  }
+  input::placeholder, textarea::placeholder { color: var(--text-hint); }
+  select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a8a84' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+  select option { background: var(--surface-2); }
+  textarea { min-height: 88px; resize: vertical; line-height: 1.6; }
+
+  .hint {
+    font-size: 11px;
+    color: var(--text-hint);
+    line-height: 1.5;
+  }
+
+  /* ── RADIO PILLS ── */
+  .pill-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .pill {
+    border: 1px solid var(--border-strong);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-secondary);
+    background: var(--surface-2);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .pill:hover { border-color: rgba(0,255,132,0.3); color: var(--text-primary); }
+  .pill.on {
+    border-color: var(--green-dim);
+    background: var(--green-bg);
+    color: var(--green);
+  }
+
+  /* ── CHECKBOXES ── */
+  .check-list { display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
+  .check-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .check-row:hover { background: var(--surface-2); border-color: var(--border-strong); }
+  .check-row input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    min-width: 15px;
+    accent-color: var(--green);
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .check-row span { font-size: 13px; color: var(--text-primary); }
+
+  /* ── NAVIGATION ── */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .btn {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn:hover { background: var(--surface-2); color: var(--text-primary); border-color: var(--border-strong); }
+
+  .btn-primary {
+    background: var(--green);
+    color: var(--black);
+    border-color: var(--green);
+    font-weight: 700;
+  }
+  .btn-primary:hover { background: #00e876; border-color: #00e876; color: var(--black); }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-ghost { border: none; background: none; }
+  .btn-ghost:hover { background: var(--surface-2); }
+
+  .step-counter {
+    font-size: 11px;
+    color: var(--text-hint);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SUMMARY BLOCKS ── */
+  .summary-block {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 12px;
+  }
+  .summary-block h4 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row .sk { color: var(--text-secondary); }
+  .summary-row .sv { color: var(--text-primary); font-weight: 500; max-width: 60%; text-align: right; word-break: break-word; }
+
+  /* ── CONFIDENTIALITY NOTICE ── */
+  .notice {
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .notice-icon { color: var(--green); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+
+  /* ── SUBMIT STATUS ── */
+  .status-box {
+    display: none;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-size: 13px;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .status-box.show { display: flex; }
+  .status-box.sending { background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--text-secondary); }
+  .status-box.error { background: rgba(226,75,74,0.06); border: 1px solid rgba(226,75,74,0.25); color: #e24b4a; }
+
+  /* ── COMPLETE ── */
+  .complete-screen { display: none; }
+  .complete-screen.show { display: block; }
+
+  .complete-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 1.5rem 0 1.25rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+
+  .complete-mark {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .complete-mark svg { width: 18px; height: 18px; stroke: var(--green); }
+
+  .complete-header-text h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .complete-header-text p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .cal-wrap {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 620px;
+  }
+
+  #my-cal-inline-velocity-client-onboarding-call {
+    width: 100%;
+    min-height: 620px;
+    overflow: scroll;
+  }
+
+  /* ── SPINNER ── */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border-strong);
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <img src="https://marketing.sourcecapital.co.uk/logo.png" alt="Source Capital" style="width:200px;">
+    <div class="header-badge">Raise Velocity</div>
+  </div>
+</header>
+
+<div class="shell">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Client onboarding</div>
+    <h1>Let's build your<br><em>raise profile.</em></h1>
+    <p>Complete all seven sections so your Raise Velocity team has everything needed to begin immediately. Takes approximately 20 minutes.</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progressBar">
+    <div class="step-item active" data-s="0"><div class="step-dot">1</div><div class="step-label">Company</div></div>
+    <div class="step-item" data-s="1"><div class="step-dot">2</div><div class="step-label">Raise</div></div>
+    <div class="step-item" data-s="2"><div class="step-dot">3</div><div class="step-label">Business</div></div>
+    <div class="step-item" data-s="3"><div class="step-dot">4</div><div class="step-label">Assets</div></div>
+    <div class="step-item" data-s="4"><div class="step-dot">5</div><div class="step-label">Team</div></div>
+    <div class="step-item" data-s="5"><div class="step-dot">6</div><div class="step-label">Preferences</div></div>
+    <div class="step-item" data-s="6"><div class="step-dot">7</div><div class="step-label">Review</div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — COMPANY BASICS
+  ══════════════════════════════════════════ -->
+  <div class="section active" id="sec0">
+    <div class="section-head">
+      <h2>Company basics</h2>
+      <p>Core company info to build your raise profile and investor outreach messaging.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="field"><label>Company name</label><input type="text" id="company_name" placeholder="Acme Inc."></div>
+      <div class="field"><label>Trading name (if different)</label><input type="text" id="trading_name" placeholder="Acme"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Company registration number</label><input type="text" id="reg_number" placeholder="12345678"></div>
+      <div class="field"><label>Country of incorporation</label>
+        <select id="country">
+          <option value="">Select country…</option>
+          <option>United Kingdom</option><option>United Arab Emirates</option><option>United States</option><option>Cayman Islands</option><option>Singapore</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Registered address</label><input type="text" id="reg_address" placeholder="123 High Street, London, EC1A 1BB"></div>
+      <div class="field"><label>Operating address (if different)</label><input type="text" id="op_address" placeholder="Leave blank if same"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Company website</label><input type="url" id="website" placeholder="https://"></div>
+      <div class="field"><label>LinkedIn company page</label><input type="url" id="linkedin_company" placeholder="https://linkedin.com/company/…"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Industry / sector</label>
+        <select id="industry">
+          <option value="">Select…</option>
+          <option>SaaS / Software</option><option>Fintech</option><option>Healthtech</option><option>Proptech</option><option>E-commerce</option><option>DeepTech / AI</option><option>Consumer</option><option>Climate / CleanTech</option><option>Marketplace</option><option>B2B Services</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Business model</label>
+        <select id="biz_model">
+          <option value="">Select…</option>
+          <option>B2B SaaS</option><option>B2C SaaS</option><option>Marketplace</option><option>E-commerce</option><option>Service / Agency</option><option>Hardware + Software</option><option>Licensing</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>One-line company description</label><input type="text" id="one_liner" placeholder="We help [target customer] do [outcome] via [method]"><p class="hint">This becomes your investor outreach headline. Keep it under 15 words.</p></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Full company description</label><textarea id="full_description" placeholder="The problem you solve, who you solve it for, and how your solution works. 2–4 sentences."></textarea></div>
+    </div>
+
+    <div class="nav">
+      <span></span>
+      <span class="step-counter">1 / 7</span>
+      <button class="btn btn-primary" onclick="go(1)">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — THE RAISE
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec1">
+    <div class="section-head">
+      <h2>The raise</h2>
+      <p>Details of the funding round we're raising for you.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="field"><label>Target raise amount</label><input type="text" id="raise_amount" placeholder="e.g. $500,000"></div>
+      <div class="field"><label>Minimum viable raise</label><input type="text" id="raise_minimum" placeholder="e.g. $250,000"><p class="hint">The minimum to close the round and proceed.</p></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Round type</label>
+        <select id="round_type">
+          <option value="">Select…</option>
+          <option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Series B+</option><option>Bridge / Extension</option><option>Strategic / Impact</option>
+        </select>
+      </div>
+      <div class="field"><label>Instrument / structure</label>
+        <select id="instrument">
+          <option value="">Select…</option>
+          <option>Equity (priced round)</option><option>SAFE</option><option>Convertible note</option><option>Revenue-based financing</option><option>Debt / loan</option><option>To be determined</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Pre-money valuation (if set)</label><input type="text" id="valuation" placeholder="e.g. $3,000,000"><p class="hint">Leave blank if not yet determined.</p></div>
+      <div class="field"><label>Valuation basis</label>
+        <select id="valuation_basis">
+          <option value="">Select…</option>
+          <option>Revenue multiple</option><option>Comparable transactions</option><option>DCF / projections</option><option>Negotiated / market rate</option><option>Not set</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Target close date</label><input type="date" id="close_date"></div>
+      <div class="field"><label>Runway if raise not completed</label><input type="text" id="runway" placeholder="e.g. 4 months"><p class="hint">Important context for urgency framing.</p></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Use of funds</label><textarea id="use_of_funds" placeholder="e.g. 60% product development, 25% sales & marketing, 15% working capital. Be specific — investors will ask."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Key milestones this raise will unlock</label><textarea id="milestones" placeholder="e.g. Launch in 2 new markets, reach $1M ARR, hire 3 engineers."></textarea></div>
+    </div>
+
+    <div class="group-label">Existing capital</div>
+    <div class="grid-2">
+      <div class="field"><label>Total capital raised to date</label><input type="text" id="capital_raised" placeholder="e.g. $350,000"></div>
+      <div class="field"><label>Lead investor (if any)</label><input type="text" id="lead_investor" placeholder="Name / firm"></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Existing investors — names &amp; amounts</label><textarea id="existing_investors" placeholder="List each investor, amount, and date. Helps build a credible cap table narrative."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Amount already committed in this round</label><input type="text" id="committed" placeholder="e.g. $75,000 soft-circled from two angels"><p class="hint">Even soft commitments accelerate investor decisions.</p></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" onclick="go(0)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+      <span class="step-counter">2 / 7</span>
+      <button class="btn btn-primary" onclick="go(2)">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — BUSINESS & TRACTION
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec2">
+    <div class="section-head">
+      <h2>Business &amp; traction</h2>
+      <p>The data that backs up your story. Be honest — we work with what's real, not what sounds good.</p>
+    </div>
+
+    <div class="group-label">Stage &amp; revenue</div>
+    <div class="grid-2">
+      <div class="field"><label>Company stage</label>
+        <select id="stage">
+          <option value="">Select…</option>
+          <option>Idea / concept</option><option>MVP / prototype</option><option>Early revenue (&lt;$100k ARR)</option><option>Growing ($100k–$1M ARR)</option><option>Scaling ($1M+ ARR)</option>
+        </select>
+      </div>
+      <div class="field"><label>Date founded</label><input type="date" id="founded_date"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Current MRR / ARR</label><input type="text" id="mrr" placeholder="e.g. $18,000 MRR"></div>
+      <div class="field"><label>Revenue model</label>
+        <select id="rev_model">
+          <option value="">Select…</option>
+          <option>Subscription (recurring)</option><option>Transaction / usage</option><option>One-time sale</option><option>Freemium + paid upgrade</option><option>Commission / take rate</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>YoY revenue growth rate</label><input type="text" id="growth_rate" placeholder="e.g. 120% YoY"></div>
+      <div class="field"><label>Gross margin %</label><input type="text" id="gross_margin" placeholder="e.g. 72%"></div>
+    </div>
+
+    <div class="group-label">Customers &amp; market</div>
+    <div class="grid-2">
+      <div class="field"><label>Number of paying customers</label><input type="text" id="customer_count" placeholder="e.g. 47 active accounts"></div>
+      <div class="field"><label>Average contract value (ACV)</label><input type="text" id="acv" placeholder="e.g. $4,200 / year"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Customer acquisition cost (CAC)</label><input type="text" id="cac" placeholder="e.g. $380"></div>
+      <div class="field"><label>Lifetime value (LTV)</label><input type="text" id="ltv" placeholder="e.g. $9,400"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Churn rate</label><input type="text" id="churn" placeholder="e.g. 2% monthly"></div>
+      <div class="field"><label>Net Revenue Retention (NRR)</label><input type="text" id="nrr" placeholder="e.g. 108%"></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Notable customers / logos</label><input type="text" id="notable_customers" placeholder="e.g. HSBC (NDA), Unilever, 3 NHS trusts"></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Target customer profile (ICP)</label><textarea id="icp" placeholder="Who exactly buys from you? Role, company size, geography, trigger event. Be specific."></textarea></div>
+    </div>
+
+    <div class="group-label">Competitive position</div>
+    <div class="grid-1">
+      <div class="field"><label>Primary competitors</label><textarea id="competitors" placeholder="List 3–5 direct competitors. Name and one-line description of each."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Key differentiators</label><textarea id="differentiators" placeholder="What do you do materially better, faster, or cheaper? Avoid generic claims like 'better UX'."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Barriers to entry / moat</label><textarea id="moat" placeholder="IP, network effects, data advantage, switching costs, exclusive partnerships, regulation, etc."></textarea></div>
+    </div>
+
+    <div class="group-label">Financials</div>
+    <div class="grid-2">
+      <div class="field"><label>Monthly burn rate</label><input type="text" id="burn" placeholder="e.g. $42,000 / month"></div>
+      <div class="field"><label>Current cash / runway</label><input type="text" id="cash" placeholder="e.g. $180,000 (4.3 months)"></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>3-year revenue projections (Year 1 / 2 / 3)</label><input type="text" id="projections" placeholder="e.g. $600k / $1.8M / $4.2M"><p class="hint">High-level is fine. We'll help stress-test and present these correctly.</p></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" onclick="go(1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+      <span class="step-counter">3 / 7</span>
+      <button class="btn btn-primary" onclick="go(3)">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — ASSETS & MATERIALS
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec3">
+    <div class="section-head">
+      <h2>Assets &amp; materials</h2>
+      <p>What you have, what needs building, and where to find it.</p>
+    </div>
+
+    <div class="group-label">Pitch materials</div>
+    <div class="grid-1">
+      <div class="field"><label>Do you have a current pitch deck?</label>
+        <div class="pill-group" id="hasDeck">
+          <div class="pill" onclick="pick('hasDeck',this,'deck_status')">Yes — ready to share</div>
+          <div class="pill" onclick="pick('hasDeck',this,'deck_status')">Yes — needs work</div>
+          <div class="pill" onclick="pick('hasDeck',this,'deck_status')">No — needs building</div>
+        </div>
+        <input type="hidden" id="deck_status">
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Pitch deck link</label><input type="url" id="deck_link" placeholder="Google Drive, Docsend, Notion, etc."><p class="hint">Ensure view access is enabled for edward@sourcecapital.co.uk</p></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Financial model link</label><input type="url" id="model_link" placeholder="Google Sheets or Excel URL"></div>
+      <div class="field"><label>Data room link</label><input type="url" id="dataroom_link" placeholder="Notion, Docsend, Capdesk, etc."></div>
+    </div>
+
+    <div class="group-label">Legal &amp; structure</div>
+    <div class="grid-2">
+      <div class="field"><label>Term sheet / investment agreement status</label>
+        <div class="pill-group" id="termStatus">
+          <div class="pill" onclick="pick('termStatus',this,'term_status')">Ready</div>
+          <div class="pill" onclick="pick('termStatus',this,'term_status')">In progress</div>
+          <div class="pill" onclick="pick('termStatus',this,'term_status')">Not started</div>
+        </div>
+        <input type="hidden" id="term_status">
+      </div>
+      <div class="field"><label>EIS / SEIS eligibility</label>
+        <div class="pill-group" id="eisStatus">
+          <div class="pill" onclick="pick('eisStatus',this,'eis_status')">Yes — confirmed</div>
+          <div class="pill" onclick="pick('eisStatus',this,'eis_status')">Likely</div>
+          <div class="pill" onclick="pick('eisStatus',this,'eis_status')">No</div>
+          <div class="pill" onclick="pick('eisStatus',this,'eis_status')">N/A</div>
+        </div>
+        <input type="hidden" id="eis_status">
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Existing investor rights, veto provisions, or anti-dilution clauses</label><textarea id="investor_rights" placeholder="Be specific. These affect how we position the deal and what investors will ask about."></textarea></div>
+    </div>
+
+    <div class="group-label">Brand &amp; social proof</div>
+    <div class="grid-1">
+      <div class="field"><label>Brand assets link (logo, colours, fonts)</label><input type="url" id="brand_assets" placeholder="Google Drive / Dropbox / brand kit URL"><p class="hint">Required for building investor-facing materials from scratch.</p></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Materials you don't want us to use or reference</label><textarea id="excluded_materials" placeholder="e.g. Old branding, outdated financials, a competitor mention you'd prefer avoided."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Press coverage / awards / notable mentions</label><textarea id="press" placeholder="Links or descriptions. These feed directly into outreach messaging."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Testimonials or case study quotes</label><textarea id="testimonials" placeholder="Even one strong customer quote can shift investor sentiment."></textarea></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" onclick="go(2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+      <span class="step-counter">4 / 7</span>
+      <button class="btn btn-primary" onclick="go(4)">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 5 — FOUNDERS & TEAM
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec4">
+    <div class="section-head">
+      <h2>Founders &amp; team</h2>
+      <p>Investors back people first. Give us the information that makes the strongest case.</p>
+    </div>
+
+    <div class="group-label">Lead founder</div>
+    <div class="grid-2">
+      <div class="field"><label>Full name</label><input type="text" id="founder_name" placeholder=""></div>
+      <div class="field"><label>Title / role</label><input type="text" id="founder_role" placeholder="e.g. CEO & Co-founder"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Email address</label><input type="email" id="founder_email" placeholder=""></div>
+      <div class="field"><label>Phone / WhatsApp</label><input type="tel" id="founder_phone" placeholder="+44 7700 000000"></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>LinkedIn profile URL</label><input type="url" id="founder_linkedin" placeholder="https://linkedin.com/in/…"></div>
+      <div class="field"><label>Nationality / jurisdiction</label><input type="text" id="founder_nationality" placeholder="e.g. British, UAE resident"></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Founder bio (investor-facing)</label><textarea id="founder_bio" placeholder="2–3 sentences. Previous exits, notable employers, domain expertise, why you're the right person to build this."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Previous exits or fundraises</label><textarea id="founder_exits" placeholder="Company name, amount, outcome."></textarea></div>
+    </div>
+
+    <div class="group-label">Co-founders &amp; team</div>
+    <div class="grid-1">
+      <div class="field"><label>Co-founder 2 (if applicable) — name, role, LinkedIn, 1-line bio</label><textarea id="cofounder2" placeholder="Include equity split if comfortable sharing."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Co-founder 3 (if applicable)</label><textarea id="cofounder3" placeholder="Name, role, LinkedIn, 1-line bio."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Key team members (non-founders)</label><textarea id="key_team" placeholder="CTO, Head of Sales, lead engineer, etc. Include only people who strengthen the narrative."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Advisors / board members</label><textarea id="advisors" placeholder="Name, role, how they're involved. Credible advisors materially affect investor confidence."></textarea></div>
+    </div>
+
+    <div class="group-label">Cap table</div>
+    <div class="grid-1">
+      <div class="field">
+        <label>Current equity split</label>
+        <p class="hint" style="margin-bottom:10px">Won't be shared without your approval. Needed to assess dilution risk before investor conversations.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 100px 36px;gap:8px;align-items:center;margin-bottom:4px;padding:0 2px;">
+          <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint)">Name</span>
+          <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint)">Relationship</span>
+          <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint)">Equity %</span>
+          <span></span>
+        </div>
+        <div id="equityTable" style="display:flex;flex-direction:column;gap:8px;"></div>
+        <button type="button" class="btn" onclick="addEquityRow()" style="margin-top:10px;font-size:12px;padding:7px 14px;display:flex;align-items:center;gap:6px;width:fit-content;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add row
+        </button>
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Cap table issues we should know about</label><textarea id="cap_issues" placeholder="e.g. Former co-founder with significant equity, cliff clauses, convertibles in flight, complex share classes."></textarea></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" onclick="go(3)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+      <span class="step-counter">5 / 7</span>
+      <button class="btn btn-primary" onclick="go(5)">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 6 — INVESTOR PREFERENCES
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec5">
+    <div class="section-head">
+      <h2>Investor preferences &amp; comms</h2>
+      <p>Helps us target the right investors and manage the engagement correctly.</p>
+    </div>
+
+    <div class="group-label">Target investor profile</div>
+    <div class="grid-1">
+      <div class="field"><label>Investor types you're open to</label>
+        <div class="check-list">
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Angel investors (HNWIs)"> <span>Angel investors (HNWIs)</span></label>
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Venture capital firms"> <span>Venture capital firms</span></label>
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Family offices"> <span>Family offices</span></label>
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Strategic / corporate investors"> <span>Strategic / corporate investors</span></label>
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Impact / ESG-focused investors"> <span>Impact / ESG-focused investors</span></label>
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Government / grant funding"> <span>Government / grant funding</span></label>
+          <label class="check-row"><input type="checkbox" name="inv_type" value="Syndicates / SPVs"> <span>Syndicates / SPVs</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Preferred investor geography</label>
+        <select id="inv_geo">
+          <option value="">No preference</option>
+          <option>UK only</option><option>Europe</option><option>Middle East</option><option>US / North America</option><option>Global</option>
+        </select>
+      </div>
+      <div class="field"><label>Preferred cheque size per investor</label>
+        <select id="cheque_size">
+          <option value="">No preference</option>
+          <option>$10k–$25k</option><option>$25k–$50k</option><option>$50k–$100k</option><option>$100k–$250k</option><option>$250k+</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Investors already approached or rejected by</label><textarea id="avoided_investors" placeholder="Name them — we won't reach out to them again."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Investor types to explicitly avoid</label><textarea id="excluded_investors" placeholder="e.g. Predatory angels, overseas investors requiring complex structures, board seat demands at seed."></textarea></div>
+    </div>
+
+    <div class="group-label">Value-add preferences</div>
+    <div class="grid-1">
+      <div class="field"><label>What would the ideal investor bring beyond capital?</label>
+        <div class="check-list">
+          <label class="check-row"><input type="checkbox" name="value_add" value="Industry connections / distribution"> <span>Industry connections / distribution</span></label>
+          <label class="check-row"><input type="checkbox" name="value_add" value="Follow-on investment capability"> <span>Follow-on investment capability</span></label>
+          <label class="check-row"><input type="checkbox" name="value_add" value="Operational expertise (scaling, hiring)"> <span>Operational expertise (scaling, hiring)</span></label>
+          <label class="check-row"><input type="checkbox" name="value_add" value="International market access"> <span>International market access</span></label>
+          <label class="check-row"><input type="checkbox" name="value_add" value="Technology / product expertise"> <span>Technology / product expertise</span></label>
+          <label class="check-row"><input type="checkbox" name="value_add" value="Brand credibility / PR"> <span>Brand credibility / PR</span></label>
+          <label class="check-row"><input type="checkbox" name="value_add" value="Just the capital"> <span>Just the capital — we're self-sufficient operationally</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="group-label">Communication preferences</div>
+    <div class="grid-2">
+      <div class="field"><label>Preferred update frequency</label>
+        <div class="pill-group" id="updateFreq">
+          <div class="pill" onclick="pick('updateFreq',this,'update_freq')">Daily</div>
+          <div class="pill" onclick="pick('updateFreq',this,'update_freq')">2–3x per week</div>
+          <div class="pill on" onclick="pick('updateFreq',this,'update_freq')">Weekly</div>
+          <div class="pill" onclick="pick('updateFreq',this,'update_freq')">Fortnightly</div>
+        </div>
+        <input type="hidden" id="update_freq" value="Weekly">
+      </div>
+      <div class="field"><label>Preferred comms channel</label>
+        <div class="pill-group" id="commsChannel">
+          <div class="pill" onclick="pick('commsChannel',this,'comms_channel')">Email</div>
+          <div class="pill" onclick="pick('commsChannel',this,'comms_channel')">WhatsApp</div>
+          <div class="pill" onclick="pick('commsChannel',this,'comms_channel')">Slack</div>
+          <div class="pill" onclick="pick('commsChannel',this,'comms_channel')">Video call</div>
+        </div>
+        <input type="hidden" id="comms_channel">
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Availability for investor calls</label><input type="text" id="availability" placeholder="e.g. Mon–Fri 9am–12pm GMT"></div>
+      <div class="field"><label>Timezone</label>
+        <select id="timezone">
+          <option>GMT / BST (London)</option>
+          <option>GST+4 (Dubai)</option>
+          <option>EST / EDT (New York)</option>
+          <option>PST / PDT (LA)</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>Anything else we should know before we start</label><textarea id="other_info" placeholder="Sensitivities, constraints, previous bad experiences with advisors, non-negotiables, or context that helps us do a better job."></textarea></div>
+    </div>
+    <div class="grid-1">
+      <div class="field"><label>How did you hear about Source Capital?</label>
+        <select id="referral_source">
+          <option value="">Select…</option>
+          <option>LinkedIn</option><option>Referral from existing client</option><option>Referral from advisor / partner</option><option>Google search</option><option>Podcast</option><option>Content / newsletter</option><option>Event</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" onclick="go(4)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+      <span class="step-counter">6 / 7</span>
+      <button class="btn btn-primary" onclick="go(6)">Review &amp; submit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 7 — REVIEW & SUBMIT
+  ══════════════════════════════════════════ -->
+  <div class="section" id="sec6">
+    <div class="section-head">
+      <h2>Review &amp; submit</h2>
+      <p>Check everything looks right. Once submitted, your team reviews within 24 hours and books your kickoff call.</p>
+    </div>
+
+    <div class="summary-block">
+      <h4>Company</h4>
+      <div class="summary-row"><span class="sk">Name</span><span class="sv" id="rv_company_name">—</span></div>
+      <div class="summary-row"><span class="sk">Industry</span><span class="sv" id="rv_industry">—</span></div>
+      <div class="summary-row"><span class="sk">Website</span><span class="sv" id="rv_website">—</span></div>
+      <div class="summary-row"><span class="sk">One-liner</span><span class="sv" id="rv_oneliner">—</span></div>
+    </div>
+
+    <div class="summary-block">
+      <h4>The raise</h4>
+      <div class="summary-row"><span class="sk">Target amount</span><span class="sv" id="rv_amount">—</span></div>
+      <div class="summary-row"><span class="sk">Round type</span><span class="sv" id="rv_round">—</span></div>
+      <div class="summary-row"><span class="sk">Instrument</span><span class="sv" id="rv_instrument">—</span></div>
+      <div class="summary-row"><span class="sk">Target close</span><span class="sv" id="rv_close">—</span></div>
+    </div>
+
+    <div class="summary-block">
+      <h4>Traction</h4>
+      <div class="summary-row"><span class="sk">Stage</span><span class="sv" id="rv_stage">—</span></div>
+      <div class="summary-row"><span class="sk">MRR / ARR</span><span class="sv" id="rv_mrr">—</span></div>
+      <div class="summary-row"><span class="sk">Growth rate</span><span class="sv" id="rv_growth">—</span></div>
+    </div>
+
+    <div class="summary-block">
+      <h4>Lead founder</h4>
+      <div class="summary-row"><span class="sk">Name</span><span class="sv" id="rv_founder">—</span></div>
+      <div class="summary-row"><span class="sk">Email</span><span class="sv" id="rv_email">—</span></div>
+      <div class="summary-row"><span class="sk">LinkedIn</span><span class="sv" id="rv_linkedin">—</span></div>
+    </div>
+
+    <div class="notice">
+      <svg class="notice-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>All information is held in strict confidence under your Source Capital engagement agreement. It will never be shared with third parties without your prior written consent.</span>
+    </div>
+
+    <label class="check-row" style="margin-bottom: 1rem;">
+      <input type="checkbox" id="declaration"> <span>I confirm the information provided is accurate to the best of my knowledge and I have the authority to submit on behalf of the company.</span>
+    </label>
+
+    <div class="status-box sending" id="statusSending">
+      <div class="spinner"></div>
+      <span>Submitting your onboarding — please wait…</span>
+    </div>
+    <div class="status-box error" id="statusError">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12" y2="16.5"/></svg>
+      <span id="statusErrorMsg">Submission failed. Please try again or contact edward@sourcecapital.co.uk</span>
+    </div>
+
+    <div class="nav">
+      <button class="btn" onclick="go(5)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+      <span class="step-counter">7 / 7</span>
+      <button class="btn btn-primary" id="submitBtn" onclick="submitForm()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Submit onboarding
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       COMPLETE SCREEN
+  ══════════════════════════════════════════ -->
+  <div class="complete-screen" id="secDone">
+    <div class="complete-header">
+      <div class="complete-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="complete-header-text">
+        <h2>Onboarding submitted — book your kickoff call.</h2>
+        <p>Your raise profile is with the team. Lock in your kickoff call below to get started immediately.</p>
+      </div>
+    </div>
+
+    <div class="cal-wrap">
+      <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-velocity-client-onboarding-call"></div>
+    </div>
+  </div>
+
+</div><!-- /shell -->
+
+<script>
+  const WEBHOOK = 'https://n8n.srv926257.hstgr.cloud/webhook/aa49dcce-09a4-48b4-9ebc-5fb923b8ec22';
+
+
+  let equityRowCount = 0;
+
+  function addEquityRow(name='', relationship='', equity='') {
+    equityRowCount++;
+    const id = equityRowCount;
+    const row = document.createElement('div');
+    row.id = 'eq-row-' + id;
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 100px 36px;gap:8px;align-items:center;';
+    row.innerHTML = `
+      <input type="text" placeholder="e.g. Jane Smith" value="${name}" style="margin:0">
+      <select style="margin:0">
+        <option value="">Select…</option>
+        <option${relationship==='Founder'?' selected':''}>Founder</option>
+        <option${relationship==='Co-founder'?' selected':''}>Co-founder</option>
+        <option${relationship==='Angel investor'?' selected':''}>Angel investor</option>
+        <option${relationship==='VC / Institutional'?' selected':''}>VC / Institutional</option>
+        <option${relationship==='ESOP / Option pool'?' selected':''}>ESOP / Option pool</option>
+        <option${relationship==='Advisor'?' selected':''}>Advisor</option>
+        <option${relationship==='Other'?' selected':''}>Other</option>
+      </select>
+      <input type="text" placeholder="e.g. 45%" value="${equity}" style="margin:0">
+      <button type="button" onclick="removeEquityRow(${id})" style="width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-strong);background:transparent;border-radius:var(--radius);cursor:pointer;color:var(--text-secondary);" title="Remove row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>`;
+    document.getElementById('equityTable').appendChild(row);
+  }
+
+  function removeEquityRow(id) {
+    const row = document.getElementById('eq-row-' + id);
+    if (row) row.remove();
+  }
+
+  function getEquitySplit() {
+    const rows = document.querySelectorAll('#equityTable > div');
+    const result = [];
+    rows.forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      const sel = row.querySelector('select');
+      const name = inputs[0] ? inputs[0].value.trim() : '';
+      const rel = sel ? sel.value : '';
+      const pct = inputs[1] ? inputs[1].value.trim() : '';
+      if (name || rel || pct) result.push({ name, relationship: rel, equity_percent: pct });
+    });
+    return result;
+  }
+
+  // Initialise with 2 default rows
+  addEquityRow();
+  addEquityRow();
+
+  let cur = 0;
+
+  function go(n) {
+    if (n === 6) populateSummary();
+    document.getElementById('sec' + cur).classList.remove('active');
+    document.getElementById('sec' + n).classList.add('active');
+    const steps = document.querySelectorAll('.step-item');
+    steps.forEach((s, i) => {
+      s.classList.remove('active', 'done');
+      if (i < n) s.classList.add('done');
+      else if (i === n) s.classList.add('active');
+    });
+    cur = n;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function pick(groupId, el, hiddenId) {
+    document.querySelectorAll('#' + groupId + ' .pill').forEach(p => p.classList.remove('on'));
+    el.classList.add('on');
+    if (hiddenId) document.getElementById(hiddenId).value = el.textContent.trim();
+  }
+
+  function val(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  function checkedValues(name) {
+    return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(c => c.value).join(', ');
+  }
+
+  function populateSummary() {
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v || '—'; };
+    set('rv_company_name', val('company_name'));
+    set('rv_industry', val('industry'));
+    set('rv_website', val('website'));
+    set('rv_oneliner', val('one_liner'));
+    set('rv_amount', val('raise_amount'));
+    set('rv_round', val('round_type'));
+    set('rv_instrument', val('instrument'));
+    set('rv_close', val('close_date'));
+    set('rv_stage', val('stage'));
+    set('rv_mrr', val('mrr'));
+    set('rv_growth', val('growth_rate'));
+    set('rv_founder', val('founder_name'));
+    set('rv_email', val('founder_email'));
+    set('rv_linkedin', val('founder_linkedin'));
+  }
+
+  function buildPayload() {
+    return {
+      submitted_at: new Date().toISOString(),
+      source: 'Raise Velocity Onboarding Form',
+
+      company: {
+        name: val('company_name'),
+        trading_name: val('trading_name'),
+        registration_number: val('reg_number'),
+        country_of_incorporation: val('country'),
+        registered_address: val('reg_address'),
+        operating_address: val('op_address'),
+        website: val('website'),
+        linkedin_company: val('linkedin_company'),
+        industry: val('industry'),
+        business_model: val('biz_model'),
+        one_liner: val('one_liner'),
+        full_description: val('full_description')
+      },
+
+      raise: {
+        target_amount: val('raise_amount'),
+        minimum_amount: val('raise_minimum'),
+        round_type: val('round_type'),
+        instrument: val('instrument'),
+        pre_money_valuation: val('valuation'),
+        valuation_basis: val('valuation_basis'),
+        target_close_date: val('close_date'),
+        runway_if_not_closed: val('runway'),
+        use_of_funds: val('use_of_funds'),
+        milestones: val('milestones'),
+        capital_raised_to_date: val('capital_raised'),
+        lead_investor: val('lead_investor'),
+        existing_investors: val('existing_investors'),
+        amount_already_committed: val('committed')
+      },
+
+      traction: {
+        stage: val('stage'),
+        founded_date: val('founded_date'),
+        mrr_arr: val('mrr'),
+        revenue_model: val('rev_model'),
+        yoy_growth_rate: val('growth_rate'),
+        gross_margin: val('gross_margin'),
+        paying_customers: val('customer_count'),
+        acv: val('acv'),
+        cac: val('cac'),
+        ltv: val('ltv'),
+        churn_rate: val('churn'),
+        nrr: val('nrr'),
+        notable_customers: val('notable_customers'),
+        icp: val('icp'),
+        competitors: val('competitors'),
+        differentiators: val('differentiators'),
+        moat: val('moat'),
+        monthly_burn: val('burn'),
+        cash_runway: val('cash'),
+        revenue_projections: val('projections')
+      },
+
+      assets: {
+        deck_status: val('deck_status'),
+        deck_link: val('deck_link'),
+        financial_model_link: val('model_link'),
+        data_room_link: val('dataroom_link'),
+        term_sheet_status: val('term_status'),
+        eis_seis_status: val('eis_status'),
+        existing_investor_rights: val('investor_rights'),
+        brand_assets_link: val('brand_assets'),
+        excluded_materials: val('excluded_materials'),
+        press_coverage: val('press'),
+        testimonials: val('testimonials')
+      },
+
+      team: {
+        lead_founder: {
+          name: val('founder_name'),
+          role: val('founder_role'),
+          email: val('founder_email'),
+          phone: val('founder_phone'),
+          linkedin: val('founder_linkedin'),
+          nationality: val('founder_nationality'),
+          bio: val('founder_bio'),
+          exits: val('founder_exits')
+        },
+        cofounder_2: val('cofounder2'),
+        cofounder_3: val('cofounder3'),
+        key_team: val('key_team'),
+        advisors: val('advisors'),
+        equity_split: getEquitySplit(),
+        cap_table_issues: val('cap_issues')
+      },
+
+      investor_preferences: {
+        investor_types: checkedValues('inv_type'),
+        preferred_geography: val('inv_geo'),
+        preferred_cheque_size: val('cheque_size'),
+        investors_already_approached: val('avoided_investors'),
+        excluded_investor_types: val('excluded_investors'),
+        value_add_preferences: checkedValues('value_add'),
+        update_frequency: val('update_freq'),
+        comms_channel: val('comms_channel'),
+        availability: val('availability'),
+        timezone: val('timezone'),
+        other_info: val('other_info'),
+        referral_source: val('referral_source')
+      }
+    };
+  }
+
+  async function submitForm() {
+    const declared = document.getElementById('declaration').checked;
+    if (!declared) {
+      alert('Please confirm the declaration before submitting.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    const sending = document.getElementById('statusSending');
+    const errBox = document.getElementById('statusError');
+    const errMsg = document.getElementById('statusErrorMsg');
+
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    sending.classList.add('show');
+    errBox.classList.remove('show');
+
+    const payload = buildPayload();
+
+    try {
+      const res = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      sending.classList.remove('show');
+
+      if (res.ok) {
+        document.getElementById('sec6').classList.remove('active');
+        document.getElementById('secDone').classList.add('show');
+        document.querySelectorAll('.step-item').forEach(s => {
+          s.classList.remove('active');
+          s.classList.add('done');
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        errMsg.textContent = 'Server returned ' + res.status + '. Please try again or contact edward@sourcecapital.co.uk';
+        errBox.classList.add('show');
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      }
+    } catch (err) {
+      sending.classList.remove('show');
+      errMsg.textContent = 'Could not reach the server. Check your connection and try again, or contact edward@sourcecapital.co.uk';
+      errBox.classList.add('show');
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+  }
+</script>
+
+<!-- Cal inline embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "velocity-client-onboarding-call", {origin:"https://app.cal.com"});
+  Cal.ns["velocity-client-onboarding-call"]("inline", {
+    elementOrSelector:"#my-cal-inline-velocity-client-onboarding-call",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+    calLink: "edward-janes/velocity-client-onboarding-call",
+  });
+  Cal.ns["velocity-client-onboarding-call"]("ui", {
+    "hideEventTypeDetails": false,
+    "layout": "month_view",
+    "theme": "dark",
+    "cssVarsPerTheme": {
+      "dark": {
+        "cal-brand": "#00FF84",
+        "cal-brand-emphasis": "#00c46a",
+        "cal-brand-text": "#0a0a0a",
+        "cal-bg": "#111110",
+        "cal-bg-subtle": "#1a1a18",
+        "cal-bg-muted": "#222220",
+        "cal-bg-inverted": "#f0f0ec",
+        "cal-border": "rgba(255,255,255,0.07)",
+        "cal-border-subtle": "rgba(255,255,255,0.05)",
+        "cal-border-booker": "rgba(255,255,255,0.07)",
+        "cal-border-default": "rgba(255,255,255,0.07)",
+        "cal-text": "#f0f0ec",
+        "cal-text-subtle": "#8a8a84",
+        "cal-text-muted": "#5a5a54",
+        "cal-text-inverted": "#0a0a0a"
+      }
+    }
+  });
+</script>
+<!-- Cal inline embed code ends -->
+
+</body>
+</html>

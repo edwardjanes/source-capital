@@ -3034,7 +3034,7 @@ if (bc) {
   const n = foundersData.length;
   const ns = 'http://www.w3.org/2000/svg';
 
-  const maxSeeking = 650000;
+  const maxSeeking = 1400000;
   const maxDeals = 6000;
 
   const xS = (i) => pad.left + (i / (n - 1)) * cW;
@@ -3042,7 +3042,7 @@ if (bc) {
   const yDeals = (v) => pad.top + cH - (v / maxDeals) * cH;
 
   // Left axis — seeking
-  [0, 100000, 200000, 300000, 400000, 500000, 600000].forEach(v => {
+  [0, 200000, 400000, 600000, 800000, 1000000, 1200000, 1400000].forEach(v => {
     const y = ySeeking(v);
     const gl = document.createElementNS(ns, 'line');
     gl.setAttribute('x1', pad.left); gl.setAttribute('x2', pad.left + cW);

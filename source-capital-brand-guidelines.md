@@ -18,16 +18,20 @@
 | Role | Hex | Usage |
 |---|---|---|
 | Primary green (brand accent) | `#2AF76F` | CTAs, highlights, icons, small UI accents. NOT body text — fails contrast on white. |
-| Deep green (secondary/hover, dark UI) | `#128A3D` | Buttons, hover states, dark-mode UI elements. |
+| Deep green (text/CTA/active-state accent) | `#0E7231` | Inline links, active nav state, primary CTA fills, focus outlines. Measures 6.05:1 on white (AA). |
+| Deep green — hover | `#0A5C28` | Hover state for anything filled with `#0E7231`. |
 | Pale mint (tints only) | `#B4FAD1` | Backgrounds, card tints, subtle highlights. Never text. |
-| Grey (body copy) | `#585858` | Default body text on white. |
+| Grey (body copy) | `#585858` | Default body text on white. Measures 7.11:1 (AA). |
+| Off-white (section surface) | `#F7FAF8` | The one section/card background tint used sitewide — do not introduce another off-white. |
 | Black | `#000000` | Headlines / high-contrast moments only. |
 | White | `#FFFFFF` | Default background — this is a LIGHT, white-background brand system. |
 
 **Rules:**
-- Default layout is light (white background), not dark. Dark UI elements (buttons, hover states) use `#128A3D`, not pitch black.
-- `#2AF76F` on white fails WCAG AA for text — use only for large/bold elements, or pair with `#128A3D`/black backgrounds.
-- Maintain WCAG AA contrast throughout.
+- Default layout is light (white background), not dark. Dark UI elements (buttons, hover states) use `#0E7231`, not pitch black.
+- `#2AF76F` on white fails WCAG AA for text — use only for large/bold elements, or pair with `#0E7231`/black backgrounds. Never use it as a hover *border* color on its own — it measures 1.44:1, below the 3:1 minimum for non-text UI; pair it with a second signal (shadow, fill, weight) or use `#0E7231` instead.
+- `#128A3D` (the previous deep-green token) is **retired** — it measured 4.44:1 on white, just under the 4.5:1 AA minimum for text, and was used as the site's primary link/CTA/active-nav color. Corrected to `#0E7231` sitewide 9 Sep 2026 (design review finding H1). Do not reintroduce `#128A3D` for text or CTA fills.
+- Maintain WCAG AA contrast throughout: 4.5:1 minimum for text, 3:1 minimum for non-text UI (borders, focus rings, icons that convey state).
+- Never remove a focus indicator (`outline: none`) without a same-or-better-visibility replacement.
 
 ## 3. Voice & Tone
 

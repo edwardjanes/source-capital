@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise Velocity — Client Onboarding Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased">
+
+    <header class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <div class="flex items-center gap-2 text-xs font-semibold tracking-wider text-teal-400 uppercase">
+                    <span>Source Capital</span>
+                    <span class="text-slate-600">•</span>
+                    <span>Premium Done-For-You Service</span>
+                </div>
+                <h1 class="text-2xl font-bold text-white mt-1">Raise Velocity Onboarding</h1>
+            </div>
+            <div class="flex flex-wrap gap-3 text-sm">
+                <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                    <span class="text-slate-400">Target Raise:</span> <strong class="text-white">$500k – $1M</strong>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                    <span class="text-slate-400">Primary Contact:</span> <strong class="text-white">Edward Janes</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-8 space-y-12">
+        
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">Welcome to Your Capital Raising Journey</h2>
+                    <p class="text-slate-400 leading-relaxed mb-4">
+                        We take ownership of your full raise infrastructure—building your data room, targeting the right investors, and driving warm introductions—so you can focus entirely on running your business. 
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Our involvement hands over seamlessly when a meeting is booked and a three-way introduction has been made. From that point forward, you own the relationship.
+                    </p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-slate-800/60 flex items-center gap-3 text-sm text-teal-400 font-medium">
+                    <span>⚡ Done for you — but not done without you.</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider text-slate-400 uppercase mb-4">Your Action Items Progress</h3>
+                    <div class="flex items-end justify-between mb-2">
+                        <span class="text-3xl font-bold text-white" id="progress-percent">0%</span>
+                        <span class="text-sm text-slate-400" id="progress-count">0 of 12 completed</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-gradient-to-r from-teal-500 to-emerald-500 h-full w-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+                <div class="bg-slate-900/60 rounded-xl p-3 text-xs text-slate-400 border border-slate-800/50 mt-4">
+                    <strong>Note:</strong> Complete the interactive checklist below to track your personalized onboarding readiness in real time.
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-white">The Delivery Process</h2>
+                    <p class="text-slate-400 text-sm">Click through the onboarding phases to explore steps, owners, and timelines.</p>
+                </div>
+                <span class="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full font-medium">
+                    ⚠️ Strict Phase Gates Active
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-950 border border-slate-800 rounded-2xl p-4 md:p-6">
+                <div class="lg:col-span-4 flex flex-col gap-2 border-r border-slate-800/0 lg:border-r lg:border-slate-800/60 pr-0 lg:pr-4">
+                    <button onclick="switchPhase(1)" id="btn-p1" class="phase-btn w-full text-left p-4 rounded-xl transition-all border border-transparent bg-slate-900 text-white font-medium flex justify-between items-center group">
+                        <div>
+                            <span class="block text-xs text-teal-400 font-semibold mb-0.5">Phase 1 • Day 1–2</span>
+                            <span class="text-sm">Contract & Activation</span>
+                        </div>
+                        <span class="text-slate-500 group-hover:text-white transition-colors">→</span>
+                    </button>
+                    <button onclick="switchPhase(2)" id="btn-p2" class="phase-btn w-full text-left p-4 rounded-xl transition-all border border-transparent text-slate-400 hover:bg-slate-900/50 flex justify-between items-center group">
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold mb-0.5">Phase 2 • Day 2–5</span>
+                            <span class="text-sm text-slate-300">Discovery & Asset Audit</span>
+                        </div>
+                        <span class="text-slate-600 group-hover:text-white transition-colors">→</span>
+                    </button>
+                    <button onclick="switchPhase(3)" id="btn-p3" class="phase-btn w-full text-left p-4 rounded-xl transition-all border border-transparent text-slate-400 hover:bg-slate-900/50 flex justify-between items-center group">
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold mb-0.5">Phase 3 • Day 3–5</span>
+                            <span class="text-sm text-slate-300">Strategy Kick-Off</span>
+                        </div>
+                        <span class="text-slate-600 group-hover:text-white transition-colors">→</span>
+                    </button>
+                    <button onclick="switchPhase(4)" id="btn-p4" class="phase-btn w-full text-left p-4 rounded-xl transition-all border border-transparent text-slate-400 hover:bg-slate-900/50 flex justify-between items-center group">
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold mb-0.5">Phase 4 • Week 1–3</span>
+                            <span class="text-sm text-slate-300">Data Room Build</span>
+                        </div>
+                        <span class="text-slate-600 group-hover:text-white transition-colors">→</span>
+                    </button>
+                    <button onclick="switchPhase(5)" id="btn-p5" class="phase-btn w-full text-left p-4 rounded-xl transition-all border border-transparent text-slate-400 hover:bg-slate-900/50 flex justify-between items-center group">
+                        <div>
+                            <span class="block text-xs text-slate-500 font-semibold mb-0.5">Phase 5 • Week 2+</span>
+                            <span class="text-sm text-slate-300">Investor Outreach</span>
+                        </div>
+                        <span class="text-slate-600 group-hover:text-white transition-colors">→</span>
+                    </button>
+                </div>
+
+                <div class="lg:col-span-8 p-2 lg:p-4 min-h-[320px]">
+                    <div id="phase-content-panel" class="space-y-6">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <div>
+                <h2 class="text-xl font-bold text-white">Your Responsibilities Checklist</h2>
+                <p class="text-slate-400 text-sm">Please check off items as you complete them to avoid project timeline friction.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 space-y-4">
+                    <h3 class="text-sm font-semibold text-teal-400 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-teal-400"></span> Before Kick-Off Call
+                    </h3>
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/60 cursor-pointer hover:border-slate-700 transition-colors">
+                            <input type="checkbox" onchange="updateProgress()" class="founder-cb mt-1 rounded text-teal-500 bg-slate-950 border-slate-800 focus:ring-0 focus:ring-offset-0">
+                            <span class="text-xs text-slate-300">Complete Founder Discovery Questionnaire in full</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/60 cursor-pointer hover:border-slate-700 transition-colors">
+                            <input type="checkbox" onchange="updateProgress()" class="founder-cb mt-1 rounded text-teal-500 bg-slate-950 border-slate-800 focus:ring-0 focus:ring-offset-0">
+                            <span class="text-xs text-slate-300">Upload existing assets to shared folder (deck, financials, cap table, etc.)</span>
+                        </label>

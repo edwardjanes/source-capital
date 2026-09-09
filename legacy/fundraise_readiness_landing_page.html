@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundraise Readiness Score – Source Capital</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .hero-gradient { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.05)); }
+</style>
+</head>
+<body class="bg-black text-white">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 bg-black border-b border-zinc-900">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#" class="text-sm font-semibold tracking-widest uppercase">
+      Source <span class="text-emerald-400">Capital</span>
+    </a>
+    <a href="#quiz" class="text-sm font-medium px-6 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg transition">
+      Check my score →
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-32 pb-24 px-6">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-6 flex items-center gap-2">
+        <span class="w-5 h-px bg-emerald-400"></span>Free investor readiness tool
+      </div>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        Are you actually ready to <span class="text-emerald-400">raise?</span>
+      </h1>
+      <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+        Most founders approach investors too early — and never find out why they're hearing no. Take 3 minutes to find out exactly where you stand, and what to fix first.
+      </p>
+      <div class="flex flex-col gap-4">
+        <a href="#quiz" class="inline-flex items-center justify-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition w-fit">
+          Get my readiness score →
+        </a>
+        <span class="text-sm text-gray-500">Free · No credit card · Results in 3 minutes</span>
+      </div>
+    </div>
+    <div class="hidden md:block bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+      <div class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-6">Your readiness score</div>
+      <div class="flex items-baseline gap-2 mb-6">
+        <span class="text-5xl font-bold text-emerald-400">68</span>
+        <span class="text-xl text-gray-500">/ 100</span>
+      </div>
+      <span class="inline-block px-4 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-semibold rounded-full mb-8">Getting there</span>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Traction</span>
+            <span class="font-semibold text-emerald-400">4/6</span>
+          </div>
+          <div class="h-1 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full w-2/3 bg-emerald-400"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Deck quality</span>
+            <span class="font-semibold text-amber-500">3/6</span>
+          </div>
+          <div class="h-1 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full w-1/2 bg-amber-500"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Investor fit</span>
+            <span class="font-semibold text-amber-500">2/6</span>
+          </div>
+          <div class="h-1 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full w-1/3 bg-amber-500"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Narrative</span>
+            <span class="font-semibold text-emerald-400">4/6</span>
+          </div>
+          <div class="h-1 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full w-2/3 bg-emerald-400"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Financials</span>
+            <span class="font-semibold text-amber-500">3/6</span>
+          </div>
+          <div class="h-1 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full w-1/2 bg-amber-500"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="border-y border-zinc-900 bg-zinc-950 px-6 py-8">
+  <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 text-center">
+    <div>
+      <div class="font-semibold">10 questions</div>
+      <div class="text-sm text-gray-500">3 minutes</div>
+    </div>
+    <div class="text-zinc-800">·</div>
+    <div>
+      <div class="font-semibold">Scored across</div>
+      <div class="text-sm text-gray-500">5 dimensions</div>
+    </div>
+    <div class="text-zinc-800">·</div>
+    <div>
+      <div class="font-semibold">Used by founders</div>
+      <div class="text-sm text-gray-500">raising £250k–£1M</div>
+    </div>
+    <div class="text-zinc-800">·</div>
+    <div>
+      <div class="font-semibold">Built by Source Capital</div>
+      <div class="text-sm text-gray-500">15+ years raising capital</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="bg-zinc-950 px-6 py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-2">
+      <span class="w-5 h-px bg-emerald-400"></span>The problem
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Most founders don't know <span class="text-emerald-400">why</span> investors say no
+    </h2>
+    <p class="text-xl text-gray-400 mb-16 max-w-2xl">
+      They assume it's the market, the timing, or bad luck. Usually, it's something fixable — and they went in before fixing it.
+    </p>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <div class="text-2xl mb-4">🎯</div>
+        <h3 class="font-semibold text-lg mb-2">They're pitching the wrong investors</h3>
+        <p class="text-gray-400">Targeting funds that don't match their stage, cheque size, or sector — and wondering why they're not getting callbacks.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <div class="text-2xl mb-4">📊</div>
+        <h3 class="font-semibold text-lg mb-2">Their deck doesn't do the job</h3>
+        <p class="text-gray-400">Missing slides, weak narrative, or an unclear "why us" — the deck answers none of the questions investors are actually asking.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <div class="text-2xl mb-4">📈</div>
+        <h3 class="font-semibold text-lg mb-2">Their traction story is thin</h3>
+        <p class="text-gray-400">Either too early, or they have traction but can't communicate what's driving it — which raises more questions than it answers.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <div class="text-2xl mb-4">💬</div>
+        <h3 class="font-semibold text-lg mb-2">They can't pitch in under 3 minutes</h3>
+        <p class="text-gray-400">No clear verbal pitch. They ramble into product detail before investors understand the opportunity. First impressions don't recover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="px-6 py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-2">
+      <span class="w-5 h-px bg-emerald-400"></span>How it works
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Your score in <span class="text-emerald-400">three steps</span>
+    </h2>
+    <p class="text-xl text-gray-400 mb-16 max-w-2xl">
+      No signup. No fluff. Just an honest benchmark across the five things that determine whether investors say yes.
+    </p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="text-5xl font-bold text-emerald-400/30 mb-4">01</div>
+        <h3 class="font-semibold text-lg mb-3">Answer 10 questions</h3>
+        <p class="text-gray-400">Across five dimensions: traction, deck quality, investor fit, narrative, and financials. Takes about 3 minutes.</p>
+      </div>
+      <div>
+        <div class="text-5xl font-bold text-emerald-400/30 mb-4">02</div>
+        <h3 class="font-semibold text-lg mb-3">Get your readiness score</h3>
+        <p class="text-gray-400">An overall score out of 100 plus a breakdown showing exactly where you're strong and where you're exposed.</p>
+      </div>
+      <div>
+        <div class="text-5xl font-bold text-emerald-400/30 mb-4">03</div>
+        <h3 class="font-semibold text-lg mb-3">Get your action plan</h3>
+        <p class="text-gray-400">Enter your email for a personalised breakdown — what to fix first, and in what order, before you approach investors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSIONS -->
+<section class="bg-zinc-950 px-6 py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-2">
+      <span class="w-5 h-px bg-emerald-400"></span>What gets scored
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Five dimensions. One honest verdict.
+    </h2>
+    <p class="text-xl text-gray-400 mb-12 max-w-2xl">
+      These are the five areas investors silently assess before they decide whether to take a meeting.
+    </p>
+    <div class="grid md:grid-cols-5 gap-4">
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
+        <div class="text-3xl mb-4">📊</div>
+        <h3 class="font-semibold mb-2">Traction</h3>
+        <p class="text-sm text-gray-400">Revenue, users, and growth rate — the numbers that tell investors you have something real.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
+        <div class="text-3xl mb-4">📈</div>
+        <h3 class="font-semibold mb-2">Deck quality</h3>
+        <p class="text-sm text-gray-400">Structure, narrative, and whether your unfair advantage comes across clearly.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
+        <div class="text-3xl mb-4">🎯</div>
+        <h3 class="font-semibold mb-2">Investor fit</h3>
+        <p class="text-sm text-gray-400">Whether you're targeting the right funds, at the right stage, through the right channels.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
+        <div class="text-3xl mb-4">💬</div>
+        <h3 class="font-semibold mb-2">Narrative</h3>
+        <p class="text-sm text-gray-400">How clearly you can explain your company — verbally, in under three minutes.</p>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
+        <div class="text-3xl mb-4">💰</div>
+        <h3 class="font-semibold mb-2">Financials</h3>
+        <p class="text-sm text-gray-400">Your model, your projections, and your use-of-funds story — the backbone of every investor conversation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ EMBED -->
+<section class="px-6 py-24" id="quiz">
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-12">
+      <h2 class="text-3xl font-bold mb-2">Check your readiness score</h2>
+      <p class="text-gray-400 mb-8">10 questions · 3 minutes · Free</p>
+      <div id="quizMount"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="bg-zinc-950 px-6 py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-2">
+      <span class="w-5 h-px bg-emerald-400"></span>Founder outcomes
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">What founders discover</h2>
+    <p class="text-xl text-gray-400 mb-12 max-w-2xl">A few examples of what the score surfaces — and what changed as a result.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <p class="text-gray-300 mb-6 italic">"I thought we were ready to raise. The score told me our investor targeting was completely off. Took us three weeks to fix it — then we booked 12 meetings in a month."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold flex items-center justify-center">SK</div>
+          <div>
+            <div class="font-semibold text-sm">Sara K.</div>
+            <div class="text-xs text-gray-500">Founder, B2B SaaS · raised £400k</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <p class="text-gray-300 mb-6 italic">"I scored 42. The narrative section was brutal but accurate — I genuinely couldn't explain my company in under 3 minutes. The action plan told me exactly what to work on."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold flex items-center justify-center">JM</div>
+          <div>
+            <div class="font-semibold text-sm">James M.</div>
+            <div class="text-xs text-gray-500">Founder, fintech · raising £600k</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+        <p class="text-gray-300 mb-6 italic">"Scored 78 and thought I was done. The Raise Audit call showed me two gaps I'd completely missed. Both came up in my next investor meeting. Glad I caught them first."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold flex items-center justify-center">AT</div>
+          <div>
+            <div class="font-semibold text-sm">Aisha T.</div>
+            <div class="text-xs text-gray-500">Founder, healthtech · raised £750k</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="px-6 py-24">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-4 flex items-center gap-2">
+      <span class="w-5 h-px bg-emerald-400"></span>Questions
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-12">Things founders ask</h2>
+    <div class="space-y-1 border-t border-zinc-800">
+      <button class="faq-btn w-full py-6 px-0 text-left font-semibold flex justify-between items-center hover:text-emerald-400 transition border-b border-zinc-800" onclick="toggleFaq(this)">
+        <span>Is this actually free?</span>
+        <span class="text-xl">+</span>
+      </button>
+      <div class="faq-ans hidden px-0 pb-6 text-gray-400 text-sm">Yes. The quiz and your score are completely free — no credit card, no trial. You can email us if you want a detailed breakdown and next steps.</div>
+
+      <button class="faq-btn w-full py-6 px-0 text-left font-semibold flex justify-between items-center hover:text-emerald-400 transition border-b border-zinc-800" onclick="toggleFaq(this)">
+        <span>What stage is this built for?</span>
+        <span class="text-xl">+</span>
+      </button>
+      <div class="faq-ans hidden px-0 pb-6 text-gray-400 text-sm">Pre-seed to Series A founders raising between £250k and £1M. If you're earlier or later than that, the score is still useful — but the benchmarks are calibrated for this range.</div>
+
+      <button class="faq-btn w-full py-6 px-0 text-left font-semibold flex justify-between items-center hover:text-emerald-400 transition border-b border-zinc-800" onclick="toggleFaq(this)">
+        <span>What happens after I get my score?</span>
+        <span class="text-xl">+</span>
+      </button>
+      <div class="faq-ans hidden px-0 pb-6 text-gray-400 text-sm">You'll get a breakdown showing your score across all five dimensions, with a personalised insight for each one. Enter your email to get the full action plan — what to fix, in what order, before you approach investors.</div>
+
+      <button class="faq-btn w-full py-6 px-0 text-left font-semibold flex justify-between items-center hover:text-emerald-400 transition border-b border-zinc-800" onclick="toggleFaq(this)">
+        <span>Will someone try to sell me something?</span>
+        <span class="text-xl">+</span>
+      </button>
+      <div class="faq-ans hidden px-0 pb-6 text-gray-400 text-sm">We'll include a link to book a free Raise Audit Call with Source Capital — but there's no hard sell. The score is useful whether you work with us or not. If you do want to talk, the call is the right next step.</div>
+
+      <button class="faq-btn w-full py-6 px-0 text-left font-semibold flex justify-between items-center hover:text-emerald-400 transition border-b border-zinc-800" onclick="toggleFaq(this)">
+        <span>Who built this?</span>
+        <span class="text-xl">+</span>
+      </button>
+      <div class="faq-ans hidden px-0 pb-6 text-gray-400 text-sm">Source Capital — an investment consultancy and advisory business based in Dubai, with 15+ years of experience helping founders raise capital. We've worked on raises across multiple sectors from pre-seed through Series A.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="bg-emerald-950 px-6 py-24 text-center">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-6 justify-center flex items-center gap-2">
+      <span class="w-5 h-px bg-emerald-400"></span>Ready?<span class="w-5 h-px bg-emerald-400"></span>
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Find out where you stand — <span class="text-emerald-400">before</span> investors do</h2>
+    <p class="text-xl text-emerald-200 mb-10">10 questions. Your honest score. A clear path to what needs fixing.</p>
+    <a href="#quiz" class="inline-block px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition">
+      Get my readiness score →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-zinc-900 px-6 py-12">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+    <div>Source <span class="text-emerald-400">Capital</span></div>
+    <div class="flex gap-8">
+      <a href="https://sourcecapital.co.uk" class="hover:text-emerald-400 transition">Website</a>
+      <a href="https://meetings.hubspot.com/ejanes" class="hover:text-emerald-400 transition">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<!-- QUIZ SCRIPT -->
+<script>
+const QUESTIONS = [
+  { id:1, cat:"Traction", q:"What best describes your current revenue or user traction?", sub:"Be honest — investors verify this.", opts:[{t:"Pre-revenue, idea stage",s:0},{t:"Early revenue or waitlist (< £10k MRR / < 500 users)",s:1},{t:"Growing revenue or users (£10k–£50k MRR / 500–5,000 users)",s:2},{t:"Meaningful traction with strong growth rate",s:3}]},
+  { id:2, cat:"Traction", q:"How would you describe your month-on-month growth?", sub:"", opts:[{t:"No measurable growth yet",s:0},{t:"Inconsistent — some months up, some flat",s:1},{t:"Steady growth of 5–15% MoM",s:2},{t:"Strong growth of 15%+ MoM",s:3}]},
+  { id:3, cat:"Deck quality", q:"Does your pitch deck have all 10 core investor slides?", sub:"Problem, solution, market, business model, traction, team, competition, financials, ask, use of funds.", opts:[{t:"I don't have a deck yet",s:0},{t:"I have a basic deck, missing several slides",s:1},{t:"I have most slides, a few gaps",s:2},{t:"Yes, all 10 slides — polished and clear",s:3}]},
+  { id:4, cat:"Deck quality", q:"How clearly does your deck communicate why you win?", sub:"The unfair advantage or moat that makes you defensible.", opts:[{t:"We haven't defined this yet",s:0},{t:"We have something, but it's not sharply articulated",s:1},{t:"It's in the deck but could be stronger",s:2},{t:"Crystal clear — investors will get it immediately",s:3}]},
+  { id:5, cat:"Investor fit", q:"Have you built a target investor list?", sub:"The right fund size, stage, and sector focus matters enormously.", opts:[{t:"No list — we'd do a general search",s:0},{t:"We have some names but no structured list",s:1},{t:"We have a list of 20–50 targeted investors",s:2},{t:"We have 50+ qualified, researched targets",s:3}]},
+  { id:6, cat:"Investor fit", q:"What's your primary route to investors?", sub:"", opts:[{t:"Cold email / LinkedIn outreach",s:0},{t:"Mix of warm intros and cold outreach",s:1},{t:"Mostly warm introductions",s:2},{t:"Strong network — introductions available on demand",s:3}]},
+  { id:7, cat:"Narrative", q:"Can you deliver your investor pitch in under 3 minutes?", sub:"Not a rehearsed speech — a natural, compelling story.", opts:[{t:"No — I struggle to explain it concisely",s:0},{t:"I can do it but it feels clunky",s:1},{t:"I can do it, could be tighter",s:2},{t:"Yes — confident, natural, compelling",s:3}]},
+  { id:8, cat:"Narrative", q:"How clearly have you defined the problem you're solving?", sub:"From the investor's perspective, not yours.", opts:[{t:"Broadly defined — it's a large market issue",s:0},{t:"Defined, but we haven't validated demand",s:1},{t:"Well-defined with some customer evidence",s:2},{t:"Sharply defined with strong market proof",s:3}]},
+  { id:9, cat:"Financials", q:"Do you have a 3-year financial model?", sub:"Revenue projections, burn rate, and key assumptions.", opts:[{t:"No model yet",s:0},{t:"Basic spreadsheet — not investor-ready",s:1},{t:"Solid model, could use stress-testing",s:2},{t:"Detailed model with clear assumptions",s:3}]},
+  { id:10, cat:"Financials", q:"Do you know exactly how you'll deploy the funds you're raising?", sub:"Use of funds breakdown — investors always ask.", opts:[{t:"Not yet defined",s:0},{t:"Rough idea — not quantified",s:1},{t:"Defined at a high level",s:2},{t:"Detailed breakdown with timeline and milestones",s:3}]}
+];
+
+const DIMS = ["Traction","Deck quality","Investor fit","Narrative","Financials"];
+const INSIGHTS = {
+  "Traction":{0:"Investors rarely back pre-traction ideas unless the team is exceptional. Focus on getting your first paying customers before raising.",1:"Early traction exists — now it needs consistency and a growth story. Investors want to see the trajectory, not just the snapshot.",2:"Solid foundation. Make sure you can articulate what's driving growth — this becomes the centrepiece of your pitch.",3:"Strong traction is your best investor magnet. Lead with the numbers."},
+  "Deck quality":{0:"A weak or missing deck is the first filter investors use. Prioritise building a clear, complete 10-slide deck before any outreach.",1:"Gaps in your deck create gaps in investor confidence. Each missing slide is a question you'd rather answer proactively.",2:"Good structure — focus on sharpening the narrative. The deck should tell a story, not just report facts.",3:"Strong deck signals a founder who understands what investors need. Keep it tight."},
+  "Investor fit":{0:"Spray-and-pray outreach has very low returns. A targeted list of 50+ right-fit investors dramatically improves your odds.",1:"Start building your list now. Fund stage, cheque size, and sector focus should drive every name you add.",2:"Good start. Prioritise investors who've backed similar companies — sector expertise speeds up diligence.",3:"Excellent positioning. Warm intros and a targeted list are the biggest drivers of raise success."},
+  "Narrative":{0:"If you can't tell the story clearly, investors won't buy in. Spend serious time on your verbal pitch before any meetings.",1:"Narrative clarity is a learnable skill. Practice with friendly audiences and iterate on what lands.",2:"Close — refine the opening hook and the 'why now' angle. Those two things move investors most.",3:"A compelling narrative is often the difference-maker. You're well-placed."},
+  "Financials":{0:"Without a model, you can't answer basic investor questions. Build one before you take any meetings.",1:"A rough model is better than nothing, but investors will pressure-test it. Make assumptions explicit.",2:"Solid. Focus on having a clear use-of-funds story that maps to your milestones.",3:"Strong financials give investors confidence you know where you're going."}
+};
+
+let cur = 0, ans = {};
+
+function getTotal() { return Math.round((QUESTIONS.reduce((s,q)=>s+(ans[q.id]||0),0)/(QUESTIONS.length*3))*100); }
+function getDimScore(d) { return QUESTIONS.filter(q=>q.cat===d).reduce((s,q)=>s+(ans[q.id]||0),0); }
+function getTier(s) { if(s>=75)return{l:"Investor ready",c:"#10b981",bg:"rgba(16, 185, 129, 0.1)"}; if(s>=50)return{l:"Getting there",c:"#f59e0b",bg:"rgba(245, 158, 11, 0.1)"}; return{l:"Needs work",c:"#ef4444",bg:"rgba(239, 68, 68, 0.1)"}; }
+function getDimLv(s) { if(s>=5)return{p:100,c:"#10b981",k:3}; if(s>=3)return{p:66,c:"#f59e0b",k:2}; if(s>=1)return{p:33,c:"#f59e0b",k:1}; return{p:5,c:"#ef4444",k:0}; }
+
+function renderQ() {
+  const q = QUESTIONS[cur];
+  const pct = Math.round((cur/QUESTIONS.length)*100);
+  document.getElementById('qProgress').style.width=pct+'%';
+  document.getElementById('qCat').textContent=q.cat;
+  document.getElementById('qText').textContent=q.q;
+  document.getElementById('qSub').textContent=q.sub||'';
+  document.getElementById('qSub').style.display=q.sub?'block':'none';
+  const opts=document.getElementById('qOpts');
+  opts.innerHTML=q.opts.map((o,i)=>`<div class="quiz-opt${ans[q.id]===o.s?' quiz-sel':''}" onclick="selOpt(this,${o.s})"><div class="quiz-dot"></div><span>${o.t}</span></div>`).join('');
+  document.getElementById('qCount').textContent=`${cur+1} of ${QUESTIONS.length}`;
+  document.getElementById('btnBack').style.visibility=cur>0?'visible':'hidden';
+  document.getElementById('btnNext').textContent=cur<QUESTIONS.length-1?'Next →':'See my score →';
+  document.getElementById('btnNext').disabled=ans[q.id]===undefined;
+}
+
+function selOpt(el,s) {
+  document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('quiz-sel'));
+  el.classList.add('quiz-sel');
+  ans[QUESTIONS[cur].id]=s;
+  document.getElementById('btnNext').disabled=false;
+}
+
+function showResults() {
+  document.getElementById('quizPane').style.display='none';
+  const r=document.getElementById('resultsPane');
+  r.style.display='block';
+  const total=getTotal(), tier=getTier(total);
+  const circ=2*Math.PI*44, dash=Math.round((total/100)*circ);
+  r.innerHTML=`<div class="text-center mb-6">
+    <svg width="110" height="110" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="44" fill="none" stroke="#27272a" stroke-width="6"/>
+      <circle cx="50" cy="50" r="44" fill="none" stroke="${tier.c}" stroke-width="6" stroke-dasharray="${dash} ${circ}" stroke-dashoffset="${circ*0.25}" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+      <text x="50" y="56" text-anchor="middle" font-size="22" font-weight="500" fill="white">${total}</text>
+    </svg>
+    <div class="text-sm text-gray-500 mt-2">out of 100</div>
+    <span style="display:inline-block;background:${tier.bg};color:${tier.c};font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-top:6px">${tier.l}</span>
+  </div>
+  <p class="text-sm text-gray-400 text-center mb-4">Click any dimension to see your insight</p>
+  <div class="space-y-2 mb-6">
+  ${DIMS.map(d=>{const lv=getDimLv(getDimScore(d));const ins=INSIGHTS[d][lv.k];return`<div class="quiz-dim" onclick="toggleIns(this)">
+    <div class="flex justify-between items-center mb-2">
+      <span class="text-sm font-semibold text-white">${d}</span>
+      <span class="text-sm font-semibold" style="color:${lv.c}">${getDimScore(d)}/6</span>
+    </div>
+    <div class="h-1 bg-zinc-800 rounded-full overflow-hidden"><div class="h-full rounded-full" style="width:${lv.p}%;background:${lv.c}"></div></div>
+    <div class="quiz-ins hidden text-xs text-gray-400 mt-2 leading-relaxed">${ins}</div>
+  </div>`}).join('')}
+  </div>
+  <div class="bg-zinc-800 border border-zinc-700 rounded-lg p-5 mb-4">
+    <p class="text-sm font-semibold text-white mb-2">Get your full action plan</p>
+    <p class="text-xs text-gray-400 mb-3">We'll send you a personalised breakdown — what to fix first, and in what order.</p>
+    <input id="lpEmail" type="email" placeholder="your@email.com" class="w-full px-3 py-2 bg-zinc-900 border border-zinc-700 rounded-lg text-sm text-white placeholder-gray-600 mb-2 outline-none focus:border-emerald-500 transition"/>
+    <button onclick="submitEmail()" class="w-full px-3 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg text-sm font-semibold text-white transition">Send me the action plan</button>
+  </div>
+  <div id="lpCta" class="hidden bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-5">
+    <p class="text-sm font-semibold text-emerald-400 mb-2">Want to go deeper?</p>
+    <p class="text-xs text-emerald-300 mb-4">${total>=75?"You're in good shape. Let's talk about locking in your lead investor and accelerating the close.":total>=50?"A few targeted improvements could meaningfully raise your success rate. Let's identify them together.":"There are clear gaps to fix before approaching investors — and they're all fixable. Let's build a plan."}</p>
+    <a href="https://meetings.hubspot.com/ejanes" class="inline-block px-4 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg text-sm font-semibold text-white transition">Book a free Raise Audit Call →</a>
+  </div>`;
+}
+
+function toggleIns(el) {
+  const ins=el.querySelector('.quiz-ins');
+  const open=!ins.classList.contains('hidden');
+  document.querySelectorAll('.quiz-ins').forEach(e=>e.classList.add('hidden'));
+  if(!open) ins.classList.remove('hidden');
+}
+
+function submitEmail() {
+  const v=document.getElementById('lpEmail').value;
+  if(!v||!v.includes('@')){document.getElementById('lpEmail').style.borderColor='#ef4444';return;}
+  document.getElementById('lpEmail').parentElement.innerHTML='<p class="text-sm text-emerald-400 font-semibold">✓ Done — check your inbox shortly.</p>';
+  document.getElementById('lpCta').classList.remove('hidden');
+}
+
+function toggleFaq(btn) {
+  const ans=btn.nextElementSibling;
+  const open=!ans.classList.contains('hidden');
+  document.querySelectorAll('.faq-ans').forEach(e=>e.classList.add('hidden'));
+  document.querySelectorAll('.faq-btn span:last-child').forEach(e=>e.textContent='+');
+  if(!open){ans.classList.remove('hidden');btn.querySelector('span:last-child').textContent='−';}
+}
+
+const mount = document.getElementById('quizMount');
+mount.innerHTML = `
+<style>
+.quiz-prog{height:2px;background:#27272a;border-radius:1px;margin-bottom:6px}
+.quiz-prog-fill{height:100%;background:#10b981;border-radius:1px;transition:width .4s ease}
+.quiz-cat{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#10b981;margin-bottom:4px}
+.quiz-q{font-size:16px;font-weight:600;color:white;line-height:1.4;margin-bottom:2px}
+.quiz-sub{font-size:13px;color:#9ca3af;margin-bottom:6px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:6px;margin-bottom:6px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #3f3f46;border-radius:8px;cursor:pointer;transition:all .15s;font-size:13px;color:#e5e7eb;background:#18181b}
+.quiz-opt:hover{border-color:#10b981;background:#18181b}
+.quiz-sel{border-color:#10b981;background:#0f3f35}
+.quiz-dot{width:12px;height:12px;border-radius:50%;border:1.5px solid #52525b;flex-shrink:0;transition:all .15s}
+.quiz-sel .quiz-dot{background:#10b981;border-color:#10b981}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.quiz-count{font-size:12px;color:#6b7280}
+.quiz-btn{padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #3f3f46;background:#18181b;color:#e5e7eb;font-family:inherit;transition:all .15s}
+.quiz-btn:hover{background:#27272a}
+.quiz-btn.pri{background:#10b981;color:white;border-color:#10b981}
+.quiz-btn.pri:hover{background:#059669}
+.quiz-btn:disabled{opacity:.35;cursor:not-allowed}
+.quiz-dim{padding:10px;border:1px solid #3f3f46;border-radius:8px;cursor:pointer}
+.quiz-dim:hover{border-color:#10b981}
+</style>
+<div id="quizPane">
+  <div class="quiz-prog"><div class="quiz-prog-fill" id="qProgress" style="width:0%"></div></div>
+  <div class="quiz-cat" id="qCat"></div>
+  <p class="quiz-q" id="qText"></p>
+  <p class="quiz-sub" id="qSub"></p>
+  <div class="quiz-opts" id="qOpts"></div>
+  <div class="quiz-nav">
+    <span class="quiz-count" id="qCount"></span>
+    <div class="flex gap-2">
+      <button class="quiz-btn" id="btnBack" onclick="if(cur>0){cur--;renderQ()}" style="visibility:hidden">← Back</button>
+      <button class="quiz-btn pri" id="btnNext" onclick="if(cur<QUESTIONS.length-1){cur++;renderQ()}else{showResults()}" disabled>Next →</button>
+    </div>
+  </div>
+</div>
+<div id="resultsPane" style="display:none"></div>`;
+
+renderQ();
+</script>
+
+</body>
+</html>

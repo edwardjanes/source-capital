@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise Velocity — Customer Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000;
+            color: #E8E8E8;
+            padding: 80px 60px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 80px;
+            border-bottom: 2px solid #00FF84;
+            padding-bottom: 40px;
+        }
+
+        .header-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #A0A0A0;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #E8E8E8;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .header h1 .highlight {
+            color: #00FF84;
+        }
+
+        .header-subheading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #A0A0A0;
+            line-height: 1.5;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        .timeline-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            position: relative;
+        }
+
+        .timeline-grid::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #00FF84;
+        }
+
+        .phase {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .phase-marker {
+            min-width: 40px;
+            width: 40px;
+            height: 40px;
+            background-color: #000000;
+            border: 2px solid #00FF84;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            color: #00FF84;
+            margin-top: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .phase-content {
+            flex: 1;
+            background-color: #0D0D0D;
+            border-left: 3px solid #00FF84;
+            padding: 32px;
+            margin-left: -2px;
+        }
+
+        .phase-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #E8E8E8;
+            margin-bottom: 8px;
+        }
+
+        .phase-duration {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #00FF84;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .phase-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #E8E8E8;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .overlap-badge {
+            display: inline-block;
+            background-color: #111111;
+            border: 1px solid #00FF84;
+            color: #00FF84;
+            padding: 6px 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+        }
+
+        .stats-section {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 2px solid #00FF84;
+        }
+
+        .stats-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #A0A0A0;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .stat-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-family: 'Inter', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #00FF84;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #A0A0A0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-section {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #0D0D0D;
+            border-left: 3px solid #00FF84;
+        }
+
+        .cta-content {
+            flex: 1;
+        }
+
+        .cta-heading {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #E8E8E8;
+            margin-bottom: 12px;
+        }
+
+        .cta-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #A0A0A0;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #00FF84;
+            color: #000000;
+            padding: 14px 32px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #E8E8E8;
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding: 60px 40px;
+            }
+
+            .header h1 {
+                font-size: 40px;
+            }
+
+            .cta-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 24px;
+            }
+
+            .header {
+                margin-bottom: 60px;
+                padding-bottom: 30px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .phase {
+                gap: 24px;
+            }
+
+            .phase-marker {
+                min-width: 36px;
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .phase-content {
+                padding: 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .stat-value {
+                font-size: 32px;
+            }
+
+            .cta-section {
+                padding: 32px 24px;
+            }
+
+            .cta-heading {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-label">Raise Velocity</div>
+            <h1>Your Journey to Closing <span class="highlight">Capital</span></h1>
+            <p class="header-subheading">8–9 weeks from onboarding to pitch window. Clear milestones. No surprises.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-container">
+            <div class="timeline-grid">
+                <!-- Phase 1 -->
+                <div class="phase">
+                    <div class="phase-marker">1</div>
+                    <div class="phase-content">
+                        <div class="phase-title">Onboarding</div>
+                        <div class="phase-duration">7 Days</div>
+                        <p class="phase-description">
+                            We get to know your business, your fundraising goals, and your team. Set up your account, define your objectives, and establish workflows.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="phase">
+                    <div class="phase-marker">2</div>
+                    <div class="phase-content">
+                        <div class="phase-title">Strategy Creation</div>
+                        <div class="phase-duration">7 Days</div>
+                        <p class="phase-description">
+                            We develop your raise strategy. Investor profiling, outreach approach, positioning, and messaging — backed by data and market insight.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="phase">
+                    <div class="phase-marker">3</div>
+                    <div class="phase-content">
+                        <div class="phase-title">Asset Creation</div>
+                        <div class="phase-duration">14–21 Days</div>
+                        <p class="phase-description">
+                            We build or refine your pitch deck, executive summary, financial models, and supporting documents. Every slide tested for investor impact.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="phase">
+                    <div class="phase-marker">4</div>
+                    <div class="phase-content">
+                        <div class="phase-title">Investor Outreach</div>
+                        <div class="phase-duration">6 Weeks (42 Days)</div>
+                        <p class="phase-description">
+                            Systematic outreach to your target investors. Warm introductions, personalised messaging, follow-up cadence, and relationship building — done for you.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 5 -->
+                <div class="phase">
+                    <div class="phase-marker">5</div>
+                    <div class="phase-content">
+                        <div class="phase-title">Pitch Window</div>
+                        <div class="phase-duration">3 Weeks (Starts Week 8)</div>
+                        <p class="phase-description">
+                            Execute your scheduled pitches. Investor meetings, Q&A preparation, follow-up messaging. Momentum maintained whilst outreach continues.
+                        </p>
+                        <div class="overlap-badge">⚡ Overlaps with Investor Outreach</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-section">
+            <div class="stats-label">Key Metrics</div>
+            <div class="stats-grid">
+                <div class="stat-block">
+                    <div class="stat-value">8–9<br/>Weeks</div>
+                    <div class="stat-label">Total Timeline</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-value">28–35<br/>Days</div>
+                    <div class="stat-label">Preparation Phase</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-value">6+<br/>Weeks</div>
+                    <div class="stat-label">Active Engagement</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-value">Weeks<br/>5–9</div>
+                    <div class="stat-label">Peak Activity</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-heading">Ready?</h2>
+                <p class="cta-text">Let's close your next round of funding. Schedule a call with our team to discuss your raise strategy.</p>
+            </div>
+            <button class="cta-button" onclick="alert('Get in touch: hello@sourcecapital.co.uk')">Get Started</button>
+        </div>
+    </div>
+</body>
+</html>

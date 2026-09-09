@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Source Capital | Book a Call or Get in Touch</title>
+  <meta name="description" content="Book a free raise audit with Source Capital, or send a message if you're not ready for a call yet.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    :root {
+      --brand-green: #2AF76F;
+      --brand-deep-green: #128A3D;
+      --brand-mint: #B4FAD1;
+      --brand-grey: #585858;
+    }
+    .brand-accent { color: var(--brand-deep-green); }
+    .brand-btn { background-color: var(--brand-deep-green); color: #fff; }
+    .brand-btn:hover { background-color: #0e7231; }
+    input, textarea { border: 1px solid #d9d9d9; border-radius: 10px; padding: 12px 14px; width: 100%; }
+    input:focus, textarea:focus { outline: none; border-color: var(--brand-green); }
+    .placeholder-box { border: 1.5px dashed #c9c9c9; background: #fafafa; color: #9a9a9a; font-style: italic; }
+  </style>
+</head>
+<body class="bg-white text-[#585858]">
+
+  <!-- Navbar (placeholder — replace with shared nav include once site nav is built) -->
+  <nav class="w-full border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="/" class="flex items-center">
+        <img src="/logo.png" alt="Source Capital" class="h-10 w-auto">
+      </a>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-black">
+        <a href="/" class="hover:text-[#128A3D]">Home</a>
+        <a href="/services/" class="hover:text-[#128A3D]">Services</a>
+        <a href="/how-it-works/" class="hover:text-[#128A3D]">How It Works</a>
+        <a href="/about/" class="hover:text-[#128A3D]">About</a>
+        <a href="/resources/" class="hover:text-[#128A3D]">Resources</a>
+        <a href="/contact/" class="text-[#128A3D]">Contact</a>
+      </div>
+      <a href="/contact/" class="brand-btn px-5 py-2.5 rounded-full font-semibold text-sm">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="max-w-3xl mx-auto px-6 pt-16 pb-10 text-center">
+    <h1 class="text-4xl font-bold text-black mb-4">Let's talk about your raise</h1>
+    <p class="text-lg">Book a call if you're ready, or send a message if you've got a quick question first.</p>
+  </section>
+
+  <!-- Primary path: booking embed -->
+  <section class="max-w-3xl mx-auto px-6 pb-16">
+    <p class="text-xs font-semibold uppercase tracking-wide brand-accent text-center mb-2">Book a Free Raise Audit</p>
+    <p class="text-center mb-8">30 minutes, no pitch — just an honest read on where your raise stands.</p>
+    <div class="border border-gray-100 rounded-2xl overflow-hidden" style="min-height:600px;">
+      <!-- Cal.com embed — same link already live on Raise HQ and Accelerator -->
+      <iframe src="https://cal.com/edward-janes/60-min" width="100%" height="600" frameborder="0" title="Book a call with Edward Janes"></iframe>
+    </div>
+  </section>
+
+  <!-- Fallback: simple form -->
+  <section class="max-w-xl mx-auto px-6 pb-10">
+    <h2 class="text-xl font-bold text-black text-center mb-2">Not ready for a call? Send a message.</h2>
+    <div class="placeholder-box rounded-lg p-3 text-sm text-center mb-6">
+      [TODO — form action below posts to a placeholder. Replace with the real GHL webhook/form endpoint once built (confirmed destination: GHL, tagged source: website contact form — see contact-page-final.md). Do not launch with this placeholder action.]
+    </div>
+    <form action="#ghl-endpoint-tbd" method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="company" placeholder="Company (optional)">
+      <textarea name="message" placeholder="Message" rows="5" required></textarea>
+      <button type="submit" class="brand-btn w-full py-3 rounded-full font-semibold">Send Message</button>
+    </form>
+    <p class="text-sm text-gray-400 text-center mt-4">Got it — we'll get back to you within 1-2 business days.</p>
+  </section>
+
+  <!-- Footer details -->
+  <section class="max-w-3xl mx-auto px-6 pb-20 text-center text-sm text-gray-400">
+    <p>Source Capital Ltd, registered in London, UK</p>
+    <p>Dubai, UAE</p>
+  </section>
+
+  <!-- Footer (placeholder — replace with shared footer include) -->
+  <footer class="bg-white border-t border-gray-100 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#585858]">
+      <div>&copy; 2026 Source Capital. All rights reserved.</div>
+      <div class="flex gap-x-8">
+        <a href="/terms.html" class="hover:text-[#128A3D]">Terms</a>
+        <a href="/privacy.html" class="hover:text-[#128A3D]">Privacy</a>
+      </div>
+      <div>Dubai, UAE</div>
+    </div>
+  </footer>
+
+</body>
+</html>

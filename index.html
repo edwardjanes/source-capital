@@ -3,264 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Source Capital | Fundraising Education & Support | Dubai</title>
+  <title>Source Capital | Raise Capital With a Team That's Actually Done It</title>
+  <meta name="description" content="Source Capital helps founders raise pre-seed and seed capital — through a self-serve platform, hands-on coaching, or a fully managed raise. Book a free audit.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
-    .hero-bg { 
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
-                  url('hero.jpg') center/cover no-repeat fixed;
-      background-position: center 30%;
+    :root {
+      --brand-green: #2AF76F;
+      --brand-deep-green: #128A3D;
+      --brand-mint: #B4FAD1;
+      --brand-grey: #585858;
     }
-    .nav-scrolled { background-color: rgba(0, 0, 0, 0.95); }
-    .logo-img { height: 45px; width: auto; max-width: 700px; }
-
-    /* Popup Modal */
-    #checklist-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-content {
-      background: #18181b;
-      border-radius: 16px;
-      padding: 40px 30px;
-      max-width: 420px;
-      width: 90%;
-      border: 1px solid #3f3f46;
-    }
+    .brand-accent { color: var(--brand-deep-green); }
+    .brand-btn { background-color: var(--brand-deep-green); color: #fff; }
+    .brand-btn:hover { background-color: #0e7231; }
+    .brand-btn-outline { border: 1.5px solid var(--brand-deep-green); color: var(--brand-deep-green); }
+    .brand-btn-outline:hover { background-color: var(--brand-mint); }
+    .tier-card { border: 1px solid #e5e5e5; transition: border-color .2s ease; }
+    .tier-card:hover { border-color: var(--brand-green); }
+    .placeholder-box { border: 1.5px dashed #c9c9c9; background: #fafafa; color: #9a9a9a; font-style: italic; }
   </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-white text-[#585858]">
 
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+  <!-- Navbar (placeholder — replace with shared nav include once site nav is built) -->
+  <nav class="w-full border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <a href="#" class="flex items-center">
-        <img src="logo.png" alt="Source Capital" class="logo-img">
+      <a href="/" class="flex items-center">
+        <img src="/logo.png" alt="Source Capital" class="h-10 w-auto">
       </a>
-
-      <div class="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="#products" class="hover:text-emerald-400 transition">Products</a>
-        <a href="#consulting" class="hover:text-emerald-400 transition">Consulting</a>
-        <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-black">
+        <a href="/" class="text-[#128A3D]">Home</a>
+        <a href="/services/" class="hover:text-[#128A3D]">Services</a>
+        <a href="/how-it-works/" class="hover:text-[#128A3D]">How It Works</a>
+        <a href="/about/" class="hover:text-[#128A3D]">About</a>
+        <a href="/resources/" class="hover:text-[#128A3D]">Resources</a>
+        <a href="/contact/" class="hover:text-[#128A3D]">Contact</a>
       </div>
-      <a href="https://cal.com/edward-janes/30min" target="_blank" 
-         class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-emerald-400 hover:text-white transition">
-        Book a Call
-      </a>
+      <a href="/contact/" class="brand-btn px-5 py-2.5 rounded-full font-semibold text-sm">Book a Call</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero-bg h-screen flex items-center">
+  <!-- 1. Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold text-black mb-6 leading-tight">Most founders don't fail on the idea.<br>They fail on the raise.</h1>
+    <p class="text-xl text-[#585858] mb-10 max-w-2xl mx-auto">Source Capital gives you the materials, the investor access, and — if you want it — the hands doing the work, so your pre-seed or seed raise doesn't stall on the parts that have nothing to do with your product.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/contact/" class="brand-btn px-8 py-4 rounded-full font-semibold">Book a Free Raise Audit →</a>
+      <a href="/how-it-works/" class="brand-btn-outline px-8 py-4 rounded-full font-semibold">See how it works</a>
+    </div>
+  </section>
+
+  <!-- 2. The problem -->
+  <section class="max-w-3xl mx-auto px-6 pb-16 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-black mb-4">Why most raises stall</h2>
+    <p class="mb-6">It's rarely the idea. It's a deck that doesn't answer the one question every investor is actually asking, an investor list built from a Google search instead of real fit, and a founder trying to run outreach, negotiate terms, and still build the product — all at once.</p>
+    <p class="mb-8">None of that is a reason to give up on the raise. It's a reason to not do it alone.</p>
+    <a href="/contact/" class="brand-accent font-semibold underline">Not sure where your raise stands? Book a Free Audit →</a>
+  </section>
+
+  <!-- 3. Social proof -->
+  <section class="py-16" style="background-color:#B4FAD1;">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
-        Great product.<br>No investors?<br><span class="text-emerald-400">We fix that.</span>
-      </h1>
-      <p class="text-2xl text-gray-300 mb-10">Helping ambitious founders raise Pre-Seed & Seed capital in the UAE and globally.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button onclick="showChecklistModal()" 
-                class="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-semibold transition">
-          Download Free Raise Checklist →
-        </button>
-        <a href="#products" class="border border-white/50 hover:bg-white/10 px-10 py-5 rounded-2xl text-lg font-semibold transition">Browse Products</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products -->
-  <section id="products" class="py-24 bg-zinc-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-6">Digital Tools & Education Products</h2>
-      <p class="text-xl text-gray-400 text-center mb-16">Instant access • Lifetime updates • Practical tools for raising capital</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-zinc-900 p-8 rounded-3xl text-center">
-          <h3 class="text-2xl font-semibold mb-3">Free Raise Checklist</h3>
-          <p class="text-gray-400 mb-6">Quick self-assessment to know if you're truly ready to raise.</p>
-          <button onclick="showChecklistModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 py-4 rounded-2xl font-semibold">Download Now</button>
-        </div>
-        <div class="bg-zinc-900 p-8 rounded-3xl text-center">
-          <h3 class="text-2xl font-semibold mb-3">Raise Launchpad</h3>
-          <p class="text-gray-400 mb-6">Complete digital course + playbook for the full fundraising process.</p>
-          <button onclick="showChecklistModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 py-4 rounded-2xl font-semibold">Get Access</button>
-        </div>
-        <div class="bg-zinc-900 p-8 rounded-3xl text-center">
-          <h3 class="text-2xl font-semibold mb-3">Investor Outreach Templates</h3>
-          <p class="text-gray-400 mb-6">Proven email sequences and pitch scripts.</p>
-          <button onclick="showChecklistModal()" class="w-full bg-emerald-500 hover:bg-emerald-600 py-4 rounded-2xl font-semibold">Get Templates</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Consulting -->
-  <section id="consulting" class="py-24">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8">Proven Consulting Support</h2>
-      <div class="flex flex-col sm:flex-row gap-16 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-12 justify-center items-center mb-10">
         <div>
-          <div class="text-6xl font-bold text-emerald-400">50+</div>
-          <div class="text-gray-400">Founders Funded</div>
+          <div class="text-5xl font-bold text-black">50+</div>
+          <div class="text-black/70">Founders Funded</div>
         </div>
         <div>
-          <div class="text-6xl font-bold text-emerald-400">$45M+</div>
-          <div class="text-gray-400">Capital Raised</div>
+          <div class="text-5xl font-bold text-black">$45M+</div>
+          <div class="text-black/70">Capital Raised</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-24 bg-zinc-950">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-6">Ready to Raise Capital?</h2>
-      <p class="text-2xl text-gray-400 mb-12">Start with our free resources or book a strategy call.</p>
-      <button onclick="showChecklistModal()" 
-              class="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-6 rounded-3xl font-semibold text-lg transition mb-4">
-        Download Free Raise Checklist
-      </button>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black border-t border-white/10 py-12">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div>© 2026 Source Capital. All rights reserved.</div>
-      <div class="flex gap-x-8 text-sm">
-        <a href="terms.html" class="hover:text-emerald-400">Terms</a>
-        <a href="privacy.html" class="hover:text-emerald-400">Privacy</a>
+      <!-- PLACEHOLDER: testimonial / named proof, required before launch — see homepage-final.md -->
+      <div class="placeholder-box rounded-2xl p-8 max-w-xl mx-auto text-left">
+        [PLACEHOLDER — real testimonial or named case reference needed before launch. e.g. "Helped a Dubai-based SaaS founder close a $1.2M seed round in 11 weeks." Do not ship this numbers-only. See homepage-final.md.]
       </div>
-      <div class="text-sm text-gray-500">Dubai, UAE</div>
+    </div>
+  </section>
+
+  <!-- 4. The solution — four tiers -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold text-black text-center mb-3">Pick the level of support that fits where you are</h2>
+    <p class="text-center max-w-2xl mx-auto mb-12">Same materials, same investor discipline, same team behind it — the difference is how much of the work you want to hand off.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="tier-card rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Do it yourself</p>
+        <h3 class="text-lg font-bold text-black mb-2">Raise Launchpad</h3>
+        <p class="text-sm mb-4">Self-serve course + playbook covering the full fundraising process.</p>
+      </div>
+      <div class="tier-card rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">We do it with you</p>
+        <h3 class="text-lg font-bold text-black mb-2">Raise Accelerator</h3>
+        <p class="text-sm mb-4">Coaching + peer support to navigate a raise with guidance, not alone.</p>
+      </div>
+      <div class="tier-card rounded-2xl p-6" style="background-color:#B4FAD1;">
+        <p class="text-xs font-semibold uppercase tracking-wide text-black/60 mb-2">Software</p>
+        <h3 class="text-lg font-bold text-black mb-2">Raise HQ</h3>
+        <p class="text-sm mb-4 text-black/80">An automated platform that manages your investor pipeline and outreach for you.</p>
+      </div>
+      <div class="tier-card rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">We do it for you</p>
+        <h3 class="text-lg font-bold text-black mb-2">Managed Raise</h3>
+        <p class="text-sm mb-4">Fully outsourced — we run the raise, you keep building the company.</p>
+      </div>
+    </div>
+    <div class="text-center mt-10">
+      <a href="/services/" class="brand-btn inline-block px-8 py-3.5 rounded-full font-semibold mb-3">Find My Starting Point →</a>
+      <p class="text-sm">Not sure which fits? Book a call and we'll tell you honestly which one makes sense — even if it's the cheapest option.</p>
+      <!-- PLACEHOLDER: pricing-transparency line, required before launch — see homepage-final.md -->
+      <p class="placeholder-box inline-block rounded-lg px-4 py-2 mt-4 text-sm">[PLACEHOLDER — pricing-transparency line, e.g. "See pricing for each tier on the Services page." See homepage-final.md.]</p>
+    </div>
+  </section>
+
+  <!-- 5. How it works -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-black mb-4">The R.A.I.S.E. framework</h2>
+      <p class="mb-8">Every engagement — however much of it we're running for you — follows the same process: Readiness, Assets, Investor list, Structured outreach, Engagement. It's the difference between hoping an investor says yes and knowing why they will.</p>
+      <a href="/how-it-works/" class="brand-accent font-semibold underline">See the Full Framework →</a>
+    </div>
+  </section>
+
+  <!-- 6. Objection handling -->
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <h2 class="text-2xl md:text-3xl font-bold text-black text-center mb-10">Before you book a call</h2>
+    <div class="space-y-8">
+      <div>
+        <h3 class="font-semibold text-black mb-1">I don't have traction yet — is it too early?</h3>
+        <p>Readiness is the first step of the framework, not a gate. If you're not ready yet, we'll tell you what's missing before we take your money, not after.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-black mb-1">How is this different from a broker who takes a cut of my raise?</h3>
+        <p>We're not a broker and we don't take equity or success fees on funds raised. You're paying for expertise and access, not for us to hold your round hostage.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-black mb-1">What if I just want the tools, not the hand-holding?</h3>
+        <p>That's Raise Launchpad — self-serve, no calls required.</p>
+      </div>
+      <div class="placeholder-box rounded-2xl p-6">
+        [PLACEHOLDER — "I've already pitched investors and gotten nowhere, why would this be different?" Needs a real, honest answer once drafted. See homepage-final.md.]
+      </div>
+      <div>
+        <p class="text-sm text-gray-400">No guarantees, no smart-money mythology — just founders who did the work and got funded.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Founder credibility -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-bold text-black mb-4">Built by someone who's actually raised</h2>
+      <p class="mb-6">Source Capital is run by Edward Janes, who's spent 15+ years raising capital across multiple ventures — including the mistakes that taught him what actually gets a round closed.</p>
+      <a href="/about/" class="brand-accent font-semibold underline">Read the Full Story →</a>
+    </div>
+  </section>
+
+  <!-- 8. Final CTA -->
+  <section class="py-20" style="background-color:#128A3D;">
+    <div class="max-w-2xl mx-auto px-6 text-center text-white">
+      <h2 class="text-3xl font-bold mb-4">Ready to find out where your raise actually stands?</h2>
+      <p class="mb-8 text-white/90">30 minutes, no pitch — just an honest read on where your raise stands.</p>
+      <a href="/contact/" class="inline-block bg-white text-[#128A3D] px-8 py-4 rounded-full font-semibold hover:bg-[#B4FAD1] transition">Book Your Free Raise Audit</a>
+    </div>
+  </section>
+
+  <!-- Footer (placeholder — replace with shared footer include) -->
+  <footer class="bg-white border-t border-gray-100 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#585858]">
+      <div>&copy; 2026 Source Capital. All rights reserved.</div>
+      <div class="flex gap-x-8">
+        <a href="/terms.html" class="hover:text-[#128A3D]">Terms</a>
+        <a href="/privacy.html" class="hover:text-[#128A3D]">Privacy</a>
+      </div>
+      <div>Dubai, UAE</div>
     </div>
   </footer>
 
-  <!-- CHECKLIST POPUP -->
-  <div id="checklist-modal">
-    <div class="modal-content">
-      <div class="newsletter-form-container">
-        <form class="newsletter-form" action="https://app.loops.so/api/newsletter-form/cmn78et4k1pr10izg4si3mbut" method="POST">
-          <h3 class="text-2xl font-bold text-center mb-6 text-white">Get Your Free Raise Checklist</h3>
-          <input class="newsletter-form-input" placeholder="you@example.com" required type="email" name="newsletter-form-input">
-          <button type="submit" class="newsletter-form-button">Download Now</button>
-          <button type="button" class="newsletter-loading-button" style="display:none;">Please wait...</button>
-        </form>
-
-        <div class="newsletter-success" style="display:none; text-align:center; padding-top:20px;">
-          <p class="text-emerald-400 font-medium">✅ Thanks! Check your inbox for the checklist.</p>
-        </div>
-        <div class="newsletter-error" style="display:none; text-align:center; padding-top:20px;">
-          <p class="text-red-400">Oops! Something went wrong. Please try again.</p>
-        </div>
-
-        <button onclick="closeChecklistModal()" class="mt-6 text-gray-400 hover:text-white text-sm mx-auto block">
-          ← Close
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Modal functions
-    function showChecklistModal() {
-      document.getElementById('checklist-modal').style.display = 'flex';
-    }
-    function closeChecklistModal() {
-      document.getElementById('checklist-modal').style.display = 'none';
-    }
-
-    // Close when clicking outside
-    document.getElementById('checklist-modal').addEventListener('click', function(e) {
-      if (e.target === this) closeChecklistModal();
-    });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 50) nav.classList.add('nav-scrolled');
-      else nav.classList.remove('nav-scrolled');
-    });
-  </script>
-
-  <!-- === YOUR LOOPS FORM SCRIPT (FULL) === -->
-  <script>
-    function submitHandler(event) {
-      event.preventDefault();
-      var container = event.target.parentNode;
-      var form = container.querySelector(".newsletter-form");
-      var formInput = container.querySelector(".newsletter-form-input");
-      var success = container.querySelector(".newsletter-success");
-      var errorContainer = container.querySelector(".newsletter-error");
-      var errorMessage = container.querySelector(".newsletter-error-message");
-      var backButton = container.querySelector(".newsletter-back-button");
-      var submitButton = container.querySelector(".newsletter-form-button");
-      var loadingButton = container.querySelector(".newsletter-loading-button");
-
-      const rateLimit = () => {
-        errorContainer.style.display = "flex";
-        errorMessage.innerText = "Too many signups, please try again in a little while";
-        submitButton.style.display = "none";
-        formInput.style.display = "none";
-        if (backButton) backButton.style.display = "block";
-      };
-
-      var time = new Date();
-      var timestamp = time.valueOf();
-      var previousTimestamp = localStorage.getItem("loops-form-timestamp");
-      if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
-        rateLimit();
-        return;
-      }
-      localStorage.setItem("loops-form-timestamp", timestamp);
-
-      submitButton.style.display = "none";
-      loadingButton.style.display = "flex";
-
-      var formBody = "userGroup=Angel%20List%20&mailingLists=&email=" + encodeURIComponent(formInput.value);
-
-      fetch(event.target.action, {
-        method: "POST",
-        body: formBody,
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }
-      })
-      .then(res => [res.ok, res.json(), res])
-      .then(([ok, dataPromise, res]) => {
-        if (ok) {
-          success.style.display = "flex";
-          form.reset();
-        } else {
-          dataPromise.then(data => {
-            errorContainer.style.display = "flex";
-            errorMessage.innerText = data.message || res.statusText;
-          });
-        }
-      })
-      .catch(error => {
-        errorContainer.style.display = "flex";
-        errorMessage.innerText = error.message || "Something went wrong";
-      })
-      .finally(() => {
-        loadingButton.style.display = "none";
-        formInput.style.display = "none";
-      });
-    }
-
-    // Attach handlers
-    var formContainers = document.getElementsByClassName("newsletter-form-container");
-    for (var i = 0; i < formContainers.length; i++) {
-      var container = formContainers[i];
-      if (!container.classList.contains('newsletter-handlers-added')) {
-        container.querySelector(".newsletter-form").addEventListener("submit", submitHandler);
-        container.classList.add('newsletter-handlers-added');
-      }
-    }
-  </script>
 </body>
 </html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managed Raise | Source Capital</title>
+    <meta name="description" content="Managed Raise is Source Capital's fully outsourced fundraising service — we run the raise end to end while you keep building the company.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+                        url('/hero.jpg') center/cover no-repeat fixed;
+            background-position: center 30%;
+        }
+        .nav-scrolled { background-color: rgba(0, 0, 0, 0.95); }
+        .logo-img { height: 45px; width: auto; }
+        .card-hover:hover { transform: translateY(-8px); transition: all 0.3s ease; }
+        .phase-card { transition: all 0.4s ease; }
+        .phase-card:hover { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+    </style>
+</head>
+<body class="bg-white text-black">
+
+    <!-- NAV_START -->
+<style>
+  .sc-nav-links { display: flex; gap: 28px; }
+  @media (max-width: 767px) { .sc-nav-links { display: none; } }
+</style>
+<nav style="width:100%;border-bottom:1px solid #eee;font-family:'Inter',system-ui,sans-serif;">
+  <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="display:flex;align-items:center;"><img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;"></a>
+    <div class="sc-nav-links" id="scNavLinks" style="font-size:14px;font-weight:500;">
+      <a href="/" data-path="/" style="text-decoration:none;color:#000;">Home</a>
+      <a href="/services/" data-path="/services/" style="text-decoration:none;color:#000;">Services</a>
+      <a href="/how-it-works/" data-path="/how-it-works/" style="text-decoration:none;color:#000;">How It Works</a>
+      <a href="/about/" data-path="/about/" style="text-decoration:none;color:#000;">About</a>
+      <a href="/resources/" data-path="/resources/" style="text-decoration:none;color:#000;">Resources</a>
+      <a href="/contact/" data-path="/contact/" style="text-decoration:none;color:#000;">Contact</a>
+    </div>
+    <a href="/contact/" style="background:#128A3D;color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">Book a Call</a>
+  </div>
+</nav>
+<script>
+  (function () {
+    var path = window.location.pathname;
+    document.querySelectorAll('#scNavLinks a').forEach(function (a) {
+      var target = a.getAttribute('data-path');
+      var isActive = target === '/' ? (path === '/' || path === '/index.html') : path.indexOf(target) === 0;
+      a.style.color = isActive ? '#128A3D' : '#000';
+    });
+  })();
+</script>
+<!-- NAV_END -->
+
+    <!-- HERO - Same as main site -->
+    <section class="hero-bg h-screen flex items-center">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">
+                Full-Service Assisted Investment Raise<br>
+                <span class="text-[#2AF76F]">We Execute Your Entire Fundraising Campaign</span>
+            </h1>
+            <p class="text-2xl text-gray-200 max-w-4xl mx-auto mb-10">
+                Investor targeting, professional materials, multi-channel outreach, pitch coaching, and meeting management — all done for you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#get-started"
+                   class="bg-[#2AF76F] hover:bg-[#128A3D] hover:text-white text-black px-10 py-5 rounded-2xl text-lg font-semibold transition">
+                    Book Your Free Strategy Call
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-24 bg-[#F7FAF8]">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-6">Everything Included in the Programme</h2>
+            <p class="text-xl text-[#585858] text-center mb-16 max-w-3xl mx-auto">
+                We don't just advise — we become your outsourced fundraising team and execute end-to-end.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#128A3D]/10 text-[#128A3D] rounded-2xl flex items-center justify-center text-3xl font-bold">01</div>
+                        <h3 class="text-3xl font-semibold">Setup & Preparation</h3>
+                    </div>
+                    <ul class="space-y-5 text-lg">
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Outreach infrastructure & warm-up</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Full business profile & story development</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Master + Hot List (20–30 priority investors) with deep research</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Personalised messaging library</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Raise materials review & optimisation</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Professional data room build</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#128A3D]/10 text-[#128A3D] rounded-2xl flex items-center justify-center text-3xl font-bold">02</div>
+                        <h3 class="text-3xl font-semibold">Professional Assets</h3>
+                    </div>
+                    <ul class="space-y-5 text-lg">
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Dynamic investor-ready financial model</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Teaser + Full Pitch Deck + One-Pager</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Comprehensive business plan</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Pitch narrative & proof-point scripting</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#128A3D]/10 text-[#128A3D] rounded-2xl flex items-center justify-center text-3xl font-bold">03</div>
+                        <h3 class="text-3xl font-semibold">Outreach & Engagement</h3>
+                    </div>
+                    <ul class="space-y-5 text-lg">
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Multi-channel campaigns (Email + LinkedIn)</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Warm introductions via our network</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Rapid response handling & qualification</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Calendar & meeting management</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Weekly pipeline reporting</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-10 rounded-3xl card-hover">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#128A3D]/10 text-[#128A3D] rounded-2xl flex items-center justify-center text-3xl font-bold">04</div>
+                        <h3 class="text-3xl font-semibold">Pitch Coaching & Close Support</h3>
+                    </div>
+                    <ul class="space-y-5 text-lg">
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Pitch scripting & narrative refinement</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Rehearsals, role-plays & call reviews</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Pre-briefs and post-meeting debriefs</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-[#128A3D] mt-1"></i> Next-step choreography to close</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">How The Programme Works</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="phase-card bg-white p-10 rounded-3xl text-center border border-gray-200">
+                    <div class="text-[#128A3D] font-bold text-6xl mb-6">01</div>
+                    <h3 class="text-2xl font-semibold mb-4">Setup & Foundation</h3>
+                    <p class="text-[#585858]">Infrastructure, investor lists, research, materials and data room ready for launch.</p>
+                </div>
+                <div class="phase-card bg-white p-10 rounded-3xl text-center border border-gray-200">
+                    <div class="text-[#128A3D] font-bold text-6xl mb-6">02</div>
+                    <h3 class="text-2xl font-semibold mb-4">Active Outreach</h3>
+                    <p class="text-[#585858]">Targeted campaigns, warm intros, response handling and qualified meetings booked.</p>
+                </div>
+                <div class="phase-card bg-white p-10 rounded-3xl text-center border border-gray-200">
+                    <div class="text-[#128A3D] font-bold text-6xl mb-6">03</div>
+                    <h3 class="text-2xl font-semibold mb-4">Pitch & Close</h3>
+                    <p class="text-[#585858]">Rehearsals, live meeting support, debriefs and follow-through to signed documents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+  .rv{background:#fff;padding:40px 32px 60px;font-family:'Montserrat',sans-serif;min-height:auto}
+  .rv-eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#128A3D;text-transform:uppercase;margin-bottom:10px}
+  .rv-header{text-align:center;margin-bottom:40px}
+  .rv-title{font-family:'Inter',sans-serif;font-size:26px;font-weight:900;letter-spacing:.03em;text-transform:uppercase;color:#000;line-height:1.15}
+  .rv-title span{color:#128A3D}
+  .rv-sub{font-size:13px;color:#585858;margin-top:8px}
+  .phases{display:flex;gap:6px;margin-bottom:32px}
+  .phase{flex:1;border-radius:12px;overflow:hidden;border:1.5px solid #e5e7eb;transition:flex 0.5s cubic-bezier(.4,0,.2,1),border-color 0.3s,box-shadow 0.3s;cursor:pointer;background:#F5F7F6;min-width:0;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+  .phase.open{flex:3;border-color:#128A3D;box-shadow:0 6px 20px rgba(18,138,61,0.12)}
+  .phase-header{padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .phase-icon{width:28px;height:28px;border-radius:50%;border:2px solid #d1d5db;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#8a8a8a;flex-shrink:0;transition:all 0.3s}
+  .phase.open .phase-icon{border-color:#128A3D;background:#2AF76F;color:#000}
+  .phase.complete .phase-icon{border-color:#128A3D;background:#2AF76F;color:#000}
+  .phase-header-text{overflow:hidden}
+  .phase-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:#8a8a8a;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;transition:color 0.3s}
+  .phase.open .phase-name{color:#000}
+  .phase.complete .phase-name{color:#128A3D}
+  .phase-weeks{font-size:10px;color:#a3a3a3;letter-spacing:.04em;white-space:nowrap;margin-top:2px;transition:color 0.3s}
+  .phase.open .phase-weeks,.phase.complete .phase-weeks{color:#128A3D}
+  .phase-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(.4,0,.2,1)}
+  .phase.open .phase-body{max-height:600px}
+  .phase-track-wrap{padding:0 16px 4px}
+  .phase-track{height:3px;background:#e5e7eb;border-radius:2px;position:relative;margin-bottom:8px}
+  .phase-track-fill{position:absolute;left:0;top:0;height:100%;background:#2AF76F;border-radius:2px;transition:width 0.35s ease;width:0%}
+  .phase-tick-row{display:flex;justify-content:space-between;padding:0 2px;margin-bottom:12px}
+  .phase-tick{font-family:'Inter',sans-serif;font-size:9px;color:#a3a3a3;letter-spacing:.04em;font-weight:600;transition:color 0.2s}
+  .phase-tick.lit{color:#128A3D}
+  .stage-list{padding:0 10px 14px}
+  .stage-btn{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;padding:8px 6px;cursor:pointer;border-radius:8px;transition:background 0.2s;text-align:left}
+  .stage-btn:hover{background:#F0F2F1}
+  .stage-btn.active{background:#EAFCF1}
+  .s-dot{width:24px;height:24px;border-radius:50%;border:2px solid #d1d5db;background:#F5F7F6;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:#8a8a8a;flex-shrink:0;transition:all 0.2s}
+  .stage-btn.active .s-dot,.stage-btn.done .s-dot{border-color:#128A3D;background:#2AF76F;color:#000}
+  .s-text{overflow:hidden}
+  .s-name{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:#585858;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color 0.2s}
+  .stage-btn.active .s-name{color:#000}
+  .s-week{font-size:10px;color:#a3a3a3;margin-top:1px;transition:color 0.2s}
+  .stage-btn.active .s-week{color:#128A3D}
+  .rv-detail{min-height:130px;margin-bottom:32px}
+  .rv-card{background:#F5F7F6;border:1px solid #e5e7eb;border-left:4px solid #128A3D;border-radius:12px;padding:24px 26px;animation:fadeIn .2s ease;box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+  .rv-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .rv-card-num{width:26px;height:26px;border-radius:50%;background:#2AF76F;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#000;flex-shrink:0}
+  .rv-card-week{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#128A3D}
+  .rv-card-phase{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a;margin-left:auto;background:#e5e7eb;padding:3px 8px;border-radius:4px}
+  .rv-card-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#000;margin-bottom:8px}
+  .rv-card-body{font-size:13px;color:#585858;line-height:1.7;margin-bottom:16px}
+  .rv-card-deliverables{margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb}
+  .rv-card-deliverables-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#128A3D;margin-bottom:10px}
+  .rv-card-deliverables-list{font-size:12px;color:#585858;line-height:1.8}
+  .rv-card-deliverables-list li{margin-left:16px;margin-bottom:4px}
+  .rv-nav{display:flex;gap:12px;justify-content:flex-end;align-items:center}
+  .rv-nav-btn{background:#F5F7F6;border:1.5px solid #d1d5db;color:#585858;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:11px 24px;border-radius:10px;cursor:pointer;transition:all .25s;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+  .rv-nav-btn:hover:not(:disabled){border-color:#128A3D;color:#128A3D;background:#EAFCF1;box-shadow:0 4px 12px rgba(18,138,61,0.15)}
+  .rv-nav-btn:disabled{opacity:.25;cursor:default}
+  .rv-footer{text-align:center;margin-top:40px;border-top:1px solid #1a1a1a;padding-top:28px;font-size:12px;color:#8a8a8a;display:flex;align-items:center;justify-content:center;gap:8px}
+  .rv-footer span{color:#128A3D;font-weight:600}
+  @media (max-width:768px){
+    .rv{padding:24px 16px 32px}
+    .rv-header{margin-bottom:24px}
+    .rv-title{font-size:20px}
+    .rv-eyebrow{font-size:10px}
+    .rv-sub{font-size:12px}
+    .phases{gap:4px;margin-bottom:20px}
+    .phase-header{padding:10px 12px}
+    .phase-icon{width:24px;height:24px;font-size:10px}
+    .phase-name{font-size:11px}
+    .phase-weeks{font-size:9px}
+    .phase-tick{font-size:8px}
+    .rv-card{padding:14px 16px}
+    .rv-card-title{font-size:13px}
+    .rv-card-body{font-size:12px}
+    .rv-nav{gap:8px}
+    .rv-nav-btn{padding:9px 18px;font-size:12px;border-radius:8px}
+    .rv-footer{font-size:11px;margin-top:20px}
+  }
+  @media (max-width:480px){
+    .rv{padding:16px 12px 24px}
+    .rv-header{margin-bottom:16px}
+    .rv-title{font-size:18px;line-height:1.1}
+    .rv-eyebrow{font-size:9px}
+    .rv-sub{font-size:11px}
+    .phases{flex-direction:column;gap:2px;margin-bottom:16px}
+    .phase{flex:1!important}
+    .phase.open{flex:1!important}
+    .phase-header{padding:8px 10px}
+    .phase-icon{width:22px;height:22px;font-size:9px}
+    .phase-name{font-size:10px}
+    .phase-weeks{font-size:8px}
+    .phase-body{max-height:800px}
+    .stage-btn{padding:6px 4px;gap:8px}
+    .s-dot{width:20px;height:20px;font-size:9px}
+    .s-name{font-size:11px}
+    .s-week{font-size:9px}
+    .rv-detail{min-height:auto;margin-bottom:16px}
+    .rv-card{padding:12px 14px}
+    .rv-card-meta{gap:8px;margin-bottom:8px}
+    .rv-card-num{width:20px;height:20px;font-size:10px}
+    .rv-card-title{font-size:12px;margin-bottom:6px}
+    .rv-card-body{font-size:11px;line-height:1.6}
+    .rv-card-week{font-size:9px}
+    .rv-card-phase{font-size:9px;padding:2px 6px}
+    .rv-nav{flex-direction:column;gap:6px}
+    .rv-nav-btn{width:100%;padding:10px 14px;font-size:11px;border-radius:8px}
+    .rv-footer{font-size:10px;margin-top:16px;padding-top:16px;flex-direction:column;gap:6px}
+  }
+</style>
+
+<section class="rv">
+  <div class="max-w-6xl mx-auto">
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Managed Raise 12-week process across three phases: setup, outreach, pitching</h2>
+
+  <div class="rv-header">
+    <div class="rv-eyebrow">12-week structured process</div>
+    <div class="rv-title">From strategy to <span>capital raised</span></div>
+    <div class="rv-sub">Select a phase — then click any stage to see what happens.</div>
+  </div>
+
+  <div class="phases" id="phases"></div>
+  <div class="rv-detail" id="detail"><div style="display:flex;align-items:center;justify-content:center;height:130px;font-size:13px;color:#a3a3a3">Select a stage above to get started</div></div>
+  <div class="rv-nav">
+    <button class="rv-nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>← Prev</button>
+    <button class="rv-nav-btn" id="btn-next" onclick="navigate(1)" disabled>Next →</button>
+  </div>
+  <div class="rv-footer">
+    <i class="ti ti-eye" aria-hidden="true" style="font-size:15px;color:#128A3D"></i>
+    Progress tracked live in the <span>Investor Relations Management</span> tool — fortnightly update calls throughout.
+  </div>
+  </div>
+</section>
+
+<script>
+const data = [
+  {
+    id:'setup', name:'Setup', weeks:'Weeks 1–3', icon:'S', ticks:['Start','W1','W2','W3'],
+    stages:[
+      {num:1,label:'Intake',week:'Day 1–2',title:'Onboarding intake form',body:'We capture everything we need before your first call — business model, raise target, existing traction, cap table, and investor preferences. No back-and-forth. You arrive to your first call ready to move.',deliverables:['Business profile documented','Investor preferences captured','Cap table reviewed','Use of funds clarified'],tick:0},
+      {num:2,label:'Deep-dive',week:'Day 3–4',title:'Deep-dive onboarding call',body:'Your dedicated Source Capital team gets across your business in detail. We ask the questions investors will ask — so nothing catches us off guard when we\'re in front of them on your behalf.',deliverables:['Deep-dive call completed','Key narratives identified','Q&A framework built','Competitive positioning clarity'],tick:0},
+      {num:3,label:'Strategy',week:'Week 1',title:'Raise strategy & asset plan',body:'We build your itemised asset list and full raise strategy — investor target profiles, deal positioning, valuation narrative, and the precise sequence of deliverables we\'ll produce for you.',deliverables:['Master investor list (broad)','Hot list (20–30 priority targets)','Investor research profiles','Messaging strategy document'],tick:1},
+      {num:4,label:'Approval',week:'Week 1',title:'Strategy approval call',body:'We walk you through the full strategy and asset plan. You sign off — or we refine. Nothing moves forward without your explicit approval. This is your raise. We just execute it.',deliverables:['Strategy review deck','Timeline approval','Investor targeting rationale','Outreach sequence approval'],tick:1},
+      {num:5,label:'Build',week:'Weeks 1–3',title:'Full raise infrastructure build',body:'We build everything: pitch deck, financial model, data room, CRM setup, investor outreach sequences, and raise software configuration. You focus on running your business. We build your raise from the ground up.',deliverables:['Outreach infrastructure live and warmed','Multiple pitch deck versions (full, teaser, 1-pager)','Dynamic financial model','Data room structure with access controls','Messaging library (email, LinkedIn, objection handling)','CRM configured and ready'],tick:2},
+      {num:6,label:'Launch prep',week:'Week 3',title:'Client approval call',body:'Before a single outreach message goes out, you review and approve all assets. Deck, data room, messaging — everything gets your sign-off. You remain in full control throughout.',deliverables:['All materials reviewed and approved','Deck messaging aligned','Data room access tested','Outreach sequences confirmed','Team is launch-ready'],tick:3},
+    ]
+  },
+  {
+    id:'outreach', name:'Outreach', weeks:'Weeks 3–7', icon:'O', ticks:['W3','W4','W5','W6','W7'],
+    stages:[
+      {num:7,label:'Outreach',week:'Weeks 3–7',title:'Investor outreach campaign',body:'We run structured outreach to your targeted investor list — sequenced, tracked, and managed by us. Responses are triaged, meetings are booked, and warm leads are moved to the pitching pipeline. You\'re updated fortnightly as standard, with live visibility via the IRM tool at any point.',deliverables:['Outreach cadence and schedule','Personalized investor outreach execution','Response tracking and triage','Warm meeting requests booked','Pipeline status reports (fortnightly)','IRM tool access and live tracking','Lead scoring and qualification'],tick:4},
+    ]
+  },
+  {
+    id:'pitching', name:'Pitching', weeks:'Weeks 8–11', icon:'P', ticks:['W8','W9','W10','W11','Close'],
+    stages:[
+      {num:8,label:'Pitching',week:'Weeks 8–11',title:'Pitching window',body:'Active investor meetings, pitch support, follow-up management, and term sheet negotiation support. This is the sharp end — and we\'re in the room with you. The average pitching window runs 3 weeks, typically from week 8 to 11.',deliverables:['Meeting prep materials and agenda','Pitch deck rehearsal coaching','Investor Q&A framework','Follow-up email templates','Objection handling guidance','Term sheet review support','Close coordination and negotiation support'],tick:4},
+    ]
+  }
+];
+
+let activePhase = null;
+let activeStageGlobal = null;
+const allStages = data.flatMap(p => p.stages.map(s => ({...s, phaseId: p.id})));
+
+function checkPhaseComplete(p) {
+  const allNums = allStages.map(x => x.num);
+  const activeIdx = allNums.indexOf(activeStageGlobal);
+  const lastInPhase = p.stages[p.stages.length - 1];
+  const lastIdx = allNums.indexOf(lastInPhase.num);
+  return activeIdx > lastIdx;
+}
+
+function openPhase(phaseId) {
+  activePhase = phaseId;
+  data.forEach(p => {
+    const el = document.getElementById('ph-' + p.id);
+    el.classList.toggle('open', p.id === phaseId);
+  });
+  const ph = data.find(p => p.id === phaseId);
+  if (ph && ph.stages.length === 1 && activeStageGlobal !== ph.stages[0].num) {
+    selectStage(ph.stages[0].num, phaseId);
+  }
+}
+
+function selectStage(num, phaseId) {
+  activeStageGlobal = num;
+  data.forEach(p => {
+    const el = document.getElementById('ph-' + p.id);
+    p.stages.forEach(s => {
+      const btn = document.getElementById('sb-' + s.num);
+      if (!btn) return;
+      btn.classList.toggle('active', s.num === num);
+      const dot = btn.querySelector('.s-dot');
+      const allNums = allStages.map(x => x.num);
+      const numIdx = allNums.indexOf(num);
+      const sIdx = allNums.indexOf(s.num);
+      dot.classList.toggle('done', sIdx < numIdx && s.num !== num);
+    });
+    const complete = checkPhaseComplete(p);
+    el.classList.toggle('complete', complete && p.id !== activePhase);
+    updateTrack(p);
+    const icon = el.querySelector('.phase-icon');
+    if (complete && p.id !== activePhase) {
+      icon.innerHTML = '✓';
+    } else {
+      icon.innerHTML = p.icon;
+    }
+  });
+
+  const stage = allStages.find(s => s.num === num);
+  const delivHTML = stage.deliverables ? `<div class="rv-card-deliverables"><div class="rv-card-deliverables-label">Deliverables</div><ul class="rv-card-deliverables-list">${stage.deliverables.map(d => `<li>${d}</li>`).join('')}</ul></div>` : '';
+  document.getElementById('detail').innerHTML = `<div class="rv-card">
+    <div class="rv-card-meta">
+      <div class="rv-card-num">${stage.num}</div>
+      <div class="rv-card-week">${stage.week}</div>
+      <div class="rv-card-phase">${data.find(p => p.id === stage.phaseId).name}</div>
+    </div>
+    <div class="rv-card-title">${stage.title}</div>
+    <div class="rv-card-body">${stage.body}</div>
+    ${delivHTML}
+  </div>`;
+
+  document.getElementById('btn-prev').disabled = num <= 1;
+  document.getElementById('btn-next').disabled = num >= allStages.length;
+}
+
+function updateTrack(p) {
+  const fill = document.getElementById('tf-' + p.id);
+  if (!fill) return;
+  const activeInPhase = p.stages.find(s => s.num === activeStageGlobal);
+  const ticks = document.querySelectorAll('.tick-' + p.id);
+  ticks.forEach(t => t.classList.remove('lit'));
+  if (activeInPhase) {
+    const pct = (activeInPhase.tick / (p.ticks.length - 1) * 100).toFixed(1);
+    fill.style.width = pct + '%';
+    const litTick = document.getElementById('tk-' + p.id + '-' + activeInPhase.tick);
+    if (litTick) litTick.classList.add('lit');
+  } else {
+    const allNums = allStages.map(x => x.num);
+    const activeIdx = allNums.indexOf(activeStageGlobal);
+    const lastInPhase = p.stages[p.stages.length - 1];
+    const lastIdx = allNums.indexOf(lastInPhase.num);
+    if (activeIdx > lastIdx) {
+      fill.style.width = '100%';
+      const lastTick = document.getElementById('tk-' + p.id + '-' + (p.ticks.length - 1));
+      if (lastTick) lastTick.classList.add('lit');
+    } else {
+      fill.style.width = '0%';
+    }
+  }
+}
+
+function navigate(dir) {
+  if (!activeStageGlobal) return;
+  const idx = allStages.findIndex(s => s.num === activeStageGlobal);
+  const next = allStages[idx + dir];
+  if (next) {
+    openPhase(next.phaseId);
+    selectStage(next.num, next.phaseId);
+  }
+}
+
+const phasesEl = document.getElementById('phases');
+data.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'phase';
+  div.id = 'ph-' + p.id;
+  div.innerHTML = `<div class="phase-header" onclick="openPhase('${p.id}')">
+    <div class="phase-icon">${p.icon}</div>
+    <div class="phase-header-text">
+      <div class="phase-name">${p.name}</div>
+      <div class="phase-weeks">${p.weeks}</div>
+    </div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-track-wrap">
+      <div class="phase-track"><div class="phase-track-fill" id="tf-${p.id}" style="width:0%"></div></div>
+      <div class="phase-tick-row">${p.ticks.map((t,i) => `<span class="phase-tick tick-${p.id}" id="tk-${p.id}-${i}">${t}</span>`).join('')}</div>
+    </div>
+    <div class="stage-list">${p.stages.map(s => `
+      <button class="stage-btn" id="sb-${s.num}" onclick="openPhase('${p.id}');selectStage(${s.num},'${p.id}')">
+        <div class="s-dot">${s.num}</div>
+        <div class="s-text">
+          <div class="s-name">${s.title}</div>
+          <div class="s-week">${s.week}</div>
+        </div>
+      </button>`).join('')}
+    </div>
+  </div>`;
+  phasesEl.appendChild(div);
+});
+
+openPhase('setup');
+selectStage(1, 'setup');
+</script>
+
+
+    <!-- LEAD CAPTURE -->
+    <section id="get-started" class="py-24 bg-white border-t border-gray-200">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6">Ready to Raise Capital?</h2>
+            <p class="text-2xl text-[#585858] mb-12">Book a complimentary 30-minute strategy call. We'll review your current materials and show you exactly how we can accelerate your raise.</p>
+
+            <a href="https://cal.com/edward-janes/30min" target="_blank"
+               class="inline-block bg-[#2AF76F] hover:bg-[#128A3D] hover:text-white text-black px-12 py-6 rounded-3xl font-semibold text-xl transition">
+                Book Strategy Call – It's Free
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER_START -->
+<footer style="border-top:1px solid #eee;padding:48px 24px;font-family:'Inter',system-ui,sans-serif;">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;font-size:14px;color:#585858;">
+    <div>&copy; 2026 Source Capital. All rights reserved.</div>
+    <div style="display:flex;gap:32px;">
+      <a href="/terms.html" style="color:#585858;text-decoration:none;">Terms</a>
+      <a href="/privacy.html" style="color:#585858;text-decoration:none;">Privacy</a>
+    </div>
+    <div>Dubai, UAE</div>
+  </div>
+</footer>
+<!-- FOOTER_END -->
+
+    </body>
+</html>

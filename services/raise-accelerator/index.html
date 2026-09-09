@@ -61,19 +61,19 @@
 
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
     
-    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 text-black">
+    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 text-white">
       Book 10 qualified investor meetings in 90 days or we keep working for free
     </h1>
     
-    <p class="text-2xl text-[#585858] max-w-4xl mx-auto mb-12">
+    <p class="text-2xl text-gray-200 max-w-4xl mx-auto mb-12">
       The done-with-you fundraising sprint for first-time founders raising £250k–£1M. 
       No warm network required. No months wasted. Just a structured 60-day process that puts you in front of the right investors.
     </p>
     
     <!-- CTA Button -->
-    <a href="/contact/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[2AF76F] hover:text-black transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
+    <a href="/contact/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#2AF76F] hover:text-black transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
     
-    <p class="mt-6 text-[#585858]">20 minutes. No obligation. Might change everything.</p>
+    <p class="mt-6 text-gray-300">20 minutes. No obligation. Might change everything.</p>
   </div>
 </section>
 
@@ -218,19 +218,19 @@
       
       <!-- Left: List -->
       <div class="md:col-span-5 space-y-3" id="receive-buttons">
-        <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-[2AF76F] bg-[2AF76F]/10 hover:bg-[2AF76F] hover:text-black transition-all" data-item="0">
+        <button onclick="switchReceiveItem(0)" class="receive-btn active w-full text-left p-6 rounded-3xl border-2 border-[#2AF76F] bg-[#2AF76F]/10 hover:bg-[#2AF76F] hover:text-black transition-all" data-item="0">
           6x Masterclass Calls
         </button>
-        <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F]/10 hover:text-black transition-all" data-item="1">
+        <button onclick="switchReceiveItem(1)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F]/10 hover:text-black transition-all" data-item="1">
           4x Investor Insight Calls
         </button>
-        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F]/10 hover:text-black transition-all" data-item="2">
+        <button onclick="switchReceiveItem(2)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F]/10 hover:text-black transition-all" data-item="2">
           Investor Pitch Day
         </button>
-        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F]/10 hover:text-black transition-all" data-item="3">
+        <button onclick="switchReceiveItem(3)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F]/10 hover:text-black transition-all" data-item="3">
           1-2-1 Support via Slack
         </button>
-        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F]/10 hover:text-black transition-all" data-item="4">
+        <button onclick="switchReceiveItem(4)" class="receive-btn w-full text-left p-6 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F]/10 hover:text-black transition-all" data-item="4">
           Raise Launchpad Platform
         </button>
       </div>
@@ -253,13 +253,13 @@
   function switchReceiveItem(n) {
     // Reset all buttons
     document.querySelectorAll('.receive-btn').forEach(btn => {
-      btn.classList.remove('active', 'border-[2AF76F]', 'bg-[2AF76F]/10');
-      btn.classList.add('border-[2AF76F]/40');
+      btn.classList.remove('active', 'border-[#2AF76F]', 'bg-[#2AF76F]/10');
+      btn.classList.add('border-[#2AF76F]/40');
     });
 
     // Activate selected
     const activeBtn = document.querySelectorAll('.receive-btn')[n];
-    activeBtn.classList.add('active', 'border-[2AF76F]', 'bg-[2AF76F]/10');
+    activeBtn.classList.add('active', 'border-[#2AF76F]', 'bg-[#2AF76F]/10');
 
     const titles = [
       "6x Masterclass Calls",
@@ -319,23 +319,23 @@
 
     <!-- Buttons -->
     <div class="flex justify-center gap-4 md:gap-6 mb-12" id="raise-buttons">
-      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[2AF76F] bg-[2AF76F]/10 hover:bg-[2AF76F] hover:text-black transition-all" data-step="0">
+      <button onclick="switchRaiseStep(0)" class="raise-btn active flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#2AF76F] bg-[#2AF76F]/10 hover:bg-[#2AF76F] hover:text-black transition-all" data-step="0">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 1</span>
         <span class="text-5xl font-bold">R</span>
       </button>
-      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F] hover:text-black transition-all" data-step="1">
+      <button onclick="switchRaiseStep(1)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F] hover:text-black transition-all" data-step="1">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 2</span>
         <span class="text-5xl font-bold">A</span>
       </button>
-      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F] hover:text-black transition-all" data-step="2">
+      <button onclick="switchRaiseStep(2)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F] hover:text-black transition-all" data-step="2">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 3</span>
         <span class="text-5xl font-bold">I</span>
       </button>
-      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F] hover:text-black transition-all" data-step="3">
+      <button onclick="switchRaiseStep(3)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F] hover:text-black transition-all" data-step="3">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 4</span>
         <span class="text-5xl font-bold">S</span>
       </button>
-      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[2AF76F]/40 hover:border-[2AF76F] hover:bg-[2AF76F] hover:text-black transition-all" data-step="4">
+      <button onclick="switchRaiseStep(4)" class="raise-btn flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-3xl border-2 border-[#2AF76F]/40 hover:border-[#2AF76F] hover:bg-[#2AF76F] hover:text-black transition-all" data-step="4">
         <span class="text-xs font-medium tracking-widest mb-1">STEP 5</span>
         <span class="text-5xl font-bold">E</span>
       </button>
@@ -361,12 +361,12 @@
 <script>
   function switchRaiseStep(n) {
     document.querySelectorAll('.raise-btn').forEach(btn => {
-      btn.classList.remove('active', 'border-[2AF76F]', 'bg-[2AF76F]/10');
-      btn.classList.add('border-[2AF76F]/40');
+      btn.classList.remove('active', 'border-[#2AF76F]', 'bg-[#2AF76F]/10');
+      btn.classList.add('border-[#2AF76F]/40');
     });
 
     const activeBtn = document.querySelectorAll('.raise-btn')[n];
-    activeBtn.classList.add('active', 'border-[2AF76F]', 'bg-[2AF76F]/10');
+    activeBtn.classList.add('active', 'border-[#2AF76F]', 'bg-[#2AF76F]/10');
 
     const titles = ["Readiness", "Assets", "Investor List", "Structured Outreach", "Engagement"];
     const descriptions = [

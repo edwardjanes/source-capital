@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <!-- ANALYTICS_START -->
+<!-- Inter (brand typeface) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21Z8XMXK0"></script>
 <script>
@@ -37,12 +42,41 @@
 </head>
 <body class="bg-white text-black">
 <!-- NAV_START -->
+<a href="#main-content" class="sc-skip-link">Skip to content</a>
 <style>
+  .sc-skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: #0E7231; color: #fff; padding: 12px 20px;
+    border-radius: 0 0 8px 0; font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+  }
+  .sc-skip-link:focus { left: 0; }
   .sc-nav-links { display: flex; gap: 28px; }
-  @media (max-width: 767px) { .sc-nav-links { display: none; } }
+  .sc-nav-cta {
+    background: #0E7231; color: #fff; padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; box-sizing: border-box;
+  }
+  #scNavToggle { display: none; }
+  @media (max-width: 767px) {
+    .sc-nav-links { display: none; }
+    #scNavToggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+      font-size: 22px; color: #000; padding: 0;
+    }
+    .sc-nav-links.open {
+      display: flex; flex-direction: column; gap: 4px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid #eee; padding: 8px 24px 20px;
+      z-index: 99;
+    }
+    .sc-nav-links.open a { padding: 12px 0; min-height: 44px; display: flex; align-items: center; }
+  }
 </style>
 <nav style="width:100%;border-bottom:1px solid #eee;font-family:'Inter',system-ui,sans-serif;position:sticky;top:0;z-index:100;background:#fff;">
-  <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+  <div style="max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:relative;">
     <a href="/" style="display:flex;align-items:center;"><img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;"></a>
     <div class="sc-nav-links" id="scNavLinks" style="font-size:14px;font-weight:500;">
       <a href="/" data-path="/" style="text-decoration:none;color:#000;">Home</a>
@@ -52,7 +86,10 @@
       <a href="/resources/" data-path="/resources/" style="text-decoration:none;color:#000;">Resources</a>
       <a href="/contact/" data-path="/contact/" style="text-decoration:none;color:#000;">Contact</a>
     </div>
-    <a href="/contact/" style="background:#128A3D;color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">Book a Call</a>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <a href="/contact/" class="sc-nav-cta">Book a Call</a>
+      <button id="scNavToggle" aria-expanded="false" aria-controls="scNavLinks" aria-label="Menu">&#9776;</button>
+    </div>
   </div>
 </nav>
 <script>
@@ -61,11 +98,34 @@
     document.querySelectorAll('#scNavLinks a').forEach(function (a) {
       var target = a.getAttribute('data-path');
       var isActive = target === '/' ? (path === '/' || path === '/index.html') : path.indexOf(target) === 0;
-      a.style.color = isActive ? '#128A3D' : '#000';
+      a.style.color = isActive ? '#0E7231' : '#000';
     });
+
+    var toggle = document.getElementById('scNavToggle');
+    var links = document.getElementById('scNavLinks');
+    if (toggle && links) {
+      function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      function openMenu() {
+        links.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+      toggle.addEventListener('click', function () {
+        if (links.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    }
   })();
 </script>
 <!-- NAV_END -->
+<a id="main-content"></a>
 <!-- HERO SECTION -->
 <section class="relative h-screen flex items-center overflow-hidden"
          style="background-image: url('/hero.jpg');
@@ -92,7 +152,7 @@
     <!-- CTA Button -->
     <a href="/services/raise-accelerator/apply/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#2AF76F] hover:text-black transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
     
-    <p class="mt-6 text-gray-300">20 minutes. No obligation. Might change everything.</p>
+    <p class="mt-6 text-gray-300">30 minutes. No obligation. Might change everything.</p>
   </div>
 </section>
 
@@ -155,7 +215,7 @@
         <!-- Point 1 -->
         <div class="grid md:grid-cols-12 gap-8 items-start">
           <div class="md:col-span-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#128A3D] font-bold">1</div>
+            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#0E7231] font-bold">1</div>
           </div>
           <div class="md:col-span-11">
             <h3 class="text-2xl font-semibold mb-4">You waste time on investors who were never going to say yes</h3>
@@ -168,7 +228,7 @@
         <!-- Point 2 -->
         <div class="grid md:grid-cols-12 gap-8 items-start">
           <div class="md:col-span-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#128A3D] font-bold">2</div>
+            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#0E7231] font-bold">2</div>
           </div>
           <div class="md:col-span-11">
             <h3 class="text-2xl font-semibold mb-4">Rejection without feedback drains confidence</h3>
@@ -183,7 +243,7 @@
         <!-- Point 3 -->
         <div class="grid md:grid-cols-12 gap-8 items-start">
           <div class="md:col-span-1">
-            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#128A3D] font-bold">3</div>
+            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#0E7231] font-bold">3</div>
           </div>
           <div class="md:col-span-11">
             <h3 class="text-2xl font-semibold mb-4">While you’re figuring it out, other founders are moving</h3>
@@ -324,7 +384,7 @@
       <div class="prose text-lg leading-relaxed text-[#585858]">
         <p>Most founders don't fail to raise because their idea isn't good enough. They fail because they approach investors at the wrong stage, with the wrong materials, in the wrong order.</p>
         <p>Raising capital isn't a talent — it's a process. Get the sequence right, and the outcome takes care of itself.</p>
-        <p class="font-semibold text-[#128A3D] mt-8">That’s why we developed the RAISE process</p>
+        <p class="font-semibold text-[#0E7231] mt-8">That’s why we developed the RAISE process</p>
         <p>Everything inside the Raise Accelerator is built around one outcome: helping you become investor-ready and get in front of the right people quickly.</p>
       </div>
     </div>
@@ -372,7 +432,7 @@
     <div class="text-center mt-16">
       <p class="text-xl text-[#585858] mb-6">Ready to run your raise like it's supposed to be run?</p>
       <!-- CTA Button -->
-<a href="/services/raise-accelerator/apply/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#128A3D] transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
+<a href="/services/raise-accelerator/apply/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#0E7231] transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
     </div>
   </div>
 </section>
@@ -463,7 +523,7 @@
 <!-- 10-MEETING GUARANTEE SECTION -->
 <section class="py-24 bg-[#0A2612]">
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-[#128A3D] rounded-3xl p-12 md:p-20 text-center border border-white/15">
+    <div class="bg-[#0E7231] rounded-3xl p-12 md:p-20 text-center border border-white/15">
       
       <h2 class="text-4xl md:text-5xl font-bold text-[#B4FAD1] leading-tight mb-10">
         The 10-Meeting Guarantee
@@ -498,7 +558,7 @@
     <div class="text-center mt-16">
       <p class="text-xl text-[#585858] mb-6">Ready to run your raise like it's supposed to be run?</p>
       <!-- CTA Button -->
-<a href="/services/raise-accelerator/apply/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#128A3D] transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
+<a href="/services/raise-accelerator/apply/" class="inline-block bg-white text-black px-12 py-6 rounded-3xl text-2xl font-semibold hover:bg-[#0E7231] transition" style="display:inline-block;text-decoration:none;">Book a Free Raise Audit →</a>
     </div>
   </div>
 </section>

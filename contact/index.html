@@ -73,18 +73,50 @@
   <!-- Fallback: simple form -->
   <section class="max-w-xl mx-auto px-6 pb-10">
     <h2 class="text-xl font-bold text-black text-center mb-2">Not ready for a call? Send a message.</h2>
-    <div class="placeholder-box rounded-lg p-3 text-sm text-center mb-6">
-      [TODO — form action below posts to a placeholder. Replace with the real GHL webhook/form endpoint once built (confirmed destination: GHL, tagged source: website contact form — see contact-page-final.md). Do not launch with this placeholder action.]
-    </div>
-    <form action="#ghl-endpoint-tbd" method="POST" class="space-y-4">
+    <form id="contact-form" class="space-y-4">
       <input type="text" name="name" placeholder="Name" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="text" name="company" placeholder="Company (optional)">
       <textarea name="message" placeholder="Message" rows="5" required></textarea>
       <button type="submit" class="brand-btn w-full py-3 rounded-full font-semibold">Send Message</button>
     </form>
-    <p class="text-sm text-gray-400 text-center mt-4">Got it — we'll get back to you within 1-2 business days.</p>
+    <p id="contact-form-status" class="text-sm text-gray-400 text-center mt-4">We'll get back to you within 1-2 business days.</p>
   </section>
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('contact-form-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        var data = {
+          name: form.name.value,
+          email: form.email.value,
+          company: form.company.value,
+          message: form.message.value
+        };
+        fetch('https://n8n.srv926257.hstgr.cloud/webhook/source-capital-contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+          .then(function (res) { return res.ok ? res.json() : Promise.reject(res); })
+          .then(function () {
+            form.reset();
+            form.hidden = true;
+            status.textContent = "Thanks — we've got your message and will be in touch within 1-2 business days.";
+            status.classList.add('brand-accent', 'font-semibold');
+          })
+          .catch(function () {
+            status.textContent = "Something went wrong sending that — please email hello@sourcecapital.co.uk directly.";
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+          });
+      });
+    })();
+  </script>
 
   <!-- FOOTER_START -->
 <footer style="border-top:1px solid #eee;padding:48px 24px;font-family:'Inter',system-ui,sans-serif;">

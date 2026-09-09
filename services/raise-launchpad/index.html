@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raise Launchpad | Self-Serve Fundraising Course | Source Capital</title>
+  <meta name="description" content="Raise Launchpad is Source Capital's self-serve course and playbook for founders who want to run their own raise — the full R.A.I.S.E. process, investor-ready templates, and a community of founders doing the same thing.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    :root {
+      --brand-green: #2AF76F;
+      --brand-deep-green: #128A3D;
+      --brand-mint: #B4FAD1;
+      --brand-grey: #585858;
+    }
+    .brand-accent { color: var(--brand-deep-green); }
+    .brand-btn { background-color: var(--brand-green); color: #000; }
+    .brand-btn:hover { background-color: var(--brand-deep-green); color: #fff; }
+    .brand-btn-outline { border: 1.5px solid var(--brand-deep-green); color: var(--brand-deep-green); }
+    .brand-btn-outline:hover { background-color: var(--brand-deep-green); color: #fff; }
+    .module-card { border: 1px solid #e5e7eb; }
+    .placeholder-box { border: 1.5px dashed #c9c9c9; background: #fafafa; color: #9a9a9a; font-style: italic; }
+  </style>
+</head>
+<body class="bg-white text-[#585858]">
+
+  <!-- NAV_START -->
+<style>
+  .sc-nav-links { display: flex; gap: 28px; }
+  @media (max-width: 767px) { .sc-nav-links { display: none; } }
+</style>
+<nav style="width:100%;border-bottom:1px solid #eee;font-family:'Inter',system-ui,sans-serif;">
+  <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="display:flex;align-items:center;"><img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;"></a>
+    <div class="sc-nav-links" id="scNavLinks" style="font-size:14px;font-weight:500;">
+      <a href="/" data-path="/" style="text-decoration:none;color:#000;">Home</a>
+      <a href="/services/" data-path="/services/" style="text-decoration:none;color:#000;">Services</a>
+      <a href="/how-it-works/" data-path="/how-it-works/" style="text-decoration:none;color:#000;">How It Works</a>
+      <a href="/about/" data-path="/about/" style="text-decoration:none;color:#000;">About</a>
+      <a href="/resources/" data-path="/resources/" style="text-decoration:none;color:#000;">Resources</a>
+      <a href="/contact/" data-path="/contact/" style="text-decoration:none;color:#000;">Contact</a>
+    </div>
+    <a href="/contact/" style="background:#128A3D;color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">Book a Call</a>
+  </div>
+</nav>
+<script>
+  (function () {
+    var path = window.location.pathname;
+    document.querySelectorAll('#scNavLinks a').forEach(function (a) {
+      var target = a.getAttribute('data-path');
+      var isActive = target === '/' ? (path === '/' || path === '/index.html') : path.indexOf(target) === 0;
+      a.style.color = isActive ? '#128A3D' : '#000';
+    });
+  })();
+</script>
+<!-- NAV_END -->
+
+  <!-- 1. HERO -->
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-16 text-center">
+    <p class="text-xs font-semibold uppercase tracking-wide brand-accent mb-4">Do it yourself</p>
+    <h1 class="text-4xl md:text-5xl font-bold text-black leading-tight mb-6">Learn the process. Run your own raise.</h1>
+    <p class="text-xl mb-10 max-w-2xl mx-auto">Raise Launchpad is the self-serve course and playbook behind everything Source Capital does — the full fundraising process, start to close, at your own pace. No calls required.</p>
+    <a href="#get-launchpad" class="inline-block brand-btn px-10 py-5 rounded-2xl text-lg font-semibold transition">Get Raise Launchpad</a>
+  </section>
+
+  <!-- 2. WHO IT'S FOR -->
+  <section class="bg-[#F7FAF8] py-16">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-black mb-5">For founders who want the process, not the hand-holding</h2>
+      <p>Not every founder needs a coach on the phone every week, or wants someone else running their raise for them. Some just need to know exactly what to do, in what order, with the right tools to do it — the same process we use with every founder we work with, just without the calls. If that's you, Raise Launchpad gives you the whole thing to run yourself.</p>
+    </div>
+  </section>
+
+  <!-- 3. WHAT'S INCLUDED -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-black text-center mb-4">Everything you need to run your own raise</h2>
+      <p class="text-center max-w-2xl mx-auto mb-14">The same R.A.I.S.E. framework behind every Source Capital engagement, broken down into a step-by-step course you work through on your own schedule.</p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="module-card rounded-3xl p-8">
+          <div class="brand-accent font-bold text-sm uppercase tracking-wide mb-3">The R.A.I.S.E. framework, step by step</div>
+          <p>Readiness, Assets, Investor list, Structured outreach, Engagement — the full course walks you through each stage in order, with concrete actions at every step instead of general advice.</p>
+        </div>
+        <div class="module-card rounded-3xl p-8">
+          <div class="brand-accent font-bold text-sm uppercase tracking-wide mb-3">Investor-ready templates</div>
+          <p>Deck, financial model, and outreach templates built from raises that actually closed — not generic boilerplate. Start from something that works, then make it yours.</p>
+        </div>
+        <div class="module-card rounded-3xl p-8">
+          <div class="brand-accent font-bold text-sm uppercase tracking-wide mb-3">Investor targeting guidance</div>
+          <p>How to build a list of investors who are actually a fit for your stage and sector — instead of a spreadsheet of names pulled from a Google search.</p>
+        </div>
+        <div class="module-card rounded-3xl p-8">
+          <div class="brand-accent font-bold text-sm uppercase tracking-wide mb-3">A community of founders doing the same thing</div>
+          <p>Access to a community of founders working through their own raises alongside you — so you're not figuring it out completely alone, even without 1-2-1 support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHERE THIS FITS -->
+  <section class="bg-[#F7FAF8] py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-black mb-5">Outgrow the self-serve version? We're still here.</h2>
+      <p class="mb-8">If you get into it and decide you want structure, a group raising alongside you, or someone doing the work for you, Raise Launchpad isn't a dead end — it's the foundation the other three tiers build on.</p>
+      <a href="/services/" class="brand-accent font-semibold underline">See how Raise Accelerator, Raise HQ, and Managed Raise compare →</a>
+    </div>
+  </section>
+
+  <!-- 5. PRICING / GET STARTED -->
+  <section id="get-launchpad" class="py-20">
+    <div class="max-w-xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-black mb-6">Ready to get started?</h2>
+      <div class="placeholder-box rounded-2xl p-6 text-sm mb-8">
+        [PLACEHOLDER — pricing and checkout not yet confirmed for Raise Launchpad. This button currently links to a holding anchor (#checkout-tbd). Replace with the real price and checkout/purchase URL before launch — do not ship live with this placeholder.]
+      </div>
+      <a href="#checkout-tbd" class="inline-block brand-btn px-10 py-5 rounded-2xl text-lg font-semibold transition">Get Raise Launchpad →</a>
+      <p class="mt-6 text-sm">Not sure this is the right fit? <a href="/contact/" class="brand-accent font-semibold underline">Book a free raise audit</a> and we'll tell you honestly which tier makes sense.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER_START -->
+<footer style="border-top:1px solid #eee;padding:48px 24px;font-family:'Inter',system-ui,sans-serif;">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;font-size:14px;color:#585858;">
+    <div>&copy; 2026 Source Capital. All rights reserved.</div>
+    <div style="display:flex;gap:32px;">
+      <a href="/terms.html" style="color:#585858;text-decoration:none;">Terms</a>
+      <a href="/privacy.html" style="color:#585858;text-decoration:none;">Privacy</a>
+    </div>
+    <div>Dubai, UAE</div>
+  </div>
+</footer>
+<!-- FOOTER_END -->
+
+</body>
+</html>

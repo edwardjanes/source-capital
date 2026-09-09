@@ -128,6 +128,126 @@
 </script>
 <!-- NAV_END -->
 
+<div class="header">
+  <div class="header-title">Source Capital</div>
+  <div class="header-raise">
+    <span class="raise-letter">R</span><span class="raise-dot">.</span>
+    <span class="raise-letter">A</span><span class="raise-dot">.</span>
+    <span class="raise-letter">I</span><span class="raise-dot">.</span>
+    <span class="raise-letter">S</span><span class="raise-dot">.</span>
+    <span class="raise-letter">E</span><span class="raise-dot">.</span>
+    <span class="raise-rest">&nbsp;Framework</span>
+  </div>
+</div>
+
+<div class="pipeline" id="pipeline"></div>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+<div class="card" id="card"></div>
+
+<script>
+const stages = [
+  {
+    letter: "R",
+    name: "Readiness",
+    tag: "Strategic positioning sprint",
+    body: `<p>We start by diagnosing where your raise is really breaking down — looking at your current positioning, valuation logic, traction, investor readiness, and likely weaknesses before they get exposed in the market.</p><p>You leave this stage knowing exactly what is helping your raise and what is undermining it.</p>`,
+    pills: ["Positioning audit", "Valuation logic", "Traction review", "Investor readiness score", "Weakness diagnosis"]
+  },
+  {
+    letter: "A",
+    name: "Assets",
+    tag: "Investor materials & data room",
+    body: `<p>Next, we help you build the materials investors expect to see — your pitch deck, financial model, founder narrative, and the way your opportunity is framed.</p><p>Not generic templates. Not vague advice. The actual assets you need to enter the market credibly.</p>`,
+    pills: ["Pitch deck", "Financial model", "Founder narrative", "Data room", "Opportunity framing"]
+  },
+  {
+    letter: "I",
+    name: "Investor list",
+    tag: "Warm introductions",
+    body: `<p>Then we build your investor target list. Not a random database. Not a broad list of names. A strategic shortlist of investors matched to your stage, sector, geography, and raise profile.</p><p>Stop guessing who to approach and start targeting people who make sense.</p>`,
+    pills: ["Stage filter", "Sector alignment", "Geography match", "Raise profile fit", "Shortlist strategy"]
+  },
+  {
+    letter: "S",
+    name: "Structured outreach",
+    tag: "Personalised feedback & raise support",
+    body: `<p>Once the foundations are in place, we help you launch a clear and disciplined outreach process — messaging, cadence, follow-up, pipeline structure, and investor tracking.</p><p>Instead of starting and stopping every few days, you run your raise like a process.</p>`,
+    pills: ["Outreach messaging", "Cadence planning", "Follow-up system", "Pipeline structure", "Investor tracking"]
+  },
+  {
+    letter: "E",
+    name: "Engagement",
+    tag: "Aligned investor network",
+    body: `<p>Finally, we help you handle the conversations that follow — investor meetings, tough questions, objections, follow-ups, and momentum between conversations.</p><p>Getting the meeting is only one part of the raise. Knowing how to handle what happens next is what keeps the process alive.</p>`,
+    pills: ["Meeting preparation", "Objection handling", "Follow-up momentum", "Commitment close", "Raise management"]
+  }
+];
+
+let current = 0;
+
+function buildPipeline() {
+  const el = document.getElementById("pipeline");
+  el.innerHTML = "";
+  stages.forEach((s, i) => {
+    if (i > 0) {
+      const arr = document.createElement("div");
+      arr.className = "arrow-sep";
+      el.appendChild(arr);
+    }
+    const btn = document.createElement("div");
+    btn.className = "step-btn" + (i === current ? " active" : i < current ? " done" : "");
+    btn.innerHTML = `<div class="s-letter">${s.letter}</div><div class="s-name">${s.name}</div>`;
+    btn.addEventListener("click", () => go(i));
+    el.appendChild(btn);
+  });
+}
+
+function buildCard(i) {
+  const s = stages[i];
+  document.getElementById("progress").style.width = ((i + 1) / stages.length * 100) + "%";
+  document.getElementById("card").innerHTML = `
+    <div class="card-header">
+      <div class="big-letter">${s.letter}</div>
+      <div class="card-titles">
+        <div class="card-name">${s.name}</div>
+        <span class="card-tag">${s.tag}</span>
+      </div>
+    </div>
+    <div class="card-body">${s.body}</div>
+    <div class="pillrow">${s.pills.map(p => `<span class="pill">${p}</span>`).join("")}</div>
+    ${i === 0 ? `
+    <div class="pain-prize">
+      <div class="pp-card pain">
+        <div class="pp-label">The pain</div>
+        <div class="pp-text">Unclear positioning, limited investor access, inconsistent outreach, weak pitches, and stalled momentum.</div>
+      </div>
+      <div class="pp-card prize">
+        <div class="pp-label">The outcome</div>
+        <div class="pp-text">Raise capital with confidence and control — on your terms, with a repeatable process behind you.</div>
+      </div>
+    </div>` : ""}
+    <div class="nav">
+      <div class="step-count">Step ${i + 1} of ${stages.length}</div>
+      <div class="nav-btns">
+        <button class="nav-btn" id="prev" ${i === 0 ? "disabled" : ""}>← Previous</button>
+        <button class="nav-btn primary" id="next" ${i === stages.length - 1 ? "disabled" : ""}>Next →</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("prev")?.addEventListener("click", () => go(i - 1));
+  document.getElementById("next")?.addEventListener("click", () => go(i + 1));
+}
+
+function go(i) {
+  if (i < 0 || i >= stages.length) return;
+  current = i;
+  buildPipeline();
+  buildCard(i);
+}
+
+go(0);
+</script>
+
 <div style="max-width:640px;margin:48px auto 0;padding:0 24px;text-align:center;font-family:'Inter',system-ui,sans-serif;">
   <p style="color:#585858;margin-bottom:12px;">This is the framework behind every Source Capital product.</p>
   <a href="/services/" style="color:#128A3D;font-weight:600;text-decoration:underline;">See which one fits your stage →</a>

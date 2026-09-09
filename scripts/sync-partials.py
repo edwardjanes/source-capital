@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Sync shared nav/footer markup into every built page.
+Sync shared nav/footer/analytics markup into every built page.
 
-How it works: each page contains <!-- NAV_START --> ... <!-- NAV_END -->
-and <!-- FOOTER_START --> ... <!-- FOOTER_END --> marker comments. This
+How it works: each page contains <!-- NAV_START --> ... <!-- NAV_END -->,
+<!-- FOOTER_START --> ... <!-- FOOTER_END -->, and
+<!-- ANALYTICS_START --> ... <!-- ANALYTICS_END --> marker comments. This
 script replaces everything between each pair of markers with the current
-content of _partials/nav.html / _partials/footer.html, so there is exactly
-one place to edit the nav or footer, and every page picks it up on the
+content of _partials/nav.html / _partials/footer.html / _partials/analytics.html,
+so there is exactly one place to edit each, and every page picks it up on the
 next run. Pages are plain static HTML (no build step, no Jekyll), so this
-runs by hand whenever the partials change or a new page is added.
+runs by hand whenever a partial changes or a new page is added.
 
 Usage: python3 scripts/sync-partials.py
 """
@@ -37,6 +38,7 @@ def sync_block(content, partial_content, start_marker, end_marker):
 def main():
     nav_partial = read(PARTIALS / "nav.html")
     footer_partial = read(PARTIALS / "footer.html")
+    analytics_partial = read(PARTIALS / "analytics.html")
 
     changed_files = []
     for html_file in ROOT.rglob("*.html"):
@@ -47,6 +49,7 @@ def main():
         content = original
         content, nav_hit = sync_block(content, nav_partial, "<!-- NAV_START -->", "<!-- NAV_END -->")
         content, footer_hit = sync_block(content, footer_partial, "<!-- FOOTER_START -->", "<!-- FOOTER_END -->")
+        content, analytics_hit = sync_block(content, analytics_partial, "<!-- ANALYTICS_START -->", "<!-- ANALYTICS_END -->")
         if content != original:
             html_file.write_text(content, encoding="utf-8")
             changed_files.append(str(rel))

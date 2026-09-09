@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Source Capital</title>
+  <meta name="description" content="Four ways to work with Source Capital, depending on how much of your raise you want to run yourself — from a self-serve playbook to a fully managed raise.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    :root {
+      --brand-green: #2AF76F;
+      --brand-deep-green: #128A3D;
+      --brand-mint: #B4FAD1;
+      --brand-grey: #585858;
+    }
+    .brand-accent { color: var(--brand-deep-green); }
+    .brand-btn { background-color: var(--brand-deep-green); color: #fff; }
+    .brand-btn:hover { background-color: #0e7231; }
+    .brand-btn-outline { border: 1.5px solid var(--brand-deep-green); color: var(--brand-deep-green); }
+    .brand-btn-outline:hover { background-color: var(--brand-mint); }
+    .tier-card { border: 1px solid #e5e5e5; transition: border-color .2s ease; }
+    .tier-card:hover { border-color: var(--brand-green); }
+  </style>
+</head>
+<body class="bg-white text-[#585858]">
+
+  <!-- Navbar (placeholder — replace with shared nav include once site nav is built) -->
+  <nav class="w-full border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="/" class="flex items-center">
+        <img src="/logo.png" alt="Source Capital" class="h-10 w-auto">
+      </a>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-black">
+        <a href="/" class="hover:text-[#128A3D]">Home</a>
+        <a href="/services/" class="text-[#128A3D]">Services</a>
+        <a href="/how-it-works/" class="hover:text-[#128A3D]">How It Works</a>
+        <a href="/about/" class="hover:text-[#128A3D]">About</a>
+        <a href="/resources/" class="hover:text-[#128A3D]">Resources</a>
+        <a href="/contact/" class="hover:text-[#128A3D]">Contact</a>
+      </div>
+      <a href="/contact/" class="brand-btn px-5 py-2.5 rounded-full font-semibold text-sm">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 pb-14 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-black mb-5">Pick the level of support that fits where you are</h1>
+    <p class="text-xl text-[#585858]">Same materials, same investor discipline, same team behind it — the difference is how much of the work you want to hand off. Every tier runs on the same <a href="/how-it-works/" class="brand-accent underline">R.A.I.S.E. framework</a> underneath.</p>
+  </section>
+
+  <!-- Tier cards -->
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Raise Launchpad -->
+      <div class="tier-card rounded-3xl p-8">
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">Do it yourself</p>
+        <h2 class="text-2xl font-bold text-black mb-3">Raise Launchpad</h2>
+        <p class="mb-6">For founders who want to learn the process and run their own raise. A self-serve course and playbook covering the full fundraising process, start to close — no calls required.</p>
+        <a href="/services/raise-launchpad/" class="brand-btn-outline inline-block px-6 py-3 rounded-full font-semibold text-sm">Explore Raise Launchpad →</a>
+      </div>
+
+      <!-- Raise Accelerator -->
+      <div class="tier-card rounded-3xl p-8">
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">We do it with you</p>
+        <h2 class="text-2xl font-bold text-black mb-3">Raise Accelerator</h2>
+        <p class="mb-6">For founders who want structure and a group raising alongside them. Coaching, masterclasses, and hands-on feedback so you're never figuring out the next step alone.</p>
+        <a href="/services/raise-accelerator/" class="brand-btn-outline inline-block px-6 py-3 rounded-full font-semibold text-sm">Explore Raise Accelerator →</a>
+      </div>
+
+      <!-- Raise HQ -->
+      <div class="tier-card rounded-3xl p-8" style="background-color:#B4FAD1;">
+        <p class="text-xs font-semibold uppercase tracking-wide text-black/60 mb-3">Software</p>
+        <h2 class="text-2xl font-bold text-black mb-3">Raise HQ</h2>
+        <p class="mb-6 text-black/80">For founders who want the operating system running the process for them. One platform that manages Discover, Engage, Close, Manage, and Re-engage — replacing the spreadsheet, the inbox, and your memory.</p>
+        <a href="/services/raise-hq/" class="brand-btn inline-block px-6 py-3 rounded-full font-semibold text-sm">Explore Raise HQ →</a>
+      </div>
+
+      <!-- Managed Raise -->
+      <div class="tier-card rounded-3xl p-8">
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">We do it for you</p>
+        <h2 class="text-2xl font-bold text-black mb-3">Managed Raise</h2>
+        <p class="mb-6">For founders who want to hand the whole thing off. A fully outsourced, done-for-you raise — investor targeting, outreach, and pitching run for you over a structured 12-week process — while you keep building the company.</p>
+        <a href="/services/managed-raise/" class="brand-btn-outline inline-block px-6 py-3 rounded-full font-semibold text-sm">Explore Managed Raise →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Not sure which fits -->
+  <section class="max-w-3xl mx-auto px-6 pb-20">
+    <div class="border border-gray-100 rounded-2xl p-8 text-center">
+      <h2 class="text-xl font-bold text-black mb-2">Not sure which one fits?</h2>
+      <p class="mb-6">Book a call and we'll tell you honestly which one makes sense — even if it's the cheapest option.</p>
+      <a href="/contact/" class="brand-btn inline-block px-8 py-3 rounded-full font-semibold">Book a Free Raise Audit</a>
+    </div>
+  </section>
+
+  <!-- Footer (placeholder — replace with shared footer include) -->
+  <footer class="bg-white border-t border-gray-100 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#585858]">
+      <div>&copy; 2026 Source Capital. All rights reserved.</div>
+      <div class="flex gap-x-8">
+        <a href="/terms.html" class="hover:text-[#128A3D]">Terms</a>
+        <a href="/privacy.html" class="hover:text-[#128A3D]">Privacy</a>
+      </div>
+      <div>Dubai, UAE</div>
+    </div>
+  </footer>
+
+</body>
+</html>

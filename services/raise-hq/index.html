@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Raise HQ | The Raise Operating System | Source Capital</title>
+<meta name="description" content="Raise HQ replaces the spreadsheet, the inbox, and your memory with one system that runs your raise from first outreach to close."/>
+<meta name="theme-color" content="#ffffff"/>
+<link rel="canonical" href="https://sourcecapital.co.uk/services/raise-hq/"/>
+<style>
+:root{--bg:#ffffff;--bg-elevated:#F7FAF8;--bg-card:#F5F7F6;--border:#e5e7eb;--text:#000000;--text-muted:#585858;--text-dim:#7a7a7a;--accent:#128A3D;--accent-hover:#0e7231;--primary:#2AF76F;--primary-foreground:#000000;--radius:12px;--radius-sm:8px;--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.logo{display:flex;align-items:center;height:32px;font-size:1.25rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;font-size:.875rem;font-weight:500;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:all .2s;font-family:inherit}.btn-primary{background:var(--primary);color:var(--primary-foreground)}.btn-primary:hover{background:#128A3D;color:#fff;transform:translateY(-1px)}.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}.btn-outline:hover{background:var(--bg-card);border-color:var(--text-dim)}.btn-lg{padding:14px 28px;font-size:1rem}
+.hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:64px 24px 80px;position:relative;overflow:hidden}.hero::before{content:"";position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(18,138,61,.10) 0%,transparent 70%);pointer-events:none}.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:999px;font-size:.8125rem;color:var(--text-muted);margin-bottom:32px}.hero-badge span{width:6px;height:6px;background:#128A3D;border-radius:50%}.hero h1{font-size:clamp(2.25rem,6vw,4rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;max-width:900px;margin-bottom:24px}.hero h1 .accent{background:linear-gradient(135deg,#128A3D,#2AF76F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero-sub{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--text-muted);max-width:620px;margin-bottom:40px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+section{padding:100px 24px}.container{max-width:1200px;margin:0 auto}.section-label{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:20px}.section-desc{font-size:1.125rem;color:var(--text-muted);max-width:580px;margin-bottom:48px}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}.problem-text p{color:var(--text-muted);margin-bottom:20px;font-size:1.0625rem}
+.slider{position:relative}.slider-viewport{overflow:hidden;border-radius:var(--radius)}.slider-track{display:flex;transition:transform .4s cubic-bezier(.25,.1,.25,1);will-change:transform}
+.stage{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 40px;min-width:100%;flex-shrink:0;display:grid;grid-template-columns:80px 1fr;gap:24px;box-sizing:border-box}
+.stage-num{font-size:1.5rem;font-weight:700;color:var(--accent)}.stage h3{font-size:1.35rem;font-weight:600;margin-bottom:8px}.stage .job{font-size:.9375rem;color:var(--text-muted);margin-bottom:16px}.stage ul{list-style:none;display:flex;flex-direction:column;gap:8px}.stage li{font-size:.9375rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:10px}.stage li::before{content:"";width:6px;height:6px;background:var(--primary);border-radius:50%;flex-shrink:0;margin-top:8px}
+.investor-chip{margin-top:28px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 20px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;max-width:520px}.chip-name{font-weight:600;font-size:.9375rem}.chip-firm{font-size:.8125rem;color:var(--text-dim)}.chip-score{font-size:1.25rem;font-weight:700;color:var(--accent)}.chip-score span{font-size:.75rem;font-weight:500;color:var(--text-dim)}.chip-tier{font-size:.75rem;font-weight:600;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:rgba(18,138,61,.12);color:var(--accent)}.chip-rationale{flex-basis:100%;font-size:.8125rem;color:var(--text-muted)}
+.slider-controls{display:flex;align-items:center;justify-content:space-between;margin-top:24px;gap:16px;flex-wrap:wrap}
+.slider-nav{display:flex;gap:10px}
+.slider-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s;font-family:inherit}
+.slider-btn:hover{border-color:var(--text-dim);background:var(--bg)}.slider-btn:disabled{opacity:.35;cursor:not-allowed}.slider-btn svg{width:20px;height:20px}
+.slider-dots{display:flex;gap:8px;align-items:center}.slider-dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--border);cursor:pointer;padding:0;transition:background .2s,transform .2s}.slider-dot.active{background:var(--accent);transform:scale(1.25)}
+.slider-label{font-size:.8125rem;color:var(--text-dim)}
+.slider-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.slider-tab{font-size:.8125rem;font-weight:500;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-family:inherit;transition:all .2s}
+.slider-tab.active{background:rgba(18,138,61,.10);border-color:rgba(18,138,61,.35);color:var(--accent)}
+.pricing-toggle-wrap{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 40px;flex-wrap:wrap}
+.billing-toggle{display:inline-flex;background:var(--bg-card);border:1px solid var(--border);border-radius:999px;padding:4px}
+.billing-toggle button{border:none;background:transparent;color:var(--text-muted);font-family:inherit;font-size:.875rem;font-weight:500;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
+.billing-toggle button.active{background:var(--primary);color:var(--primary-foreground)}
+.save-badge{font-size:.75rem;font-weight:600;color:var(--accent);background:rgba(18,138,61,.10);padding:4px 10px;border-radius:999px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.price-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column}.price-card.featured{border-color:var(--primary);position:relative}.price-card.featured::before{content:"Most used";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#000;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:999px}.price-name{font-size:1.125rem;font-weight:600;margin-bottom:8px}.price-amount{font-size:2.5rem;font-weight:700;letter-spacing:-.03em;margin-bottom:4px}.price-amount span{font-size:1rem;font-weight:500;color:var(--text-muted)}.price-billed{font-size:.8125rem;color:var(--text-dim);min-height:1.25em;margin-bottom:8px}.price-desc{font-size:.875rem;color:var(--text-muted);margin-bottom:24px;min-height:40px}.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex-grow:1}.price-features li{font-size:.875rem;color:var(--text-muted);display:flex;gap:8px}.price-features li::before{content:"✓";color:var(--accent);font-weight:600}
+.faq-list{max-width:720px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border)}.faq-question{width:100%;background:none;border:none;color:var(--text);font-family:inherit;font-size:1.0625rem;font-weight:500;text-align:left;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}.faq-icon{width:20px;height:20px;flex-shrink:0;transition:transform .3s;opacity:.6}.faq-item.open .faq-icon{transform:rotate(45deg)}.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}.faq-item.open .faq-answer{max-height:320px;padding-bottom:24px}.faq-answer p{color:var(--text-muted);font-size:.9375rem;line-height:1.7}
+.cta-section{text-align:center;padding:120px 24px}.cta-section h2{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;letter-spacing:-.03em;max-width:640px;margin:0 auto 16px;line-height:1.25}.cta-section p{color:var(--text-muted);font-size:1.125rem;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
+footer{border-top:1px solid var(--border);padding:64px 24px 32px;background:var(--bg-elevated)}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 48px}.footer-brand p{color:var(--text-muted);font-size:.875rem;margin-top:12px;max-width:280px}.footer-col h4{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);margin-bottom:16px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}.footer-col a{font-size:.875rem;color:var(--text-muted)}.footer-col a:hover{color:var(--text)}.footer-bottom{max-width:1200px;margin:0 auto;padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:.8125rem;color:var(--text-dim)}
+@media(max-width:900px){.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:16px}.nav-links.open{display:flex}.mobile-toggle{display:block}.problem-grid{grid-template-columns:1fr}.stage{grid-template-columns:1fr;padding:28px 24px}.pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}.footer-grid{grid-template-columns:1fr 1fr}.slider-tabs{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:4px}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}.hero-ctas{flex-direction:column;width:100%;max-width:280px}.btn-lg{width:100%}}
+@media(prefers-reduced-motion:reduce){.slider-track{transition:none}}
+</style>
+</head>
+<body>
+<!-- NAV_START -->
+<style>
+  .sc-nav-links { display: flex; gap: 28px; }
+  @media (max-width: 767px) { .sc-nav-links { display: none; } }
+</style>
+<nav style="width:100%;border-bottom:1px solid #eee;font-family:'Inter',system-ui,sans-serif;">
+  <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="display:flex;align-items:center;"><img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;"></a>
+    <div class="sc-nav-links" id="scNavLinks" style="font-size:14px;font-weight:500;">
+      <a href="/" data-path="/" style="text-decoration:none;color:#000;">Home</a>
+      <a href="/services/" data-path="/services/" style="text-decoration:none;color:#000;">Services</a>
+      <a href="/how-it-works/" data-path="/how-it-works/" style="text-decoration:none;color:#000;">How It Works</a>
+      <a href="/about/" data-path="/about/" style="text-decoration:none;color:#000;">About</a>
+      <a href="/resources/" data-path="/resources/" style="text-decoration:none;color:#000;">Resources</a>
+      <a href="/contact/" data-path="/contact/" style="text-decoration:none;color:#000;">Contact</a>
+    </div>
+    <a href="/contact/" style="background:#128A3D;color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">Book a Call</a>
+  </div>
+</nav>
+<script>
+  (function () {
+    var path = window.location.pathname;
+    document.querySelectorAll('#scNavLinks a').forEach(function (a) {
+      var target = a.getAttribute('data-path');
+      var isActive = target === '/' ? (path === '/' || path === '/index.html') : path.indexOf(target) === 0;
+      a.style.color = isActive ? '#128A3D' : '#000';
+    });
+  })();
+</script>
+<!-- NAV_END -->
+<header class="hero">
+<div class="hero-badge"><span></span> For founders actively raising · Pre-seed to Series A</div>
+<h1>The raise operating system for founders <span class="accent">actually raising capital</span></h1>
+<p class="hero-sub">One system that replaces the spreadsheet, the inbox, and your memory — running Discover, Engage, Close, Manage, and Re-engage as one continuous process, not five disconnected habits.</p>
+<div class="hero-ctas">
+<a href="#checkout-tbd" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+<a href="https://cal.com/edward-janes/60-min" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Book a Walkthrough</a>
+</div>
+</header>
+<section id="problem"><div class="container"><div class="problem-grid">
+<div class="problem-text"><p class="section-label">The problem</p><h2 class="section-title">Most raises are still run on spreadsheets and memory</h2>
+<p>Investor lists live in one place, outreach drafts in another, replies scattered across inboxes, and the true state of the round only exists in the founder's head.</p>
+<p>Warm investors fall through the cracks. Follow-ups are late or generic. "Not now" never becomes a next-step plan.</p></div>
+<div><p class="section-label" style="margin-bottom:12px">What changes</p>
+<ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
+<li style="display:flex;gap:12px;color:var(--text-muted);font-size:.9375rem"><span style="color:var(--accent);font-weight:600">→</span> Know exactly where every conversation stands</li>
+<li style="display:flex;gap:12px;color:var(--text-muted);font-size:.9375rem"><span style="color:var(--accent);font-weight:600">→</span> Stop losing warm investors to bad follow-up</li>
+<li style="display:flex;gap:12px;color:var(--text-muted);font-size:.9375rem"><span style="color:var(--accent);font-weight:600">→</span> Run a tighter process from first outreach to wire</li>
+</ul></div></div></div></section>
+<section id="journey" style="background:var(--bg-elevated);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="container">
+<p class="section-label">The investor journey</p>
+<h2 class="section-title">Five stages. One continuous process.</h2>
+<p class="section-desc">Structure the entire raise around the stages that actually move capital.</p>
+<div class="slider" id="journeySlider">
+  <div class="slider-tabs" role="tablist" aria-label="Journey stages">
+    <button type="button" class="slider-tab active" data-index="0" role="tab" aria-selected="true">Discover</button>
+    <button type="button" class="slider-tab" data-index="1" role="tab" aria-selected="false">Engage</button>
+    <button type="button" class="slider-tab" data-index="2" role="tab" aria-selected="false">Close</button>
+    <button type="button" class="slider-tab" data-index="3" role="tab" aria-selected="false">Manage</button>
+    <button type="button" class="slider-tab" data-index="4" role="tab" aria-selected="false">Re-engage</button>
+  </div>
+  <div class="slider-viewport">
+    <div class="slider-track" id="sliderTrack">
+      <article class="stage" data-stage="0"><div class="stage-num">01</div><div><h3>Discover</h3><p class="job">Find the investors who actually back companies like yours, and know who to hit first.</p><ul><li>Investor CRM built for funds, partners, angels, syndicates and family offices</li><li>AI fit scoring (1–10) with written rationale and T1 / T2 / T3 priority</li><li>Warm intro mapping</li></ul><div class="investor-chip"><div><div class="chip-name">Alex Rivera</div><div class="chip-firm">Northbridge Ventures · Partner</div></div><div class="chip-score">8.4 <span>/10</span></div><div class="chip-tier">T1</div><div class="chip-rationale">Strong thesis match on vertical SaaS + prior cheques at this stage.</div></div></div></article>
+      <article class="stage" data-stage="1"><div class="stage-num">02</div><div><h3>Engage</h3><p class="job">Open real conversations at volume without sounding automated.</p><ul><li>AI-drafted outreach from your company context</li><li>Graduated trust model: calibration → exception → optional auto</li><li>Reply classification and routing</li></ul></div></article>
+      <article class="stage" data-stage="2"><div class="stage-num">03</div><div><h3>Close</h3><p class="job">Move from interest to signed to wired without losing the thread.</p><ul><li>Data room with per-investor access and view tracking</li><li>SAFE / term-sheet handling and capital-call pay links</li><li>Allocation dashboard</li></ul></div></article>
+      <article class="stage" data-stage="3"><div class="stage-num">04</div><div><h3>Manage</h3><p class="job">Keep every investor informed, and keep the round's true state visible.</p><ul><li>Recurring investor updates</li><li>Clear view of commitments and open threads</li></ul></div></article>
+      <article class="stage" data-stage="4"><div class="stage-num">05</div><div><h3>Re-engage</h3><p class="job">Turn a "not now" into a cheque on the next milestone.</p><ul><li>Capture what would change their mind and a revisit date</li><li>Milestone triggers the follow-up automatically</li></ul></div></article>
+    </div>
+  </div>
+  <div class="slider-controls">
+    <div class="slider-nav">
+      <button type="button" class="slider-btn" id="slidePrev" aria-label="Previous stage"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="slider-btn" id="slideNext" aria-label="Next stage"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+    <span class="slider-label" id="slideLabel">1 / 5</span>
+    <div class="slider-dots" id="sliderDots" role="tablist"></div>
+  </div>
+</div>
+</div></section>
+<section id="pricing"><div class="container">
+<p class="section-label" style="text-align:center">Pricing</p>
+<h2 class="section-title" style="text-align:center;margin-bottom:16px">Simple tiers for the stage you're in</h2>
+<p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;margin-bottom:28px">All plans include a 14-day free trial.</p>
+<div class="pricing-toggle-wrap">
+  <div class="billing-toggle" role="group" aria-label="Billing period">
+    <button type="button" id="billMonthly" class="active" data-period="monthly">Monthly</button>
+    <button type="button" id="billAnnual" data-period="annual">Annual</button>
+  </div>
+  <span class="save-badge" id="saveBadge" hidden>Save 2 months</span>
+</div>
+<div class="pricing-grid">
+<div class="price-card"><div class="price-name">Basic</div><div class="price-amount" data-monthly="27" data-annual="22">$27<span>/mo</span></div><div class="price-billed" data-billed></div><p class="price-desc">Investor CRM, fit scoring, manual outreach</p><ul class="price-features"><li>Investor database & CRM</li><li>AI fit scoring + rationale</li><li>T1 / T2 / T3 prioritisation</li><li>Manual outreach tools</li></ul><a href="#checkout-tbd" class="btn btn-outline" style="width:100%">Start free trial</a></div>
+<div class="price-card featured"><div class="price-name">Premium</div><div class="price-amount" data-monthly="97" data-annual="81">$97<span>/mo</span></div><div class="price-billed" data-billed></div><p class="price-desc">Adds AI drafting, sequences, reply classification, data room</p><ul class="price-features"><li>Everything in Basic</li><li>AI-drafted outreach</li><li>Sequences & graduated trust</li><li>Reply classification</li><li>Data room with view tracking</li></ul><a href="#checkout-tbd" class="btn btn-primary" style="width:100%">Start free trial</a></div>
+<div class="price-card"><div class="price-name">Pro</div><div class="price-amount" data-monthly="197" data-annual="164">$197<span>/mo</span></div><div class="price-billed" data-billed></div><p class="price-desc">Adds allocation dashboard, updates, intro mapping, priority support</p><ul class="price-features"><li>Everything in Premium</li><li>Allocation dashboard</li><li>Recurring investor updates</li><li>Warm intro mapping</li><li>Priority support</li></ul><a href="#checkout-tbd" class="btn btn-outline" style="width:100%">Start free trial</a></div>
+</div></div></section>
+<section id="faq"><div class="container">
+<p class="section-label" style="text-align:center">FAQ</p><h2 class="section-title" style="text-align:center;margin-bottom:48px">Common questions</h2>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-question">What is Raise HQ?<svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><div class="faq-answer"><p>Raise HQ is a raise operating system for startup founders who are actively raising capital. It organises Discover → Engage → Close → Manage → Re-engage in one process.</p></div></div>
+<div class="faq-item"><button class="faq-question">Is Raise HQ an investment adviser or placement agent?<svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><div class="faq-answer"><p>No. Raise HQ is software that helps founders run their own process. It does not provide investment advice, act as a broker-dealer, or introduce investors to specific deals.</p></div></div>
+<div class="faq-item"><button class="faq-question">What happens to my data if I cancel?<svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><div class="faq-answer"><p>You can export your data before cancellation. See our <a href="https://myraisehq.com/privacy.html" style="color:var(--accent)">Privacy Policy</a> and <a href="https://myraisehq.com/refund.html" style="color:var(--accent)">Refund & Cancellation Policy</a>.</p></div></div>
+<div class="faq-item"><button class="faq-question">Is there a free trial?<svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><div class="faq-answer"><p>Yes. Every plan includes a 14-day free trial.</p></div></div>
+<div class="faq-item"><button class="faq-question">How does Raise HQ relate to Source Capital?<svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><div class="faq-answer"><p>Raise HQ is built by the same team behind Source Capital's advisory work — but it's self-serve software, not hands-on advisory. If you'd rather have someone run the process with you, look at <a href="/services/managed-raise/" style="color:var(--accent)">Managed Raise</a> or <a href="/services/raise-accelerator/" style="color:var(--accent)">Raise Accelerator</a> instead.</p></div></div>
+</div></div></section>
+<section id="trial" class="cta-section">
+<h2>Run a tighter process. Stop losing warm investors to bad follow-up.</h2>
+<p>Every plan includes a 14-day free trial. Or book a walkthrough first if you'd rather see it in action.</p>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+<a href="#checkout-tbd" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+<a href="https://cal.com/edward-janes/60-min" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Book a Walkthrough</a>
+</div></section>
+<footer><div class="footer-grid">
+<div class="footer-brand"><a href="/" class="logo"><span class="raise" style="color:#128A3D">RAISE</span><span class="hq" style="color:#000">HQ</span></a><p>The raise operating system for founders actively raising capital. Pre-seed through Series A. Built by <a href="/" style="color:var(--text-muted);text-decoration:underline">Source Capital</a>.</p></div>
+<div class="footer-col"><h4>Product</h4><ul><li><a href="#journey">Journey</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+<div class="footer-col"><h4>Source Capital</h4><ul><li><a href="/">Home</a></li><li><a href="/services/">All Services</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+<div class="footer-col"><h4>Legal</h4><ul><li><a href="https://myraisehq.com/privacy.html">Privacy</a></li><li><a href="https://myraisehq.com/terms.html">Terms</a></li><li><a href="https://myraisehq.com/refund.html">Refunds</a></li></ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Source Capital. All rights reserved. · <a href="mailto:support@myraisehq.com" style="color:var(--text-muted)">support@myraisehq.com</a></span><span>myraisehq.com</span></div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{
+  const item=btn.parentElement;const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}));
+const prices={basic:{m:27,a:22,year:270},premium:{m:97,a:81,year:970},pro:{m:197,a:164,year:1970}};
+function setBilling(period){
+  const annual=period==='annual';
+  document.getElementById('billMonthly').classList.toggle('active',!annual);
+  document.getElementById('billAnnual').classList.toggle('active',annual);
+  document.getElementById('saveBadge').hidden=!annual;
+  document.querySelectorAll('.price-amount').forEach(el=>{
+    el.innerHTML='$'+(annual?el.dataset.annual:el.dataset.monthly)+'<span>/mo</span>';
+  });
+  document.querySelectorAll('[data-billed]').forEach((el,i)=>{
+    const p=prices[['basic','premium','pro'][i]];
+    el.textContent=annual?('Billed $'+p.year+'/year'):'';
+  });
+}
+document.getElementById('billMonthly').addEventListener('click',()=>setBilling('monthly'));
+document.getElementById('billAnnual').addEventListener('click',()=>setBilling('annual'));
+(function(){
+  const track=document.getElementById('sliderTrack');
+  const slides=track.querySelectorAll('.stage');
+  const total=slides.length;
+  let index=0;
+  const prevBtn=document.getElementById('slidePrev');
+  const nextBtn=document.getElementById('slideNext');
+  const label=document.getElementById('slideLabel');
+  const dotsEl=document.getElementById('sliderDots');
+  const tabs=document.querySelectorAll('.slider-tab');
+  for(let i=0;i<total;i++){
+    const d=document.createElement('button');
+    d.type='button';d.className='slider-dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','Go to stage '+(i+1));
+    d.addEventListener('click',()=>go(i));
+    dotsEl.appendChild(d);
+  }
+  const dots=dotsEl.querySelectorAll('.slider-dot');
+  function go(i){
+    index=Math.max(0,Math.min(total-1,i));
+    track.style.transform='translateX(-'+index*100+'%)';
+    label.textContent=(index+1)+' / '+total;
+    prevBtn.disabled=index===0;
+    nextBtn.disabled=index===total-1;
+    dots.forEach((d,j)=>d.classList.toggle('active',j===index));
+    tabs.forEach((t,j)=>{t.classList.toggle('active',j===index);t.setAttribute('aria-selected',j===index?'true':'false');});
+  }
+  prevBtn.addEventListener('click',()=>go(index-1));
+  nextBtn.addEventListener('click',()=>go(index+1));
+  tabs.forEach(t=>t.addEventListener('click',()=>go(+t.dataset.index)));
+  let startX=0;
+  track.addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX},{passive:true});
+  track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-startX;if(Math.abs(dx)>50) go(index+(dx<0?1:-1));},{passive:true});
+  go(0);
+})();
+</script>
+</body>
+</html>

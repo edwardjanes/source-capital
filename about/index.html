@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <!-- ANALYTICS_START -->
+<!-- Inter (brand typeface) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21Z8XMXK0"></script>
 <script>
@@ -29,13 +34,13 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
     :root {
       --brand-green: #2AF76F;
-      --brand-deep-green: #128A3D;
+      --brand-deep-green: #0E7231;
       --brand-mint: #B4FAD1;
       --brand-grey: #585858;
     }
     .brand-accent { color: var(--brand-deep-green); }
     .brand-btn { background-color: var(--brand-deep-green); color: #fff; }
-    .brand-btn:hover { background-color: #0e7231; }
+    .brand-btn:hover { background-color: #0a5c28; }
     .pull-quote {
       border-left: 4px solid var(--brand-green);
       background: #F7FAF8;
@@ -47,12 +52,41 @@
 <body class="bg-white text-[#585858]">
 
   <!-- NAV_START -->
+<a href="#main-content" class="sc-skip-link">Skip to content</a>
 <style>
+  .sc-skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: #0E7231; color: #fff; padding: 12px 20px;
+    border-radius: 0 0 8px 0; font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+  }
+  .sc-skip-link:focus { left: 0; }
   .sc-nav-links { display: flex; gap: 28px; }
-  @media (max-width: 767px) { .sc-nav-links { display: none; } }
+  .sc-nav-cta {
+    background: #0E7231; color: #fff; padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; box-sizing: border-box;
+  }
+  #scNavToggle { display: none; }
+  @media (max-width: 767px) {
+    .sc-nav-links { display: none; }
+    #scNavToggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+      font-size: 22px; color: #000; padding: 0;
+    }
+    .sc-nav-links.open {
+      display: flex; flex-direction: column; gap: 4px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid #eee; padding: 8px 24px 20px;
+      z-index: 99;
+    }
+    .sc-nav-links.open a { padding: 12px 0; min-height: 44px; display: flex; align-items: center; }
+  }
 </style>
 <nav style="width:100%;border-bottom:1px solid #eee;font-family:'Inter',system-ui,sans-serif;position:sticky;top:0;z-index:100;background:#fff;">
-  <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+  <div style="max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:relative;">
     <a href="/" style="display:flex;align-items:center;"><img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;"></a>
     <div class="sc-nav-links" id="scNavLinks" style="font-size:14px;font-weight:500;">
       <a href="/" data-path="/" style="text-decoration:none;color:#000;">Home</a>
@@ -62,7 +96,10 @@
       <a href="/resources/" data-path="/resources/" style="text-decoration:none;color:#000;">Resources</a>
       <a href="/contact/" data-path="/contact/" style="text-decoration:none;color:#000;">Contact</a>
     </div>
-    <a href="/contact/" style="background:#128A3D;color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">Book a Call</a>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <a href="/contact/" class="sc-nav-cta">Book a Call</a>
+      <button id="scNavToggle" aria-expanded="false" aria-controls="scNavLinks" aria-label="Menu">&#9776;</button>
+    </div>
   </div>
 </nav>
 <script>
@@ -71,21 +108,44 @@
     document.querySelectorAll('#scNavLinks a').forEach(function (a) {
       var target = a.getAttribute('data-path');
       var isActive = target === '/' ? (path === '/' || path === '/index.html') : path.indexOf(target) === 0;
-      a.style.color = isActive ? '#128A3D' : '#000';
+      a.style.color = isActive ? '#0E7231' : '#000';
     });
+
+    var toggle = document.getElementById('scNavToggle');
+    var links = document.getElementById('scNavLinks');
+    if (toggle && links) {
+      function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      function openMenu() {
+        links.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+      toggle.addEventListener('click', function () {
+        if (links.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    }
   })();
 </script>
 <!-- NAV_END -->
+<a id="main-content"></a>
 
   <!-- 1. HERO -->
   <section class="max-w-6xl mx-auto px-6 pt-16 pb-20 grid md:grid-cols-2 gap-12 items-center">
     <div>
       <h1 class="text-4xl md:text-5xl font-bold text-black leading-tight mb-6">We've done the raise. Most advisors haven't.</h1>
       <p class="text-lg mb-8">Source Capital was built on one idea: founders don't fail to raise because their idea is bad. They fail because nobody told them how the room actually works. We did the raises ourselves — now we make sure you don't learn the hard way.</p>
-      <a href="#why-we-exist" class="inline-block brand-btn px-8 py-4 rounded-2xl font-semibold transition">Read the Story ↓</a>
+      <a href="#why-we-exist" class="inline-block brand-btn px-8 py-4 rounded-full font-semibold transition">Read the Story ↓</a>
     </div>
     <div>
-      <img src="/profile.PNG" alt="Edward Janes, founder of Source Capital" class="rounded-3xl w-full">
+      <img src="/profile.webp" alt="Edward Janes, founder of Source Capital" width="600" height="600" class="rounded-3xl w-full">
     </div>
   </section>
 
@@ -130,7 +190,7 @@
         <p>The philosophy that came out of it is simple: <strong class="text-black">which market you raise from matters as much as your pitch, and a bad term sheet can cost you more than a slow raise ever will.</strong> Most of the work we do with founders is protecting them from the second one.</p>
       </div>
       <div class="md:col-span-2 md:order-1">
-        <img src="/profile.PNG" alt="Edward Janes, founder of Source Capital" class="rounded-3xl w-full">
+        <img src="/profile.webp" alt="" width="600" height="600" loading="lazy" class="rounded-3xl w-full">
       </div>
     </div>
   </section>
@@ -158,7 +218,7 @@
     <div class="max-w-2xl mx-auto px-6 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-5">Ready to see where your raise actually stands?</h2>
       <p class="text-gray-300 text-lg mb-10">No pitch, no pressure — just an honest read from someone who's done this before, across every stage from pre-seed founders to established operators.</p>
-      <a href="/contact/" class="inline-block bg-[#2AF76F] hover:bg-[#128A3D] hover:text-white text-black px-10 py-5 rounded-2xl text-lg font-semibold transition">Book Your Free Raise Audit</a>
+      <a href="/contact/" class="inline-block bg-[#2AF76F] hover:bg-[#0E7231] hover:text-white text-black px-10 py-5 rounded-2xl text-lg font-semibold transition">Book Your Free Raise Audit</a>
     </div>
   </section>
 

@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <!-- ANALYTICS_START -->
+<!-- Inter (brand typeface) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21Z8XMXK0"></script>
 <script>
@@ -29,29 +34,57 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
     :root {
       --brand-green: #2AF76F;
-      --brand-deep-green: #128A3D;
+      --brand-deep-green: #0E7231;
       --brand-mint: #B4FAD1;
       --brand-grey: #585858;
     }
     .brand-accent { color: var(--brand-deep-green); }
     .brand-btn { background-color: var(--brand-deep-green); color: #fff; }
-    .brand-btn:hover { background-color: #0e7231; }
+    .brand-btn:hover { background-color: #0a5c28; }
     .brand-btn-outline { border: 1.5px solid var(--brand-deep-green); color: var(--brand-deep-green); }
     .brand-btn-outline:hover { background-color: var(--brand-mint); }
-    .tier-card { border: 1px solid #e5e5e5; transition: border-color .2s ease; }
-    .tier-card:hover { border-color: var(--brand-green); }
-    .placeholder-box { border: 1.5px dashed #c9c9c9; background: #fafafa; color: #9a9a9a; font-style: italic; }
+    .tier-card { border: 1px solid #e5e5e5; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; display: block; text-decoration: none; color: inherit; }
+    a.tier-card:hover { border-color: #0E7231; box-shadow: 0 8px 20px rgba(14,114,49,0.12); transform: translateY(-2px); }
   </style>
 </head>
 <body class="bg-white text-[#585858]">
 
   <!-- NAV_START -->
+<a href="#main-content" class="sc-skip-link">Skip to content</a>
 <style>
+  .sc-skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: #0E7231; color: #fff; padding: 12px 20px;
+    border-radius: 0 0 8px 0; font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+  }
+  .sc-skip-link:focus { left: 0; }
   .sc-nav-links { display: flex; gap: 28px; }
-  @media (max-width: 767px) { .sc-nav-links { display: none; } }
+  .sc-nav-cta {
+    background: #0E7231; color: #fff; padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; font-size: 14px; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; box-sizing: border-box;
+  }
+  #scNavToggle { display: none; }
+  @media (max-width: 767px) {
+    .sc-nav-links { display: none; }
+    #scNavToggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+      font-size: 22px; color: #000; padding: 0;
+    }
+    .sc-nav-links.open {
+      display: flex; flex-direction: column; gap: 4px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid #eee; padding: 8px 24px 20px;
+      z-index: 99;
+    }
+    .sc-nav-links.open a { padding: 12px 0; min-height: 44px; display: flex; align-items: center; }
+  }
 </style>
 <nav style="width:100%;border-bottom:1px solid #eee;font-family:'Inter',system-ui,sans-serif;position:sticky;top:0;z-index:100;background:#fff;">
-  <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
+  <div style="max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:relative;">
     <a href="/" style="display:flex;align-items:center;"><img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;"></a>
     <div class="sc-nav-links" id="scNavLinks" style="font-size:14px;font-weight:500;">
       <a href="/" data-path="/" style="text-decoration:none;color:#000;">Home</a>
@@ -61,7 +94,10 @@
       <a href="/resources/" data-path="/resources/" style="text-decoration:none;color:#000;">Resources</a>
       <a href="/contact/" data-path="/contact/" style="text-decoration:none;color:#000;">Contact</a>
     </div>
-    <a href="/contact/" style="background:#128A3D;color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">Book a Call</a>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <a href="/contact/" class="sc-nav-cta">Book a Call</a>
+      <button id="scNavToggle" aria-expanded="false" aria-controls="scNavLinks" aria-label="Menu">&#9776;</button>
+    </div>
   </div>
 </nav>
 <script>
@@ -70,11 +106,34 @@
     document.querySelectorAll('#scNavLinks a').forEach(function (a) {
       var target = a.getAttribute('data-path');
       var isActive = target === '/' ? (path === '/' || path === '/index.html') : path.indexOf(target) === 0;
-      a.style.color = isActive ? '#128A3D' : '#000';
+      a.style.color = isActive ? '#0E7231' : '#000';
     });
+
+    var toggle = document.getElementById('scNavToggle');
+    var links = document.getElementById('scNavLinks');
+    if (toggle && links) {
+      function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      function openMenu() {
+        links.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+      toggle.addEventListener('click', function () {
+        if (links.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    }
   })();
 </script>
 <!-- NAV_END -->
+<a id="main-content"></a>
 <!-- 1. Hero -->
   <section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
     <h1 class="text-4xl md:text-6xl font-bold text-black mb-6 leading-tight">Most founders don't fail on the idea.<br>They fail on the raise.</h1>
@@ -106,10 +165,6 @@
           <div class="text-black/70">Capital Raised</div>
         </div>
       </div>
-      <!-- PLACEHOLDER: testimonial / named proof, required before launch — see homepage-final.md -->
-      <div class="placeholder-box rounded-2xl p-8 max-w-xl mx-auto text-left">
-        [PLACEHOLDER — real testimonial or named case reference needed before launch. e.g. "Helped a Dubai-based SaaS founder close a $1.2M seed round in 11 weeks." Do not ship this numbers-only. See homepage-final.md.]
-      </div>
     </div>
   </section>
 
@@ -118,26 +173,26 @@
     <h2 class="text-3xl font-bold text-black text-center mb-3">Pick the level of support that fits where you are</h2>
     <p class="text-center max-w-2xl mx-auto mb-12">Same materials, same investor discipline, same team behind it — the difference is how much of the work you want to hand off.</p>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="tier-card rounded-2xl p-6">
-        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Do it yourself</p>
+      <a href="/services/raise-launchpad/" class="tier-card rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-[#585858] mb-2">Do it yourself</p>
         <h3 class="text-lg font-bold text-black mb-2">Raise Launchpad</h3>
         <p class="text-sm mb-4">Self-serve course + playbook covering the full fundraising process.</p>
-      </div>
-      <div class="tier-card rounded-2xl p-6">
-        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">We do it with you</p>
+      </a>
+      <a href="/services/raise-accelerator/" class="tier-card rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-[#585858] mb-2">We do it with you</p>
         <h3 class="text-lg font-bold text-black mb-2">Raise Accelerator</h3>
         <p class="text-sm mb-4">Coaching + peer support to navigate a raise with guidance, not alone.</p>
-      </div>
-      <div class="tier-card rounded-2xl p-6" style="background-color:#B4FAD1;">
+      </a>
+      <a href="/services/raise-hq/" class="tier-card rounded-2xl p-6" style="background-color:#B4FAD1;">
         <p class="text-xs font-semibold uppercase tracking-wide text-black/60 mb-2">Software</p>
         <h3 class="text-lg font-bold text-black mb-2">Raise HQ</h3>
         <p class="text-sm mb-4 text-black/80">An automated platform that manages your investor pipeline and outreach for you.</p>
-      </div>
-      <div class="tier-card rounded-2xl p-6">
-        <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">We do it for you</p>
+      </a>
+      <a href="/services/managed-raise/" class="tier-card rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-[#585858] mb-2">We do it for you</p>
         <h3 class="text-lg font-bold text-black mb-2">Managed Raise</h3>
         <p class="text-sm mb-4">Fully outsourced — we run the raise, you keep building the company.</p>
-      </div>
+      </a>
     </div>
     <div class="text-center mt-10">
       <a href="/services/" class="brand-btn inline-block px-8 py-3.5 rounded-full font-semibold mb-3">Find My Starting Point →</a>
@@ -147,7 +202,7 @@
   </section>
 
   <!-- 5. How it works -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-[#F7FAF8]">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold text-black mb-4">The R.A.I.S.E. framework</h2>
       <p class="mb-8">Every engagement — however much of it we're running for you — follows the same process: Readiness, Assets, Investor list, Structured outreach, Engagement. It's the difference between hoping an investor says yes and knowing why they will.</p>
@@ -171,17 +226,14 @@
         <h3 class="font-semibold text-black mb-1">What if I just want the tools, not the hand-holding?</h3>
         <p>That's Raise Launchpad — self-serve, no calls required.</p>
       </div>
-      <div class="placeholder-box rounded-2xl p-6">
-        [PLACEHOLDER — "I've already pitched investors and gotten nowhere, why would this be different?" Needs a real, honest answer once drafted. See homepage-final.md.]
-      </div>
       <div>
-        <p class="text-sm text-gray-400">No guarantees, no smart-money mythology — just founders who did the work and got funded.</p>
+        <p class="text-sm text-[#585858]">No guarantees, no smart-money mythology — just founders who did the work and got funded.</p>
       </div>
     </div>
   </section>
 
   <!-- 7. Founder credibility -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-[#F7FAF8]">
     <div class="max-w-2xl mx-auto px-6 text-center">
       <h2 class="text-2xl font-bold text-black mb-4">Built by someone who's actually raised</h2>
       <p class="mb-6">Source Capital is run by Edward Janes, who's spent 15+ years raising capital across multiple ventures — including the mistakes that taught him what actually gets a round closed.</p>
@@ -190,11 +242,11 @@
   </section>
 
   <!-- 8. Final CTA -->
-  <section class="py-20" style="background-color:#128A3D;">
+  <section class="py-20" style="background-color:#0E7231;">
     <div class="max-w-2xl mx-auto px-6 text-center text-white">
       <h2 class="text-3xl font-bold mb-4">Ready to find out where your raise actually stands?</h2>
       <p class="mb-8 text-white/90">30 minutes, no pitch — just an honest read on where your raise stands.</p>
-      <a href="/contact/" class="inline-block bg-white text-[#128A3D] px-8 py-4 rounded-full font-semibold hover:bg-[#B4FAD1] transition">Book Your Free Raise Audit</a>
+      <a href="/contact/" class="inline-block bg-white text-[#0E7231] px-8 py-4 rounded-full font-semibold hover:bg-[#B4FAD1] transition">Book Your Free Raise Audit</a>
     </div>
   </section>
 

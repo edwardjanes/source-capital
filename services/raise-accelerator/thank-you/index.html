@@ -168,14 +168,53 @@
   </main>
 
   <!-- FOOTER_START -->
-<footer style="border-top:1px solid #eee;padding:48px 24px;font-family:'Inter',system-ui,sans-serif;">
-  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;font-size:14px;color:#585858;">
-    <div>&copy; 2026 Source Capital. All rights reserved.</div>
-    <div style="display:flex;gap:32px;">
-      <a href="/terms.html" style="color:#585858;text-decoration:none;">Terms</a>
-      <a href="/privacy.html" style="color:#585858;text-decoration:none;">Privacy</a>
+<footer style="border-top:1px solid #eee;padding:64px 24px 32px;font-family:'Inter',system-ui,sans-serif;background:#F7FAF8;">
+  <style>
+    .sc-footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; max-width:1120px; margin:0 auto 48px; }
+    .sc-footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; padding:0; margin:0; }
+    .sc-footer-col a, .sc-footer-brand a.text-link { font-size:14px; color:#585858; text-decoration:none; }
+    .sc-footer-col a:hover, .sc-footer-brand a.text-link:hover { color:#0E7231; }
+    .sc-footer-col h4 { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:#8a8a8a; margin:0 0 16px; }
+    @media (max-width:900px) { .sc-footer-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px) { .sc-footer-grid { grid-template-columns:1fr; } }
+  </style>
+  <div class="sc-footer-grid">
+    <div class="sc-footer-brand">
+      <a href="/" style="display:inline-flex;align-items:center;">
+        <img src="/logo.png" alt="Source Capital" style="height:36px;width:auto;">
+      </a>
+      <p style="color:#585858;font-size:14px;margin-top:12px;max-width:280px;line-height:1.5;">Helping founders raise pre-seed and seed capital — from the deck to the close.</p>
     </div>
-    <div>Dubai, UAE</div>
+    <div class="sc-footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/services/raise-launchpad/">Raise Launchpad</a></li>
+        <li><a href="/services/raise-accelerator/">Raise Accelerator</a></li>
+        <li><a href="/services/raise-hq/">Raise HQ</a></li>
+        <li><a href="/services/managed-raise/">Managed Raise</a></li>
+      </ul>
+    </div>
+    <div class="sc-footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">All Services</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div class="sc-footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width:1120px;margin:0 auto;padding-top:32px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;color:#8a8a8a;">
+    <span>&copy; 2026 Source Capital. All rights reserved.</span>
+    <span>Dubai, UAE</span>
   </div>
 </footer>
 <!-- FOOTER_END -->
